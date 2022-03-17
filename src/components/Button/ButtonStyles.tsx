@@ -1,66 +1,48 @@
-import * as React from "react"
 import styled, { css } from "styled-components"
-import { ButtonIconPosition, } from "./Button"
-import { device } from "../../themes/mediaVariables"
-import { colors } from "../../theme"
+import { colors, device } from "../../util/theme"
+import { ButtonIconPosition } from "./Button"
 
 
-const Button = css`
+const ButtonBase = styled.button`
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
     width: auto;
     min-width: max-content;
-    padding: 4px 8px;
+    position:relative;
     border:none;
     cursor: pointer;
-    font-size: 16px;
+    padding: 6px 12px;
+    font-size: 14px;
 
     @media ${device.desktop} {
-        // 
+        // desktop styles
     }
 
     &:focus {
-       //
+       // focus styles
     }
 
     &:disabled {
+        //disabled styles
         opacity: 0.5;
         cursor:not-allowed;
     }
 `
 
-const PrimaryButton = styled(Button)`
+const PrimaryButton = styled(ButtonBase)`
     background: ${colors.primary};
     color: ${colors.text};
 
-
     &:hover:not(:disabled) {
-        //
+        // hover styles
     }
 
 `
 
-const iconPosition = (position: ButtonIconPosition,) => {
-    switch (position) {
 
-        case ButtonIconPosition.center:
-            return css`margin: 0 -2px;`
-
-        case ButtonIconPosition.left:
-            return css`margin-right: 8px;`
-
-        case ButtonIconPosition.right:
-            return css`margin-left: 8px;`
-
-        default:
-            throw new Error(`Position icon: "${position}" unsopported`)
-    }
-}
-
-
-const SpinnerContainer = styled.div`
+const SpinnerContainer = styled.span`
     position:absolute;
     top:50%;
     left:50%;
@@ -72,11 +54,12 @@ const SpinnerContainer = styled.div`
     height: 100%;
     z-index: 1;
 `
+type ButtonInnerContainerProps = {
+    loading?: boolean,
+}
+const ButtonInnerContainer = styled.span<ButtonInnerContainerProps>`
+    opacity: ${props => (props.loading ? 0 : 1)};
 
-
-const ButtonInnerContainer_ = styled.span<{ loading: "true" | "false", }>`
-    opacity: ${p => (p.loading === "true" ? 0 : 1)};
-    transition: opacity .2s;
     position:relative;
     display: flex;
     flex-direction: row;
@@ -86,22 +69,41 @@ const ButtonInnerContainer_ = styled.span<{ loading: "true" | "false", }>`
     min-width: max-content;
 `
 
-const ButtonInnerContainer = (
-    props: React.ComponentPropsWithoutRef<"span"> & { loading?: boolean, }
-) => {
-    return <ButtonInnerContainer_
-        {...props}
-        loading={props.loading ? "true" : "false"}
-    />
+type IconContainerProps = {
+    position: ButtonIconPosition,
 }
+const IconContainer = styled.span<IconContainerProps>`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:"16px";
+    height:"16px";
 
-const ContainerIcon = styled.div<{ position?: ButtonIconPosition, }>`
-    ${({ position, }) => position && iconPosition(position)};
+    ${props => props.position === ButtonIconPosition.left && css`
+        margin-right:4px;
+    `}
+
+    ${props => props.position === ButtonIconPosition.right && css`
+        margin-left:4px;
+    `}
+
+    img{
+        width:100%;
+        max-width:100%;
+    }
+
+    svg{
+        width: 100%;
+        height: 100%;
+        path{
+            fill: currentColor;
+        }
+    }
 `
 
 export const ButtonStyled = {
     PrimaryButton,
-    ContainerIcon,
+    IconContainer,
     SpinnerContainer,
     ButtonInnerContainer,
 }
