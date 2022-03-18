@@ -1,7 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import Button, { ButtonIconPosition, ButtonVariant } from "./components/Button/Button"
+import Button, { ButtonVariant } from "./components/Button/Button"
 import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg?component"
+import { ReactComponent as EmailIcon } from "./assets/email_icon.svg?component"
+import Input from "./components/Input/Input"
+import { IconPosition } from "./components/CommonTypes"
+import InputNumeric from "./components/Input/InputNumber"
 
 const Wrapper = styled.div`
     padding:100px;
@@ -26,13 +30,39 @@ const Showcase = () => {
                 type="button"
                 text="Go back"
                 icon={<ArrowIcon />}
-                iconPosition={ButtonIconPosition.left}
+                iconPosition={IconPosition.left}
             />
             <Button
                 variant={ButtonVariant.primary}
                 type="submit"
                 text="Submit"
                 loading={true}
+            />
+
+            <Input
+                type="text"
+                value="Name test"
+                placeholder="Your name"
+            />
+            <Input
+                type="email"
+                value="name@m"
+                placeholder="Your email"
+                errorMessage="Email is not correct"
+            />
+            <Input
+                type="email"
+                value=""
+                placeholder="Email"
+                icon={<EmailIcon />}
+                position={IconPosition.left}
+            />
+            <InputNumeric
+                value={12}
+            />
+            <InputNumeric
+                value={12}
+                leadingLabel="UYU"
             />
         </Wrapper>
     )

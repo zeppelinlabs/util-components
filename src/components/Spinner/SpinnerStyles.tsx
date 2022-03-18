@@ -20,7 +20,7 @@ type IconProps = {
 const getIconSize = (size: SpinnerSize) => {
     switch (size) {
         case SpinnerSize.small:
-            return "14px"
+            return "16px"
         case SpinnerSize.medium:
             return "40px"
         case SpinnerSize.large:

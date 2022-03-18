@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { colors, device } from "../../util/theme"
-import { ButtonIconPosition } from "./Button"
+import { IconPosition } from "../CommonTypes"
 
 
 const ButtonBase = styled.button`
@@ -8,8 +8,8 @@ const ButtonBase = styled.button`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: auto;
-    min-width: max-content;
+    width: fit-content;
+    min-width:  fit-content;
     position:relative;
     border:none;
     cursor: pointer;
@@ -33,7 +33,7 @@ const ButtonBase = styled.button`
 
 const PrimaryButton = styled(ButtonBase)`
     background: ${colors.primary};
-    color: ${colors.text};
+    color: ${colors.common.white};
 
     &:hover:not(:disabled) {
         // hover styles
@@ -65,12 +65,12 @@ const ButtonInnerContainer = styled.span<ButtonInnerContainerProps>`
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: auto;
-    min-width: max-content;
+    /* width: fit-content;     */
+    /* min-width: fit-content; */
 `
 
 type IconContainerProps = {
-    position: ButtonIconPosition,
+    position: IconPosition,
 }
 const IconContainer = styled.span<IconContainerProps>`
     display: flex;
@@ -79,11 +79,11 @@ const IconContainer = styled.span<IconContainerProps>`
     width:"16px";
     height:"16px";
 
-    ${props => props.position === ButtonIconPosition.left && css`
+    ${props => props.position === IconPosition.left && css`
         margin-right:4px;
     `}
 
-    ${props => props.position === ButtonIconPosition.right && css`
+    ${props => props.position === IconPosition.right && css`
         margin-left:4px;
     `}
 

@@ -1,4 +1,5 @@
 import React from "react"
+import { IconPosition } from "../CommonTypes"
 import Spinner, { SpinnerSize } from "../Spinner/Spinner"
 import { ButtonStyled } from "./ButtonStyles"
 
@@ -6,18 +7,14 @@ export enum ButtonVariant {
     primary = "PRIMARY",
 }
 
-export enum ButtonIconPosition {
-    left = "left",
-    right = "right"
-}
 
 type BaseProps = {
     variant: ButtonVariant,
-    text?: string,
+    text: string,
     disabled?: boolean,
     loading?: boolean,
     icon?: JSX.Element,
-    iconPosition?: ButtonIconPosition,
+    iconPosition?: IconPosition,
 }
 
 
@@ -34,7 +31,7 @@ export type Props = BaseProps & (
     }
 )
 
-const renderIcon = (position: ButtonIconPosition, icon: JSX.Element) => {
+const renderIcon = (position: IconPosition, icon: JSX.Element) => {
     return (
         <ButtonStyled.IconContainer
             position={position}
@@ -49,10 +46,10 @@ const renderInternals = (props: Props) => {
     const renderContent = () => {
         return (
             <ButtonStyled.ButtonInnerContainer loading={props.loading}>
-                {props.icon && props.iconPosition === ButtonIconPosition.left
+                {props.icon && props.iconPosition === IconPosition.left
                     && renderIcon(props.iconPosition, props.icon)}
                 {props.text}
-                {props.icon && props.iconPosition === ButtonIconPosition.right
+                {props.icon && props.iconPosition === IconPosition.right
                     && renderIcon(props.iconPosition, props.icon)}
             </ButtonStyled.ButtonInnerContainer>
         )
