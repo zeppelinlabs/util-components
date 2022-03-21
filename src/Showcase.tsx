@@ -5,7 +5,8 @@ import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg?component"
 import { ReactComponent as EmailIcon } from "./assets/email_icon.svg?component"
 import Input from "./components/Input/Input"
 import { IconPosition } from "./components/CommonTypes"
-import InputNumeric from "./components/Input/InputNumber"
+import InputNumeric from "./components/Input/InputNumeric"
+import InputPassword from "./components/Input/InputPassword"
 
 const Wrapper = styled.div`
     padding:100px;
@@ -38,7 +39,6 @@ const Showcase = () => {
                 text="Submit"
                 loading={true}
             />
-
             <Input
                 type="text"
                 value="Name test"
@@ -63,6 +63,10 @@ const Showcase = () => {
             <InputNumeric
                 value={12}
                 leadingLabel="UYU"
+            />
+            <InputPassword
+                value="213"
+                placeholder="Password"
             />
         </Wrapper>
     )

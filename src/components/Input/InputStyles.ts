@@ -11,8 +11,7 @@ type InputProps = {
 
 const InputContainer = styled.div`
   position: relative;
-  width: max-content;
-  width: 100%;
+  width: fit-content;
 `
 
 export const InputGeneralStyles = css<InputProps>`
@@ -98,7 +97,7 @@ const IconContainer = styled.div<IconContainerProps>`
 `
 
 const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
-font-family:inherit;
+    font-family:inherit;
     font-size: 16px;
     position: absolute;
     top: 9px;
@@ -129,7 +128,23 @@ const ErrorText = styled.span`
         font-size: 12px;
     }
 `
+const InputAction = styled.button`
+    width: 14px;
+    height: 14px;
+    outline:none;
+    cursor: pointer;
+    background: none;
+    border:none;
+    position: absolute;
+    top:10px;
+    right:12px;
+    z-index:1;
 
+    &:disabled {
+        opacity: 0.5;
+        cursor:not-allowed;
+    }
+`
 
 export const InputStyled = {
     InputContainer,
@@ -138,4 +153,5 @@ export const InputStyled = {
     LeadingLabel,
     ErrorText,
     ErrorWrapper,
+    InputAction,
 }
