@@ -4,7 +4,7 @@ import { renderErrorMessage, renderIcon } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 
 export type Props = {
-    type: "text" | "number" | "email" | "tel" | "password",
+    type: "text" | "email" | "tel" | "password",
     value: string,
     placeholder?: string,
     icon?: JSX.Element,
