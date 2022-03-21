@@ -1,44 +1,34 @@
-/* eslint-disable max-lines-per-function */
-import React, { useRef, useEffect, useState } from "react"
-import { IconPosition } from "../CommonTypes"
-import { renderErrorMessage, renderIcon } from "./InputCommon"
+import React, { useEffect, useRef, useState } from "react"
+import { IconPosition } from "../../CommonTypes"
+import { renderErrorMessage, renderIcon } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 
-type Value = number | null | undefined
-
 export type Props = {
-    value: Value,
+    type: "text" | "number" | "email" | "tel" | "password",
+    value: string,
     placeholder?: string,
     icon?: JSX.Element,
     position?: IconPosition,
     disabled?: boolean,
     errorMessage?: string,
-    min?: number,
-    max?: number,
-    step?: number,
     leadingLabel?: string,
-    onChange?: (value: Value) => void,
+    onChange?: (value: string) => void,
     onBlur?: () => void,
-    onFocus?: (value: Value) => void,
-    onKeyDown?: (key: string) => void,
+    onFocus?: (value: string) => void,
 }
 
 
-const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
+const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
+
     const leadingLabelRef = useRef<HTMLSpanElement>(null)
     const [leadingLabelWidth, setLeadingLabelWidth,] = useState<number | undefined>(undefined)
+
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const v = e.target.value
-        props.onChange && props.onChange(v ? Number(v) : null)
+        props.onChange && props.onChange(e.target.value)
     }
 
     const handleOnFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-        const v = e.target.value
-        props.onFocus && props.onFocus(v ? Number(v) : null)
-    }
-
-    const handleOnKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
-        props.onKeyDown && props.onKeyDown(e.key)
+        props.onFocus && props.onFocus(e.target.value)
     }
 
     useEffect(() => {
@@ -47,26 +37,27 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
         }
     }, [leadingLabelRef, props.leadingLabel,])
 
+
     const renderInput = () => {
         return (
             <>
                 <InputStyled.Input
-                    type="number"
-                    value={props.value || props.value === 0 ? props.value : ""}
+                    type={props.type}
+                    value={props.value || ""}
                     errorMessage={!!props.errorMessage}
                     placeholder={props.placeholder}
                     position={props.position}
-                    min={props.min}
-                    max={props.max}
-                    step={props.step}
                     disabled={props.disabled}
                     ref={ref}
                     onChange={handleOnChange}
                     onBlur={props.onBlur}
                     onFocus={handleOnFocus}
-                    onKeyDown={handleOnKeyDown}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
+                {props.icon && props.position === IconPosition.right
+                    && <InputStyled.IconContainer position={props.position}>
+                        {props.icon}
+                    </InputStyled.IconContainer>}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
             </>
@@ -84,14 +75,13 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
 
     return (
         <InputStyled.InputContainer>
+            {renderInput()}
             {props.icon && props.position
                 && renderIcon(props.position, props.icon)
             }
-            {renderInput()}
             {props.leadingLabel && renderLeadingLabel()}
-
         </InputStyled.InputContainer>
     )
 })
 
-export default InputNumeric
+export default Input
