@@ -1,9 +1,9 @@
 import React from "react"
 import { InputStyled } from "./InputStyles"
 import { useState } from "react"
-import { ReactComponent as HideIcon } from "../../assets/not_preview.svg?component"
-import { ReactComponent as ShowIcon } from "../../assets/preview.svg?component"
-import { renderErrorMessage } from "./InputCommon"
+import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg?component"
+import { ReactComponent as ShowIcon } from "../../../assets/preview.svg?component"
+import { renderErrorMessage } from "../FormCommon"
 
 export type Props = {
     placeholder?: string,

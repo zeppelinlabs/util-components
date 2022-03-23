@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react"
-import { IconPosition } from "../CommonTypes"
-import { renderErrorMessage, renderIcon } from "./InputCommon"
+import { IconPosition } from "../../CommonTypes"
+import { renderErrorMessage, renderIcon } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 
 export type Props = {

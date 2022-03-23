@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { colors, device } from "../../util/theme"
+import { colors, device } from "../../globalStyles/theme"
 import { IconPosition } from "../CommonTypes"
 
 
@@ -14,7 +14,7 @@ const ButtonBase = styled.button`
     border:none;
     cursor: pointer;
     padding: 6px 12px;
-    font-size: 14px;
+    font-size: 1.4rem;
 
     @media ${device.desktop} {
         // desktop styles

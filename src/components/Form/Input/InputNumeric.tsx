@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React, { useRef, useEffect, useState } from "react"
-import { IconPosition } from "../CommonTypes"
-import { renderErrorMessage, renderIcon } from "./InputCommon"
+import { IconPosition } from "../../CommonTypes"
+import { renderErrorMessage, renderIcon } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 
 type Value = number | null | undefined

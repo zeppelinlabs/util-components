@@ -1,10 +1,9 @@
 import { IconPosition } from "../CommonTypes"
-import { InputStyled } from "./InputStyles"
+import { InputStyled } from "./Input/InputStyles"
 
 export const renderErrorMessage = (message: string) => {
     return (
         <InputStyled.ErrorWrapper>
-            {/* <Icon icon={ErrorIcon} /> */}
             <InputStyled.ErrorText>
                 {message}
             </InputStyled.ErrorText>

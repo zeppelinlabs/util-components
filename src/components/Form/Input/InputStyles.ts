@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
-import { colors, device } from "../../util/theme"
-import { IconPosition } from "../CommonTypes"
+import { colors, device } from "../../../globalStyles/theme"
+import { IconPosition } from "../../CommonTypes"
 
 type InputProps = {
     type: "text" | "number" | "email" | "tel" | "password",
@@ -20,7 +20,7 @@ export const InputGeneralStyles = css<InputProps>`
     box-sizing: border-box;
     padding: 8px 12px;
     color: ${props => props.errorMessage ? colors.system.critical : colors.common.black};
-    font-size: 16px;
+    font-size: 1.6rem;
     width: auto;
 
     ${props => props.errorMessage && css`
@@ -28,7 +28,7 @@ export const InputGeneralStyles = css<InputProps>`
     `}
 
     @media ${device.desktop} {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 
     &:focus {
@@ -82,7 +82,7 @@ const IconContainer = styled.div<IconContainerProps>`
     top:0;
     bottom: 0;
     width: 12px;
-    height: 12px;
+    /* height: 12px; */
     pointer-events: none;
     display: flex;
     place-items: center;
@@ -98,14 +98,14 @@ const IconContainer = styled.div<IconContainerProps>`
 
 const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     font-family:inherit;
-    font-size: 16px;
+    font-size: 1.6rem;
     position: absolute;
     top: 9px;
     left: 8px;
     color: ${props => props.errorMessage ? colors.system.critical : colors.common.black};
 
     @media ${device.desktop} {
-        font-size: 14px;
+        font-size: 1.4rem;
     }
 `
 
@@ -120,12 +120,11 @@ const ErrorWrapper = styled.div`
 
 const ErrorText = styled.span`
     color:${colors.system.critical};
-    font-size: 14px;
-    line-height: 16px;
-    padding-left: 4px;
+    font-size: 1.4rem;
+    line-height: 1.6rem;
 
     @media ${device.desktop} {
-        font-size: 12px;
+        font-size: 1.2rem;
     }
 `
 const InputAction = styled.button`
