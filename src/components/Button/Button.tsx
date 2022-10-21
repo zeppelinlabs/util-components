@@ -73,18 +73,18 @@ const renderInternals = (props: Props) => {
 
 const Button = (props: Props) => {
     switch (props.variant) {
-        case ButtonVariant.primary:
-            return (
-                <ButtonStyled.PrimaryButton
-                    type={props.type}
-                    onClick={props.type === "submit" ? undefined : props.onClick}
-                    disabled={props.disabled || props.loading}
-                >
-                    {renderInternals(props)}
-                </ButtonStyled.PrimaryButton>
-            )
-        default:
-            throw new Error(`Button variant ${props.variant} not supported`)
+    case ButtonVariant.primary:
+        return (
+            <ButtonStyled.PrimaryButton
+                type={props.type}
+                onClick={props.type === "submit" ? undefined : props.onClick}
+                disabled={props.disabled || props.loading}
+            >
+                {renderInternals(props)}
+            </ButtonStyled.PrimaryButton>
+        )
+    default:
+        throw new Error(`Button variant ${props.variant} not supported`)
     }
 }
 
