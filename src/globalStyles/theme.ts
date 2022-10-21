@@ -23,13 +23,13 @@ export const colors = {
     common: {
         white: "white",
         black: "black",
-        gray: "gray"
+        gray: "gray",
     },
     system: {
         info: "#276EF1",
         warning: "#B27800",
         success: "#008542",
         critical: "#E50007",
-    }
+    },
 
 }

@@ -94,4 +94,6 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
     )
 })
 
+InputNumeric.displayName = "InputNumeric"
+
 export default InputNumeric
