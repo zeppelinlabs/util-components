@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
-import { colors, device } from "../../../globalStyles/theme"
+import { device } from "../../../styles/mediaQueries"
+import { thp } from "../../../styles/themeHelpers"
 import { IconPosition } from "../../CommonTypes"
 
 type InputProps = {
@@ -15,16 +16,16 @@ const InputContainer = styled.div`
 `
 
 export const InputGeneralStyles = css<InputProps>`
-    background: ${colors.common.white};
-    border: 1px solid ${colors.common.black};
+    background: ${thp.common(c => c.white)};
+    border: 1px solid ${thp.common(c => c.black)};
     box-sizing: border-box;
     padding: 8px 12px;
-    color: ${props => props.errorMessage ? colors.system.critical : colors.common.black};
+    color: ${props => props.errorMessage ? thp.system(c => c.critical) : thp.common(c => c.black)};
     font-size: 1.6rem;
     width: auto;
 
     ${props => props.errorMessage && css`
-        border-color:${colors.system.critical};
+        border-color:${thp.system(c => c.critical)};
     `}
 
     @media ${device.desktop} {
@@ -44,7 +45,7 @@ export const InputGeneralStyles = css<InputProps>`
     }
 
     ::placeholder {
-        color: ${colors.common.gray};
+        color: ${thp.neutral(c => c.level50)};
     }
 
     /* Opcional: Eliminar estilos de input number*/
@@ -71,7 +72,7 @@ const Input = styled.input <InputProps>`
     `}
     ${props => props.position === IconPosition.right && css`
         padding-right:32px;
-    `}        
+    `}
 `
 
 type IconContainerProps = {
@@ -102,7 +103,7 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     position: absolute;
     top: 9px;
     left: 8px;
-    color: ${props => props.errorMessage ? colors.system.critical : colors.common.black};
+    color: ${props => props.errorMessage ? thp.system(c => c.critical) : thp.common(c => c.black)};
 
     @media ${device.desktop} {
         font-size: 1.4rem;
@@ -114,12 +115,12 @@ const ErrorWrapper = styled.div`
     padding-top: 4px;
     width: 100%;
     word-break: break-word;
-    color:${colors.system.critical};
+    color:${thp.system(c => c.critical)};
     align-items: center;
 `
 
 const ErrorText = styled.span`
-    color:${colors.system.critical};
+    color:${thp.system(c => c.critical)};
     font-size: 1.4rem;
     line-height: 1.6rem;
 

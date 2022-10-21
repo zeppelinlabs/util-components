@@ -1,11 +1,11 @@
 import styled from "styled-components"
-import { colors } from "../../../globalStyles/theme"
+import { thp } from "../../../styles/themeHelpers"
 
 
 const Container = styled.div`
     display: flex;
     align-items: center;
-    color: ${colors.common.gray};
+    color: ${thp.neutral(c => c.level50)};
     position:relative;
 `
 
@@ -17,7 +17,7 @@ const Radio = styled.span`
     width: 12px;
     height: 12px;
     border-radius: 50%;
-    border: 1px solid ${colors.common.gray};
+    border: 1px solid ${thp.neutral(c => c.level50)};
     transition: ease-in-out 0.2s;
     position: relative;
     overflow: hidden;
@@ -47,7 +47,7 @@ const Input = styled.input`
     opacity: 0;
 
     &:checked + ${Radio} {
-        background: ${colors.primary};
+        background: ${thp.primary(c => c.level50)};
         border: none;
         &:hover{
             //hover styles when checked
@@ -56,7 +56,7 @@ const Input = styled.input`
         &:before{
             width: 6px;
             height: 6px;
-            background: ${colors.common.white};
+            background: ${thp.common(c => c.white)};
         }
     }
 
