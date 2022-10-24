@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../../globalStyles/theme"
+import { thp } from "../../../styles/themeHelpers"
 
 const Container = styled.span`
     display: flex;
@@ -16,8 +16,8 @@ const Input = styled.input`
     }
 
     &:checked + span {
-        background: ${colors.primary};
-        border: 1px solid ${colors.common.black};
+        background: ${thp.primary(c => c.level50)};
+        border: 1px solid ${thp.common(c => c.black)};
     }
 
     &:disabled + span, &:disabled:checked + span {
@@ -33,9 +33,9 @@ const Check = styled.span`
     width: 16px;
     height: 16px;
     border: none;
-    border: 1px solid ${colors.common.gray};
+    border: 1px solid ${thp.neutral(c => c.level50)};
     margin-right: 8px;
-    background: ${colors.common.white};
+    background: ${thp.common(c => c.white)};
     transition: ease 0.2s;
 
     &:hover {
@@ -46,11 +46,11 @@ const Check = styled.span`
 const Tick = styled.div`
     display: flex;
     align-content: center;
-    justify-content: center;   
+    justify-content: center;
     height: 100%;
     width:8px;
     margin: 0 auto;
-   
+
    svg{
        width: 100%;
        height: 100%;

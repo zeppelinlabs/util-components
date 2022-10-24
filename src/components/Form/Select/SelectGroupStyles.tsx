@@ -1,14 +1,14 @@
 import styled, { css } from "styled-components"
-import { colors } from "../../../globalStyles/theme"
 import pointer_down from "../../../assets/pointer_down.svg"
+import { thp } from "../../../styles/themeHelpers"
 
 type SelectProps = {
     errorMessage?: string | null,
 }
 
 const Select = styled.select<SelectProps>`
-    background: ${colors.common.white};
-    border: 1px solid ${colors.common.gray};
+    background: ${thp.common(c => c.white)};
+    border: 1px solid ${thp.neutral(c => c.level50)};
     box-sizing: border-box;
     padding: 8px 32px 8px 12px;
     outline:none;
@@ -20,7 +20,7 @@ const Select = styled.select<SelectProps>`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-color: ${props => (props.errorMessage && colors.system.critical)};
+    border-color: ${props => (props.errorMessage && thp.system(c => c.critical))};
 
     &::-ms-expand {
         display: none;
