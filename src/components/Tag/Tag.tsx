@@ -42,7 +42,8 @@ const Tag = (props: Props) => {
 
 	return <TagStyled.Container
 		IconPosition={props.Icon?.Position}
-		customStyles={props.customStyles}>
+		customStyles={props.customStyles}
+		onClick={props.onClick}>
 		{props.Icon?.IconSVGComponent
 			&& <TagStyled.CustomIconContainer size={props.customStyles?.size}>
 				<props.Icon.IconSVGComponent/>
