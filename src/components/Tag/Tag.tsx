@@ -30,7 +30,7 @@ export type CustomStyles = {
 type Props = {
 	children: React.ReactNode,
 	Icon?: {
-		IconSVGComponent: React.FunctionComponent,
+		IconSVGComponent?: React.FunctionComponent,
 		Position?: TagIconPosition,
 	}
 	customStyles?: CustomStyles,
@@ -38,12 +38,12 @@ type Props = {
 	onClickRemove?: () => void,
 }
 
-const Tag = (props: Props) => {
-
+const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElement>) => {
 	return <TagStyled.Container
 		IconPosition={props.Icon?.Position}
 		customStyles={props.customStyles}
-		onClick={props.onClick}>
+		onClick={props.onClick}
+		ref={ref}>
 		{props.Icon?.IconSVGComponent
 			&& <TagStyled.CustomIconContainer size={props.customStyles?.size}>
 				<props.Icon.IconSVGComponent/>
@@ -58,6 +58,6 @@ const Tag = (props: Props) => {
 			<CrossIcon />
 		</TagStyled.CrossIconContainer>}
 	</TagStyled.Container>
-}
+})
 
 export default Tag
