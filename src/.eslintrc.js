@@ -22,12 +22,12 @@ module.exports = {
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "project": "../tsconfig.json",
         "ecmaVersion": "latest",
         "sourceType": "module",
         "ecmaFeatures": {
             "jsx": true
         },
-        "project": "./tsconfig.json",
     },
     "rules": {
         "indent": [
