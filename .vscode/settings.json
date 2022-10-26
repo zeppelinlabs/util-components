@@ -3,26 +3,6 @@
     "**/.yarn": true,
     "**/.pnp.*": true
   },
-  "typescript.tsdk": ".yarn/sdks/typescript/lib",
-  "typescript.enablePromptUseWorkspaceTsdk": true,
-  "files.exclude": {
-    "**/src/**/*.map": {
-      "when": "$(basename)"
-    },
-    "**/src/**/*.js": {
-      "when": "$(basename).ts"
-    },
-    "**/src/**/**.js": {
-      "when": "$(basename).tsx"
-    }
-  },
-  "eslint.workingDirectories": [
-    {
-      "changeProcessCWD": true,
-      "directory": "packages/*"
-    }
-  ],
-  "eslint.nodePath": ".yarn/sdks",
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
     "javascript",
