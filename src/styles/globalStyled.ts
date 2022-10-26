@@ -2,7 +2,7 @@ import { createGlobalStyle, css } from "styled-components"
 import { thp } from "./themeHelpers"
 import { fonts } from "./typographic"
 
-export const GlobalStyled = createGlobalStyle<{debug?:boolean}>`
+export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	*,
 	*::after,
 	*::before{

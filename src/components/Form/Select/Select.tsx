@@ -1,3 +1,4 @@
+/* eslint-disable react/display-name */
 import React from "react"
 import { SelectStyled } from "./SelectGroupStyles"
 import Label from "../Label/Label"
@@ -24,13 +25,13 @@ const keySerializator = (() => {
     const emptyValue = ""
     return {
         serialize: (k: ValidKey) =>
-        (k === emptyValue
-            ? emptyValue
-            : JSON.stringify(k)),
+            (k === emptyValue
+                ? emptyValue
+                : JSON.stringify(k)),
         deserialize: <R extends ValidKey>(s: string) =>
-        (s === emptyValue
-            ? emptyValue
-            : JSON.parse(s) as R),
+            (s === emptyValue
+                ? emptyValue
+                : JSON.parse(s) as R),
     }
 })()
 const Select = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>,
@@ -82,4 +83,5 @@ const Select = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
     )
 }) as <K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>
     & React.RefAttributes<HTMLSelectElement>) => JSX.Element
+
 export default Select

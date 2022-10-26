@@ -13,38 +13,46 @@ export type Props = {
 }
 
 
-export const RadioButtonInner = React.forwardRef(
-    (props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
-        const handleOnChange = () => {
-            props.onChange && props.onChange(props.value)
-        }
+export const RadioButtonInner = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLInputElement>
+) => {
+    const handleOnChange = () => {
+        props.onChange && props.onChange(props.value)
+    }
 
-        return (
-            <RadioButtonStyled.Container>
-                <RadioButtonStyled.Input
-                    ref={ref}
-                    type="radio"
-                    checked={props.value === props.selectedValue}
-                    disabled={props.disabled}
-                    onChange={handleOnChange}
-                    onBlur={props.onBlur}
-                />
-                <RadioButtonStyled.Radio />
-                {props.text}
-            </RadioButtonStyled.Container>
-        )
-    })
+    return (
+        <RadioButtonStyled.Container>
+            <RadioButtonStyled.Input
+                ref={ref}
+                type="radio"
+                checked={props.value === props.selectedValue}
+                disabled={props.disabled}
+                onChange={handleOnChange}
+                onBlur={props.onBlur}
+            />
+            <RadioButtonStyled.Radio />
+            {props.text}
+        </RadioButtonStyled.Container>
+    )
+})
+
+RadioButtonInner.displayName = "RadioButtonInner"
 
 
-const RadioButton = React.forwardRef(
-    (props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
-        return (
-            <Label>
-                <RadioButtonInner
-                    {...props}
-                />
-            </Label>
-        )
-    })
+const RadioButton = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLInputElement>
+) => {
+    return (
+        <Label>
+            <RadioButtonInner
+                {...props}
+            />
+        </Label>
+    )
+})
+
+RadioButton.displayName = "RadioButton"
 
 export default RadioButton
