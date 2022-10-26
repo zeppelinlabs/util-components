@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
-import { colors, device } from "../../../globalStyles/theme"
+import { device } from "../../../styles/mediaQueries"
+import { thp } from "../../../styles/themeHelpers"
 
 type PropsStyled = {
     errorMessage?: string | null,
@@ -13,13 +14,13 @@ const TextAreaContainer = styled.div`
 `
 
 const TextArea = styled.textarea<PropsStyled>`
-    background: ${colors.common.white};
-    border: 1px solid ${colors.common.black};
-    border-color: ${props => (props.errorMessage && colors.system.critical)};
+    background: ${thp.common(c => c.white)};
+    border: 1px solid ${thp.common(c => c.black)};
+    border-color: ${props => (props.errorMessage && thp.system(c => c.critical) )};
     box-sizing: border-box;
     padding: 8px 12px;
     color: ${props => (props.errorMessage
-        ? colors.system.critical : colors.common.black)};
+        ? thp.system(c => c.critical) : thp.common(c => c.black))};
     font-size: 1.6rem;
     max-width: 100%;
     resize: none;
@@ -50,7 +51,7 @@ const TextArea = styled.textarea<PropsStyled>`
     }
 
     ::placeholder {
-        color: ${colors.common.gray};
+        color: ${thp.neutral(c => c.level50)};
     }
 
 
@@ -64,8 +65,8 @@ const CharacterCount = styled.span<CharacterCountProps>`
     font-size:1.2rem;
     line-height: 1.4rem;
     color: ${props => (props.reachesTheLimit
-        ? colors.system.critical
-        : colors.common.black)};
+        ? thp.system(c => c.critical)
+        : thp.common(c => c.black))};
     margin:4px 0px;
     text-align: right;
     max-height: 14px;

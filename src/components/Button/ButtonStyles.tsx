@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
-import { colors, device } from "../../globalStyles/theme"
+import { device } from "../../styles/mediaQueries"
+import { thp } from "../../styles/themeHelpers"
 import { IconPosition } from "../CommonTypes"
 
 
@@ -32,8 +33,8 @@ const ButtonBase = styled.button`
 `
 
 const PrimaryButton = styled(ButtonBase)`
-    background: ${colors.primary};
-    color: ${colors.common.white};
+    background: ${thp.primary(c => c.level50)};
+    color: ${thp.common(c => c.white)};
 
     &:hover:not(:disabled) {
         // hover styles

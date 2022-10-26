@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { colors } from "../../../globalStyles/theme"
+import { thp } from "../../../styles/themeHelpers"
 
 type PropsStyled = {
     disabled?: boolean,
@@ -12,8 +12,8 @@ const Input = styled.input<PropsStyled>`
     height: 23px;
 
     &:checked + span {
-        background: ${colors.primary};
-        border: 1px solid ${colors.primary};
+        background: ${thp.primary(c => c.level50)};
+        border: 1px solid ${thp.primary(c => c.level50)};
         &:before {
             left: 100%;
             transform: translateX(-100%);
@@ -32,7 +32,7 @@ const Input = styled.input<PropsStyled>`
         //disabled styles
         opacity:.5;
         cursor:not-allowed;
-    }    
+    }
 
 `
 const Slider = styled.span`
@@ -41,10 +41,10 @@ const Slider = styled.span`
     width: 38px;
     height: 23px;
     border-radius: 100px;
-    background:  ${colors.common.gray};
+    background:  ${thp.neutral(c => c.level50)};
     position: relative;
     transition: ease 0.2s;
-    border: 1px solid ${colors.common.black};
+    border: 1px solid ${thp.common(c => c.black)};
     margin-right: 8px;
 
     &:before{
@@ -56,7 +56,7 @@ const Slider = styled.span`
         height: 21px;
         border-radius: 21px;
         transition: ease 0.2s;
-        background: ${colors.common.white};
+        background: ${thp.common(c => c.white)};
     }
 
 `
