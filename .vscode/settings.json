@@ -1,8 +1,10 @@
 {
   "search.exclude": {
     "**/.yarn": true,
-    "**/.pnp.*": true
   },
+  "eslint.workingDirectories": [
+    "src"
+  ],
   "eslint.alwaysShowStatus": true,
   "eslint.validate": [
     "javascript",
