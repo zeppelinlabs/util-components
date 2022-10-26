@@ -1,4 +1,8 @@
-import { connectField, overrideIfNotUndefined, TokenProp, useField, useSyncErrorsWithBrowser } from "immer-form"
+import React from "react"
+import {
+    connectField, overrideIfNotUndefined, TokenProp,
+    useField, useSyncErrorsWithBrowser
+} from "immer-form"
 import Switch from "./Switch/Switch"
 import TextArea from "./TextArea/TextArea"
 import Input from "./Input/Input"
@@ -42,8 +46,8 @@ export const CheckboxGroupStringField
         F,
         K extends KeysWithValue<F, V[]>
     >(
-        props: CheckboxGroupConnectProps<V, SO, F, K>
-    ) => {
+            props: CheckboxGroupConnectProps<V, SO, F, K>
+        ) => {
 
         const {
             value,
@@ -100,8 +104,8 @@ export const SelectStringField
         F,
         K extends KeysWithValue<F, V>
     >(
-        props: SelectConnectProps<V, SO, F, K>
-    ) => {
+            props: SelectConnectProps<V, SO, F, K>
+        ) => {
 
         const {
             value,

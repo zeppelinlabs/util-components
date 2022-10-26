@@ -15,14 +15,13 @@ export type Props = {
 }
 
 const TextArea = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLTextAreaElement>) => {
-
     const innerRef = UseCombinedRefs(ref)
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {
             innerRef.current.style.height = `${(innerRef.current.scrollHeight) + 2}px`
         }
-    }, [innerRef, props.autoHeight])
+    }, [innerRef, props.autoHeight,])
 
     const handleOnChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         props.onChange && props.onChange(e.target.value)
@@ -61,5 +60,7 @@ const TextArea = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLTex
         </TextAreaStyled.TextAreaContainer>
     )
 })
+
+TextArea.displayName = "TextArea"
 
 export default TextArea

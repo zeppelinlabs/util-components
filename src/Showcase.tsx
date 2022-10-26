@@ -1,8 +1,9 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import styled from "styled-components"
 import Button, { ButtonVariant } from "./components/Button/Button"
-import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg?component"
-import { ReactComponent as EmailIcon } from "./assets/email_icon.svg?component"
+import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg"
+import { ReactComponent as EmailIcon } from "./assets/email_icon.svg"
 import Input from "./components/Form/Input/Input"
 import { IconPosition } from "./components/CommonTypes"
 import InputNumeric from "./components/Form/Input/InputNumeric"
@@ -96,11 +97,11 @@ const Showcase = () => {
                 options={[
                     {
                         key: "TEST",
-                        text: "op 1"
+                        text: "op 1",
                     },
                     {
                         key: "TEST",
-                        text: "op 2"
+                        text: "op 2",
                     },
                 ]}
             />

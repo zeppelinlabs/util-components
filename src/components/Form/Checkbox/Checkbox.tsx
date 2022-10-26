@@ -1,7 +1,7 @@
 
 import React from "react"
 import { CheckboxStyled } from "./CheckboxStyles"
-import { ReactComponent as TickIcon } from "../../../assets/tick.svg?component"
+import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
 import Label from "../Label/Label"
 
 export type Props = {
@@ -14,8 +14,10 @@ export type Props = {
 }
 
 
-const Checkbox = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
-
+const Checkbox = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLInputElement>
+) => {
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onChange && props.onChange(e.target.checked)
     }
@@ -44,5 +46,7 @@ const Checkbox = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInp
         </Label>
     )
 })
+
+Checkbox.displayName = "Checkbox"
 
 export default Checkbox

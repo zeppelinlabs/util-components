@@ -1,6 +1,6 @@
 import React from "react"
 import { SpinerStyled } from "./SpinnerStyles"
-import { ReactComponent as SpinnerIcon } from "../../assets/spinner.svg?component"
+import { ReactComponent as SpinnerIcon } from "../../assets/spinner.svg"
 
 export enum SpinnerSize {
     small = "SMALL",

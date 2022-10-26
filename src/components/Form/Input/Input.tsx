@@ -84,4 +84,6 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
     )
 })
 
+Input.displayName = "Input"
+
 export default Input

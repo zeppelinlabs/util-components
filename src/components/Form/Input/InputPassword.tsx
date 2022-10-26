@@ -1,8 +1,8 @@
 import React from "react"
 import { InputStyled } from "./InputStyles"
 import { useState } from "react"
-import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg?component"
-import { ReactComponent as ShowIcon } from "../../../assets/preview.svg?component"
+import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
+import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
 import { renderErrorMessage } from "../FormCommon"
 
 export type Props = {
@@ -18,8 +18,10 @@ export type Props = {
 }
 
 
-const InputPassword = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
-
+const InputPassword = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLInputElement>
+) => {
     const [showPassword, setShowPassword,] = useState(true)
 
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,5 +68,7 @@ const InputPassword = React.forwardRef((props: Props, ref: React.ForwardedRef<HT
         </InputStyled.InputContainer>
     )
 })
+
+InputPassword.displayName = "InputPassword"
 
 export default InputPassword

@@ -1,7 +1,8 @@
 import React from "react"
 import { toDictionary } from "../../../util/toDictionary"
 import Checkbox from "./Checkbox"
-import { HTMLSetCustomValidityElement, useSetCustomValidity } from "../../../hooks/SetCustomValidity"
+import { HTMLSetCustomValidityElement, useSetCustomValidity }
+    from "../../../hooks/SetCustomValidity"
 import { renderErrorMessage } from "../FormCommon"
 
 export type CheckboxGroupOption<K> = {
@@ -37,6 +38,7 @@ const hasKey = <K,>(options: K[], key: K) => {
 
 
 
+// eslint-disable-next-line react/display-name
 const CheckboxGroup = React.forwardRef(<K extends ValidKey,
     T extends CheckboxGroupOption<K>>
     (props: Props<K, T>, ref: React.ForwardedRef<HTMLSetCustomValidityElement>) => {
@@ -71,13 +73,14 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
-                    children={option.children}
                     label={option.label}
                     value={hasKey(props.keyValue, option.key)}
                     disabled={props.disabled}
                     onChange={handleOnChange(option)}
                     onBlur={props.onBlur}
-                />
+                >
+                    {option.children}
+                </Checkbox>
             })}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
@@ -85,7 +88,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
         </>
     )
 }) as <K extends ValidKey,
-        T extends CheckboxGroupOption<K>>(props: Props<K, T>
-            & React.RefAttributes<HTMLInputElement>) => JSX.Element
+    T extends CheckboxGroupOption<K>>(props: Props<K, T>
+        & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export default CheckboxGroup

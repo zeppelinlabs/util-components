@@ -1,18 +1,19 @@
-import styled, { css } from "styled-components";
+import styled, { css } from "styled-components"
 import {
-	TextWeight,
-	TextAlign,
-	getFontWeight,
-} from "./typographicHelper";
+    TextWeight,
+    TextAlign,
+    getFontWeight,
+} from "./typographicHelper"
 
 export const fonts = {
-	primary: "'-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans- serif', sans-serif"
+    // eslint-disable-next-line max-len
+    primary: "'-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans- serif', sans-serif",
 }
 
 type CommonProps = {
-	textWeight?: TextWeight;
-	textAlign?: TextAlign;
-	isCursorPointer?:boolean,
+    textWeight?: TextWeight,
+    textAlign?: TextAlign,
+    isCursorPointer?: boolean,
 }
 
 const TextStyleBase = () => css<CommonProps>`
@@ -33,6 +34,6 @@ const Body18 = styled.p`
 `
 
 export const TextStyled = {
-	Heading24,
-	Body18
+    Heading24,
+    Body18,
 }

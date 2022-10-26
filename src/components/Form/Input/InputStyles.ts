@@ -20,7 +20,9 @@ export const InputGeneralStyles = css<InputProps>`
     border: 1px solid ${thp.common(c => c.black)};
     box-sizing: border-box;
     padding: 8px 12px;
-    color: ${props => props.errorMessage ? thp.system(c => c.critical) : thp.common(c => c.black)};
+    color: ${props => (props.errorMessage
+        ? thp.system(c => c.critical)
+        : thp.common(c => c.black))};
     font-size: 1.6rem;
     width: auto;
 
@@ -103,8 +105,9 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     position: absolute;
     top: 9px;
     left: 8px;
-    color: ${props => props.errorMessage ? thp.system(c => c.critical) : thp.common(c => c.black)};
-
+    color: ${props => (props.errorMessage
+        ? thp.system(c => c.critical)
+        : thp.common(c => c.black))};
     @media ${device.desktop} {
         font-size: 1.4rem;
     }
