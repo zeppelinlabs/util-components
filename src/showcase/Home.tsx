@@ -1,18 +1,18 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
 import styled from "styled-components"
-import Button, { ButtonVariant } from "./components/Button/Button"
-import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg"
-import { ReactComponent as EmailIcon } from "./assets/email_icon.svg"
-import Input from "./components/Form/Input/Input"
-import { IconPosition } from "./components/CommonTypes"
-import InputNumeric from "./components/Form/Input/InputNumeric"
-import InputPassword from "./components/Form/Input/InputPassword"
-import TextArea from "./components/Form/TextArea/TextArea"
-import Switch from "./components/Form/Switch/Switch"
-import Checkbox from "./components/Form/Checkbox/Checkbox"
-import RadioButton from "./components/Form/RadioButton/RadioButton"
-import Select from "./components/Form/Select/Select"
+import Button, { ButtonVariant } from "../components/Button/Button"
+import { ReactComponent as ArrowIcon } from "../assets/arrow_left.svg"
+import { ReactComponent as EmailIcon } from "../assets/email_icon.svg"
+import Input from "../components/Form/Input/Input"
+import { IconPosition } from "../components/CommonTypes"
+import InputNumeric from "../components/Form/Input/InputNumeric"
+import InputPassword from "../components/Form/Input/InputPassword"
+import TextArea from "../components/Form/TextArea/TextArea"
+import Switch from "../components/Form/Switch/Switch"
+import Checkbox from "../components/Form/Checkbox/Checkbox"
+import RadioButton from "../components/Form/RadioButton/RadioButton"
+import Select from "../components/Form/Select/Select"
 
 const Wrapper = styled.div`
     padding:100px;
@@ -22,7 +22,7 @@ const Wrapper = styled.div`
     justify-content: start;
 `
 
-const Showcase = () => {
+const Home = () => {
     return (
         <Wrapper>
             <Button
@@ -108,4 +108,4 @@ const Showcase = () => {
     )
 }
 
-export default Showcase
+export default Home
