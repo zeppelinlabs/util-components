@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
 import styled from "styled-components"
-import Button, { ButtonVariant } from "./components/Button/Button"
+import Button, { ButtonIconPosition, ButtonVariant } from "./components/Button/Button"
 import { ReactComponent as ArrowIcon } from "./assets/arrow_left.svg"
 import { ReactComponent as EmailIcon } from "./assets/email_icon.svg"
 import Input from "./components/Form/Input/Input"
@@ -30,25 +30,50 @@ const Showcase = () => {
                 onClick={() => console.log("click")}
                 type="button"
             >
-                Edit
+                Button
             </Button>
             <Button
                 buttonVariant={ButtonVariant.Primary}
                 onClick={() => console.log("click")}
+                icon={{
+                    SVGComponent: ArrowIcon,
+                }}
                 type="button"
-                // text=""
-                // icon={<ArrowIcon />}
-                // iconPosition={IconPosition.left}
             >
-                Go back
+                With icon
             </Button>
+            <Button
+                buttonVariant={ButtonVariant.Primary}
+                onClick={() => console.log("click")}
+                icon={{
+                    SVGComponent: ArrowIcon,
+                    position: ButtonIconPosition.Right,
+                }}
+                type="button"
+            >
+                Icon position right
+            </Button>
+            <Button
+                buttonVariant={ButtonVariant.Secondary}
+                type="submit"
+                loading={true}
+            >
+                Submit
+            </Button>
+            <Button
+                buttonVariant={ButtonVariant.Primary}
+                type="submit"
+                icon={{
+                    SVGComponent: ArrowIcon,
+                }}
+            />
             <Button
                 buttonVariant={ButtonVariant.Secondary}
                 type="submit"
                 // text="Submit"
                 // loading={true}
             >
-                Submit
+                Button second variant
             </Button>
             <Input
                 type="text"

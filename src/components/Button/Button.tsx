@@ -16,7 +16,7 @@ export type CustomButtonStyles = {
 }
 
 type BaseProps = {
-    children: React.ReactNode,
+    children?: React.ReactNode,
     loading?: boolean,
     disabled?: boolean,
     buttonVariant: ButtonVariant,
@@ -48,29 +48,31 @@ const Button = React.forwardRef((
     ref: React.ForwardedRef<HTMLButtonElement>,
 ) => {
     return <ButtonStyled.Button
-        type={props.type}
         ref={ref}
-        buttonVariant={props.buttonVariant}
         disabled={props.disabled || props.loading}
+        loading={props.loading}
         tabIndex={props.accessibility?.tabIndex}
         autoFocus={props.accessibility?.autoFocus}
+        type={props.type}
+        buttonVariant={props.buttonVariant}
+        buttonPosition={props.icon?.position}
+        customStyles={props.customStyles}
+        isOnlyIcon={!props.children}
         onClick={props.type === "submit"
             ? undefined
             : props.onClick
         }
     >
+        {props.icon
+            && <ButtonStyled.IconContainer>
+                <props.icon.SVGComponent />
+            </ButtonStyled.IconContainer>
+        }
+        {props.children}
         {props.loading
-            ? <ButtonStyled.SpinnerContainer>
+            && <ButtonStyled.SpinnerContainer>
                 <Spinner size={SpinnerSize.small} />
             </ButtonStyled.SpinnerContainer>
-            : <>
-                {props.icon?.SVGComponent
-                    && <ButtonStyled.IconContainer>
-                        <props.icon.SVGComponent />
-                    </ButtonStyled.IconContainer>
-                }
-                {props.children}
-            </>
         }
     </ButtonStyled.Button>
 })
