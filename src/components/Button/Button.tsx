@@ -1,91 +1,80 @@
 import React from "react"
-import { IconPosition } from "../CommonTypes"
 import Spinner, { SpinnerSize } from "../Spinner/Spinner"
 import { ButtonStyled } from "./ButtonStyles"
 
 export enum ButtonVariant {
-    primary = "PRIMARY",
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY",
+}
+export enum ButtonIconPosition {
+    Left = "row",
+    Right = "row-reverse",
 }
 
+export type CustomButtonStyles = {
+    isFullWidth?: boolean,
+}
 
 type BaseProps = {
-    variant: ButtonVariant,
-    text: string,
-    disabled?: boolean,
+    children: React.ReactNode,
     loading?: boolean,
-    icon?: JSX.Element,
-    iconPosition?: IconPosition,
+    disabled?: boolean,
+    buttonVariant: ButtonVariant,
+    customStyles?: CustomButtonStyles,
+    icon?: {
+        SVGComponent: React.FunctionComponent,
+        position?: ButtonIconPosition,
+    },
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus?: boolean,
+    },
 }
 
-
-
-export type Props = BaseProps & (
+type Props = BaseProps & (
     {
         type: "button" | "reset",
         onClick: (e: React.MouseEvent<HTMLButtonElement>) => void,
     }
-
     |
     {
         type: "submit",
     }
 )
 
-const renderIcon = (position: IconPosition, icon: JSX.Element) => {
-    return (
-        <ButtonStyled.IconContainer
-            position={position}
-        >
-            {icon}
-        </ButtonStyled.IconContainer>
-    )
-}
 
-const renderInternals = (props: Props) => {
-
-    const renderContent = () => {
-        return (
-            <ButtonStyled.ButtonInnerContainer loading={props.loading}>
-                {props.icon && props.iconPosition === IconPosition.left
-                    && renderIcon(props.iconPosition, props.icon)}
-                {props.text}
-                {props.icon && props.iconPosition === IconPosition.right
-                    && renderIcon(props.iconPosition, props.icon)}
-            </ButtonStyled.ButtonInnerContainer>
-        )
-    }
-
-    const renderLoading = () => {
-        return (
-            <ButtonStyled.SpinnerContainer>
+const Button = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLButtonElement>,
+) => {
+    return <ButtonStyled.Button
+        type={props.type}
+        ref={ref}
+        buttonVariant={props.buttonVariant}
+        disabled={props.disabled || props.loading}
+        tabIndex={props.accessibility?.tabIndex}
+        autoFocus={props.accessibility?.autoFocus}
+        onClick={props.type === "submit"
+            ? undefined
+            : props.onClick
+        }
+    >
+        {props.loading
+            ? <ButtonStyled.SpinnerContainer>
                 <Spinner size={SpinnerSize.small} />
             </ButtonStyled.SpinnerContainer>
-        )
-    }
+            : <>
+                {props.icon?.SVGComponent
+                    && <ButtonStyled.IconContainer>
+                        <props.icon.SVGComponent />
+                    </ButtonStyled.IconContainer>
+                }
+                {props.children}
+            </>
+        }
+    </ButtonStyled.Button>
+})
 
-    return (
-        <>
-            {renderContent()}
-            {props.loading && renderLoading()}
-        </>
-    )
-}
-
-const Button = (props: Props) => {
-    switch (props.variant) {
-    case ButtonVariant.primary:
-        return (
-            <ButtonStyled.PrimaryButton
-                type={props.type}
-                onClick={props.type === "submit" ? undefined : props.onClick}
-                disabled={props.disabled || props.loading}
-            >
-                {renderInternals(props)}
-            </ButtonStyled.PrimaryButton>
-        )
-    default:
-        throw new Error(`Button variant ${props.variant} not supported`)
-    }
-}
+Button.displayName = "Button"
 
 export default Button

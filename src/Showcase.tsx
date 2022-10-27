@@ -26,25 +26,30 @@ const Showcase = () => {
     return (
         <Wrapper>
             <Button
-                variant={ButtonVariant.primary}
+                buttonVariant={ButtonVariant.Primary}
                 onClick={() => console.log("click")}
                 type="button"
-                text="Edit"
-            />
+            >
+                Edit
+            </Button>
             <Button
-                variant={ButtonVariant.primary}
+                buttonVariant={ButtonVariant.Primary}
                 onClick={() => console.log("click")}
                 type="button"
-                text="Go back"
-                icon={<ArrowIcon />}
-                iconPosition={IconPosition.left}
-            />
+                // text=""
+                // icon={<ArrowIcon />}
+                // iconPosition={IconPosition.left}
+            >
+                Go back
+            </Button>
             <Button
-                variant={ButtonVariant.primary}
+                buttonVariant={ButtonVariant.Secondary}
                 type="submit"
-                text="Submit"
-                loading={true}
-            />
+                // text="Submit"
+                // loading={true}
+            >
+                Submit
+            </Button>
             <Input
                 type="text"
                 value="Name test"
