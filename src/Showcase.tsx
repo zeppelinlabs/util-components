@@ -13,6 +13,7 @@ import Switch from "./components/Form/Switch/Switch"
 import Checkbox from "./components/Form/Checkbox/Checkbox"
 import RadioButton from "./components/Form/RadioButton/RadioButton"
 import Select from "./components/Form/Select/Select"
+import Tag, { TagIconPosition, TagSize, TagTextWeight } from "./components/Tag/Tag"
 
 const Wrapper = styled.div`
     padding:100px;

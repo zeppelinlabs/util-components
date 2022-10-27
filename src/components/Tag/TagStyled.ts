@@ -8,50 +8,50 @@ type TagProps = {
 }
 
 const getTagSize = (size:TagSize) => {
-	const sizeByCase = {
-		[TagSize.Small]: ({
-			fontSize: "1.3rem",
-			padding: "4px 6px",
-			gap: "6px",
-			borderWidth:"1px",
-			iconSize: "11px",
-			closeIconSize: "8px",
-		}),
-		[TagSize.Medium]: ({
-			fontSize: "1.4rem",
-			padding: "6px 8px",
-			gap: "7px",
-			borderWidth: "1px",
-			iconSize: "14px",
-			closeIconSize: "10px",
-		}),
-		[TagSize.Large]: ({
-			fontSize: "1.5rem",
-			padding: "8px 10px",
-			gap: "8px",
-			borderWidth: "1px",
-			iconSize: "16px",
-			closeIconSize: "10px",
-		}),
-	}
-	return {
-		tagCss: css`
+    const sizeByCase = {
+        [TagSize.Small]: ({
+            fontSize: "1.3rem",
+            padding: "4px 6px",
+            gap: "6px",
+            borderWidth:"1px",
+            iconSize: "11px",
+            closeIconSize: "8px",
+        }),
+        [TagSize.Medium]: ({
+            fontSize: "1.4rem",
+            padding: "6px 8px",
+            gap: "7px",
+            borderWidth: "1px",
+            iconSize: "14px",
+            closeIconSize: "10px",
+        }),
+        [TagSize.Large]: ({
+            fontSize: "1.5rem",
+            padding: "8px 10px",
+            gap: "8px",
+            borderWidth: "1px",
+            iconSize: "16px",
+            closeIconSize: "10px",
+        }),
+    }
+    return {
+        tagCss: css`
 			padding: ${sizeByCase[size].padding};
 			font-size: ${sizeByCase[size].fontSize};
 			gap:${sizeByCase[size].gap};
 			border-width: ${sizeByCase[size].borderWidth};
 		`,
-		iconSize: css`
+        iconSize: css`
 			max-width: ${sizeByCase[size].iconSize};
 			min-width: ${sizeByCase[size].iconSize};
 			height: ${sizeByCase[size].iconSize};
 		`,
-		closeIconSize: css`
+        closeIconSize: css`
 			max-width: ${sizeByCase[size].closeIconSize};
 			min-width: ${sizeByCase[size].closeIconSize};
 			height: ${sizeByCase[size].closeIconSize};
 		`,
-	}
+    }
 }
 
 const Container = styled.span<TagProps>`
@@ -64,15 +64,15 @@ const Container = styled.span<TagProps>`
 	width: max-content;
 
 	background-color:${p => (p.customStyles?.BackgroundColor || thp.common(c => c.white))};
-	color:${p => (p.customStyles?.TextColor || "inherit")};
+	color:${p => (p.customStyles?.textColor || "inherit")};
 	cursor: ${p => (p.customStyles?.isCursorPointer ? "pointer" : "default")};
 
 	${p => (getTagSize(p.customStyles?.size
-		? p.customStyles.size
-		: TagSize.Small
-	)).tagCss}
-	${p => (p.customStyles?.TextWeight && css`
-		font-weight: ${p.customStyles.TextWeight};
+        ? p.customStyles.size
+        : TagSize.Small
+    )).tagCss}
+	${p => (p.customStyles?.textWeight && css`
+		font-weight: ${p.customStyles.textWeight};
 	`)};
 	${p => (p.customStyles?.borderColor && css`
 		border-color: ${p.customStyles.borderColor};
@@ -94,7 +94,7 @@ const Container = styled.span<TagProps>`
 	}
 `
 
-const CrossIconContainer = styled.span<{ size?: TagSize }>`
+const CrossIconContainer = styled.span<{ size?: TagSize, }>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -104,7 +104,7 @@ const CrossIconContainer = styled.span<{ size?: TagSize }>`
 	${p => (getTagSize(p.size ? p.size : TagSize.Small)).closeIconSize};
 `
 
-const CustomIconContainer = styled.span<{ size?: TagSize }>`
+const CustomIconContainer = styled.span<{ size?: TagSize, }>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -114,7 +114,7 @@ const CustomIconContainer = styled.span<{ size?: TagSize }>`
 `
 
 export const TagStyled = {
-	Container,
-	CustomIconContainer,
-	CrossIconContainer,
+    Container,
+    CustomIconContainer,
+    CrossIconContainer,
 }
