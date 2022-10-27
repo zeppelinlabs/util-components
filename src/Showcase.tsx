@@ -13,7 +13,6 @@ import Switch from "./components/Form/Switch/Switch"
 import Checkbox from "./components/Form/Checkbox/Checkbox"
 import RadioButton from "./components/Form/RadioButton/RadioButton"
 import Select from "./components/Form/Select/Select"
-import Tag, { TagIconPosition, TagSize, TagTextWeight } from "./components/Tag/Tag"
 
 const Wrapper = styled.div`
     padding:100px;
@@ -105,47 +104,6 @@ const Showcase = () => {
                     },
                 ]}
             />
-            <Tag Icon={{IconSVGComponent: EmailIcon,}} >
-                Small
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, }}
-                customStyles={{ size: TagSize.Medium, }} >
-                Medium
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, }}
-                customStyles={{ size: TagSize.Large, }}>
-                Large
-            </Tag>
-            <Tag onClickRemove={() => { }}
-                Icon={{ IconSVGComponent: EmailIcon, }} >
-                With close action
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, Position: TagIconPosition.Right }} >
-                With icon align to right
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, }}
-                customStyles={{ isCursorPointer: true, }} >
-                With cursor pointer
-            </Tag>
-            <Tag>
-                Without icons
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, }}
-                customStyles={{ TextWeight: TagTextWeight.Bold, }} >
-                With text bold
-            </Tag>
-            <Tag onClickRemove={() => { }}>
-                Only remove action
-            </Tag>
-            <Tag Icon={{ IconSVGComponent: EmailIcon, }}
-                customStyles={{
-                borderColor: "#004221",
-                BackgroundColor: "#BAF7D9",
-                TextColor: "#008542",
-                size: TagSize.Large,
-            }} >
-                With custom colors
-            </Tag>
         </Wrapper>
     )
 }
