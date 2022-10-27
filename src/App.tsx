@@ -6,6 +6,7 @@ import { defaultTheme } from "./styles/defaultTheme"
 import Home from "./showcase/Home"
 import { Routes, Route } from "react-router-dom"
 import { Paths } from "./showcase/Paths"
+import SelectCase from "./showcase/cases/SelectCase"
 
 const App = () => {
     return (
@@ -15,6 +16,9 @@ const App = () => {
             <Routes>
                 <Route path={Paths.home} element={
                     <Home />
+                } />
+                <Route path={Paths.select} element={
+                    <SelectCase />
                 } />
             </Routes>
         </ThemeProvider >
