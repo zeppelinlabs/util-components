@@ -20,7 +20,7 @@ export enum TagTextWeight {
 
 export type CustomStyles = {
     borderColor?: string,
-    BackgroundColor?: string,
+    backgroundColor?: string,
     textColor?: string,
     textWeight?: TagTextWeight,
     size?: TagSize,

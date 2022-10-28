@@ -63,7 +63,7 @@ const Container = styled.span<TagProps>`
 	border-style: solid;
 	width: max-content;
 
-	background-color:${p => (p.customStyles?.BackgroundColor || thp.common(c => c.white))};
+	background-color:${p => (p.customStyles?.backgroundColor || thp.common(c => c.white))};
 	color:${p => (p.customStyles?.textColor || "inherit")};
 	cursor: ${p => (p.customStyles?.isCursorPointer ? "pointer" : "default")};
 
