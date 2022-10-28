@@ -7,22 +7,12 @@ import { renderErrorMessage } from "../FormCommon"
 
 export type CheckboxGroupOption<K> = {
     key: K,
-} & (
-        {
-            label: string,
-            children?: JSX.Element,
-        }
-        |
-        {
-            label?: string,
-            children: JSX.Element,
-        }
-    )
+    children: React.ReactNode,
+}
 
 type ValidKey = string | number
 
 export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
-    displayName?: string,
     options: T[],
     keyValue: K[],
     disabled?: boolean,
@@ -68,12 +58,10 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
 
     return (
         <>
-            {props.displayName}
             {props.options.map((option, i) => {
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
-                    label={option.label}
                     value={hasKey(props.keyValue, option.key)}
                     disabled={props.disabled}
                     onChange={handleOnChange(option)}

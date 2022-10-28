@@ -4,13 +4,21 @@ import { CheckboxStyled } from "./CheckboxStyles"
 import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
 import Label from "../Label/Label"
 
+export type CustomCheckboxStyles = {
+    borderRadius?: number,
+}
+
 export type Props = {
-    label?: string,
-    children?: JSX.Element,
+    children?: React.ReactNode,
     value: boolean,
     disabled?: boolean,
     onChange?: (value: boolean) => void,
     onBlur?: () => void,
+    customStyles?: CustomCheckboxStyles,
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus?: boolean,
+    },
 }
 
 
@@ -42,7 +50,6 @@ const Checkbox = React.forwardRef((
                 </CheckboxStyled.Check>
             </CheckboxStyled.Container>
             {props.children}
-            {props.label}
         </Label>
     )
 })
