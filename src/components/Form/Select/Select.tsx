@@ -15,7 +15,7 @@ export type Props<K extends ValidKey, T extends SelectOption<K>> = {
     displayName?: string,
     options: T[],
     keyValue: K,
-    placeholder: string,
+    placeholder?: string,
     disabled?: boolean,
     errorMessage?: string | null,
     onChange?: (value: T) => void,
