@@ -6,7 +6,7 @@ import { defaultTheme } from "./styles/defaultTheme"
 import Home from "./examples/Home"
 import { Routes, Route } from "react-router-dom"
 import { Paths } from "./examples/Paths"
-import ButtonShowCaseDetail from "./examples/Form/ButtonShowCase/ButtonShowCaseDetail"
+import ButtonShowCaseDetail from "./examples/ButtonShowCase/ButtonShowCaseDetail"
 import TagShowCaseDetail from "./examples/TagShowCase/TagShowCaseDetail"
 
 const App = () => {

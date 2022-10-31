@@ -3,7 +3,7 @@ import React from "react"
 import LayoutHome from "../styles/Layout/LayoutHome/LayoutHome"
 import { Link } from "react-router-dom"
 import { Paths } from "./Paths"
-import ButtonShowCaseDetailListItem from "./Form/ButtonShowCase/ButtonShowCaseListItem"
+import ButtonShowCaseDetailListItem from "./ButtonShowCase/ButtonShowCaseListItem"
 import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
 
 const Home = () => {

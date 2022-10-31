@@ -1,9 +1,9 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
-import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
+import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import Button, { ButtonVariant, ButtonIconPosition }
-    from "../../../components/Form/Button/Button"
-import { ReactComponent as ArrowIcon } from ".././../../assets/arrow_left.svg"
+    from "../../components/Form/Button/Button"
+import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetail = () => {
     return <LayoutExamples>

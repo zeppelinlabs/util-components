@@ -1,6 +1,6 @@
 import React from "react"
-import Button, { ButtonVariant } from "../../../components/Form/Button/Button"
-import { ReactComponent as ArrowIcon } from ".././../../assets/arrow_left.svg"
+import Button, { ButtonVariant } from "../../components/Form/Button/Button"
+import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetailListItem = () => {
     return <Button
