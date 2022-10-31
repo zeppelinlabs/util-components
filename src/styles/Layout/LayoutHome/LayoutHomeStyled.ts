@@ -3,12 +3,11 @@ import styled from "styled-components"
 const Wrapper = styled.div`
     padding:100px;
     display:grid;
-    grid-template-rows:auto;
-    row-gap:16px;
-    justify-content: start;
+    grid-template-rows:1fr;
+    gap:16px;
     font-size: 16px;
 `
 
-export const ShowCaseStyled = {
+export const LayoutHomeStyled = {
     Wrapper,
 }
