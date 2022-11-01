@@ -80,6 +80,9 @@ const Container = styled.span<TagProps>`
 	${p => (p.IconPosition && css`
 		flex-flow: ${p.IconPosition};
 	`)};
+	&:focus {
+        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+    }
 	img{
 		width:100%;
 		max-width:100%;

@@ -32,7 +32,7 @@ type Props = {
     value: boolean,
     disabled?: boolean,
     onChange?: (value: boolean) => void,
-    onClick?: (e: React.MouseEvent<HTMLInputElement>) => void,
+    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     customStyles?: CustomSwitchStyles,
     accessibility?: {
         tabIndex?: number,
@@ -57,10 +57,11 @@ const Switch = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInput
                 tabIndex={props.accessibility?.tabIndex}
                 autoFocus={props.accessibility?.autoFocus}
                 onChange={handleOnChange}
-                onClick={props.onClick}
                 customStyles={props.customStyles}
             />
-            <SwitchStyled.Slider />
+            <SwitchStyled.Slider
+                onClick={props.onClick}
+            />
             {props.children
                 && <SwitchStyled.ChildrenWrapper customStyles={props.customStyles}>
                     {props.children}

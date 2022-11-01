@@ -36,6 +36,9 @@ type Props = {
     customStyles?: CustomStyles,
     onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     onClickRemove?: (e: React.MouseEvent<HTMLSpanElement>) => void,
+    accessibility?: {
+        tabIndex?: number,
+    },
 }
 
 const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElement>) => {
@@ -43,6 +46,7 @@ const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElem
         IconPosition={props.icon?.position}
         customStyles={props.customStyles}
         onClick={props.onClick}
+        tabIndex={props.accessibility?.tabIndex}
         ref={ref}>
         {props.icon?.SVGComponent
             && <TagStyled.CustomIconContainer size={props.customStyles?.size}>
