@@ -8,6 +8,7 @@ import { Routes, Route } from "react-router-dom"
 import { Paths } from "./examples/Paths"
 import ButtonShowCaseDetail from "./examples/ButtonShowCase/ButtonShowCaseDetail"
 import TagShowCaseDetail from "./examples/TagShowCase/TagShowCaseDetail"
+import SwitchShowCaseDetail from "./examples/Form/SwitchShowCase/SwitchShowCaseDetail"
 
 const App = () => {
     return (
@@ -17,6 +18,9 @@ const App = () => {
             <Routes>
                 <Route path={Paths.Home} element={
                     <Home />
+                } />
+                <Route path={Paths.Switch} element={
+                    <SwitchShowCaseDetail />
                 } />
                 <Route path={Paths.Button} element={
                     <ButtonShowCaseDetail />

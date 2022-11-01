@@ -1,5 +1,5 @@
 import React from "react"
-import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
+import Spinner, { SpinnerSize } from "../Spinner/Spinner"
 import { ButtonStyled } from "./ButtonStyles"
 
 export enum ButtonVariant {

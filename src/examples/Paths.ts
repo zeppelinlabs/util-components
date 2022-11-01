@@ -1,5 +1,6 @@
 export const Paths = {
     Home: "/",
-    Button: "/form/button",
+    Button: "/button",
     Tag: "/tag",
+    Switch: "/form/switch",
 }

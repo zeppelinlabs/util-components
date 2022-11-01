@@ -20,6 +20,7 @@ interface IPaletteSystemLevels {
 	warning: string;
 	success: string;
 	critical: string;
+	focus: string;
 }
 
 declare module "styled-components" {

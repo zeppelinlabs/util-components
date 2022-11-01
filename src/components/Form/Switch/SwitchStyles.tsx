@@ -1,51 +1,43 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
+import { CustomSwitchStyles } from "./Switch"
 import { thp } from "../../../styles/themeHelpers"
 
 type PropsStyled = {
     disabled?: boolean,
+} & Props
+
+type Props = {
+    customStyles?: CustomSwitchStyles,
 }
 
-const Input = styled.input<PropsStyled>`
-    position: absolute;
-    opacity: 0;
-    width: 38px;
-    height: 23px;
-
-    &:checked + span {
-        background: ${thp.primary(c => c.level50)};
-        border: 1px solid ${thp.primary(c => c.level50)};
-        &:before {
-            left: 100%;
-            transform: translateX(-100%);
-        }
-    }
-
-    &:focus + span {
-        //focus styles
-    }
-
-    &:hover + span {
-        //hover styles
-    }
-
-    &:disabled + span, &:disabled:checked + span {
-        //disabled styles
-        opacity:.5;
-        cursor:not-allowed;
-    }
-
+const Wrapper = styled.label<Props>`
+    display: flex;
+    gap: 10px;
+    flex-flow: ${p => (p.customStyles?.contentPosition
+        ? p.customStyles?.contentPosition
+        : "row"
+    )};
+    align-items: ${p => (p.customStyles?.contentAlign
+        ? p.customStyles?.contentAlign
+        : "center"
+    )};
+    width: fit-content;
 `
+
 const Slider = styled.span`
     display: flex;
     cursor: pointer;
     width: 38px;
+    min-width: 38px;
+    max-width: 38px;
     height: 23px;
+    max-height: 23px;
+    min-height: 23px;
     border-radius: 100px;
-    background:  ${thp.neutral(c => c.level50)};
     position: relative;
-    transition: ease 0.2s;
+    transition: ease 0.3s;
+    background-color:  ${thp.neutral(c => c.level50)};
     border: 1px solid ${thp.common(c => c.black)};
-    margin-right: 8px;
 
     &:before{
         content: "";
@@ -58,10 +50,53 @@ const Slider = styled.span`
         transition: ease 0.2s;
         background: ${thp.common(c => c.white)};
     }
+`
+
+const Input = styled.input<PropsStyled>`
+    position: absolute;
+    opacity: 0;
+    width: 38px;
+    height: 23px;
+
+    &:checked + ${Slider} {
+        background-color: ${thp.primary(c => c.level50)};
+        border: 1px solid ${thp.primary(c => c.level50)};
+        &:before {
+            left: 100%;
+            transform: translateX(-100%);
+        }
+    }
+
+    &:focus + ${Slider} {
+        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+    }
+
+    &:hover + ${Slider} {
+        //hover styles
+    }
+
+    &:disabled + ${Slider}, &:disabled:checked + ${Slider} {
+        opacity:.5;
+        cursor:not-allowed;
+    }
 
 `
 
+const ChildrenWrapper = styled.div<Props>`
+    ${p => (p.customStyles?.textColor && css`
+        color: ${p.customStyles?.textColor}
+    `)};
+    ${p => (p.customStyles?.textAlign && css`
+        text-align: ${p.customStyles?.textAlign}
+    `)};
+    ${p => (p.customStyles?.textWeight && css`
+        font-weight: ${p.customStyles?.textWeight}
+    `)};
+`
+
 export const SwitchStyled = {
+    Wrapper,
     Input,
     Slider,
+    ChildrenWrapper,
 }

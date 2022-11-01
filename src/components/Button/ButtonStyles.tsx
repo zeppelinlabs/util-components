@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { thp } from "../../../styles/themeHelpers"
+import { thp } from "../../styles/themeHelpers"
 import { ButtonIconPosition, ButtonVariant, CustomButtonStyles } from "./Button"
 
 type Props = {

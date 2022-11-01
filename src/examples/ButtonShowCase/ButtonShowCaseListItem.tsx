@@ -1,5 +1,5 @@
 import React from "react"
-import Button, { ButtonVariant } from "../../components/Form/Button/Button"
+import Button, { ButtonVariant } from "../../components/Button/Button"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetailListItem = () => {

@@ -1,8 +1,12 @@
-import React from "react"
+import React, { useState } from "react"
+import Switch from "../../../components/Form/Switch/Switch"
 
 const SwitchShowCaseDetailListItem = () => {
-    return <>
-    </>
+    const [switchValue, setSwitchValue,] = useState(false)
+    return <Switch
+        value={switchValue}
+        onChange={(value) => setSwitchValue(value)}
+    />
 }
 
 export default SwitchShowCaseDetailListItem

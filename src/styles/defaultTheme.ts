@@ -21,6 +21,7 @@ export const defaultTheme: DefaultTheme = {
             warning: "#B27800",
             success: "#008542",
             critical: "#E50007",
+            focus: "#B7DCEE",
         },
     },
 }
