@@ -1,13 +1,44 @@
 import React from "react"
-import Label from "../Label/Label"
 import { SwitchStyled } from "./SwitchStyles"
 
-export type Props = {
-    label?: string,
+export enum ContentSwitchPosition{
+    Top = "column-reverse",
+    Bottom = "column",
+    Left = "row-reverse",
+}
+export enum ContentSwitchAlign {
+    Start = "flex-start",
+    End = "flex-end",
+}
+export enum SwitchTextAlign {
+    Center = "center",
+    Left = "left",
+}
+export enum SwitchTextWeight {
+    light = "100",
+    regular = "400",
+    bold = "800",
+}
+
+export type CustomSwitchStyles = {
+    textColor?: string,
+    textAlign?: SwitchTextAlign,
+    textWeight?: SwitchTextWeight,
+    contentPosition?: ContentSwitchPosition,
+    contentAlign?: ContentSwitchAlign,
+}
+
+type Props = {
     value: boolean,
     disabled?: boolean,
     onChange?: (value: boolean) => void,
-    onBlur?: () => void,
+    onClick?: (e: React.MouseEvent<HTMLInputElement>) => void,
+    customStyles?: CustomSwitchStyles,
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus?:boolean,
+    },
+    children?: React.ReactNode,
 }
 
 const Switch = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
@@ -15,19 +46,27 @@ const Switch = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInput
     const handleOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         props.onChange && props.onChange(e.target.checked)
     }
+
     return (
-        <Label inline disabled={props.disabled}>
+        <SwitchStyled.Wrapper customStyles={props.customStyles}>
             <SwitchStyled.Input
                 type="checkbox"
+                ref={ref}
                 checked={props.value}
                 disabled={props.disabled}
-                ref={ref}
+                tabIndex={props.accessibility?.tabIndex}
+                autoFocus={props.accessibility?.autoFocus}
                 onChange={handleOnChange}
-                onBlur={props.onBlur}
+                onClick={props.onClick}
+                customStyles={props.customStyles}
             />
             <SwitchStyled.Slider />
-            {props.label && props.label}
-        </Label>
+            {props.children
+                && <SwitchStyled.ChildrenWrapper customStyles={props.customStyles}>
+                    {props.children}
+                </SwitchStyled.ChildrenWrapper>
+            }
+        </SwitchStyled.Wrapper>
     )
 })
 

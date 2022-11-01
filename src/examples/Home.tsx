@@ -5,6 +5,7 @@ import { Link } from "react-router-dom"
 import { Paths } from "./Paths"
 import ButtonShowCaseDetailListItem from "./ButtonShowCase/ButtonShowCaseListItem"
 import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
+import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseListItem"
 
 const Home = () => {
     return (
@@ -15,6 +16,10 @@ const Home = () => {
 
             <Link to={Paths.Tag}>Tag</Link>
             <TagShowCaseDetailListItem />
+            <hr />
+
+            <Link to={Paths.Switch}>Switch</Link>
+            <SwitchShowCaseDetailListItem />
             <hr />
         </LayoutHome>
     )
