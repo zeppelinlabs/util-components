@@ -9,6 +9,7 @@ import { Paths } from "./examples/Paths"
 import ButtonShowCaseDetail from "./examples/ButtonShowCase/ButtonShowCaseDetail"
 import TagShowCaseDetail from "./examples/TagShowCase/TagShowCaseDetail"
 import SwitchShowCaseDetail from "./examples/Form/SwitchShowCase/SwitchShowCaseDetail"
+import TooltipShowCaseDetail from "./examples/TooltipShowCase/TooltipShowCaseDetail"
 
 const App = () => {
     return (
@@ -27,6 +28,9 @@ const App = () => {
                 } />
                 <Route path={Paths.Tag} element={
                     <TagShowCaseDetail />
+                } />
+                <Route path={Paths.Tooltip} element={
+                    <TooltipShowCaseDetail />
                 } />
             </Routes>
         </ThemeProvider >
