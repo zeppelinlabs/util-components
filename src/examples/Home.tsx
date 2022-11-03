@@ -6,6 +6,7 @@ import { Paths } from "./Paths"
 import ButtonShowCaseDetailListItem from "./ButtonShowCase/ButtonShowCaseListItem"
 import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
 import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseListItem"
+import TooltipShowCaseDetailListItem from "./TooltipShowCase/TooltipShowCaseListItem"
 
 const Home = () => {
     return (
@@ -20,6 +21,10 @@ const Home = () => {
 
             <Link to={Paths.Switch}>Switch</Link>
             <SwitchShowCaseDetailListItem />
+            <hr />
+
+            <Link to={Paths.Tooltip}>Tooltip</Link>
+            <TooltipShowCaseDetailListItem />
             <hr />
         </LayoutHome>
     )
