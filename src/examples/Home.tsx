@@ -7,6 +7,7 @@ import ButtonShowCaseDetailListItem from "./ButtonShowCase/ButtonShowCaseListIte
 import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
 import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseListItem"
 import TooltipShowCaseDetailListItem from "./TooltipShowCase/TooltipShowCaseListItem"
+import CheckboxShowCaseDetailListItem from "./Form/CheckboxShowCase/CheckboxShowCaseListItem"
 
 const Home = () => {
     return (
@@ -25,6 +26,10 @@ const Home = () => {
 
             <Link to={Paths.Tooltip}>Tooltip</Link>
             <TooltipShowCaseDetailListItem />
+            <hr />
+
+            <Link to={Paths.Checkbox}>Checkbox</Link>
+            <CheckboxShowCaseDetailListItem />
             <hr />
         </LayoutHome>
     )

@@ -2,10 +2,18 @@
 import React from "react"
 import { CheckboxStyled } from "./CheckboxStyles"
 import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
-import Label from "../Label/Label"
+import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
+
+export enum ContentCheckboxPosition {
+    Left = "row-reverse",
+}
 
 export type CustomCheckboxStyles = {
-    borderRadius?: number,
+    boxColor?: string,
+    textColor?: string,
+    textAlign?: TextAlign,
+    textWeight?: TextWeight,
+    contentPosition?: ContentCheckboxPosition,
 }
 
 export type Props = {
@@ -31,26 +39,27 @@ const Checkbox = React.forwardRef((
     }
 
     return (
-        <Label inline disabled={props.disabled}>
-            <CheckboxStyled.Container>
-                <CheckboxStyled.Input
-                    type="checkbox"
-                    checked={props.value}
-                    disabled={props.disabled}
-                    ref={ref}
-                    onChange={handleOnChange}
-                    onBlur={props.onBlur}
-                />
-                <CheckboxStyled.Check>
-                    {props.value && (
-                        <CheckboxStyled.Tick>
-                            <TickIcon />
-                        </CheckboxStyled.Tick>
-                    )}
-                </CheckboxStyled.Check>
-            </CheckboxStyled.Container>
-            {props.children}
-        </Label>
+        <CheckboxStyled.Wrapper customStyles={props.customStyles}>
+            <CheckboxStyled.Input
+                type="checkbox"
+                checked={props.value}
+                disabled={props.disabled}
+                ref={ref}
+                onChange={handleOnChange}
+                onBlur={props.onBlur}
+                customStyles={props.customStyles}
+            />
+            <CheckboxStyled.Check>
+                {props.value && (
+                    <CheckboxStyled.Tick>
+                        <TickIcon />
+                    </CheckboxStyled.Tick>
+                )}
+            </CheckboxStyled.Check>
+            {props.children && <CheckboxStyled.ChildrenWrapper>
+                {props.children}
+            </CheckboxStyled.ChildrenWrapper>}
+        </CheckboxStyled.Wrapper>
     )
 })
 

@@ -10,6 +10,7 @@ import ButtonShowCaseDetail from "./examples/ButtonShowCase/ButtonShowCaseDetail
 import TagShowCaseDetail from "./examples/TagShowCase/TagShowCaseDetail"
 import SwitchShowCaseDetail from "./examples/Form/SwitchShowCase/SwitchShowCaseDetail"
 import TooltipShowCaseDetail from "./examples/TooltipShowCase/TooltipShowCaseDetail"
+import CheckboxShowCaseDetail from "./examples/Form/CheckboxShowCase/CheckboxShowCaseDetail"
 
 const App = () => {
     return (
@@ -31,6 +32,9 @@ const App = () => {
                 } />
                 <Route path={Paths.Tooltip} element={
                     <TooltipShowCaseDetail />
+                } />
+                <Route path={Paths.Checkbox} element={
+                    <CheckboxShowCaseDetail />
                 } />
             </Routes>
         </ThemeProvider >
