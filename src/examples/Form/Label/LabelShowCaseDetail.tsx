@@ -16,7 +16,7 @@ const LabelShowCaseDetail = () => {
             customStyles={{ textColor: "blue", }}
             disabled
         >
-            asdasd
+            Plain content
         </Label>
         <Label text="Label custom color"
             customStyles={{
