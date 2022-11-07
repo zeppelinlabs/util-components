@@ -23,7 +23,7 @@ const Checkbox = React.forwardRef((
     }
 
     return (
-        <Label inline disabled={props.disabled}>
+        <Label disabled={props.disabled}>
             <CheckboxStyled.Container>
                 <CheckboxStyled.Input
                     type="checkbox"

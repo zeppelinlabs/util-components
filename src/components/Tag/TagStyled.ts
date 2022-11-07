@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
 import { thp } from "../../styles/themeHelpers"
+import { getFontWeight } from "../../styles/typographicHelper"
 import { CustomStyles, TagIconPosition, TagSize } from "./Tag"
 
 type TagProps = {
@@ -71,9 +72,9 @@ const Container = styled.span<TagProps>`
         ? p.customStyles.size
         : TagSize.Small
     )).tagCss}
-	${p => (p.customStyles?.textWeight && css`
-		font-weight: ${p.customStyles.textWeight};
-	`)};
+	${p => (p.customStyles?.textWeight
+		&& getFontWeight(p.customStyles?.textWeight)
+    )};
 	${p => (p.customStyles?.borderColor && css`
 		border-color: ${p.customStyles.borderColor};
 	`)};

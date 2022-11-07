@@ -3,9 +3,12 @@ import Button, { ButtonVariant } from "../../components/Button/Button"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetailListItem = () => {
+    // eslint-disable-next-line no-alert
+    const handleOnClick = () => alert("Click")
+
     return <Button
         buttonVariant={ButtonVariant.Primary}
-        onClick={() => alert("click")}
+        onClick={handleOnClick}
         icon={{
             SVGComponent: ArrowIcon,
         }}

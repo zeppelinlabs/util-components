@@ -1,6 +1,7 @@
 import React from "react"
 import { TagStyled } from "./TagStyled"
 import { ReactComponent as CrossIcon} from "../../assets/icons/cross.svg"
+import { TextWeight } from "../../styles/typographicHelper"
 
 export enum TagSize {
     Small = "small",
@@ -13,16 +14,11 @@ export enum TagIconPosition {
     Right = "row-reverse",
 }
 
-export enum TagTextWeight {
-    Light = "100",
-    Bold = "800",
-}
-
 export type CustomStyles = {
     borderColor?: string,
     backgroundColor?: string,
     textColor?: string,
-    textWeight?: TagTextWeight,
+    textWeight?: TextWeight,
     size?: TagSize,
     isCursorPointer?: boolean,
 }

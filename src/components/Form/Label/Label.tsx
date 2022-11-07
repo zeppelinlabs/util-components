@@ -1,32 +1,43 @@
-
 import React from "react"
+import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
 import { LabelStyled } from "./LabelStyles"
+
+export type CustomLabelStyles = {
+    textColor?: string,
+    textWeight?: TextWeight,
+    textAlign?: TextAlign,
+}
 
 export type Props = {
     text?: string,
     children?: React.ReactNode,
     required?: boolean,
     disabled?: boolean,
-    htmlFor?: string,
-    inline?: boolean,
+    accessibility?: {
+        htmlFor?: string,
+    },
+    customStyles?: CustomLabelStyles,
 }
 
 const Label = (props: Props) => {
     return (
         <LabelStyled.Label
-            htmlFor={props.htmlFor}
+            htmlFor={props.accessibility?.htmlFor}
             disabled={props.disabled}
-            inline={props.inline}
+            customStyles={props.customStyles}
         >
             {props.text
                 && <LabelStyled.LabelText
                     disabled={props.disabled}
+                    customStyles={props.customStyles}
                 >
-                    {props.text && props.text}
+                    {props.text}
                     {props.required && <LabelStyled.Required>*</LabelStyled.Required>}
                 </LabelStyled.LabelText>
             }
-            {props.children && props.children}
+            <LabelStyled.Content>
+                {props.children && props.children}
+            </LabelStyled.Content>
         </LabelStyled.Label>
     )
 }
