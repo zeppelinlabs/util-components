@@ -48,6 +48,8 @@ const Checkbox = React.forwardRef((
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
                 customStyles={props.customStyles}
+                tabIndex={props.accessibility?.tabIndex}
+                autoFocus={props.accessibility?.autoFocus}
             />
             <CheckboxStyled.Check>
                 {props.value && (
