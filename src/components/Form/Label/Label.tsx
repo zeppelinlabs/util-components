@@ -26,7 +26,10 @@ export type Props = {
     customStyles?: CustomLabelStyles,
 }
 
-const Label = (props: Props) => {
+const Label = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLLabelElement>,
+) => {
 
     const getLabelVariant = {
         [LabelVariant.Info]: (<LabelStyled.ContentInfoIcon>
@@ -38,6 +41,7 @@ const Label = (props: Props) => {
 
     return (
         <LabelStyled.Label
+            ref={ref}
             htmlFor={props.accessibility?.htmlFor}
             disabled={props.disabled}
             customStyles={props.customStyles}
@@ -56,5 +60,8 @@ const Label = (props: Props) => {
             </LabelStyled.Content>
         </LabelStyled.Label>
     )
-}
+})
+
+Label.displayName = "Label"
+
 export default Label
