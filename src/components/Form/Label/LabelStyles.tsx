@@ -43,11 +43,38 @@ const LabelText = styled.span<PropsStyled>`
     `)};
 `
 
+const Content = styled.span``
+
 const Required = styled.span`
     color: ${thp.system(c => c.critical)};
 `
 
-const Content = styled.span`
+const Tag = styled.span`
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-size: 1rem;
+    line-height: 1.2;
+    color: ${thp.common(c => c.black)};
+    background-color: ${thp.neutral(c => c.level10)};
+`
+
+const ContentInfoIcon = styled.span`
+    width: 14px;
+    height: 14px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+
+    svg{
+        width: 100%;
+        height: 100%;
+        path{
+            fill: currentColor;
+        }
+    }
 `
 
 export const LabelStyled = {
@@ -55,4 +82,6 @@ export const LabelStyled = {
     Required,
     LabelText,
     Content,
+    Tag,
+    ContentInfoIcon,
 }

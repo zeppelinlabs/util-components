@@ -1,6 +1,7 @@
 import React from "react"
 import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
 import { LabelStyled } from "./LabelStyles"
+import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
 
 export type CustomLabelStyles = {
     textColor?: string,
@@ -8,10 +9,16 @@ export type CustomLabelStyles = {
     textAlign?: TextAlign,
 }
 
+export enum LabelVariant{
+    Required = "required",
+    Optional="optional",
+    Info = "info",
+}
+
 export type Props = {
     text?: string,
     children?: React.ReactNode,
-    required?: boolean,
+    labelVariant?: LabelVariant,
     disabled?: boolean,
     accessibility?: {
         htmlFor?: string,
@@ -20,6 +27,15 @@ export type Props = {
 }
 
 const Label = (props: Props) => {
+
+    const getLabelVariant = {
+        [LabelVariant.Info]: (<LabelStyled.ContentInfoIcon>
+            <InfoIcon />
+        </LabelStyled.ContentInfoIcon>),
+        [LabelVariant.Required]: (<LabelStyled.Required>*</LabelStyled.Required>),
+        [LabelVariant.Optional]: (<LabelStyled.Tag>Opcional</LabelStyled.Tag>),
+    }
+
     return (
         <LabelStyled.Label
             htmlFor={props.accessibility?.htmlFor}
@@ -32,7 +48,7 @@ const Label = (props: Props) => {
                     customStyles={props.customStyles}
                 >
                     {props.text}
-                    {props.required && <LabelStyled.Required>*</LabelStyled.Required>}
+                    {props.labelVariant && getLabelVariant[props.labelVariant]}
                 </LabelStyled.LabelText>
             }
             <LabelStyled.Content>
