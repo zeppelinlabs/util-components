@@ -29,7 +29,6 @@ const hasKey = <K,>(options: K[], key: K) => {
     return options.includes(key)
 }
 
-
 // eslint-disable-next-line react/display-name
 const CheckboxGroup = React.forwardRef(<K extends ValidKey,
     T extends CheckboxGroupOption<K>>
@@ -55,7 +54,6 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
             }
         }
     }
-
 
     return (
         <>
