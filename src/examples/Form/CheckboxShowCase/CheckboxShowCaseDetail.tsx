@@ -6,30 +6,32 @@ import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
 
+    const handleOnChange = (value: boolean) => setValue(value)
+
     return <LayoutExamples>
         <Checkbox
             value={value}
-            onChange={(value) => setValue(value)}
+            onChange={handleOnChange}
         />
         <hr />
         <Checkbox
             value={value}
-            onChange={(value) => setValue(value)}
+            onChange={handleOnChange}
             disabled={true}
         />
         <hr />
         <Checkbox
             value={value}
-            onChange={(value) => setValue(value)}
+            onChange={handleOnChange}
             accessibility={{ autoFocus: true, }}
-            customStyles={{ boxColor: "#9b59b6", }}
+            customStyles={{ checkBoxColor: "#9b59b6", }}
         >
             With text and custom box color
         </Checkbox>
         <hr />
         <Checkbox
             value={value}
-            onChange={(value) => setValue(value)}
+            onChange={handleOnChange}
             customStyles={{
                 contentPosition: ContentCheckboxPosition.Left,
             }}

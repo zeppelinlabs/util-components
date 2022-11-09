@@ -9,7 +9,7 @@ export enum ContentCheckboxPosition {
 }
 
 export type CustomCheckboxStyles = {
-    boxColor?: string,
+    checkBoxColor?: string,
     textColor?: string,
     textAlign?: TextAlign,
     textWeight?: TextWeight,

@@ -2,10 +2,13 @@ import React, { useState } from "react"
 import Checkbox from "../../../components/Form/Checkbox/Checkbox"
 
 const CheckboxShowCaseDetailListItem = () => {
-    const [switchValue, setSwitchValue,] = useState(false)
+    const [value, setValue,] = useState(false)
+
+    const handleOnChange = (value: boolean) => setValue(value)
+
     return <Checkbox
-        value={switchValue}
-        onChange={(value) => setSwitchValue(value)}
+        value={value}
+        onChange={handleOnChange}
     />
 }
 
