@@ -34,15 +34,9 @@ const Check = styled.span`
 
 const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
     position: absolute;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-    white-space: nowrap;
-    border: 0;
-    clip: rect(0 0 0 0);
-    clippath: inset(50%);
-    margin: -1px;
-    padding: 0;
+    opacity: 0;
+    width: 16px;
+    height: 16px;
     
     &:focus + ${Check} {
         box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};

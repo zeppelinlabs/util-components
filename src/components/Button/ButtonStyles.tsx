@@ -82,7 +82,7 @@ const Button = styled.button<Props>`
         color: transparent;
     `)};
     &:focus {
-       // focus styles
+       box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
     }
     &:disabled {
         opacity: 0.5;

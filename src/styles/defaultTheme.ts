@@ -14,7 +14,7 @@ export const defaultTheme: DefaultTheme = {
         neutral: {
             level90: "",
             level50: "gray",
-            level10: "",
+            level10: "#ccc",
         },
         system: {
             info: "#276EF1",
