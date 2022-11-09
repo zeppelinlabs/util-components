@@ -1,19 +1,29 @@
 
 import React from "react"
-import Label from "../Label/Label"
 import { RadioButtonStyled } from "./RadioButtonStyles"
+import { TextWeight } from "../../../styles/typographicHelper"
 
-export type Props = {
+export type CustomRadioButtonStyles = {
+    textWeight?: TextWeight,
+    textColor?: string,
+}
+
+type Props = {
+    children?: React.ReactNode,
     value: string,
-    text?: string,
     selectedValue?: string,
     disabled?: boolean,
     onChange?: (value: string) => void,
-    onBlur?: () => void,
+    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
+    customStyles?: CustomRadioButtonStyles,
+    accessibility?: {
+        tabIndex: number,
+        autoFocus:boolean,
+    },
 }
 
 
-export const RadioButtonInner = React.forwardRef((
+const RadioButton = React.forwardRef((
     props: Props,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
@@ -29,27 +39,15 @@ export const RadioButtonInner = React.forwardRef((
                 checked={props.value === props.selectedValue}
                 disabled={props.disabled}
                 onChange={handleOnChange}
-                onBlur={props.onBlur}
             />
-            <RadioButtonStyled.Radio />
-            {props.text}
+
+            <RadioButtonStyled.Radio onClick={props.onClick} />
+
+            <RadioButtonStyled.ChildrenContainer
+                customStyles={props.customStyles}>
+                {props.children}
+            </RadioButtonStyled.ChildrenContainer>
         </RadioButtonStyled.Container>
-    )
-})
-
-RadioButtonInner.displayName = "RadioButtonInner"
-
-
-const RadioButton = React.forwardRef((
-    props: Props,
-    ref: React.ForwardedRef<HTMLInputElement>
-) => {
-    return (
-        <Label>
-            <RadioButtonInner
-                {...props}
-            />
-        </Label>
     )
 })
 
