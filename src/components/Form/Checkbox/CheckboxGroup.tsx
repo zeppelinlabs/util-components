@@ -18,7 +18,6 @@ export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
     disabled?: boolean,
     errorMessage?: string,
     onChange?: (value: T[]) => void,
-    onBlur?: () => void,
 }
 
 
@@ -65,7 +64,6 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
                     value={hasKey(props.keyValue, option.key)}
                     disabled={props.disabled}
                     onChange={handleOnChange(option)}
-                    onBlur={props.onBlur}
                 >
                     {option.children}
                 </Checkbox>

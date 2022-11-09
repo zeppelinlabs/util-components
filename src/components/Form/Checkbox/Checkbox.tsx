@@ -21,7 +21,6 @@ export type Props = {
     value: boolean,
     disabled?: boolean,
     onChange?: (value: boolean) => void,
-    onBlur?: () => void,
     customStyles?: CustomCheckboxStyles,
     accessibility?: {
         tabIndex?: number,
@@ -46,7 +45,6 @@ const Checkbox = React.forwardRef((
                 disabled={props.disabled}
                 ref={ref}
                 onChange={handleOnChange}
-                onBlur={props.onBlur}
                 customStyles={props.customStyles}
                 tabIndex={props.accessibility?.tabIndex}
                 autoFocus={props.accessibility?.autoFocus}
