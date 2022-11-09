@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import pointer_down from "../../../assets/pointer_down.svg"
 import { thp } from "../../../styles/themeHelpers"
 

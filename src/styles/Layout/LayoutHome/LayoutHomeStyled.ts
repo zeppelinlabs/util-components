@@ -5,7 +5,7 @@ const Wrapper = styled.div`
     display:grid;
     grid-template-rows:1fr;
     gap:16px;
-    font-size: 16px;
+    font-size: 1.6rem;
 `
 
 export const LayoutHomeStyled = {

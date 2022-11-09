@@ -1,9 +1,13 @@
 import React from "react"
-import Tag, { TagSize, TagIconPosition, TagTextWeight } from "../../components/Tag/Tag"
+import Tag, { TagSize, TagIconPosition } from "../../components/Tag/Tag"
 import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
+import { TextWeight } from "../../styles/typographicHelper"
 
 const TagShowCaseDetail = () => {
+    // eslint-disable-next-line no-alert
+    const handleOnClick = () => alert("Remove")
+
     return <LayoutExamples>
         <Tag icon={{ SVGComponent: EmailIcon, }} >
             Small
@@ -16,7 +20,7 @@ const TagShowCaseDetail = () => {
             customStyles={{ size: TagSize.Large, }}>
             Large
         </Tag>
-        <Tag onClickRemove={() => {alert("Click")}}
+        <Tag onClickRemove={handleOnClick}
             icon={{ SVGComponent: EmailIcon, }} >
             With close action
         </Tag>
@@ -31,10 +35,10 @@ const TagShowCaseDetail = () => {
             Without icons
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}
-            customStyles={{ textWeight: TagTextWeight.Bold, }} >
+            customStyles={{ textWeight: TextWeight.Bold, }} >
             With text bold
         </Tag>
-        <Tag onClickRemove={() => {alert("Remove")}}>
+        <Tag onClickRemove={handleOnClick}>
             Only remove action
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}

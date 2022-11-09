@@ -7,17 +7,20 @@ import Button, { ButtonVariant, ButtonIconPosition }
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetail = () => {
+    // eslint-disable-next-line no-alert
+    const handleOnClick = () => alert("Remove")
+
     return <LayoutExamples>
         <Button
             buttonVariant={ButtonVariant.Primary}
-            onClick={() => alert("click")}
+            onClick={handleOnClick}
             type="button"
         >
             Button
         </Button>
         <Button
             buttonVariant={ButtonVariant.Primary}
-            onClick={() => alert("click")}
+            onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
             }}
@@ -27,7 +30,7 @@ const ButtonShowCaseDetail = () => {
         </Button >
         <Button
             buttonVariant={ButtonVariant.Primary}
-            onClick={() => alert("click")}
+            onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
                 position: ButtonIconPosition.Right,

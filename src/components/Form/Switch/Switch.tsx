@@ -1,4 +1,5 @@
 import React from "react"
+import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
 import { SwitchStyled } from "./SwitchStyles"
 
 export enum ContentSwitchPosition{
@@ -10,20 +11,11 @@ export enum ContentSwitchAlign {
     Start = "flex-start",
     End = "flex-end",
 }
-export enum SwitchTextAlign {
-    Center = "center",
-    Left = "left",
-}
-export enum SwitchTextWeight {
-    light = "100",
-    regular = "400",
-    bold = "800",
-}
 
 export type CustomSwitchStyles = {
     textColor?: string,
-    textAlign?: SwitchTextAlign,
-    textWeight?: SwitchTextWeight,
+    textAlign?: TextAlign,
+    textWeight?: TextWeight,
     contentPosition?: ContentSwitchPosition,
     contentAlign?: ContentSwitchAlign,
 }
