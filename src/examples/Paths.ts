@@ -4,5 +4,6 @@ export const Paths = {
     Tag: "/tag",
     Tooltip: "/tooltip",
     Switch: "/form/switch",
+    Label: "/form/label",
     Checkbox: "/form/checkbox",
 }

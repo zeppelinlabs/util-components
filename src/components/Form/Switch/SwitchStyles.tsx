@@ -1,10 +1,7 @@
 import styled, { css } from "styled-components"
 import { CustomSwitchStyles } from "./Switch"
 import { thp } from "../../../styles/themeHelpers"
-
-type PropsStyled = {
-    disabled?: boolean,
-} & Props
+import { getFontWeight } from "../../../styles/typographicHelper"
 
 type Props = {
     customStyles?: CustomSwitchStyles,
@@ -49,10 +46,10 @@ const Slider = styled.span`
         border-radius: 21px;
         transition: ease 0.2s;
         background: ${thp.common(c => c.white)};
-    }
+    };
 `
 
-const Input = styled.input<PropsStyled>`
+const Input = styled.input<Props>`
     position: absolute;
     opacity: 0;
     width: 38px;
@@ -64,34 +61,34 @@ const Input = styled.input<PropsStyled>`
         &:before {
             left: 100%;
             transform: translateX(-100%);
-        }
-    }
+        };
+    };
 
     &:focus + ${Slider} {
         box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
-    }
+    };
 
     &:hover + ${Slider} {
         //hover styles
-    }
+    };
 
     &:disabled + ${Slider}, &:disabled:checked + ${Slider} {
         opacity:.5;
         cursor:not-allowed;
-    }
+    };
 
 `
 
 const ChildrenWrapper = styled.div<Props>`
     ${p => (p.customStyles?.textColor && css`
-        color: ${p.customStyles?.textColor}
+        color: ${p.customStyles?.textColor};
     `)};
     ${p => (p.customStyles?.textAlign && css`
-        text-align: ${p.customStyles?.textAlign}
+        text-align: ${p.customStyles?.textAlign};
     `)};
-    ${p => (p.customStyles?.textWeight && css`
-        font-weight: ${p.customStyles?.textWeight}
-    `)};
+    ${p => (p.customStyles?.textWeight
+        && getFontWeight(p.customStyles?.textWeight)
+    )};
 `
 
 export const SwitchStyled = {

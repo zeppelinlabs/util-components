@@ -1,8 +1,9 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
-import Switch, { ContentSwitchAlign, ContentSwitchPosition, SwitchTextAlign }
+import Switch, { ContentSwitchAlign, ContentSwitchPosition }
     from "../../../components/Form/Switch/Switch"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
+import { TextAlign } from "../../../styles/typographicHelper"
 
 const SwitchShowCaseDetail = () => {
     const [switchValue, setSwitchValue,] = useState(false)
@@ -54,7 +55,7 @@ const SwitchShowCaseDetail = () => {
             customStyles={{
                 contentPosition: ContentSwitchPosition.Top,
                 contentAlign: ContentSwitchAlign.End,
-                textAlign: SwitchTextAlign.Center,
+                textAlign: TextAlign.Center,
             }}
         >
             With top text or content
