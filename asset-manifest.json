@@ -1,14 +1,16 @@
 {
   "files": {
-    "main.js": "/util-components/static/js/main.7cdb324a.js",
+    "main.js": "/util-components/static/js/main.d2ca7adb.js",
     "static/media/spinner.svg": "/util-components/static/media/spinner.e7af5e611f7c3de5a0f9f12f3e681203.svg",
     "index.html": "/util-components/index.html",
+    "static/media/info.svg": "/util-components/static/media/info.f0754aa1200385b8318bf6e514f6bd45.svg",
     "static/media/email_icon.svg": "/util-components/static/media/email_icon.3345346dba8f97ae218357c6777defa6.svg",
+    "static/media/tick.svg": "/util-components/static/media/tick.32ae70145c5a5585468a053471b51878.svg",
     "static/media/arrow_left.svg": "/util-components/static/media/arrow_left.89cda6907d2f8b5d408b75624e081e3a.svg",
     "static/media/cross.svg": "/util-components/static/media/cross.22b3102395ce289e1433bfc7cbe7ea6a.svg",
-    "main.7cdb324a.js.map": "/util-components/static/js/main.7cdb324a.js.map"
+    "main.d2ca7adb.js.map": "/util-components/static/js/main.d2ca7adb.js.map"
   },
   "entrypoints": [
-    "static/js/main.7cdb324a.js"
+    "static/js/main.d2ca7adb.js"
   ]
 }
