@@ -32,7 +32,7 @@ const RadioButtonGroup = React.forwardRef((
                     selectedValue={props.value}
                     disabled={props.disabled}
                     onChange={handleOnChange}
-                    onBlur={props.onBlur}
+                    // onBlur={props.onBlur}
                 />
             })}
             {props.errorMessage
