@@ -5,12 +5,16 @@ const RadioButtonShowCaseDetailListItem = () => {
     const [value, setValue,] = useState("")
     return <>
         <RadioButton
-            value={"value"}
-            onChange={setValue}
             selectedValue={value}
-        >
-            Radio button
-        </RadioButton>
+            onChange={setValue}
+            name="group-1"
+            options={[
+                {
+                    value: "1",
+                    children: "Input radio",
+                },
+            ]}
+        />
     </>
 }
 

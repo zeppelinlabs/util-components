@@ -8,23 +8,43 @@ export type CustomRadioButtonStyles = {
     textColor?: string,
 }
 
-type Props = {
+export type AccessibilityRadioButton = {
+    tabIndex?: number,
+    autoFocus?: boolean,
+}
+
+type RadioButtonOption = {
+    value: string,
+    children: React.ReactNode,
+    customStyles?: CustomRadioButtonStyles,
+    accessibility?: AccessibilityRadioButton,
+    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
+    disabled?: boolean,
+}
+
+type InputRadioProps = {
+    selectedValue?: string,
+    name: string,
+    disabled?: boolean,
     children?: React.ReactNode,
     value: string,
-    selectedValue?: string,
-    disabled?: boolean,
     onChange?: (value: string) => void,
     onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     customStyles?: CustomRadioButtonStyles,
-    accessibility?: {
-        tabIndex: number,
-        autoFocus:boolean,
-    },
+    accessibility?: AccessibilityRadioButton,
+}
+
+type RadioButtonProps = {
+    name: string,
+    selectedValue: string,
+    options: RadioButtonOption[],
+    onChange?: (value: string) => void,
+    errorMessage?: string | null,
 }
 
 
-const RadioButton = React.forwardRef((
-    props: Props,
+const InputRadio = React.forwardRef((
+    props: InputRadioProps,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const handleOnChange = () => {
@@ -36,9 +56,13 @@ const RadioButton = React.forwardRef((
             <RadioButtonStyled.Input
                 ref={ref}
                 type="radio"
+                value={props.value}
+                name={props.name}
                 checked={props.value === props.selectedValue}
                 disabled={props.disabled}
                 onChange={handleOnChange}
+                tabIndex={props.accessibility?.tabIndex}
+                autoFocus={props.accessibility?.autoFocus}
             />
 
             <RadioButtonStyled.Radio onClick={props.onClick} />
@@ -48,6 +72,34 @@ const RadioButton = React.forwardRef((
                 {props.children}
             </RadioButtonStyled.ChildrenContainer>
         </RadioButtonStyled.Container>
+    )
+})
+
+InputRadio.displayName = "InputRadio"
+
+const RadioButton = React.forwardRef((
+    props: RadioButtonProps,
+    ref: React.ForwardedRef<HTMLInputElement>
+) => {
+    const handleOnChange = (value: string) => {
+        props.onChange && props.onChange(value)
+    }
+    return (
+        <>
+            {props.options.map((propsChild: RadioButtonOption) => {
+                return <InputRadio
+                    key={propsChild.value}
+                    selectedValue={props.selectedValue}
+                    onChange={handleOnChange}
+                    ref={ref}
+                    name={props.name}
+                    {...propsChild}
+                />
+            })}
+            {props.errorMessage && <RadioButtonStyled.ErrorMessageContainer>
+                {props.errorMessage}
+            </RadioButtonStyled.ErrorMessageContainer>}
+        </>
     )
 })
 

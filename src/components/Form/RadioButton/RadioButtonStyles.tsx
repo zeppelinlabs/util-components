@@ -83,9 +83,16 @@ const ChildrenContainer = styled.div<Props>`
     )};
 `
 
+const ErrorMessageContainer = styled.span`
+    color:${thp.system(c => c.warning)};
+    font-size: 1.4rem;
+    font-weight: bold;
+`
+
 export const RadioButtonStyled = {
     Input,
     Radio,
     Container,
     ChildrenContainer,
+    ErrorMessageContainer,
 }
