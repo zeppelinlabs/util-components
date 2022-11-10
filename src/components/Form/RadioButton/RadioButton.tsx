@@ -93,6 +93,7 @@ const RadioButton = React.forwardRef((
                     onChange={handleOnChange}
                     ref={ref}
                     name={props.name}
+
                     {...propsChild}
                 />
             })}
