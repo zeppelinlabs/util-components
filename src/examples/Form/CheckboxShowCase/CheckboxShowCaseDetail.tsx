@@ -33,6 +33,14 @@ const CheckboxShowCaseDetail = () => {
         <Checkbox
             value={value}
             onChange={handleOnChange}
+            errorMessage="Error message"
+        >
+            With error message
+        </Checkbox>
+        <hr />
+        <Checkbox
+            value={value}
+            onChange={handleOnChange}
             customStyles={{
                 contentPosition: ContentCheckboxPosition.Left,
             }}
