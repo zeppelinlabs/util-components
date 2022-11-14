@@ -4,8 +4,9 @@ import { useState } from "react"
 import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
 import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
 import { renderErrorMessage } from "../FormCommon"
+import { InputCommonProps } from "./InputCommon"
 
-export type Props = {
+export type Props = InputCommonProps<string> & {
     placeholder?: string,
     value: string,
     disabled?: boolean,

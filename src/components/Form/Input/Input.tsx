@@ -1,25 +1,16 @@
+/* eslint-disable max-lines-per-function */
 import React, { useEffect, useRef, useState } from "react"
 import { IconPosition } from "../../CommonTypes"
-import { renderErrorMessage, renderIcon } from "../FormCommon"
+import { renderErrorMessage, } from "../FormCommon"
+import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
 
-export type Props = {
-    type: "text" | "email" | "tel" | "password",
-    value: string,
-    placeholder?: string,
-    icon?: JSX.Element,
-    position?: IconPosition,
-    disabled?: boolean,
-    errorMessage?: string,
+export type Props = InputCommonProps<string> & {
     leadingLabel?: string,
-    onChange?: (value: string) => void,
-    onBlur?: () => void,
-    onFocus?: (value: string) => void,
 }
 
 
-const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
-
+const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInputElement> ) => {
     const leadingLabelRef = useRef<HTMLSpanElement>(null)
     const [leadingLabelWidth, setLeadingLabelWidth,] = useState<number | undefined>(undefined)
 
@@ -46,7 +37,7 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     value={props.value || ""}
                     errorMessage={!!props.errorMessage}
                     placeholder={props.placeholder}
-                    position={props.position}
+                    position={props.icon?.position}
                     disabled={props.disabled}
                     ref={ref}
                     onChange={handleOnChange}
@@ -54,9 +45,9 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     onFocus={handleOnFocus}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
-                {props.icon && props.position === IconPosition.right
-                    && <InputStyled.IconContainer position={props.position}>
-                        {props.icon}
+                {props.icon && props.icon.position === IconPosition.right
+                    && <InputStyled.IconContainer position={props.icon.position}>
+                        {props.icon.SVGComponent}
                     </InputStyled.IconContainer>}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
@@ -76,8 +67,10 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
     return (
         <InputStyled.InputContainer>
             {renderInput()}
-            {props.icon && props.position
-                && renderIcon(props.position, props.icon)
+            {props.icon && props.icon.position
+                && <InputStyled.IconContainer position={props.icon.position}>
+                    <props.icon.SVGComponent />
+                </InputStyled.IconContainer>
             }
             {props.leadingLabel && renderLeadingLabel()}
         </InputStyled.InputContainer>

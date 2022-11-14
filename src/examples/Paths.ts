@@ -6,4 +6,5 @@ export const Paths = {
     Switch: "/form/switch",
     Label: "/form/label",
     Checkbox: "/form/checkbox",
+    Input: "/form/input",
 }

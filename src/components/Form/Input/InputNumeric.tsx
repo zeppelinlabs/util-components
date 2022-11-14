@@ -1,25 +1,14 @@
 /* eslint-disable max-lines-per-function */
 import React, { useRef, useEffect, useState } from "react"
-import { IconPosition } from "../../CommonTypes"
-import { renderErrorMessage, renderIcon } from "../FormCommon"
+import { renderErrorMessage, } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
+import { InputCommonProps } from "./InputCommon"
 
-type Value = number | null | undefined
-
-export type Props = {
-    value: Value,
-    placeholder?: string,
-    icon?: JSX.Element,
-    position?: IconPosition,
-    disabled?: boolean,
-    errorMessage?: string,
+export type Props = InputCommonProps<number | null> & {
+    leadingLabel?: string,
     min?: number,
     max?: number,
     step?: number,
-    leadingLabel?: string,
-    onChange?: (value: Value) => void,
-    onBlur?: () => void,
-    onFocus?: (value: Value) => void,
     onKeyDown?: (key: string) => void,
 }
 
@@ -55,7 +44,7 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     value={props.value || props.value === 0 ? props.value : ""}
                     errorMessage={!!props.errorMessage}
                     placeholder={props.placeholder}
-                    position={props.position}
+                    position={props.icon?.position}
                     min={props.min}
                     max={props.max}
                     step={props.step}
@@ -84,12 +73,13 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
 
     return (
         <InputStyled.InputContainer>
-            {props.icon && props.position
-                && renderIcon(props.position, props.icon)
-            }
             {renderInput()}
+            {props.icon && props.icon.position
+                && <InputStyled.IconContainer position={props.icon.position}>
+                    <props.icon.SVGComponent />
+                </InputStyled.IconContainer>
+            }
             {props.leadingLabel && renderLeadingLabel()}
-
         </InputStyled.InputContainer>
     )
 })

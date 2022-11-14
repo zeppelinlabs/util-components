@@ -12,6 +12,7 @@ import SwitchShowCaseDetail from "./examples/Form/SwitchShowCase/SwitchShowCaseD
 import TooltipShowCaseDetail from "./examples/TooltipShowCase/TooltipShowCaseDetail"
 import CheckboxShowCaseDetail from "./examples/Form/CheckboxShowCase/CheckboxShowCaseDetail"
 import LabelShowCaseDetail from "./examples/Form/Label/LabelShowCaseDetail"
+import InputShowCaseDetail from "./examples/Form/InputShowCase/InputShowCaseDetail"
 
 const App = () => {
     return (
@@ -39,6 +40,9 @@ const App = () => {
                 } />
                 <Route path={Paths.Checkbox} element={
                     <CheckboxShowCaseDetail />
+                } />
+                <Route path={Paths.Input} element={
+                    <InputShowCaseDetail />
                 } />
             </Routes>
         </ThemeProvider >
