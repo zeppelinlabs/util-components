@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import Checkbox, { ContentCheckboxPosition } from "../../../components/Form/Checkbox/Checkbox"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
+import CheckboxGroupShowCase from "./CheckboxGroupShowcase"
 
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
@@ -32,12 +33,22 @@ const CheckboxShowCaseDetail = () => {
         <Checkbox
             value={value}
             onChange={handleOnChange}
+            errorMessage="Error message"
+        >
+            With error message
+        </Checkbox>
+        <hr />
+        <Checkbox
+            value={value}
+            onChange={handleOnChange}
             customStyles={{
                 contentPosition: ContentCheckboxPosition.Left,
             }}
         >
             With left text or content
         </Checkbox>
+        <hr />
+        <CheckboxGroupShowCase />
         <hr />
     </LayoutExamples>
 }
