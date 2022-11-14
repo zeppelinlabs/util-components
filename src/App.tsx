@@ -13,6 +13,8 @@ import TooltipShowCaseDetail from "./examples/TooltipShowCase/TooltipShowCaseDet
 import CheckboxShowCaseDetail from "./examples/Form/CheckboxShowCase/CheckboxShowCaseDetail"
 import LabelShowCaseDetail from "./examples/Form/Label/LabelShowCaseDetail"
 import InputShowCaseDetail from "./examples/Form/InputShowCase/InputShowCaseDetail"
+import RadioButtonShowCaseDetail
+    from "./examples/Form/RadioButtonShowCase/RadioButtonShowCaseDetail"
 
 const App = () => {
     return (
@@ -40,6 +42,9 @@ const App = () => {
                 } />
                 <Route path={Paths.Checkbox} element={
                     <CheckboxShowCaseDetail />
+                } />
+                <Route path={Paths.RadioButton} element={
+                    <RadioButtonShowCaseDetail />
                 } />
                 <Route path={Paths.Input} element={
                     <InputShowCaseDetail />
