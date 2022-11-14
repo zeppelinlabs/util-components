@@ -38,6 +38,24 @@ const CheckboxGroupShowCase = () => {
         },
     ]
 
+    const options3 = [
+        {
+            key: "option1",
+            children: "Débito",
+            discount: 0.50,
+        },
+        {
+            key: "option2",
+            children: "Crédito",
+            discount: 0,
+        },
+        {
+            key: "option3",
+            children: "Mercado Pago",
+            discount: 0.20,
+        },
+    ]
+
     return <>
         <h3>Checkbox Group</h3>
         <CheckboxGroup
@@ -48,6 +66,12 @@ const CheckboxGroupShowCase = () => {
         <hr />
         <CheckboxGroup
             options={options2}
+            keyValue={checkedState.map(o => o.key)}
+            onChange={handleOnChangeCheckboxGroup}
+        />
+        <hr />
+        <CheckboxGroup
+            options={options3}
             keyValue={checkedState.map(o => o.key)}
             onChange={handleOnChangeCheckboxGroup}
         />
