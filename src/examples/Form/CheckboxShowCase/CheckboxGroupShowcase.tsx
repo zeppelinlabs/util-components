@@ -2,8 +2,11 @@
 import React, { useState } from "react"
 import CheckboxGroup, { CheckboxGroupOption } from "../../../components/Form/Checkbox/CheckboxGroup"
 
+type CheckboxGroupOption3 = CheckboxGroupOption<string> & { discount: number, }
+
 const CheckboxGroupShowCase = () => {
     const [checkedState, setCheckedState,] = useState<CheckboxGroupOption<string>[]>([])
+    const [checkedState3, setCheckedState3,] = useState<CheckboxGroupOption3[]>([])
 
     const handleOnChangeCheckboxGroup
         = (value: CheckboxGroupOption<string>[]) => setCheckedState(value)
@@ -38,7 +41,7 @@ const CheckboxGroupShowCase = () => {
         },
     ]
 
-    const options3 = [
+    const options3: CheckboxGroupOption3[] = [
         {
             key: "option1",
             children: "Débito",
@@ -60,20 +63,20 @@ const CheckboxGroupShowCase = () => {
         <h3>Checkbox Group</h3>
         <CheckboxGroup
             options={options}
-            keyValue={checkedState.map(o => o.key)}
+            value={checkedState}
             onChange={handleOnChangeCheckboxGroup}
         />
         <hr />
         <CheckboxGroup
             options={options2}
-            keyValue={checkedState.map(o => o.key)}
+            value={checkedState}
             onChange={handleOnChangeCheckboxGroup}
         />
         <hr />
         <CheckboxGroup
             options={options3}
-            keyValue={checkedState.map(o => o.key)}
-            onChange={handleOnChangeCheckboxGroup}
+            value={checkedState3}
+            onChange={setCheckedState3}
         />
     </>
 }

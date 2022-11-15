@@ -18,7 +18,7 @@ type ValidKey = string | number
 
 export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
     options: T[],
-    keyValue: K[],
+    value: T[],
     disabled?: boolean,
     errorMessage?: string,
     onChange?: (value: T[]) => void,
@@ -39,21 +39,22 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
     const handleOnChange = (option: T) => (checked: boolean) => {
         if (props.onChange) {
             const optionsByKey = toDictionary(props.options, o => o.key)
-            const hasKeyBeforeChange = hasKey(props.keyValue, option.key)
+            const hasKeyBeforeChange = hasKey(props.value.map(o => o.key), option.key)
 
-            if (props.keyValue.some(k => !optionsByKey[k])) {
+            if (props.value.some(k => !optionsByKey[k.key])) {
                 console.warn("keyValue not in options", props)
             }
 
             if (checked && !hasKeyBeforeChange) {
-                props.onChange([...props.keyValue.map(k => optionsByKey[k]), option,])
+                props.onChange([...props.value.map(k => optionsByKey[k.key]), option,])
             } else if (!checked) {
-                props.onChange(props.keyValue
-                    .filter(k => k !== option.key)
-                    .map(k => optionsByKey[k]))
+                props.onChange(props.value
+                    .filter(k => k.key !== option.key)
+                    .map(k => optionsByKey[k.key]))
             }
         }
     }
+
 
     return (
         <>
@@ -61,7 +62,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
-                    value={hasKey(props.keyValue, option.key)}
+                    value={hasKey(props.value.map(o => o.key), option.key)}
                     disabled={props.disabled}
                     onChange={handleOnChange(option)}
                     customStyles={props.customStyles}
@@ -76,7 +77,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
         </>
     )
 }) as <K extends ValidKey,
-    T extends CheckboxGroupOption<K>>(props: Props<K, T>
-        & React.RefAttributes<HTMLInputElement>) => JSX.Element
+        T extends CheckboxGroupOption<K>>(props: Props<K, T>
+            & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export default CheckboxGroup
