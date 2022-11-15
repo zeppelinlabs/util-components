@@ -2,17 +2,22 @@ import styled, { css } from "styled-components"
 import { device } from "../../../styles/mediaQueries"
 import { thp } from "../../../styles/themeHelpers"
 import { IconPosition } from "../../CommonTypes"
+import { CustomInputStyles } from "./InputCommon"
 
 type InputProps = {
     type: "text" | "number" | "email" | "tel" | "password",
     position?: IconPosition,
     errorMessage?: boolean,
     leadingLabelWidth?: number,
+    customStyles?: CustomInputStyles,
+    autoHeight?: boolean,
 }
 
 const InputContainer = styled.div`
   position: relative;
   width: fit-content;
+  display:flex;
+  flex-direction:column;
 `
 
 export const InputGeneralStyles = css<InputProps>`
@@ -35,7 +40,7 @@ export const InputGeneralStyles = css<InputProps>`
     }
 
     &:focus {
-        //focus styles
+        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
     }
 
     &:hover {
@@ -43,7 +48,8 @@ export const InputGeneralStyles = css<InputProps>`
     }
 
     &:disabled {
-        //disabled styles
+        opacity:.5;
+        cursor:not-allowed    
     }
 
     ::placeholder {
@@ -75,6 +81,15 @@ const Input = styled.input <InputProps>`
     ${props => props.position === IconPosition.right && css`
         padding-right:32px;
     `}
+    ${props => props.customStyles?.textColor && css`
+        color: ${props.customStyles?.textColor}
+    `};
+    ${props => props.customStyles?.textAlign && css`
+        text-align: ${props.customStyles?.textAlign}
+    `};
+    ${props => props.customStyles?.textWeight && css`
+        font-weight: ${props.customStyles?.textWeight}
+    `};
 `
 
 type IconContainerProps = {
@@ -149,6 +164,34 @@ const InputAction = styled.button`
     }
 `
 
+const InputTextArea = styled.textarea<InputProps>`
+    ${InputGeneralStyles};
+    max-width: 100%;
+    resize: none;
+    width: auto;
+    line-height: 1.5;
+    min-height: 50px;
+
+    ${props => props.autoHeight && css`
+        overflow: hidden;
+    `}
+`
+
+type CharacterCountProps = {
+    reachesTheLimit: boolean,
+}
+
+const CharacterCount = styled.span<CharacterCountProps>`
+    font-size:1.2rem;
+    line-height: 1.4rem;
+    color: ${props => (props.reachesTheLimit
+        ? thp.system(c => c.critical)
+        : thp.common(c => c.black))};
+    margin:4px 0px;
+    text-align: right;
+    max-height: 14px;
+`
+
 export const InputStyled = {
     InputContainer,
     Input,
@@ -157,4 +200,6 @@ export const InputStyled = {
     ErrorText,
     ErrorWrapper,
     InputAction,
+    CharacterCount,
+    InputTextArea,
 }

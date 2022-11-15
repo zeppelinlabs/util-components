@@ -8,7 +8,6 @@ export type CustomInputStyles = {
 }
 
 export type InputCommonProps<T> = {
-    type: "text" | "email" | "tel" | "password",
     value: T,
     placeholder?: string,
     disabled?: boolean,

@@ -6,21 +6,8 @@ import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
 
-export type Props = InputCommonProps<string> & {
-    placeholder?: string,
-    value: string,
-    disabled?: boolean,
-    errorMessage?: string | null,
-    tabIndex?: number,
-    autoFocus?: boolean,
-    onChange?: (value: string) => void,
-    onBlur?: () => void,
-    onFocus?: (value: string) => void,
-}
-
-
 const InputPassword = React.forwardRef((
-    props: Props,
+    props: InputCommonProps<string>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const [showPassword, setShowPassword,] = useState(true)
@@ -60,8 +47,8 @@ const InputPassword = React.forwardRef((
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
                 onFocus={handleOnFocus}
-                tabIndex={props.tabIndex}
-                autoFocus={props.autoFocus}
+                autoFocus={props.accessibility?.autoFocus}
+                tabIndex={props.accessibility?.tabIndex}
             />
             {renderIconAction()}
             {props.errorMessage

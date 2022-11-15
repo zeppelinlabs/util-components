@@ -7,8 +7,8 @@ import { InputStyled } from "./InputStyles"
 
 export type Props = InputCommonProps<string> & {
     leadingLabel?: string,
+    type: "text" | "email" | "tel",
 }
-
 
 const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInputElement> ) => {
     const leadingLabelRef = useRef<HTMLSpanElement>(null)
@@ -43,6 +43,8 @@ const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInput
                     onChange={handleOnChange}
                     onBlur={props.onBlur}
                     onFocus={handleOnFocus}
+                    autoFocus={props.accessibility?.autoFocus}
+                    tabIndex={props.accessibility?.tabIndex}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.icon && props.icon.position === IconPosition.right
