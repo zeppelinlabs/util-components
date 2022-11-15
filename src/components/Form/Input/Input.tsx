@@ -45,6 +45,7 @@ const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInput
                     onFocus={handleOnFocus}
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
+                    customStyles={props.customStyles}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.icon && props.icon.position === IconPosition.right

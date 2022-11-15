@@ -13,14 +13,6 @@ const InputShowCaseDetail = () => {
     const [inputNumericState, setInputNumericState,] = useState<number | null>(1)
     const [inputAmountState, setInputAmountState,] = useState<number | null>(1)
 
-    const handleNumericKeyDown = (event: string) => {
-        if (event === "ArrowUp") {
-            setInputNumericState(prev => (prev ? prev + 1 : 1))
-        } else if (event === "ArrowDown") {
-            setInputNumericState(prev => (prev ? prev - 1 : -1))
-        }
-    }
-
     return <LayoutExamples>
         <Label text="Input text">
             <Input
@@ -36,7 +28,6 @@ const InputShowCaseDetail = () => {
             <InputNumeric
                 value={inputNumericState}
                 onChange={setInputNumericState}
-                onKeyDown={handleNumericKeyDown}
                 placeholder="0"
             />
         </Label>
@@ -46,7 +37,7 @@ const InputShowCaseDetail = () => {
                 value={inputStringState}
                 onChange={setInputStringState}
                 placeholder="Password"
-                errorMessage={inputStringState ? undefined : "Cannot be empty" }
+                errorMessage={inputStringState ? undefined : "Cannot be empty"}
             />
         </Label>
         <hr />
@@ -63,6 +54,10 @@ const InputShowCaseDetail = () => {
                 value={inputAmountState}
                 leadingLabel="$"
                 onChange={setInputAmountState}
+                step={0.01}
+                customStyles={{
+                    textAlign: TextAlign.Right,
+                }}
             />
         </Label>
         <hr />
@@ -73,7 +68,6 @@ const InputShowCaseDetail = () => {
                 onChange={setInputStringState}
                 customStyles={{
                     textColor: "blue",
-                    textAlign: TextAlign.Right,
                     textWeight: TextWeight.Bold,
                 }}
             />

@@ -50,8 +50,11 @@ const InputTextArea = React.forwardRef((
                 value={props.value}
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
+                autoFocus={props.accessibility?.autoFocus}
+                tabIndex={props.accessibility?.tabIndex}
                 maxLength={props.maxLength}
                 autoHeight={props.autoHeight}
+                customStyles={props.customStyles}
             />
             {props.maxLength && renderCharacterCount()}
             {props.errorMessage

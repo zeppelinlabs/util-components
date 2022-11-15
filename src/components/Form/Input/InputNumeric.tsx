@@ -56,6 +56,7 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     onKeyDown={handleOnKeyDown}
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
+                    customStyles={props.customStyles}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.errorMessage

@@ -49,6 +49,7 @@ const InputPassword = React.forwardRef((
                 onFocus={handleOnFocus}
                 autoFocus={props.accessibility?.autoFocus}
                 tabIndex={props.accessibility?.tabIndex}
+                customStyles={props.customStyles}
             />
             {renderIconAction()}
             {props.errorMessage
