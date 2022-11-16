@@ -18,7 +18,7 @@ type ValidKey = string | number
 
 export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
     options: T[],
-    value: T[],
+    keyValue: K[],
     disabled?: boolean,
     errorMessage?: string,
     onChange?: (value: T[]) => void,
@@ -39,22 +39,21 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
     const handleOnChange = (option: T) => (checked: boolean) => {
         if (props.onChange) {
             const optionsByKey = toDictionary(props.options, o => o.key)
-            const hasKeyBeforeChange = hasKey(props.value.map(o => o.key), option.key)
+            const hasKeyBeforeChange = hasKey(props.keyValue, option.key)
 
-            if (props.value.some(k => !optionsByKey[k.key])) {
+            if (props.keyValue.some(k => !optionsByKey[k])) {
                 console.warn("keyValue not in options", props)
             }
 
             if (checked && !hasKeyBeforeChange) {
-                props.onChange([...props.value.map(k => optionsByKey[k.key]), option,])
+                props.onChange([...props.keyValue.map(k => optionsByKey[k]), option,])
             } else if (!checked) {
-                props.onChange(props.value
-                    .filter(k => k.key !== option.key)
-                    .map(k => optionsByKey[k.key]))
+                props.onChange(props.keyValue
+                    .filter(k => k !== option.key)
+                    .map(k => optionsByKey[k]))
             }
         }
     }
-
 
     return (
         <>
@@ -62,7 +61,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
-                    value={hasKey(props.value.map(o => o.key), option.key)}
+                    value={hasKey(props.keyValue, option.key)}
                     disabled={props.disabled}
                     onChange={handleOnChange(option)}
                     customStyles={props.customStyles}
