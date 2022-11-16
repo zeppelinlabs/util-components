@@ -76,7 +76,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
         </>
     )
 }) as <K extends ValidKey,
-    T extends CheckboxGroupOption<K>>(props: Props<K, T>
-        & React.RefAttributes<HTMLInputElement>) => JSX.Element
+        T extends CheckboxGroupOption<K>>(props: Props<K, T>
+            & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export default CheckboxGroup
