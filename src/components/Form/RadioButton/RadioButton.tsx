@@ -3,6 +3,14 @@ import React from "react"
 import { RadioButtonStyled } from "./RadioButtonStyles"
 import { TextWeight } from "../../../styles/typographicHelper"
 
+export type SelectOption<K> = {
+    key: K,
+    value: string,
+    children: React.ReactNode,
+} & RadioButtonOption
+
+export type ValidKey = string | boolean | number | null
+
 export type CustomRadioButtonStyles = {
     textWeight?: TextWeight,
     textColor?: string,
@@ -14,7 +22,6 @@ export type AccessibilityRadioButton = {
 }
 
 type RadioButtonOption = {
-    value: string,
     children: React.ReactNode,
     customStyles?: CustomRadioButtonStyles,
     accessibility?: AccessibilityRadioButton,
@@ -34,14 +41,27 @@ type InputRadioProps = {
     accessibility?: AccessibilityRadioButton,
 }
 
-type RadioButtonProps = {
+type RadioButtonProps<K extends ValidKey, T extends SelectOption<K>> = {
     name: string,
     selectedValue: string,
-    options: RadioButtonOption[],
+    options: T[],
     onChange?: (value: string) => void,
     errorMessage?: string | null,
 }
 
+const keySerializator = (() => {
+    const emptyValue = ""
+    return {
+        serialize: (k: ValidKey) =>
+            (k === emptyValue
+                ? emptyValue
+                : JSON.stringify(k)),
+        deserialize: <R extends ValidKey>(s: string) =>
+            (s === emptyValue
+                ? emptyValue
+                : JSON.parse(s) as R),
+    }
+})()
 
 const InputRadio = React.forwardRef((
     props: InputRadioProps,
@@ -77,8 +97,8 @@ const InputRadio = React.forwardRef((
 
 InputRadio.displayName = "InputRadio"
 
-const RadioButton = React.forwardRef((
-    props: RadioButtonProps,
+const RadioButton = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
+    props: RadioButtonProps<K, T>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const handleOnChange = (value: string) => {
@@ -86,16 +106,23 @@ const RadioButton = React.forwardRef((
     }
     return (
         <>
-            {props.options.map((propsChild: RadioButtonOption) => {
+            {props.options.map((propsChild: SelectOption<K>) => {
+                const key = keySerializator.serialize(propsChild.key)
+
                 return <InputRadio
-                    key={propsChild.value}
+                    key={key}
                     selectedValue={props.selectedValue}
                     onChange={handleOnChange}
                     ref={ref}
                     name={props.name}
-
-                    {...propsChild}
-                />
+                    accessibility={propsChild.accessibility}
+                    customStyles={propsChild.customStyles}
+                    disabled={propsChild.disabled}
+                    value={propsChild.value}
+                    onClick={propsChild.onClick}
+                >
+                    {propsChild.children}
+                </InputRadio>
             })}
             {props.errorMessage && <RadioButtonStyled.ErrorMessageContainer>
                 {props.errorMessage}

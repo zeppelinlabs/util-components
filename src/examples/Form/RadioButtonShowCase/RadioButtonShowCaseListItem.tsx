@@ -10,6 +10,7 @@ const RadioButtonShowCaseDetailListItem = () => {
             name="group-1"
             options={[
                 {
+                    key: "1",
                     value: "1",
                     children: "Input radio",
                 },

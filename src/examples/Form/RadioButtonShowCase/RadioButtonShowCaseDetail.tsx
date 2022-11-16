@@ -17,15 +17,18 @@ const RadioButtonShowCaseDetail = () => {
             name="group-1"
             options={[
                 {
+                    key:"1",
                     value: "1",
                     children: "Input radio",
                 },
                 {
+                    key: "3",
                     value: "3",
                     children: "With text bold",
                     customStyles: {textWeight:TextWeight.Bold,},
                 },
                 {
+                    key: "2",
                     value: "2",
                     children: "Disabled item",
                     disabled:true,
@@ -39,19 +42,23 @@ const RadioButtonShowCaseDetail = () => {
             name="group-2"
             options={[
                 {
+                    key: "1",
                     value: "1",
                     children: "Input in other radio group",
                 },
                 {
+                    key: "2",
                     value: "2",
                     children: <>With <em>JSX</em> content</>,
                 },
                 {
+                    key: "3",
                     value: "3",
                     children: "With other colors",
                     customStyles: { textColor: "green", },
                 },
                 {
+                    key: "4",
                     value: "4",
                     children: "With auto focus",
                     accessibility: {
@@ -68,6 +75,7 @@ const RadioButtonShowCaseDetail = () => {
             errorMessage="Error, Select one!"
             options={[
                 {
+                    key: "1",
                     value: "1",
                     children: "Input disabled with error",
                     disabled:true,
