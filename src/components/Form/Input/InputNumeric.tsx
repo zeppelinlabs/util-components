@@ -3,6 +3,7 @@ import React, { useRef, useEffect, useState } from "react"
 import { renderErrorMessage, } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 import { InputCommonProps } from "./InputCommon"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
 export type Props = InputCommonProps<number | null> & {
     leadingLabel?: string,
@@ -57,10 +58,16 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
                     customStyles={props.customStyles}
+                    loading={props.loading}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
+                {props.loading
+                    && <InputStyled.SpinnerContainer>
+                        <Spinner size={SpinnerSize.small} />
+                    </InputStyled.SpinnerContainer>
+                }
             </>
         )
     }

@@ -80,6 +80,14 @@ const InputShowCaseDetail = () => {
                 maxLength={100}
             />
         </Label>
+        <hr />
+        <Label text="Input loading">
+            <Input
+                type="text"
+                value="Loading"
+                loading
+            />
+        </Label>
     </LayoutExamples>
 }
 

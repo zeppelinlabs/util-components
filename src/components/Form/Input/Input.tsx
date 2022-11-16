@@ -1,6 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React, { useEffect, useRef, useState } from "react"
 import { IconPosition } from "../../CommonTypes"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage, } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
@@ -10,7 +11,7 @@ export type Props = InputCommonProps<string> & {
     type: "text" | "email" | "tel",
 }
 
-const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInputElement> ) => {
+const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
     const leadingLabelRef = useRef<HTMLSpanElement>(null)
     const [leadingLabelWidth, setLeadingLabelWidth,] = useState<number | undefined>(undefined)
 
@@ -46,6 +47,7 @@ const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInput
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
                     customStyles={props.customStyles}
+                    loading={props.loading}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.icon && props.icon.position === IconPosition.right
@@ -54,6 +56,11 @@ const Input = React.forwardRef(( props: Props, ref: React.ForwardedRef<HTMLInput
                     </InputStyled.IconContainer>}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
+                {props.loading
+                    && <InputStyled.SpinnerContainer>
+                        <Spinner size={SpinnerSize.small} />
+                    </InputStyled.SpinnerContainer>
+                }
             </>
         )
     }

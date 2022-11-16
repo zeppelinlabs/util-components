@@ -1,5 +1,7 @@
+/* eslint-disable max-lines-per-function */
 import React, { useEffect } from "react"
 import { UseCombinedRefs } from "../../../hooks/UseCombineRefs"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
@@ -55,10 +57,16 @@ const InputTextArea = React.forwardRef((
                 maxLength={props.maxLength}
                 autoHeight={props.autoHeight}
                 customStyles={props.customStyles}
+                loading={props.loading}
             />
             {props.maxLength && renderCharacterCount()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
+            {props.loading
+                && <InputStyled.SpinnerContainer>
+                    <Spinner size={SpinnerSize.small} />
+                </InputStyled.SpinnerContainer>
+            }
         </InputStyled.InputContainer>
     )
 })

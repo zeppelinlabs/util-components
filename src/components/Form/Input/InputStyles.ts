@@ -11,7 +11,9 @@ type InputProps = {
     leadingLabelWidth?: number,
     customStyles?: CustomInputStyles,
     autoHeight?: boolean,
+    loading?: boolean,
 }
+
 
 const InputContainer = styled.div`
   position: relative;
@@ -90,6 +92,9 @@ const Input = styled.input <InputProps>`
     ${props => props.customStyles?.textWeight && css`
         font-weight: ${props.customStyles?.textWeight}
     `};
+    ${props => (props.loading && css`
+        visibility: hidden;
+    `)};
 `
 
 type IconContainerProps = {
@@ -192,6 +197,14 @@ const CharacterCount = styled.span<CharacterCountProps>`
     max-height: 14px;
 `
 
+const SpinnerContainer = styled.span`
+    max-width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`
+
 export const InputStyled = {
     InputContainer,
     Input,
@@ -202,4 +215,5 @@ export const InputStyled = {
     InputAction,
     CharacterCount,
     InputTextArea,
+    SpinnerContainer,
 }

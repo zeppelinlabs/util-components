@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import { InputStyled } from "./InputStyles"
 import { useState } from "react"
@@ -5,6 +6,7 @@ import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
 import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
 const InputPassword = React.forwardRef((
     props: InputCommonProps<string>,
@@ -50,10 +52,16 @@ const InputPassword = React.forwardRef((
                 autoFocus={props.accessibility?.autoFocus}
                 tabIndex={props.accessibility?.tabIndex}
                 customStyles={props.customStyles}
+                loading={props.loading}
             />
             {renderIconAction()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
+            {props.loading
+                && <InputStyled.SpinnerContainer>
+                    <Spinner size={SpinnerSize.small} />
+                </InputStyled.SpinnerContainer>
+            }
         </InputStyled.InputContainer>
     )
 })
