@@ -63,19 +63,19 @@ const CheckboxGroupShowCase = () => {
         <h3>Checkbox Group</h3>
         <CheckboxGroup
             options={options}
-            value={checkedState}
+            keyValue={checkedState.map(o => o.key)}
             onChange={handleOnChangeCheckboxGroup}
         />
         <hr />
         <CheckboxGroup
             options={options2}
-            value={checkedState}
+            keyValue={checkedState.map(o => o.key)}
             onChange={handleOnChangeCheckboxGroup}
         />
         <hr />
         <CheckboxGroup
             options={options3}
-            value={checkedState3}
+            keyValue={checkedState3.map(o => o.key)}
             onChange={setCheckedState3}
         />
     </>
