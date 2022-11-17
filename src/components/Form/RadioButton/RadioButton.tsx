@@ -6,7 +6,6 @@ import { TextWeight } from "../../../styles/typographicHelper"
 export type SelectOption<K> = {
     key: K,
     value: string,
-    children: React.ReactNode,
 } & RadioButtonOption
 
 export type ValidKey = string | boolean | number | null
