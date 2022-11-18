@@ -3,24 +3,19 @@ import React from "react"
 import { RadioButtonStyled } from "./RadioButtonStyles"
 import { TextWeight } from "../../../styles/typographicHelper"
 
-export type SelectOption<K> = {
-    key: K,
-    value: string,
-} & RadioButtonOption
-
-export type ValidKey = string | boolean | number | null
-
 export type CustomRadioButtonStyles = {
     textWeight?: TextWeight,
     textColor?: string,
 }
-
 export type AccessibilityRadioButton = {
     tabIndex?: number,
     autoFocus?: boolean,
 }
 
-type RadioButtonOption = {
+export type ValidKey = string | boolean | number | null
+
+export type RadioOption<K extends ValidKey> = {
+    key: K,
     children: React.ReactNode,
     customStyles?: CustomRadioButtonStyles,
     accessibility?: AccessibilityRadioButton,
@@ -28,24 +23,16 @@ type RadioButtonOption = {
     disabled?: boolean,
 }
 
-type InputRadioProps = {
-    selectedValue?: string,
-    name: string,
-    disabled?: boolean,
+type InputRadioProps<K extends ValidKey> = {
     children?: React.ReactNode,
-    value: string,
-    onChange?: (value: string) => void,
+    name: string,
+    selectedValue?: K,
+    value: K,
+    disabled?: boolean,
+    onChange?: (value: K) => void,
     onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     customStyles?: CustomRadioButtonStyles,
     accessibility?: AccessibilityRadioButton,
-}
-
-type RadioButtonProps<K extends ValidKey, T extends SelectOption<K>> = {
-    name: string,
-    selectedValue: string,
-    options: T[],
-    onChange?: (value: string) => void,
-    errorMessage?: string | null,
 }
 
 const keySerializator = (() => {
@@ -62,8 +49,8 @@ const keySerializator = (() => {
     }
 })()
 
-const InputRadio = React.forwardRef((
-    props: InputRadioProps,
+const InputRadio_ = React.forwardRef(<K extends ValidKey>(
+    props: InputRadioProps<K>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const handleOnChange = () => {
@@ -75,7 +62,7 @@ const InputRadio = React.forwardRef((
             <RadioButtonStyled.Input
                 ref={ref}
                 type="radio"
-                value={props.value}
+                value={keySerializator.serialize(props.value)}
                 name={props.name}
                 checked={props.value === props.selectedValue}
                 disabled={props.disabled}
@@ -93,31 +80,51 @@ const InputRadio = React.forwardRef((
         </RadioButtonStyled.Container>
     )
 })
+InputRadio_.displayName = "InputRadio"
 
-InputRadio.displayName = "InputRadio"
+const InputRadio = InputRadio_ as <K extends ValidKey>(props: InputRadioProps<K>
+    & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
-const RadioButton = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
+type RadioButtonProps<K extends ValidKey, T extends RadioOption<K>> = {
+    name: string,
+    selectedValue: K,
+    options: T[],
+    onChange?: (value: K) => void,
+    errorMessage?: string | null,
+}
+
+const RadioButtonGroup = React.forwardRef(<K extends ValidKey, T extends RadioOption<K>>(
     props: RadioButtonProps<K, T>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
-    const handleOnChange = (value: string) => {
-        props.onChange && props.onChange(value)
+
+    const handleOnChange = (e: K) => {
+        const selected = e
+        const value = props.options.find(o => o.key === selected)
+
+        if (value) {
+            props.onChange && props.onChange(value.key)
+        } else {
+            console.error("Option not found", value, [e, selected,])
+            throw new Error("Option not found")
+        }
     }
+
     return (
         <>
-            {props.options.map((propsChild: SelectOption<K>) => {
+            {props.options.map((propsChild: RadioOption<K>) => {
                 const key = keySerializator.serialize(propsChild.key)
 
                 return <InputRadio
-                    key={key}
-                    selectedValue={props.selectedValue}
-                    onChange={handleOnChange}
                     ref={ref}
+                    key={key}
                     name={props.name}
+                    value={propsChild.key}
+                    selectedValue={props.selectedValue}
+                    disabled={propsChild.disabled}
                     accessibility={propsChild.accessibility}
                     customStyles={propsChild.customStyles}
-                    disabled={propsChild.disabled}
-                    value={propsChild.value}
+                    onChange={handleOnChange}
                     onClick={propsChild.onClick}
                 >
                     {propsChild.children}
@@ -130,6 +137,6 @@ const RadioButton = React.forwardRef(<K extends ValidKey, T extends SelectOption
     )
 })
 
-RadioButton.displayName = "RadioButton"
+RadioButtonGroup.displayName = "RadioButtonGroup"
 
-export default RadioButton
+export default RadioButtonGroup
