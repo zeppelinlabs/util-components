@@ -43,12 +43,15 @@ const TagShowCaseDetail = () => {
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}
             customStyles={{
-                borderColor: "#004221",
+                borderColor: "red",
                 backgroundColor: "#BAF7D9",
                 textColor: "#008542",
                 size: TagSize.Large,
             }} >
             With custom colors
+        </Tag>
+        <Tag onClick={handleOnClick} customStyles={{isCursorPointer:true,}}>
+            With onClick event
         </Tag>
     </LayoutExamples>
 }

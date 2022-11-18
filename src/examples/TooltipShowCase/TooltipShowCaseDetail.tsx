@@ -1,7 +1,9 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
     from "../../components/Tooltip/Tooltip"
 import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
+import { ReactComponent as InfoIcon } from "../../assets/info.svg"
 
 const TooltipShowCaseDetail = () => {
     return <LayoutExamples>
@@ -13,18 +15,26 @@ const TooltipShowCaseDetail = () => {
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip with small size"
-                customStyles={{ align: TooltipAlign.Left, size:TooltipSize.Small, }}>
+                customStyles={{ size: TooltipSize.Small, }}>
+                Tooltip size
+            </Tooltip>
+        </div>
+        <div>
+            <Tooltip
+                tooltipContent="Content of tooltip"
+                customStyles={{ align: TooltipAlign.Left,}}>
                 Tooltip example align to left
             </Tooltip>
         </div>
         <div>
+            {"Tooltip example align to right in icon "}
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{
                     align: TooltipAlign.Right,
                     tooltipVariant: TooltipVariant.Secondary,
                 }}>
-                Tooltip example align to right
+                <InfoIcon />
             </Tooltip>
         </div>
         <div>

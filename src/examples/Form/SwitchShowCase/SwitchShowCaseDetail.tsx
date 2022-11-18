@@ -35,7 +35,7 @@ const SwitchShowCaseDetail = () => {
                 contentPosition: ContentSwitchPosition.Left,
             }}
         >
-            With left text or content
+            With text or content position left
         </Switch>
         <hr />
         <Switch
@@ -46,7 +46,7 @@ const SwitchShowCaseDetail = () => {
                 contentAlign: ContentSwitchAlign.Start,
             }}
         >
-            With bottom text or content
+            With text or content position bottom
         </Switch>
         <hr />
         <Switch
@@ -58,7 +58,7 @@ const SwitchShowCaseDetail = () => {
                 textAlign: TextAlign.Center,
             }}
         >
-            With top text or content
+            With text or content align to end
         </Switch>
     </LayoutExamples>
 }
