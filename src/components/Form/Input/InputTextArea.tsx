@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { useEffect } from "react"
-import { UseCombinedRefs } from "../../../hooks/UseCombineRefs"
+import { useCombinedRefs } from "../../../hooks/useCombineRefs"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
@@ -15,7 +15,7 @@ const InputTextArea = React.forwardRef((
     props: Props,
     ref: React.ForwardedRef<HTMLTextAreaElement>
 ) => {
-    const innerRef = UseCombinedRefs(ref)
+    const innerRef = useCombinedRefs(ref)
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {

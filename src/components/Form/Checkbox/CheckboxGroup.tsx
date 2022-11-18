@@ -2,7 +2,7 @@ import React from "react"
 import { toDictionary } from "../../../util/toDictionary"
 import Checkbox, { CustomCheckboxStyles } from "./Checkbox"
 import { HTMLSetCustomValidityElement, useSetCustomValidity }
-    from "../../../hooks/SetCustomValidity"
+    from "../../../hooks/useSetCustomValidity"
 import { renderErrorMessage } from "../FormCommon"
 
 export type CheckboxGroupOption<K> = {

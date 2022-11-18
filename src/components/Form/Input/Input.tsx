@@ -7,8 +7,8 @@ import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
 
 export type Props = InputCommonProps<string> & {
-    leadingLabel?: string,
     type: "text" | "email" | "tel",
+    leadingLabel?: string,
 }
 
 const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputElement>) => {
