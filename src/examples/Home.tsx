@@ -9,6 +9,7 @@ import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseLi
 import TooltipShowCaseDetailListItem from "./TooltipShowCase/TooltipShowCaseListItem"
 import CheckboxShowCaseDetailListItem from "./Form/CheckboxShowCase/CheckboxShowCaseListItem"
 import LabelShowCaseDetailListItem from "./Form/Label/LabelShowCaseListItem"
+import InputShowCaseDetailListItem from "./Form/InputShowCase/InputShowCaseListItem"
 import RadioButtonShowCaseDetailListItem
     from "./Form/RadioButtonShowCase/RadioButtonShowCaseListItem"
 
@@ -41,6 +42,10 @@ const Home = () => {
 
             <Link to={Paths.RadioButton}>Radio Button</Link>
             <RadioButtonShowCaseDetailListItem />
+            <hr />
+
+            <Link to={Paths.Input}>Input</Link>
+            <InputShowCaseDetailListItem />
             <hr />
 
         </LayoutHome>

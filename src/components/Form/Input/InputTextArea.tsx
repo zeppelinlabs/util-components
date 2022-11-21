@@ -1,21 +1,21 @@
+/* eslint-disable max-lines-per-function */
 import React, { useEffect } from "react"
-import { TextAreaStyled } from "./TextAreaStyles"
-import { UseCombinedRefs } from "../../../hooks/UseCombineRefs"
+import { useCombinedRefs } from "../../../hooks/useCombineRefs"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage } from "../FormCommon"
+import { InputCommonProps } from "./InputCommon"
+import { InputStyled } from "./InputStyles"
 
-export type Props = {
-    placeholder?: string,
-    value: string,
-    disabled?: boolean,
-    errorMessage?: string | null,
-    onChange?: (value: string) => void,
-    onBlur?: () => void,
+export type Props = InputCommonProps<string> & {
     autoHeight?: boolean,
     maxLength?: number,
 }
 
-const TextArea = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLTextAreaElement>) => {
-    const innerRef = UseCombinedRefs(ref)
+const InputTextArea = React.forwardRef((
+    props: Props,
+    ref: React.ForwardedRef<HTMLTextAreaElement>
+) => {
+    const innerRef = useCombinedRefs(ref)
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {
@@ -33,34 +33,44 @@ const TextArea = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLTex
 
     const renderCharacterCount = () => {
         return (
-            <TextAreaStyled.CharacterCount
+            <InputStyled.CharacterCount
                 reachesTheLimit={props.value.length === props.maxLength}
             >
                 {`${props.value.length}/${props.maxLength}`}
-            </TextAreaStyled.CharacterCount>
+            </InputStyled.CharacterCount>
         )
     }
 
     return (
-        <TextAreaStyled.TextAreaContainer>
-            <TextAreaStyled.TextArea
-                errorMessage={props.errorMessage}
+        <InputStyled.InputContainer>
+            <InputStyled.InputTextArea
+                type="text"
+                errorMessage={!!props.errorMessage}
                 placeholder={props.placeholder}
                 disabled={props.disabled}
                 ref={innerRef}
                 value={props.value}
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
+                autoFocus={props.accessibility?.autoFocus}
+                tabIndex={props.accessibility?.tabIndex}
                 maxLength={props.maxLength}
                 autoHeight={props.autoHeight}
+                customStyles={props.customStyles}
+                loading={props.loading}
             />
             {props.maxLength && renderCharacterCount()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
-        </TextAreaStyled.TextAreaContainer>
+            {props.loading
+                && <InputStyled.SpinnerContainer>
+                    <Spinner size={SpinnerSize.small} />
+                </InputStyled.SpinnerContainer>
+            }
+        </InputStyled.InputContainer>
     )
 })
 
-TextArea.displayName = "TextArea"
+InputTextArea.displayName = "TextArea"
 
-export default TextArea
+export default InputTextArea

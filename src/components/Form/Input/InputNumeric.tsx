@@ -1,25 +1,15 @@
 /* eslint-disable max-lines-per-function */
 import React, { useRef, useEffect, useState } from "react"
-import { IconPosition } from "../../CommonTypes"
-import { renderErrorMessage, renderIcon } from "../FormCommon"
+import { renderErrorMessage, } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
+import { InputCommonProps } from "./InputCommon"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
-type Value = number | null | undefined
-
-export type Props = {
-    value: Value,
-    placeholder?: string,
-    icon?: JSX.Element,
-    position?: IconPosition,
-    disabled?: boolean,
-    errorMessage?: string,
+export type Props = InputCommonProps<number | null> & {
+    leadingLabel?: string,
     min?: number,
     max?: number,
     step?: number,
-    leadingLabel?: string,
-    onChange?: (value: Value) => void,
-    onBlur?: () => void,
-    onFocus?: (value: Value) => void,
     onKeyDown?: (key: string) => void,
 }
 
@@ -55,7 +45,7 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     value={props.value || props.value === 0 ? props.value : ""}
                     errorMessage={!!props.errorMessage}
                     placeholder={props.placeholder}
-                    position={props.position}
+                    position={props.icon?.position}
                     min={props.min}
                     max={props.max}
                     step={props.step}
@@ -65,10 +55,19 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     onBlur={props.onBlur}
                     onFocus={handleOnFocus}
                     onKeyDown={handleOnKeyDown}
+                    autoFocus={props.accessibility?.autoFocus}
+                    tabIndex={props.accessibility?.tabIndex}
+                    customStyles={props.customStyles}
+                    loading={props.loading}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
+                {props.loading
+                    && <InputStyled.SpinnerContainer>
+                        <Spinner size={SpinnerSize.small} />
+                    </InputStyled.SpinnerContainer>
+                }
             </>
         )
     }
@@ -84,12 +83,13 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
 
     return (
         <InputStyled.InputContainer>
-            {props.icon && props.position
-                && renderIcon(props.position, props.icon)
-            }
             {renderInput()}
+            {props.icon && props.icon.position
+                && <InputStyled.IconContainer position={props.icon.position}>
+                    <props.icon.SVGComponent />
+                </InputStyled.IconContainer>
+            }
             {props.leadingLabel && renderLeadingLabel()}
-
         </InputStyled.InputContainer>
     )
 })

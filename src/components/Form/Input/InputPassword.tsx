@@ -1,25 +1,15 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import { InputStyled } from "./InputStyles"
 import { useState } from "react"
 import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
 import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
 import { renderErrorMessage } from "../FormCommon"
-
-export type Props = {
-    placeholder?: string,
-    value: string,
-    disabled?: boolean,
-    errorMessage?: string | null,
-    tabIndex?: number,
-    autoFocus?: boolean,
-    onChange?: (value: string) => void,
-    onBlur?: () => void,
-    onFocus?: (value: string) => void,
-}
-
+import { InputCommonProps } from "./InputCommon"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
 const InputPassword = React.forwardRef((
-    props: Props,
+    props: InputCommonProps<string>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const [showPassword, setShowPassword,] = useState(true)
@@ -59,12 +49,19 @@ const InputPassword = React.forwardRef((
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
                 onFocus={handleOnFocus}
-                tabIndex={props.tabIndex}
-                autoFocus={props.autoFocus}
+                autoFocus={props.accessibility?.autoFocus}
+                tabIndex={props.accessibility?.tabIndex}
+                customStyles={props.customStyles}
+                loading={props.loading}
             />
             {renderIconAction()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
+            {props.loading
+                && <InputStyled.SpinnerContainer>
+                    <Spinner size={SpinnerSize.small} />
+                </InputStyled.SpinnerContainer>
+            }
         </InputStyled.InputContainer>
     )
 })

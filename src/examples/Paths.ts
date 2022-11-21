@@ -7,4 +7,5 @@ export const Paths = {
     Label: "/form/label",
     Checkbox: "/form/checkbox",
     RadioButton: "/form/radioButton",
+    Input: "/form/input",
 }
