@@ -12,29 +12,6 @@ export type AccessibilityRadioButton = {
     autoFocus?: boolean,
 }
 
-export type ValidKey = string | boolean | number | null
-
-export type RadioOption<K extends ValidKey> = {
-    key: K,
-    children: React.ReactNode,
-    customStyles?: CustomRadioButtonStyles,
-    accessibility?: AccessibilityRadioButton,
-    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
-    disabled?: boolean,
-}
-
-type InputRadioProps<K extends ValidKey> = {
-    children?: React.ReactNode,
-    name: string,
-    selectedValue?: K,
-    value: K,
-    disabled?: boolean,
-    onChange?: (value: K) => void,
-    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
-    customStyles?: CustomRadioButtonStyles,
-    accessibility?: AccessibilityRadioButton,
-}
-
 const keySerializator = (() => {
     const emptyValue = ""
     return {
@@ -48,6 +25,20 @@ const keySerializator = (() => {
                 : JSON.parse(s) as R),
     }
 })()
+
+export type ValidKey = string | boolean | number | null
+
+type InputRadioProps<K extends ValidKey> = {
+    children?: React.ReactNode,
+    name: string,
+    selectedValue?: K,
+    value: K,
+    disabled?: boolean,
+    onChange?: (value: K) => void,
+    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
+    customStyles?: CustomRadioButtonStyles,
+    accessibility?: AccessibilityRadioButton,
+}
 
 const InputRadio_ = React.forwardRef(<K extends ValidKey>(
     props: InputRadioProps<K>,
@@ -84,6 +75,15 @@ InputRadio_.displayName = "InputRadio"
 
 const InputRadio = InputRadio_ as <K extends ValidKey>(props: InputRadioProps<K>
     & React.RefAttributes<HTMLInputElement>) => JSX.Element
+
+export type RadioOption<K extends ValidKey> = {
+    key: K,
+    children: React.ReactNode,
+    customStyles?: CustomRadioButtonStyles,
+    accessibility?: AccessibilityRadioButton,
+    onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
+    disabled?: boolean,
+}
 
 type RadioButtonProps<K extends ValidKey, T extends RadioOption<K>> = {
     name: string,
