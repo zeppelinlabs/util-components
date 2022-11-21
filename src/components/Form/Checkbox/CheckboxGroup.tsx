@@ -12,6 +12,8 @@ export type CheckboxGroupOption<K> = {
         tabIndex?: number,
         autoFocus?: boolean,
     },
+    customStyles?: CustomCheckboxStyles,
+    disabled?: boolean,
 }
 
 type ValidKey = string | number
@@ -19,10 +21,8 @@ type ValidKey = string | number
 export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
     options: T[],
     keyValue: K[],
-    disabled?: boolean,
     errorMessage?: string,
     onChange?: (value: T[]) => void,
-    customStyles?: CustomCheckboxStyles,
 }
 
 const hasKey = <K,>(options: K[], key: K) => {
@@ -62,9 +62,9 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
                     value={hasKey(props.keyValue, option.key)}
-                    disabled={props.disabled}
+                    disabled={option.disabled}
                     onChange={handleOnChange(option)}
-                    customStyles={props.customStyles}
+                    customStyles={option.customStyles}
                     accessibility={option.accessibility}
                 >
                     {option.children}
