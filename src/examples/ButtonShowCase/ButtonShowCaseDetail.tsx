@@ -58,6 +58,18 @@ const ButtonShowCaseDetail = () => {
             type="submit">
             Button second variant
         </Button>
+
+        <Button
+            buttonVariant={ButtonVariant.Primary}
+            type="submit">
+            With custom <em>JSX content</em>
+        </Button>
+        <Button
+            buttonVariant={ButtonVariant.Primary}
+            customStyles={{isFullWidth:true,}}
+            type="submit">
+            With full width
+        </Button>
     </LayoutExamples>
 }
 
