@@ -12,6 +12,7 @@ export type AccessibilityRadioButton = {
     autoFocus?: boolean,
 }
 
+
 const keySerializator = (() => {
     const emptyValue = ""
     return {
@@ -87,13 +88,15 @@ export type RadioOption<K extends ValidKey> = {
 
 type RadioButtonProps<K extends ValidKey, T extends RadioOption<K>> = {
     name: string,
-    selectedValue: K,
+    selectedValue?: K,
     options: T[],
     onChange?: (value: K) => void,
     errorMessage?: string | null,
+    disabledAll?: boolean,
 }
 
-const RadioButtonGroup = React.forwardRef(<K extends ValidKey, T extends RadioOption<K>>(
+
+const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioOption<K>>(
     props: RadioButtonProps<K, T>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
@@ -121,7 +124,10 @@ const RadioButtonGroup = React.forwardRef(<K extends ValidKey, T extends RadioOp
                     name={props.name}
                     value={propsChild.key}
                     selectedValue={props.selectedValue}
-                    disabled={propsChild.disabled}
+                    disabled={props.disabledAll
+                        ? props.disabledAll
+                        : propsChild.disabled
+                    }
                     accessibility={propsChild.accessibility}
                     customStyles={propsChild.customStyles}
                     onChange={handleOnChange}
@@ -137,6 +143,12 @@ const RadioButtonGroup = React.forwardRef(<K extends ValidKey, T extends RadioOp
     )
 })
 
-RadioButtonGroup.displayName = "RadioButtonGroup"
+RadioButtonGroup_.displayName = "RadioButtonGroup"
+
+const RadioButtonGroup = RadioButtonGroup_ as <
+    K extends ValidKey,
+    T extends RadioOption<K>>(props: RadioButtonProps<K, T>
+    & React.RefAttributes<HTMLInputElement>) => JSX.Element
+
 
 export default RadioButtonGroup

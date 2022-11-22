@@ -1,42 +1,49 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
-import RadioButton, { RadioOption,  } from "../../../components/Form/RadioButton/RadioButton"
+import RadioButtonGroup, { RadioOption }
+    from "../../../components/Form/RadioButton/RadioButton"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
 import { TextWeight } from "../../../styles/typographicHelper"
 
-const listOption1: RadioOption<string>[] = [
+enum ListOptionKey {
+    FirstKey = "firstKey",
+    SecondKey = "secondKey",
+    ThirdKey = "thirdKey",
+}
+
+const listOption1: RadioOption<ListOptionKey>[] = [
     {
-        key: "1",
+        key: ListOptionKey.FirstKey,
         children: "Input radio",
     },
     {
-        key: "2",
+        key: ListOptionKey.SecondKey,
         children: "Disabled item",
         disabled: true,
     },
     {
-        key: "3",
+        key: ListOptionKey.ThirdKey,
         children: "With text bold",
         customStyles: { textWeight: TextWeight.Bold, },
     },
 ]
 
-const listOption2: RadioOption<string>[] = [
+const listOption2: RadioOption<number>[] = [
     {
-        key: "1",
+        key: 1,
         children: "Input in other radio group",
     },
     {
-        key: "2",
+        key: 2,
         children: <>With <em>JSX</em> content</>,
     },
     {
-        key: "3",
+        key: 3,
         children: "With other colors",
         customStyles: { textColor: "green", },
     },
     {
-        key: "4",
+        key: 4,
         children: "With auto focus",
         accessibility: {
             autoFocus: true,
@@ -54,39 +61,39 @@ const listOption3: RadioOption<string>[] = [
 
 const RadioButtonShowCaseDetail = () => {
 
-    const [value, setValue,] = useState("")
-    const [secondValue, setSecondValue,] = useState("")
-    const [thirdValue, setThirdValue,] = useState("")
+    const [value, setValue,] = useState<ListOptionKey | undefined>()
+    const [secondValue, setSecondValue,] = useState<number | undefined>()
+    const [thirdValue, setThirdValue,] = useState<string | undefined>()
 
-    const handleChange1 = (value: any) => {
+    const handleChange1 = (value: ListOptionKey) => {
         setValue(value)
     }
 
-    const handleChange2 = (value: any) => {
+    const handleChange2 = (value: number) => {
         setSecondValue(value)
     }
 
-    const handleChange3 = (value: any) => {
+    const handleChange3 = (value: string) => {
         setThirdValue(value)
     }
 
 
     return <LayoutExamples>
-        <RadioButton
+        <RadioButtonGroup
             selectedValue={value}
             onChange={handleChange1}
             name="group-1"
             options={listOption1}
         />
         <hr />
-        <RadioButton
+        <RadioButtonGroup
             selectedValue={secondValue}
             onChange={handleChange2}
             name="group-2"
             options={listOption2}
         />
         <hr />
-        <RadioButton
+        <RadioButtonGroup
             selectedValue={thirdValue}
             onChange={handleChange3}
             name="group-3"
