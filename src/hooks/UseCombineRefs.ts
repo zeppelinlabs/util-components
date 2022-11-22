@@ -1,6 +1,6 @@
 import React from "react"
 
-export const UseCombinedRefs = <T,>(
+export const useCombinedRefs = <T,>(
     ...refs: (React.ForwardedRef<T | null> | React.MutableRefObject<T | null>)[]
 ) => {
     const targetRef = React.useRef<T | null>(null)

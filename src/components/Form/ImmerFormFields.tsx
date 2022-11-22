@@ -4,7 +4,7 @@ import {
     useField, useSyncErrorsWithBrowser
 } from "immer-form"
 import Switch from "./Switch/Switch"
-import TextArea from "./TextArea/TextArea"
+import TextArea from "./Input/InputTextArea"
 import Input from "./Input/Input"
 import InputNumeric from "./Input/InputNumeric"
 import InputPassword from "./Input/InputPassword"
