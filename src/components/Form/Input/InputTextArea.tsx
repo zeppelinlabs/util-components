@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { useEffect } from "react"
-import { useCombinedRefs } from "../../../hooks/useCombineRefs"
+import { useCombinedRefs } from "../../../hooks/UseCombineRefs"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
@@ -19,6 +19,7 @@ const InputTextArea = React.forwardRef((
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {
+            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
             innerRef.current.style.height = `${(innerRef.current.scrollHeight) + 2}px`
         }
     }, [innerRef, props.autoHeight,])
