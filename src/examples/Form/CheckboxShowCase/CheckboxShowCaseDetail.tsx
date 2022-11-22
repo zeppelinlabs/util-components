@@ -16,8 +16,7 @@ const CheckboxShowCaseDetail = () => {
         />
         <hr />
         <Checkbox
-            value={value}
-            onChange={handleOnChange}
+            value={false}
             disabled={true}
         />
         <hr />
