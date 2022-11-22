@@ -63,10 +63,6 @@ export const CheckboxGroupStringField
 
         return <CheckboxGroup
             {...props as any}
-            disabled={overrideIfNotUndefined(
-                (props as any as CheckboxGroupProps<never, never>).disabled,
-                loading
-            )}
             errorMessage={overrideIfNotUndefined(
                 (props as any as CheckboxGroupProps<never, never>).errorMessage,
                 errorsToShow.messages

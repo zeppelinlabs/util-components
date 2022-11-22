@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { useEffect } from "react"
-import { useCombinedRefs } from "../../../hooks/useCombineRefs"
+import { useCombinedRefs } from "../../../hooks/useCombineRefss"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { renderErrorMessage } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
