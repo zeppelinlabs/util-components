@@ -26,10 +26,6 @@ const CheckboxGroupShowCase = () => {
             key: "option2",
             children: "Option 2",
         },
-        {
-            key: "option3",
-            children: "Option 3",
-        },
     ]
 
     const options2 = [
@@ -43,7 +39,8 @@ const CheckboxGroupShowCase = () => {
         },
         {
             key: "option3",
-            children: <h5> JSX Option 3 </h5>,
+            children: <h5> JSX Option 3 disabled</h5>,
+            disabled: true,
         },
     ]
 
@@ -52,16 +49,25 @@ const CheckboxGroupShowCase = () => {
             key: CheckboxGroupOption3Keys.option1,
             children: "Débito",
             discount: 0.50,
+            customStyles: {
+                checkBoxColor: "#9b59b6",
+            },
         },
         {
             key: CheckboxGroupOption3Keys.option2,
             children: "Crédito",
             discount: 0,
+            customStyles: {
+                checkBoxColor: "#00b7ff",
+            },
         },
         {
             key: CheckboxGroupOption3Keys.option3,
             children: "Mercado Pago",
             discount: 0.20,
+            customStyles: {
+                checkBoxColor: "#2a63ff",
+            },
         },
     ]
 

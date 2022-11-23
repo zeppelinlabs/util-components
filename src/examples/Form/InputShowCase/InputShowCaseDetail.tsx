@@ -44,7 +44,7 @@ const InputShowCaseDetail = () => {
         <Label disabled text="Input disabled">
             <Input
                 type="text"
-                value={inputStringState}
+                value={""}
                 disabled
             />
         </Label>
