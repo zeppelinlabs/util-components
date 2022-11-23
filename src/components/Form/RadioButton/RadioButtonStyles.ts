@@ -37,8 +37,8 @@ const Radio = styled.span`
     justify-content: center;
     &:after{
         content: "";
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
         border-radius: 6px;
         background: ${thp.common(c => c.white)};
     }
