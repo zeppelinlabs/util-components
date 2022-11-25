@@ -66,6 +66,17 @@ const listOption4: RadioOption<string>[] = [
         children: "Input clear value with button",
     },
 ]
+const listOption5: RadioOption<string | null>[] = [
+    {
+        key: null,
+        children: "Send a null value",
+    },
+    {
+        key: "1",
+        children: "Value 1",
+    },
+]
+
 
 const RadioButtonShowCaseDetail = () => {
 
@@ -73,6 +84,7 @@ const RadioButtonShowCaseDetail = () => {
     const [secondValue, setSecondValue,] = useState<number | undefined>()
     const [thirdValue, setThirdValue,] = useState<string | undefined>()
     const [fourValue, setFourValue,] = useState<string | undefined>("1")
+    const [fiveValue, setFiveValue,] = useState<string | null>("1")
 
     const handleChange1 = (value: ListOptionKey) => {
         setValue(value)
@@ -87,6 +99,9 @@ const RadioButtonShowCaseDetail = () => {
     }
     const handleChange4 = (value: string) => {
         setFourValue(value)
+    }
+    const handleChange5 = (value: string | null) => {
+        setFiveValue(value)
     }
 
 
@@ -124,6 +139,13 @@ const RadioButtonShowCaseDetail = () => {
             buttonVariant={ButtonVariant.Primary}>
             Clear value of input radio
         </Button>
+        <hr />
+        <RadioButtonGroup
+            selectedValue={fiveValue}
+            onChange={handleChange5}
+            name="group-5"
+            options={listOption5}
+        />
     </LayoutExamples>
 }
 
