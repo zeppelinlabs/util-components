@@ -1,16 +1,28 @@
 import React, { useState } from "react"
-import RadioButton from "../../../components/Form/RadioButton/RadioButton"
+import RadioButtonGroup, { RadioOption, } from "../../../components/Form/RadioButton/RadioButton"
+
+
+const listOption: RadioOption<string>[] = [
+    {
+        key: "1",
+        children: "Input radio",
+    },
+]
 
 const RadioButtonShowCaseDetailListItem = () => {
     const [value, setValue,] = useState("")
+
+    const handleOnChange = (value: string) => {
+        setValue(value)
+    }
+
     return <>
-        <RadioButton
-            value={"value"}
-            onChange={setValue}
+        <RadioButtonGroup
             selectedValue={value}
-        >
-            Radio button
-        </RadioButton>
+            onChange={handleOnChange}
+            name="group-1"
+            options={listOption}
+        />
     </>
 }
 

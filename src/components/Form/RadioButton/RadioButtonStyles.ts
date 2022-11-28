@@ -37,8 +37,8 @@ const Radio = styled.span`
     justify-content: center;
     &:after{
         content: "";
-        width: 6px;
-        height: 6px;
+        width: 4px;
+        height: 4px;
         border-radius: 6px;
         background: ${thp.common(c => c.white)};
     }
@@ -83,9 +83,16 @@ const ChildrenContainer = styled.div<Props>`
     )};
 `
 
+const ErrorMessageContainer = styled.span`
+    color:${thp.system(c => c.warning)};
+    font-size: 1.4rem;
+    font-weight: bold;
+`
+
 export const RadioButtonStyled = {
     Input,
     Radio,
     Container,
     ChildrenContainer,
+    ErrorMessageContainer,
 }

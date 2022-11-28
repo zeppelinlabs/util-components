@@ -19,6 +19,7 @@ const InputTextArea = React.forwardRef((
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {
+            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
             innerRef.current.style.height = `${(innerRef.current.scrollHeight) + 2}px`
         }
     }, [innerRef, props.autoHeight,])
