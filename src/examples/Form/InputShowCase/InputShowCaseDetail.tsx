@@ -31,15 +31,7 @@ const InputShowCaseDetail = () => {
                 placeholder="0"
             />
         </Label>
-        <hr />
-        <Label text="Input password">
-            <InputPassword
-                value={inputStringState}
-                onChange={setInputStringState}
-                placeholder="Password"
-                errorMessage={inputStringState ? undefined : "Cannot be empty"}
-            />
-        </Label>
+
         <hr />
         <Label disabled text="Input disabled">
             <Input
@@ -81,11 +73,29 @@ const InputShowCaseDetail = () => {
             />
         </Label>
         <hr />
+        <Label text="Text area resizable">
+            <InputTextArea
+                value={inputStringState}
+                onChange={setInputStringState}
+                maxLength={100}
+                customStyles={{ isResizable: true, }}
+            />
+        </Label>
+        <hr />
         <Label text="Input loading">
             <Input
                 type="text"
                 value="Loading"
                 loading
+            />
+        </Label>
+        <hr />
+        <Label text="Input password">
+            <InputPassword
+                value={inputStringState}
+                onChange={setInputStringState}
+                placeholder="Password"
+                errorMessage={inputStringState ? undefined : "Cannot be empty"}
             />
         </Label>
     </LayoutExamples>
