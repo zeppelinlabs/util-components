@@ -87,8 +87,12 @@ const WrapperArrow = styled.div`
     right: 0;
 `
 
-const Placeholder = styled.option`
-    display: none;
+const Option = styled.option<{
+    isOptionHidden?: boolean,
+}>`
+    ${p => (p.isOptionHidden && css`
+        display: none;
+    `)}
 `
 
 export const SelectStyled = {
@@ -96,5 +100,5 @@ export const SelectStyled = {
     Wrapper,
     WrapperIcon,
     WrapperArrow,
-    Placeholder,
+    Option,
 }

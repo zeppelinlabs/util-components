@@ -17,19 +17,16 @@ const listOption1: SelectOption<number>[] = [
 ]
 
 const SelectShowCaseDetailListItem = () => {
-    const [value, setValue,] = useState<number>(2)
+    const [value, setValue,] = useState<SelectOption<number>>()
 
-    const handleChange1 = (value: number) => {
+    const handleChange1 = (value: SelectOption<number>) => {
         setValue(value)
-
     }
 
     return <Select
         options={listOption1}
-        selectedValue={value}
+        selectedValue={value?.key}
         onChange={handleChange1}
-        placeholder="Seleccione una opción"
-        label={{ text: "hola", }}
     />
 }
 

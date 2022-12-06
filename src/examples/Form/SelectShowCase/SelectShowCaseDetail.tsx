@@ -6,12 +6,17 @@ import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
 
 
 enum ListOptionKey {
+    Placeholder = "placeholder",
     FirstKey = "firstKey",
     SecondKey = "secondKey",
     ThirdKey = "thirdKey",
 }
 
 const listOption1: SelectOption<ListOptionKey>[] = [
+    {
+        key: ListOptionKey.Placeholder,
+        text: "Select one option",
+    },
     {
         key: ListOptionKey.FirstKey,
         text: "Option 1",
@@ -27,6 +32,10 @@ const listOption1: SelectOption<ListOptionKey>[] = [
 ]
 
 const listOption2: SelectOption<number>[] = [
+    {
+        key: 0,
+        text: "Select one option",
+    },
     {
         key: 1,
         text: "Option 1",
@@ -67,7 +76,12 @@ const listOption4: SelectOption<string>[] = [
     },
 ]
 
-const listOption5: SelectOption<string>[] = [
+const listOption5: SelectOption<string | null>[] = [
+    {
+        key: null,
+        text: "Select one option",
+        isOptionHidden: true,
+    },
     {
         key: "1",
         text: "Option 1",
@@ -83,31 +97,31 @@ const listOption6: SelectOption<number>[] = [
 
 const SelectShowCaseDetail = () => {
 
-    const [value, setValue,] = useState<ListOptionKey>()
-    const [secondValue, setSecondValue,] = useState<number>()
-    const [thirdValue, setThirdValue,] = useState<string | null>()
-    const [fourValue, setFourValue,] = useState<string>("2")
-    const [fiveValue, setFiveValue,] = useState<string>("1")
-    const [sixValue, setSixValue,] = useState<number>()
+    const [value, setValue,] = useState<SelectOption<ListOptionKey>>()
+    const [secondValue, setSecondValue,] = useState<SelectOption<number> | undefined>()
+    const [thirdValue, setThirdValue,] = useState<SelectOption<string | null>>()
+    const [fourValue, setFourValue,] = useState<SelectOption<string>>(listOption4[1])
+    const [fiveValue, setFiveValue,] = useState<SelectOption<string | null>>()
+    const [sixValue, setSixValue,] = useState <SelectOption<number>>()
 
-    const handleChange1 = (value: ListOptionKey) => {
+    const handleChange1 = (value: SelectOption<ListOptionKey>) => {
         setValue(value)
     }
 
-    const handleChange2 = (value: number) => {
+    const handleChange2 = (value: SelectOption<number>) => {
         setSecondValue(value)
     }
 
-    const handleChange3 = (value: string | null) => {
+    const handleChange3 = (value: SelectOption<string | null>) => {
         setThirdValue(value)
     }
-    const handleChange4 = (value: string) => {
+    const handleChange4 = (value: SelectOption<string>) => {
         setFourValue(value)
     }
-    const handleChange5 = (value: string) => {
+    const handleChange5 = (value: SelectOption<string | null>) => {
         setFiveValue(value)
     }
-    const handleChange6 = (value: number) => {
+    const handleChange6 = (value: SelectOption<number>) => {
         setSixValue(value)
     }
 
@@ -115,50 +129,46 @@ const SelectShowCaseDetail = () => {
     return <LayoutExamples>
         <Select
             options={listOption1}
-            selectedValue={value}
+            selectedValue={value?.key}
             onChange={handleChange1}
-            placeholder="Select one"
             label={{text:"Select with label",}}
         />
         <Select
             options={listOption2}
-            selectedValue={secondValue}
+            selectedValue={secondValue?.key}
             onChange={handleChange2}
-            placeholder="Select one"
             errorMessage={"Error message"}
             label={{ text: "With error", }}
         />
         <Select
             options={listOption3}
-            selectedValue={thirdValue}
+            selectedValue={thirdValue?.key}
             onChange={handleChange3}
-            placeholder="Select one"
             label={{ text: "Send a null value", }}
         />
         <Select
             options={listOption4}
-            selectedValue={fourValue}
+            selectedValue={fourValue?.key}
             onChange={handleChange4}
-            placeholder="Select one"
             label={{ text: "With option selected", }}
         />
         <Select
             options={listOption5}
-            selectedValue={fiveValue}
+            selectedValue={fiveValue?.key}
             onChange={handleChange5}
             icon={InfoIcon}
-            label={{ text: "Without placeholder and icon", }}
+            label={{ text: "With placeholder hidden and icon", }}
         />
         <Select
             options={listOption6}
-            selectedValue={sixValue}
+            selectedValue={sixValue?.key}
             onChange={handleChange6}
             loading={true}
             label={{ text: "With loading state", }}
         />
         <Select
             options={listOption6}
-            selectedValue={sixValue}
+            selectedValue={sixValue?.key}
             onChange={handleChange6}
             disabled={true}
             label={{ text: "With disabled state", }}

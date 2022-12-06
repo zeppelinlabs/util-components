@@ -11,6 +11,7 @@ type ValidKey = string | boolean | number | null
 export type SelectOption<K> = {
     key: K,
     text: string,
+    isOptionHidden?:boolean,
 }
 
 
@@ -18,7 +19,6 @@ export type Props<K extends ValidKey, T extends SelectOption<K>> = {
     selectedValue?: K,
     options: T[],
     label?: LabelProps,
-    placeholder?: string,
     disabled?: boolean,
     loading?: boolean,
     errorMessage?: string | null,
@@ -27,7 +27,7 @@ export type Props<K extends ValidKey, T extends SelectOption<K>> = {
         autoFocus:boolean,
     },
     icon?: React.FunctionComponent,
-    onChange?: (value: K) => void,
+    onChange?: (value: T) => void,
     onClick?: () => void,
 }
 
@@ -55,7 +55,7 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
         const value = props.options.find(o => o.key === selected)
 
         if (value) {
-            props.onChange && props.onChange(value.key)
+            props.onChange && props.onChange(value)
         } else {
             console.error("Option not found", value, e.target.value, selected)
             throw new Error("Option not found")
@@ -94,18 +94,15 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
                     disabled={props.disabled || props.loading}
                     errorMessage={props.errorMessage}
                 >
-                    {props.placeholder
-                        && <SelectStyled.Placeholder value={""}>
-                            {props.placeholder}
-                        </SelectStyled.Placeholder >
-                    }
                     {props.options.map((opt) => {
                         const key = keySerializator.serialize(opt.key)
                         return (
-                            <option key={key}
+                            <SelectStyled.Option
+                                isOptionHidden={opt.isOptionHidden}
+                                key={key}
                                 value={key}>
                                 {opt.text}
-                            </option>
+                            </SelectStyled.Option>
                         )
                     })}
                 </SelectStyled.Select>
