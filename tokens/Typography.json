@@ -1,0 +1,1090 @@
+{
+  "Primary": {
+    "value": "Silka",
+    "type": "fontFamilies"
+  },
+  "Secondary": {
+    "value": "Inter",
+    "type": "fontFamilies"
+  },
+  "Primary xs": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary sm": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "20",
+        "fontSize": "14",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary base": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "24",
+        "fontSize": "16",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary lg": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "30",
+        "fontSize": "18",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "32",
+        "fontSize": "20",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary 2xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "34",
+        "fontSize": "24",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary 3xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "45",
+        "fontSize": "30",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary 4xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "52",
+        "fontSize": "36",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary 5xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "72",
+        "fontSize": "48",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary 6xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "86",
+        "fontSize": "60",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Primary7xl": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Thin",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Extra Light",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Light",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Regular",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Medium",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "SemiBold",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Bold",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Silka",
+        "fontWeight": "Black",
+        "lineHeight": "108",
+        "fontSize": "72",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  },
+  "Secondary xs": {
+    "Thin": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Thin",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra Light": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Extra Light",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Light": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Light",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Regular": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Regular",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Medium": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Medium",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Semi bold": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Semi Bold",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Bold": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Bold",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    },
+    "Extra bold": {
+      "value": {
+        "fontFamily": "Inter",
+        "fontWeight": "Black",
+        "lineHeight": "16",
+        "fontSize": "12",
+        "letterSpacing": "0",
+        "paragraphSpacing": "0"
+      },
+      "type": "typography"
+    }
+  }
+}

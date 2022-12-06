@@ -1,4 +1,6 @@
 import "styled-components"
+import { ColorTokens } from "./styles/tokens/colorTokens"
+
 
 interface IPaletteCommon {
 	black: string;
@@ -25,11 +27,6 @@ interface IPaletteSystemLevels {
 
 declare module "styled-components" {
 	export interface DefaultTheme {
-		palette: {
-			common: IPaletteCommon,
-			primary: IPalettePrimaryLevels,
-			neutral: IPaletteNeutralLevels,
-			system: IPaletteSystemLevels,
-		};
+		palette: typeof ColorTokens;
 	}
 }

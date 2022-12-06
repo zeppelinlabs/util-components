@@ -1,27 +1,8 @@
 import { DefaultTheme } from "styled-components"
+import { ColorTokens } from "./tokens/colorTokens"
 
 export const defaultTheme: DefaultTheme = {
-    palette: {
-        common: {
-            black: "#1a1a1a",
-            white: "#ffffff",
-        },
-        primary: {
-            level90: "",
-            level50: "blue",
-            level10: "",
-        },
-        neutral: {
-            level90: "",
-            level50: "gray",
-            level10: "#ccc",
-        },
-        system: {
-            info: "#276EF1",
-            warning: "#B27800",
-            success: "#008542",
-            critical: "#E50007",
-            focus: "#B7DCEE",
-        },
-    },
+    palette: ColorTokens,
 }
+
+defaultTheme.palette.neutral.level100
