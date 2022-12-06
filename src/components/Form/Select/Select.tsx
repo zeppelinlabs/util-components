@@ -1,26 +1,36 @@
-/* eslint-disable react/display-name */
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import { SelectStyled } from "./SelectGroupStyles"
-import Label from "../Label/Label"
+import Label, { LabelProps } from "../Label/Label"
 import { renderErrorMessage } from "../FormCommon"
+import { ReactComponent as ArrowDown } from "../../../assets/pointer_down.svg"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
+
+type ValidKey = string | boolean | number | null
 
 export type SelectOption<K> = {
     key: K,
     text: string,
 }
 
-type ValidKey = string | boolean | number | null
 
 export type Props<K extends ValidKey, T extends SelectOption<K>> = {
-    displayName?: string,
+    selectedValue?: K,
     options: T[],
-    keyValue: K,
+    label?: LabelProps,
     placeholder?: string,
     disabled?: boolean,
+    loading?: boolean,
     errorMessage?: string | null,
-    onChange?: (value: T) => void,
-    onBlur?: () => void,
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus:boolean,
+    },
+    icon?: React.FunctionComponent,
+    onChange?: (value: K) => void,
+    onClick?: () => void,
 }
+
 const keySerializator = (() => {
     const emptyValue = ""
     return {
@@ -34,54 +44,85 @@ const keySerializator = (() => {
                 : JSON.parse(s) as R),
     }
 })()
-const Select = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>,
-    ref: React.ForwardedRef<HTMLSelectElement>) => {
+
+const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
+    props: Props<K, T>,
+    ref: React.ForwardedRef<HTMLSelectElement>
+) => {
 
     const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selected = keySerializator.deserialize(e.target.value)
         const value = props.options.find(o => o.key === selected)
 
         if (value) {
-            props.onChange && props.onChange(value)
+            props.onChange && props.onChange(value.key)
         } else {
             console.error("Option not found", value, e.target.value, selected)
             throw new Error("Option not found")
         }
     }
+
     return (
-        <Label text={props.displayName && props.displayName}>
-            <SelectStyled.Select
-                ref={ref}
-                value={keySerializator.serialize(props.keyValue)}
-                onChange={handleOnChange}
-                onBlur={props.onBlur}
+        <Label {...props.label}>
+            <SelectStyled.Wrapper
                 disabled={props.disabled}
                 errorMessage={props.errorMessage}
             >
-                {props.placeholder
-                    && <SelectStyled.OptionPlaceholder>
-                        {props.placeholder}
-                    </SelectStyled.OptionPlaceholder >
+
+                {props.icon
+                    && <SelectStyled.WrapperIcon>
+                        <props.icon />
+                    </SelectStyled.WrapperIcon>
                 }
 
-                {props.options.map((opt) => {
-                    const key = keySerializator.serialize(opt.key)
-                    return (
-                        <option key={key}
-                            value={key}
-                        >
-                            {opt.text}
-                        </option>
-                    )
-                })}
-            </SelectStyled.Select>
+                <SelectStyled.WrapperArrow>
+                    {props.loading
+                        ? <Spinner size={SpinnerSize.small} />
+                        : <ArrowDown />
+                    }
+                </SelectStyled.WrapperArrow>
+
+                <SelectStyled.Select
+                    withIcon={!!props.icon}
+                    name="test1"
+                    ref={ref}
+                    value={props.selectedValue
+                        && keySerializator.serialize(props.selectedValue)
+                    }
+                    onChange={handleOnChange}
+                    onClick={props.onClick}
+                    disabled={props.disabled || props.loading}
+                    errorMessage={props.errorMessage}
+                >
+                    {props.placeholder
+                        && <option value={""}>
+                            {props.placeholder}
+                        </option >
+                    }
+                    {props.options.map((opt) => {
+                        const key = keySerializator.serialize(opt.key)
+                        return (
+                            <option key={key}
+                                value={key}>
+                                {opt.text}
+                            </option>
+                        )
+                    })}
+                </SelectStyled.Select>
+            </SelectStyled.Wrapper>
             {
                 props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
         </Label>
     )
-}) as <K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>
+})
+
+Select_.displayName = "Select"
+
+const Select = Select_ as<
+    K extends ValidKey,
+    T extends SelectOption<K>>(props: Props<K, T>
     & React.RefAttributes<HTMLSelectElement>) => JSX.Element
 
 export default Select

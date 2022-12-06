@@ -1,39 +1,36 @@
-import styled from "styled-components"
-import pointer_down from "../../../assets/pointer_down.svg"
+import styled, { css } from "styled-components"
 import { thp } from "../../../styles/themeHelpers"
 
 type SelectProps = {
     errorMessage?: string | null,
+    disabled?: boolean,
+    withIcon?:boolean,
 }
 
 const Select = styled.select<SelectProps>`
-    background: ${thp.common(c => c.white)};
-    border: 1px solid ${thp.neutral(c => c.level50)};
-    box-sizing: border-box;
-    padding: 8px 32px 8px 12px;
+    width: max-content;
+    position: relative;
     outline:none;
     font-size: 1.6rem;
-    background: white url(${pointer_down});
-    background-repeat: no-repeat;
-    background-position: calc(100% - 12px) center;
-    background-size: 12px;
+    background-color: transparent;
+    border: none;
+    color: inherit;
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-color: ${props => (props.errorMessage && thp.system(c => c.critical))};
-
-    &::-ms-expand {
-        display: none;
-    }
+    min-height: 36px;
+    cursor: pointer;
+    padding: ${p => (p.withIcon
+        ? "8px 36px"
+        : "8px 36px 8px 16px"
+    )};
 
     &:disabled {
-        //disabled styles
         cursor: not-allowed;
-        opacity:.5;
     }
 
     &:focus {
-        //focus styles
+        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
     }
 
     &:hover {
@@ -41,10 +38,58 @@ const Select = styled.select<SelectProps>`
     }
 `
 
-const OptionPlaceholder = styled.option`
-    display: none;
+const Wrapper = styled.div<SelectProps>`
+    width: max-content;
+    display: flex;
+    background: ${thp.common(c => c.white)};
+    border-width: 1px;
+    border-style: solid;
+    position: relative;
+    border-color: ${thp.neutral(c => c.level50)};
+    color: ${thp.common(c => c.black)};
+
+    ${p => (p.errorMessage && css`
+        border-color: ${thp.system(c => c.critical)};
+        color: ${thp.system(c => c.critical)};
+    `)}
+
+    ${p => (p.disabled && css`
+        border-color: ${thp.neutral(c => c.level10)};
+        color: ${thp.neutral(c => c.level10)};
+    `)}
 `
+
+const iconContainerBase = css`
+    width: 36px;
+    height: 36px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    padding: 10px;
+    img,
+    svg{
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        path{
+            fill: currentColor;
+        }
+    }
+`
+
+const WrapperIcon = styled.div`
+    ${iconContainerBase};
+`
+
+const WrapperArrow = styled.div`
+    ${iconContainerBase};
+    right: 0;
+`
+
 export const SelectStyled = {
     Select,
-    OptionPlaceholder,
+    Wrapper,
+    WrapperIcon,
+    WrapperArrow,
 }

@@ -15,7 +15,7 @@ export enum LabelVariant{
     Info = "info",
 }
 
-export type Props = {
+export type LabelProps = {
     text?: string,
     children?: React.ReactNode,
     labelVariant?: LabelVariant,
@@ -27,7 +27,7 @@ export type Props = {
 }
 
 const Label = React.forwardRef((
-    props: Props,
+    props: LabelProps,
     ref: React.ForwardedRef<HTMLLabelElement>,
 ) => {
 
