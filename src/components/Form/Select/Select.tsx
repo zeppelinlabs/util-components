@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
-import { SelectStyled } from "./SelectGroupStyles"
+import { SelectStyled } from "./SelectStyles"
 import Label, { LabelProps } from "../Label/Label"
 import { renderErrorMessage } from "../FormCommon"
 import { ReactComponent as ArrowDown } from "../../../assets/pointer_down.svg"
@@ -95,9 +95,9 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
                     errorMessage={props.errorMessage}
                 >
                     {props.placeholder
-                        && <option value={""}>
+                        && <SelectStyled.Placeholder value={""}>
                             {props.placeholder}
-                        </option >
+                        </SelectStyled.Placeholder >
                     }
                     {props.options.map((opt) => {
                         const key = keySerializator.serialize(opt.key)

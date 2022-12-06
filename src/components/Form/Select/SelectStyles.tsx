@@ -87,9 +87,14 @@ const WrapperArrow = styled.div`
     right: 0;
 `
 
+const Placeholder = styled.option`
+    display: none;
+`
+
 export const SelectStyled = {
     Select,
     Wrapper,
     WrapperIcon,
     WrapperArrow,
+    Placeholder,
 }
