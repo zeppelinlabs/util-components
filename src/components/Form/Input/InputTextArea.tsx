@@ -59,6 +59,8 @@ const InputTextArea = React.forwardRef((
                 autoHeight={props.autoHeight}
                 customStyles={props.customStyles}
                 loading={props.loading}
+                autoComplete="off"
+                spellCheck="false"
             />
             {props.maxLength && renderCharacterCount()}
             {props.errorMessage

@@ -5,6 +5,7 @@ export type CustomInputStyles = {
     textColor?: string,
     textAlign?: TextAlign,
     textWeight?: TextWeight,
+    isResizable?:boolean,
 }
 
 export type InputCommonProps<T> = {
