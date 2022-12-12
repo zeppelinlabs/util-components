@@ -131,7 +131,7 @@ export const SelectStringField
             token={undefined}
             attr={undefined}
             keyValue={value}
-            onChange={e => onChange(e.key as unknown as F[K])}
+            onChange={e => onChange(e as unknown as F[K])}
             onBlur={onBlur}
             ref={ref}
         />
