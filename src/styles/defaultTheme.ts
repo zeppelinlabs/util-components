@@ -1,8 +1,6 @@
 import { DefaultTheme } from "styled-components"
-import { ColorTokens } from "./tokens/colorTokens"
+import { DefaultThemeTokens } from "./designTokens/defaultThemeTokens"
 
 export const defaultTheme: DefaultTheme = {
-    palette: ColorTokens,
+    palette: DefaultThemeTokens,
 }
-
-defaultTheme.palette.neutral.level100

@@ -23,18 +23,18 @@ const InputContainer = styled.div`
 `
 
 export const InputGeneralStyles = css<InputProps>`
-    background: ${thp.common(c => c.white)};
-    border: 1px solid ${thp.common(c => c.black)};
+    background: ${thp.base(c => c.level50)};
+    border: 1px solid ${thp.base(c => c.level900)};
     box-sizing: border-box;
     padding: 8px 12px;
     color: ${props => (props.errorMessage
-        ? thp.system(c => c.critical)
-        : thp.common(c => c.black))};
+        ? thp.system(c => c.warning.level500)
+        : thp.base(c => c.level900))};
     font-size: 1.6rem;
     width: auto;
 
     ${props => props.errorMessage && css`
-        border-color:${thp.system(c => c.critical)};
+        border-color:${thp.system(c => c.warning.level500)};
     `}
 
     @media ${device.desktop} {
@@ -42,7 +42,7 @@ export const InputGeneralStyles = css<InputProps>`
     }
 
     &:focus {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
 
     &:hover {
@@ -51,11 +51,11 @@ export const InputGeneralStyles = css<InputProps>`
 
     &:disabled {
         opacity:.5;
-        cursor:not-allowed    
+        cursor:not-allowed
     }
 
     ::placeholder {
-        color: ${thp.neutral(c => c.level50)};
+        color: ${thp.base(c => c.level500)};
     }
 
     /* Opcional: Eliminar estilos de input number*/
@@ -126,8 +126,8 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     top: 9px;
     left: 8px;
     color: ${props => (props.errorMessage
-        ? thp.system(c => c.critical)
-        : thp.common(c => c.black))};
+        ? thp.system(c => c.error.level500)
+        : thp.base(c => c.level900))};
     @media ${device.desktop} {
         font-size: 1.4rem;
     }
@@ -138,12 +138,12 @@ const ErrorWrapper = styled.div`
     padding-top: 4px;
     width: 100%;
     word-break: break-word;
-    color:${thp.system(c => c.critical)};
+    color:${thp.system(c => c.error.level500)};
     align-items: center;
 `
 
 const ErrorText = styled.span`
-    color:${thp.system(c => c.critical)};
+    color:${thp.system(c => c.error.level500)};
     font-size: 1.4rem;
     line-height: 1.6rem;
 
@@ -190,8 +190,8 @@ const CharacterCount = styled.span<CharacterCountProps>`
     font-size:1.2rem;
     line-height: 1.4rem;
     color: ${props => (props.reachesTheLimit
-        ? thp.system(c => c.critical)
-        : thp.common(c => c.black))};
+        ? thp.system(c => c.error.level500)
+        : thp.base(c => c.level900))};
     margin:4px 0px;
     text-align: right;
     max-height: 14px;

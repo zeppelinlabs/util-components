@@ -1,12 +1,4 @@
 {
-  "Primary": {
-    "value": "Silka",
-    "type": "fontFamilies"
-  },
-  "Secondary": {
-    "value": "Inter",
-    "type": "fontFamilies"
-  },
   "Primary xs": {
     "Thin": {
       "value": {

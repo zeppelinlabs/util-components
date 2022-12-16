@@ -22,9 +22,9 @@ const Check = styled.span`
     width: 16px;
     height: 16px;
     border: none;
-    border: 1px solid ${thp.neutral(c => c.level50)};
+    border: 1px solid ${thp.base(c => c.level500)};
     margin-right: 8px;
-    background: ${thp.common(c => c.white)};
+    background: ${thp.base(c => c.level50)};
     transition: ease 0.2s;
 
     &:hover {
@@ -37,16 +37,16 @@ const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
     opacity: 0;
     width: 16px;
     height: 16px;
-    
+
     &:focus + ${Check} {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
 
     &:checked + ${Check}  {
         background: ${p => (p.customStyles?.checkBoxColor
         ? p.customStyles?.checkBoxColor
-        : thp.primary(c => c.level50))};
-        border: 1px solid ${thp.common(c => c.black)};
+        : thp.primary(c => c.level500))};
+        border: 1px solid ${thp.base(c => c.level900)};
     }
 
     &:disabled + ${Check}, &:disabled:checked + ${Check} {

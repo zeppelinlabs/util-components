@@ -64,7 +64,7 @@ const Container = styled.span<TagProps>`
 	border-style: solid;
 	width: max-content;
 
-	background-color:${p => (p.customStyles?.backgroundColor || thp.common(c => c.white))};
+	background-color:${p => (p.customStyles?.backgroundColor || thp.base(c => c.level50))};
 	color:${p => (p.customStyles?.textColor || "inherit")};
 	cursor: ${p => (p.customStyles?.isCursorPointer ? "pointer" : "default")};
 
@@ -82,7 +82,7 @@ const Container = styled.span<TagProps>`
 		flex-flow: ${p.IconPosition};
 	`)};
 	&:focus {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
 	img{
 		width:100%;

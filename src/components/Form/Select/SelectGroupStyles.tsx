@@ -7,8 +7,8 @@ type SelectProps = {
 }
 
 const Select = styled.select<SelectProps>`
-    background: ${thp.common(c => c.white)};
-    border: 1px solid ${thp.neutral(c => c.level50)};
+    background: ${thp.base(c => c.level50)};
+    border: 1px solid ${thp.base(c => c.level500)};
     box-sizing: border-box;
     padding: 8px 32px 8px 12px;
     outline:none;
@@ -20,7 +20,7 @@ const Select = styled.select<SelectProps>`
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    border-color: ${props => (props.errorMessage && thp.system(c => c.critical))};
+    border-color: ${props => (props.errorMessage && thp.system(c => c.error.level500))};
 
     &::-ms-expand {
         display: none;

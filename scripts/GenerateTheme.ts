@@ -1,9 +1,9 @@
 import { ObjectTyped } from "../src/util/ObjectTyped"
-import Color from "../tokens/Color.json"
+import Color from "../figmaTokens/Color.json"
+import Global from "../figmaTokens/global.json"
+import Fonts from "../figmaTokens/Typography.json"
 import * as fs from "fs"
 import * as path from "path"
-
-
 
 enum FigmaTokenType {
     color = "color"
@@ -12,6 +12,25 @@ enum FigmaTokenType {
 type ColorPallet = {
     [k in `Level${number}`]: {
         value: string,
+        type: string,
+    }
+}
+type GlobalToken = {
+    [k in string]: {
+        value: string,
+        type: string,
+    }
+}
+type ShadowToken = {
+    [k in string]: {
+        value: {
+            x: string,
+            y: string,
+            blur: string,
+            spread: string,
+            color: string,
+            type: string,
+        }[],
         type: string,
     }
 }
@@ -29,14 +48,49 @@ const processColorPallet = (colorPallet: ColorPallet) => {
     )
 }
 
+const processGlobalTokens = (config: {
+    tokens: GlobalToken,
+    prefix?: string,
+    formatValueInPx?: boolean,
+}) => {
+    return Object.fromEntries(
+        ObjectTyped.entries(config.tokens)
+            .map(([k, v,]) => {
+                const formatValue = () => {
+                    if (k === "Total") {
+                        return `${v.value}%`
+                    } else if (config.formatValueInPx) {
+                        return `${v.value}px`
+                    } else {
+                        return v.value
+                    }
+                }
+                const getPrefix = config.prefix ? config.prefix.toLocaleLowerCase() : "size"
+                const formatKey = k[0].toUpperCase() + k.slice(1)
+                const key = `${getPrefix}${formatKey}`
+                return [key, formatValue(),] as const
+            })
+    )
+}
+
+const processShadowTokens = (globalToken: ShadowToken) => {
+    return Object.fromEntries(
+        ObjectTyped.entries(globalToken)
+            .map(([k, v,]) => {
+                const formatShadow = v.value.map((s) => {
+                    const getShadowType = s.type === "innerShadow" ? "inner " : ""
+                    return `${getShadowType}${s.x}px ${s.y}px ${s.blur}px ${s.spread}px ${s.color}`
+                })
+                return [`shadow${k.toLocaleLowerCase()}`, formatShadow.toString(),] as const
+            })
+    )
+}
 
 
-
-
-const theme = {
+const defaultThemeTokens = {
     primary: processColorPallet(Color.Primary),
     secondary: processColorPallet(Color.Secondary),
-    neutral: processColorPallet(Color.Neutral),
+    base: processColorPallet(Color.Base),
     system: {
         error: processColorPallet(Color.Error),
         success: processColorPallet(Color.Success),
@@ -44,19 +98,43 @@ const theme = {
     },
 }
 
-const generateTSFileExportConst = (exportName: string, objectJson: string) => {
-    return `/* eslint-disable indent,comma-dangle */
-export const ${exportName} = ${objectJson} as const
-`
+const uiToken = {
+    borderRadius: processGlobalTokens({ tokens: Global.BorderRadius, formatValueInPx:true,}),
+    borderWidth: processGlobalTokens({ tokens: Global.BorderWidth, formatValueInPx: true, }),
+    spacing: processGlobalTokens({ tokens: Global.Spacing}),
+    shadows: processShadowTokens(Global.Shadow),
+    innerShadows: processShadowTokens(Global.InnerShadow),
 }
 
-const baseTokenDir = path.resolve("src", "styles", "tokens")
+const fontToken = {
+    fontFamilies: "",
+    weights:"",
+    sizes:"",
+}
 
-fs.mkdirSync(baseTokenDir)
+const generateTSFileExportConst = (exportName: string, objectJson: string) => {
+    return ` /* eslint-disable max-len */
+    export const ${exportName} = ${objectJson} as const`
+}
 
+const baseTokenDir = path.resolve("src", "styles", "designTokens")
+
+fs.mkdirSync(baseTokenDir, {recursive:true})
 fs.writeFileSync(
-    path.resolve(baseTokenDir, "colorTokens.ts"),
-    generateTSFileExportConst("ColorTokens",
-        JSON.stringify(theme, null, 2)
+    path.resolve(baseTokenDir, "defaultThemeTokens.ts"),
+    generateTSFileExportConst("DefaultThemeTokens",
+        JSON.stringify(defaultThemeTokens, null, 4)
+    )
+)
+fs.writeFileSync(
+    path.resolve(baseTokenDir, "uiTokens.ts"),
+    generateTSFileExportConst("UiTokens",
+        JSON.stringify(uiToken, null, 4)
+    )
+)
+fs.writeFileSync(
+    path.resolve(baseTokenDir, "fontsTokens.ts"),
+    generateTSFileExportConst("FontsTokens",
+        JSON.stringify(fontToken, null, 4)
     )
 )
