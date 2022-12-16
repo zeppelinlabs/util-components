@@ -43,6 +43,8 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                 <InputStyled.Input
                     type="number"
                     value={props.value || props.value === 0 ? props.value : ""}
+                    autoComplete="off"
+                    spellCheck="false"
                     errorMessage={!!props.errorMessage}
                     placeholder={props.placeholder}
                     position={props.icon?.position}

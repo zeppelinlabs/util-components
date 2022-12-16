@@ -48,6 +48,8 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     tabIndex={props.accessibility?.tabIndex}
                     customStyles={props.customStyles}
                     loading={props.loading}
+                    autoComplete="off"
+                    spellCheck="false"
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.icon && props.icon.position === IconPosition.right

@@ -75,22 +75,22 @@ const Input = styled.input <InputProps>`
     ${InputGeneralStyles};
     ${props => props.position === IconPosition.left && css`
         padding-left:32px;
-    `}
+    `};
     ${props => props.leadingLabelWidth && css`
         /* Leading label width + input padding left */
         padding-left:${`${props.leadingLabelWidth + 12}px`};
-    `}
+    `};
     ${props => props.position === IconPosition.right && css`
         padding-right:32px;
-    `}
+    `};
     ${props => props.customStyles?.textColor && css`
-        color: ${props.customStyles?.textColor}
+        color: ${props.customStyles?.textColor};
     `};
     ${props => props.customStyles?.textAlign && css`
-        text-align: ${props.customStyles?.textAlign}
+        text-align: ${props.customStyles?.textAlign};
     `};
     ${props => props.customStyles?.textWeight && css`
-        font-weight: ${props.customStyles?.textWeight}
+        font-weight: ${props.customStyles?.textWeight};
     `};
     ${props => (props.loading && css`
         visibility: hidden;
@@ -130,7 +130,7 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
         : thp.base(c => c.level900))};
     @media ${device.desktop} {
         font-size: 1.4rem;
-    }
+    };
 `
 
 const ErrorWrapper = styled.div`
@@ -149,7 +149,7 @@ const ErrorText = styled.span`
 
     @media ${device.desktop} {
         font-size: 1.2rem;
-    }
+    };
 `
 const InputAction = styled.button`
     width: 14px;
@@ -166,13 +166,13 @@ const InputAction = styled.button`
     &:disabled {
         opacity: 0.5;
         cursor:not-allowed;
-    }
+    };
 `
 
 const InputTextArea = styled.textarea<InputProps>`
     ${InputGeneralStyles};
     max-width: 100%;
-    resize: none;
+    resize: ${p => (p.customStyles?.isResizable ? "auto" : "none")};
     width: auto;
     line-height: 1.5;
     min-height: 50px;

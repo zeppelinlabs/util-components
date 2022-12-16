@@ -12,6 +12,7 @@ import LabelShowCaseDetailListItem from "./Form/Label/LabelShowCaseListItem"
 import InputShowCaseDetailListItem from "./Form/InputShowCase/InputShowCaseListItem"
 import RadioButtonShowCaseDetailListItem
     from "./Form/RadioButtonShowCase/RadioButtonShowCaseListItem"
+import SelectShowCaseDetailListItem from "./Form/SelectShowCase/SelectShowCaseDetailListItem"
 
 const Home = () => {
     return (
@@ -46,6 +47,10 @@ const Home = () => {
 
             <Link to={Paths.Input}>Input</Link>
             <InputShowCaseDetailListItem />
+            <hr />
+
+            <Link to={Paths.Select}>Select</Link>
+            <SelectShowCaseDetailListItem />
             <hr />
 
         </LayoutHome>

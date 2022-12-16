@@ -15,6 +15,7 @@ import LabelShowCaseDetail from "./examples/Form/Label/LabelShowCaseDetail"
 import InputShowCaseDetail from "./examples/Form/InputShowCase/InputShowCaseDetail"
 import RadioButtonShowCaseDetail
     from "./examples/Form/RadioButtonShowCase/RadioButtonShowCaseDetail"
+import SelectShowCaseDetail from "./examples/Form/SelectShowCase/SelectShowCaseDetail"
 
 const App = () => {
     return (
@@ -48,6 +49,9 @@ const App = () => {
                 } />
                 <Route path={Paths.Input} element={
                     <InputShowCaseDetail />
+                } />
+                <Route path={Paths.Select} element={
+                    <SelectShowCaseDetail />
                 } />
             </Routes>
         </ThemeProvider >
