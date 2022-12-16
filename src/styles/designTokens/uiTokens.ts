@@ -56,7 +56,7 @@ export const UiTokens = {
     },
     "shadows": {
         "shadow4": "0px 25px 7px 0px rgba(0,0,0,0),0px 16px 6px 0px rgba(0,0,0,0.01),0px 9px 5px 0px rgba(0,0,0,0.03),0px 4px 4px 0px rgba(0,0,0,0.05),0px 1px 2px 0px rgba(0,0,0,0.06),0px 0px 0px 0px rgba(0,0,0,0.06)",
-        "shadow6": "0px 33px 9px 0px rgba(0,0,0,0),0px 21px 9px 0px rgba(0,0,0,0.01),0px 12px 7px 0px rgba(0,0,0,0.03),0px 5px 5px 0px rgba(0,0,0,0.05),0px 1px 3px 0px rgba(0,0,0,0.06),inner 0px 0px 0px 0px rgba(0,0,0,0.06)",
+        "shadow6": "0px 33px 9px 0px rgba(0,0,0,0),0px 21px 9px 0px rgba(0,0,0,0.01),0px 12px 7px 0px rgba(0,0,0,0.03),0px 5px 5px 0px rgba(0,0,0,0.05),0px 1px 3px 0px rgba(0,0,0,0.06),0px 0px 0px 0px rgba(0,0,0,0.06)",
         "shadow8": "0px 43px 12px 0px rgba(0,0,0,0),0px 27px 11px 0px rgba(0,0,0,0.01),0px 15px 9px 0px rgba(0,0,0,0.03),0px 7px 7px 0px rgba(0,0,0,0.05),0px 2px 4px 0px rgba(0,0,0,0.06),0px 2px 4px 0px rgba(0,0,0,0.06)",
         "shadow12": "0px 67px 19px 0px rgba(0,0,0,0),0px 43px 17px 0px rgba(0,0,0,0.01),0px 24px 14px 0px rgba(0,0,0,0.03),0px 11px 11px 0px rgba(0,0,0,0.05),0px 3px 6px 0px rgba(0,0,0,0.06),0px 0px 0px 0px rgba(0,0,0,0.06)",
         "shadow16": "0px 91px 26px 0px rgba(0,0,0,0),0px 58px 23px 0px rgba(0,0,0,0.01),0px 33px 20px 0px rgba(0,0,0,0.03),0px 15px 15px 0px rgba(0,0,0,0.05),0px 4px 8px 0px rgba(0,0,0,0.06),0px 0px 0px 0px rgba(0,0,0,0.06)",

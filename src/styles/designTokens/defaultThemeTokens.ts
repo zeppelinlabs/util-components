@@ -9,8 +9,8 @@ export const DefaultThemeTokens = {
         "level500": "#8000ff",
         "level600": "#6600cc",
         "level700": "#4d0099",
-        "level900": "#27004d",
         "level800": "#37006D",
+        "level900": "#27004d",
     },
     "secondary": {
         "level50": "#e5ebff",
@@ -25,7 +25,7 @@ export const DefaultThemeTokens = {
         "level900": "#001048",
     },
     "base": {
-        "level50": "#ffffff",
+        "level0": "#ffffff",
         "level100": "#e5e5e5",
         "level200": "#cccccc",
         "level300": "#b3b3b3",
@@ -34,7 +34,7 @@ export const DefaultThemeTokens = {
         "level600": "#666666",
         "level700": "#4c4c4c",
         "level800": "#333333",
-        "level900": "#000000",
+        "level1000": "#000000",
     },
     "system": {
         "error": {

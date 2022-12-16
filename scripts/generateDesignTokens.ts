@@ -1,9 +1,9 @@
+import * as fs from "fs"
+import * as path from "path"
 import { ObjectTyped } from "../src/util/ObjectTyped"
 import Color from "../figmaTokens/Color.json"
 import Global from "../figmaTokens/global.json"
 import Fonts from "../figmaTokens/Typography.json"
-import * as fs from "fs"
-import * as path from "path"
 
 enum FigmaTokenType {
     color = "color"
@@ -112,9 +112,15 @@ const fontToken = {
     sizes:"",
 }
 
-const generateTSFileExportConst = (exportName: string, objectJson: string) => {
+const generateTSFileExportConst = (
+    options: {
+        exportName: string,
+        objectToTransform: any,
+    }
+) => {
+    const objectJson = JSON.stringify(options.objectToTransform, null, 4)
     return ` /* eslint-disable max-len */
-    export const ${exportName} = ${objectJson} as const`
+    export const ${options.exportName} = ${objectJson} as const`
 }
 
 const baseTokenDir = path.resolve("src", "styles", "designTokens")
@@ -122,19 +128,22 @@ const baseTokenDir = path.resolve("src", "styles", "designTokens")
 fs.mkdirSync(baseTokenDir, {recursive:true})
 fs.writeFileSync(
     path.resolve(baseTokenDir, "defaultThemeTokens.ts"),
-    generateTSFileExportConst("DefaultThemeTokens",
-        JSON.stringify(defaultThemeTokens, null, 4)
-    )
+    generateTSFileExportConst({
+        exportName: "DefaultThemeTokens",
+        objectToTransform: defaultThemeTokens,
+    })
 )
 fs.writeFileSync(
     path.resolve(baseTokenDir, "uiTokens.ts"),
-    generateTSFileExportConst("UiTokens",
-        JSON.stringify(uiToken, null, 4)
-    )
+    generateTSFileExportConst({
+        exportName: "UiTokens",
+        objectToTransform: uiToken,
+    })
 )
 fs.writeFileSync(
     path.resolve(baseTokenDir, "fontsTokens.ts"),
-    generateTSFileExportConst("FontsTokens",
-        JSON.stringify(fontToken, null, 4)
-    )
+    generateTSFileExportConst({
+        exportName: "FontsTokens",
+        objectToTransform: fontToken,
+    })
 )

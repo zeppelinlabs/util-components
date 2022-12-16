@@ -16,7 +16,7 @@ const Label = styled.label<PropsStyled>`
     font-size: 1.6rem;
     color: ${props => (props.disabled
         ? thp.base(c => c.level500)
-        : thp.base(c => c.level900))};
+        : thp.base(c => c.level1000))};
     ${p => (p.disabled && css`
         cursor: not-allowed;
         > *{
@@ -57,7 +57,7 @@ const Tag = styled.span`
     border-radius: 4px;
     font-size: 1rem;
     line-height: 1.2;
-    color: ${thp.base(c => c.level900)};
+    color: ${thp.base(c => c.level1000)};
     background-color: ${thp.base(c => c.level200)};
 `
 

@@ -38,7 +38,7 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 		position:relative;
 		scroll-behavior: smooth;
 		overflow-x: hidden !important;
-		background-color: ${thp.base(c => c.level50)};
-		color: ${thp.base(c => c.level900)};
+		background-color: ${thp.base(c => c.level0)};
+		color: ${thp.base(c => c.level1000)};
 	}
 `

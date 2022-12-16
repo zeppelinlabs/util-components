@@ -24,7 +24,7 @@ const Check = styled.span`
     border: none;
     border: 1px solid ${thp.base(c => c.level500)};
     margin-right: 8px;
-    background: ${thp.base(c => c.level50)};
+    background: ${thp.base(c => c.level0)};
     transition: ease 0.2s;
 
     &:hover {
@@ -46,7 +46,7 @@ const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
         background: ${p => (p.customStyles?.checkBoxColor
         ? p.customStyles?.checkBoxColor
         : thp.primary(c => c.level500))};
-        border: 1px solid ${thp.base(c => c.level900)};
+        border: 1px solid ${thp.base(c => c.level1000)};
     }
 
     &:disabled + ${Check}, &:disabled:checked + ${Check} {

@@ -34,7 +34,7 @@ const Slider = styled.span`
     position: relative;
     transition: ease 0.3s;
     background-color:  ${thp.base(c => c.level500)};
-    border: 1px solid ${thp.base(c => c.level900)};
+    border: 1px solid ${thp.base(c => c.level1000)};
 
     &:before{
         content: "";
@@ -45,7 +45,7 @@ const Slider = styled.span`
         height: 21px;
         border-radius: 21px;
         transition: ease 0.2s;
-        background: ${thp.base(c => c.level50)};
+        background: ${thp.base(c => c.level0)};
     };
 `
 

@@ -23,13 +23,13 @@ const InputContainer = styled.div`
 `
 
 export const InputGeneralStyles = css<InputProps>`
-    background: ${thp.base(c => c.level50)};
-    border: 1px solid ${thp.base(c => c.level900)};
+    background: ${thp.base(c => c.level0)};
+    border: 1px solid ${thp.base(c => c.level1000)};
     box-sizing: border-box;
     padding: 8px 12px;
     color: ${props => (props.errorMessage
         ? thp.system(c => c.warning.level500)
-        : thp.base(c => c.level900))};
+        : thp.base(c => c.level1000))};
     font-size: 1.6rem;
     width: auto;
 
@@ -127,7 +127,7 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     left: 8px;
     color: ${props => (props.errorMessage
         ? thp.system(c => c.error.level500)
-        : thp.base(c => c.level900))};
+        : thp.base(c => c.level1000))};
     @media ${device.desktop} {
         font-size: 1.4rem;
     };
@@ -191,7 +191,7 @@ const CharacterCount = styled.span<CharacterCountProps>`
     line-height: 1.4rem;
     color: ${props => (props.reachesTheLimit
         ? thp.system(c => c.error.level500)
-        : thp.base(c => c.level900))};
+        : thp.base(c => c.level1000))};
     margin:4px 0px;
     text-align: right;
     max-height: 14px;

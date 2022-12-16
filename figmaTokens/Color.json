@@ -32,12 +32,12 @@
       "value": "#4d0099",
       "type": "color"
     },
-    "Level900": {
-      "value": "#27004d",
-      "type": "color"
-    },
     "Level800": {
       "value": "#37006D",
+      "type": "color"
+    },
+    "Level900": {
+      "value": "#27004d",
       "type": "color"
     }
   },
@@ -210,7 +210,7 @@
     }
   },
   "Base": {
-    "Level50": {
+    "Level0": {
       "value": "#ffffff",
       "type": "color"
     },
@@ -246,7 +246,7 @@
       "value": "#333333",
       "type": "color"
     },
-    "Level900": {
+    "Level1000": {
       "value": "#000000",
       "type": "color"
     }

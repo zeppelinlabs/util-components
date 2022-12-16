@@ -29,25 +29,25 @@ const SpinnerContainer = styled.span`
 
 const PrimaryButton = () => css<Props>`
     background: ${thp.primary(c => c.level500)};
-    color: ${thp.base(c => c.level50)};
+    color: ${thp.base(c => c.level0)};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.base(c => c.level50)};
+        color: ${thp.base(c => c.level0)};
     }
 `
 const SecondaryButton = () => css<Props>`
     background: ${thp.secondary(c => c.level500)};
-    color: ${thp.base(c => c.level50)};
-    border: 1px solid ${thp.base(c => c.level900)};
+    color: ${thp.base(c => c.level0)};
+    border: 1px solid ${thp.base(c => c.level1000)};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.base(c => c.level900)};
+        color: ${thp.base(c => c.level1000)};
     }
 `
 

@@ -31,7 +31,7 @@ const Radio = styled.span`
     border-width: 1px;
     border-style: solid;
     border-color: ${thp.base(c => c.level500)};
-    background-color: ${thp.base(c => c.level50)};
+    background-color: ${thp.base(c => c.level0)};
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@ const Radio = styled.span`
         width: 4px;
         height: 4px;
         border-radius: 6px;
-        background: ${thp.base(c => c.level50)};
+        background: ${thp.base(c => c.level0)};
     }
 
     &:hover {

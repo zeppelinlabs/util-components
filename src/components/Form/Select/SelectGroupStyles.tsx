@@ -7,7 +7,7 @@ type SelectProps = {
 }
 
 const Select = styled.select<SelectProps>`
-    background: ${thp.base(c => c.level50)};
+    background: ${thp.base(c => c.level0)};
     border: 1px solid ${thp.base(c => c.level500)};
     box-sizing: border-box;
     padding: 8px 32px 8px 12px;

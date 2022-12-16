@@ -42,12 +42,12 @@ const Select = styled.select<SelectProps>`
 const Wrapper = styled.div<SelectProps>`
     width: max-content;
     display: flex;
-    background: ${thp.base(c => c.level50)};
+    background: ${thp.base(c => c.level0)};
     border-width: 1px;
     border-style: solid;
     position: relative;
-    border-color: ${thp.base(c => c.level900)};
-    color: ${thp.base(c => c.level900)};
+    border-color: ${thp.base(c => c.level1000)};
+    color: ${thp.base(c => c.level1000)};
 
     ${p => (p.errorMessage && css`
         border-color: ${thp.system(c => c.error.level500)};

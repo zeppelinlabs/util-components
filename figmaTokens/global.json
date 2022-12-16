@@ -299,7 +299,7 @@
           "blur": "0",
           "spread": "0",
           "color": "rgba(0,0,0,0.06)",
-          "type": "innerShadow"
+          "type": "dropShadow"
         }
       ],
       "type": "boxShadow"
