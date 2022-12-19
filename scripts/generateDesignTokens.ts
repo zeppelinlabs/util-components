@@ -5,6 +5,82 @@ import Color from "../figmaTokens/Color.json"
 import Global from "../figmaTokens/global.json"
 import Fonts from "../figmaTokens/Typography.json"
 
+const getFontFamilies = () => {
+
+    const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
+        const fonts = [...new Set(
+            ObjectTyped.entries(vVariant)
+                .flatMap(([kSize, vSize]) => {
+                    return ObjectTyped.entries(vSize).map(([kWeight, vWeight]) => {
+                        // todo assert type
+                        return vWeight.value.fontFamily
+                        // return s.add(vWeight.value.font÷Family)
+                    })
+                })
+        )
+            .values()]
+        if (fonts.length !== 1) {
+            throw new Error("Invalid number of fonts for variant")
+        }
+        return [kVariant, fonts[0]]
+    })
+
+    return Object.fromEntries(fontForVariantEntries)
+}
+
+const getWeights = () => {
+
+    const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
+        const fontWeights = [...new Set(
+            ObjectTyped.entries(vVariant)
+                .flatMap(([kSize, vSize]) => {
+                    return ObjectTyped.entries(vSize).map(([kWeight, vWeight]) => {
+                        // todo assert type
+                        return vWeight.value.fontWeight
+                    })
+                })
+        )
+            .values()]
+        const fontWeightsEntries = fontWeights.map(fw => {
+            return [fw.toLowerCase().split(" ").join(), fw,] as const
+        })
+        return [kVariant, Object.fromEntries(fontWeightsEntries)] as const
+    })
+
+    return Object.fromEntries(fontForVariantEntries)
+}
+
+
+
+const getSize = () => {
+
+    const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
+        const sizes =
+            ObjectTyped.entries(vVariant)
+                .flatMap(([kSize, vSize]) => {
+                    return ObjectTyped.entries(vSize).map(([kWeight, vWeight]) => {
+                        // todo assert type
+                        const value = {
+                            lineHeight: vWeight.value.lineHeight,
+                            fontSize: vWeight.value.fontSize,
+                            letterSpacing: vWeight.value.letterSpacing,
+                            paragraphSpacing: vWeight.value.paragraphSpacing,
+                        }
+                        return [
+                            kSize,
+                            value,
+                        ] as const
+                    })
+                })
+
+        return [kVariant, Object.fromEntries(sizes)] as const
+    })
+
+    return Object.fromEntries(fontForVariantEntries)
+}
+
+
+
 enum FigmaTokenType {
     color = "color"
 }
@@ -99,17 +175,17 @@ const defaultThemeTokens = {
 }
 
 const uiToken = {
-    borderRadius: processGlobalTokens({ tokens: Global.BorderRadius, formatValueInPx:true,}),
+    borderRadius: processGlobalTokens({ tokens: Global.BorderRadius, formatValueInPx: true, }),
     borderWidth: processGlobalTokens({ tokens: Global.BorderWidth, formatValueInPx: true, }),
-    spacing: processGlobalTokens({ tokens: Global.Spacing}),
+    spacing: processGlobalTokens({ tokens: Global.Spacing }),
     shadows: processShadowTokens(Global.Shadow),
     innerShadows: processShadowTokens(Global.InnerShadow),
 }
 
 const fontToken = {
-    fontFamilies: "",
-    weights:"",
-    sizes:"",
+    fontFamilies: getFontFamilies(),
+    weights: getWeights(),
+    sizes: getSize(),
 }
 
 const generateTSFileExportConst = (
@@ -125,7 +201,7 @@ const generateTSFileExportConst = (
 
 const baseTokenDir = path.resolve("src", "styles", "designTokens")
 
-fs.mkdirSync(baseTokenDir, {recursive:true})
+fs.mkdirSync(baseTokenDir, { recursive: true })
 fs.writeFileSync(
     path.resolve(baseTokenDir, "defaultThemeTokens.ts"),
     generateTSFileExportConst({

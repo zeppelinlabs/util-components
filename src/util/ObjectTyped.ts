@@ -7,7 +7,7 @@ type Entries<O> = (({
 
 
 export const ObjectTyped = {
-    keys: <O>(o: O) => Object.keys(o) as (keyof O)[],
-    entries: <O>(o: O) => Object.entries(o) as Entries<O>,
+    keys: <O extends Record<string, never>>(o: O) => Object.keys(o) as (keyof O)[],
+    entries: <O extends Record<string, unknown>>(o: O) => Object.entries(o) as Entries<O>,
 }
 
