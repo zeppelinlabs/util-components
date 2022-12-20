@@ -34,7 +34,7 @@ const getWeights = () => {
 		)
 			.values()]
 		const fontWeightsEntries = fontWeights.map(fw => {
-			return [fw.toLowerCase().split(" ").join(), fw,] as const
+			return [fw.toLowerCase().split(" ").join(""), fw,] as const
 		})
 		return [kVariant, Object.fromEntries(fontWeightsEntries)] as const
 	})
