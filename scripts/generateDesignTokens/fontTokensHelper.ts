@@ -1,12 +1,20 @@
 import { ObjectTyped } from "../../src/util/ObjectTyped"
 import Fonts from "../../figmaTokens/Typography.json"
 
+enum FigmaTokenType {
+	Typographic = "typography"
+}
+
 const getFontFamilies = () => {
 	const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
 		const fonts = [...new Set(
 			ObjectTyped.entries(vVariant)
 				.flatMap(([kSize, vSize]) => {
 					return ObjectTyped.entries(vSize).map(([kWeight, vWeight]) => {
+						if (vWeight.type !== FigmaTokenType.Typographic) {
+							console.error("Invalid token type", `${vVariant}, ${vSize}, ${vWeight},`)
+							throw new Error("Invalid token type")
+						}
 						return vWeight.value.fontFamily
 					})
 				})
