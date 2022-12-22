@@ -1,9 +1,6 @@
 import { ObjectTyped } from "../../src/util/ObjectTyped"
 import Color from "../../figmaTokens/Color.json"
-
-enum FigmaTokenType {
-	color = "color"
-}
+import { FigmaTokenType } from "./tokenTypes"
 
 type ColorPallet = {
 	[k in `Level${number}`]: {
@@ -16,7 +13,7 @@ const processColorPallet = (colorPallet: ColorPallet) => {
 	return Object.fromEntries(
 		ObjectTyped.entries(colorPallet)
 			.map(([k, v,]) => {
-				if (v.type !== FigmaTokenType.color) {
+				if (v.type !== FigmaTokenType.Color) {
 					console.error("Invalid token type", k, v)
 					throw new Error("Invalid token type")
 				}

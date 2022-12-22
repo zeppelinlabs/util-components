@@ -1,9 +1,6 @@
 import { ObjectTyped } from "../../src/util/ObjectTyped"
 import Fonts from "../../figmaTokens/Typography.json"
-
-enum FigmaTokenType {
-	Typographic = "typography"
-}
+import { FigmaTokenType } from "./tokenTypes"
 
 const getFontFamilies = () => {
 	const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
