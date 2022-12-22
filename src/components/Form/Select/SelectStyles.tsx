@@ -19,6 +19,7 @@ const Select = styled.select<SelectProps>`
     -moz-appearance: none;
     appearance: none;
     min-height: 36px;
+    line-height: 1;
     cursor: pointer;
     padding: ${p => (p.withIcon
         ? "8px 36px"
@@ -30,7 +31,7 @@ const Select = styled.select<SelectProps>`
     }
 
     &:focus {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
 
     &:hover {
@@ -41,21 +42,21 @@ const Select = styled.select<SelectProps>`
 const Wrapper = styled.div<SelectProps>`
     width: max-content;
     display: flex;
-    background: ${thp.common(c => c.white)};
+    background: ${thp.base(c => c.level0)};
     border-width: 1px;
     border-style: solid;
     position: relative;
-    border-color: ${thp.neutral(c => c.level50)};
-    color: ${thp.common(c => c.black)};
+    border-color: ${thp.base(c => c.level1000)};
+    color: ${thp.base(c => c.level1000)};
 
     ${p => (p.errorMessage && css`
-        border-color: ${thp.system(c => c.critical)};
-        color: ${thp.system(c => c.critical)};
+        border-color: ${thp.system(c => c.error.level500)};
+        color: ${thp.system(c => c.error.level500)};
     `)}
 
     ${p => (p.disabled && css`
-        border-color: ${thp.neutral(c => c.level10)};
-        color: ${thp.neutral(c => c.level10)};
+        border-color: ${thp.base(c => c.level100)};
+        color: ${thp.base(c => c.level100)};
     `)}
 `
 

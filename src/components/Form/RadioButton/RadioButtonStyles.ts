@@ -12,7 +12,7 @@ const Container = styled.label`
     gap: 8px;
     flex-flow: row;
     align-items: center;
-    color: ${thp.neutral(c => c.level50)};
+    color: ${thp.base(c => c.level500)};
     position:relative;
     line-height: 1.3;
 `
@@ -30,8 +30,8 @@ const Radio = styled.span`
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
-    border-color: ${thp.neutral(c => c.level50)};
-    background-color: ${thp.common(c => c.white)};
+    border-color: ${thp.base(c => c.level500)};
+    background-color: ${thp.base(c => c.level0)};
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@ const Radio = styled.span`
         width: 4px;
         height: 4px;
         border-radius: 6px;
-        background: ${thp.common(c => c.white)};
+        background: ${thp.base(c => c.level0)};
     }
 
     &:hover {
@@ -56,15 +56,15 @@ const Input = styled.input`
     opacity: 0;
 
     &:checked + ${Radio} {
-        background-color: ${thp.primary(c => c.level50)};
-        border-color: ${thp.primary(c => c.level50)};
+        background-color: ${thp.primary(c => c.level500)};
+        border-color: ${thp.primary(c => c.level500)};
         &:hover{
             //hover styles when checked
         }
     }
 
     &:focus + ${Radio} {
-       box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+       box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
 
     &:disabled + ${Radio} {

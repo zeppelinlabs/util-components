@@ -33,8 +33,8 @@ const Slider = styled.span`
     border-radius: 100px;
     position: relative;
     transition: ease 0.3s;
-    background-color:  ${thp.neutral(c => c.level50)};
-    border: 1px solid ${thp.common(c => c.black)};
+    background-color:  ${thp.base(c => c.level500)};
+    border: 1px solid ${thp.base(c => c.level1000)};
 
     &:before{
         content: "";
@@ -45,7 +45,7 @@ const Slider = styled.span`
         height: 21px;
         border-radius: 21px;
         transition: ease 0.2s;
-        background: ${thp.common(c => c.white)};
+        background: ${thp.base(c => c.level0)};
     };
 `
 
@@ -56,8 +56,8 @@ const Input = styled.input<Props>`
     height: 23px;
 
     &:checked + ${Slider} {
-        background-color: ${thp.primary(c => c.level50)};
-        border: 1px solid ${thp.primary(c => c.level50)};
+        background-color: ${thp.primary(c => c.level500)};
+        border: 1px solid ${thp.primary(c => c.level500)};
         &:before {
             left: 100%;
             transform: translateX(-100%);
@@ -65,7 +65,7 @@ const Input = styled.input<Props>`
     };
 
     &:focus + ${Slider} {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     };
 
     &:hover + ${Slider} {

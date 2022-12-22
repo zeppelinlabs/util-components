@@ -15,8 +15,8 @@ const Label = styled.label<PropsStyled>`
     width: 100%;
     font-size: 1.6rem;
     color: ${props => (props.disabled
-        ? thp.neutral(c => c.level50)
-        : thp.common(c => c.black))};
+        ? thp.base(c => c.level500)
+        : thp.base(c => c.level1000))};
     ${p => (p.disabled && css`
         cursor: not-allowed;
         > *{
@@ -46,7 +46,7 @@ const LabelText = styled.span<PropsStyled>`
 const Content = styled.span``
 
 const Required = styled.span`
-    color: ${thp.system(c => c.critical)};
+    color: ${thp.system(c => c.error.level500)};
 `
 
 const Tag = styled.span`
@@ -57,8 +57,8 @@ const Tag = styled.span`
     border-radius: 4px;
     font-size: 1rem;
     line-height: 1.2;
-    color: ${thp.common(c => c.black)};
-    background-color: ${thp.neutral(c => c.level10)};
+    color: ${thp.base(c => c.level1000)};
+    background-color: ${thp.base(c => c.level200)};
 `
 
 const ContentInfoIcon = styled.span`

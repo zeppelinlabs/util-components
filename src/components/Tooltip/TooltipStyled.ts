@@ -14,14 +14,14 @@ type Props = {
 const getTooltipVariant = (variant: TooltipVariant) => {
     const TooltipByCase = {
         [TooltipVariant.Primary]: ({
-            backgroundColor: thp.common(c => c.white),
-            borderColor: thp.common(c => c.black),
-            textColor: thp.common(c => c.black),
+            backgroundColor: thp.base(c => c.level0),
+            borderColor: thp.base(c => c.level1000),
+            textColor: thp.base(c => c.level1000),
         }),
         [TooltipVariant.Secondary]: ({
-            backgroundColor: thp.neutral(c => c.level50),
-            borderColor: thp.common(c => c.black),
-            textColor: thp.common(c => c.white),
+            backgroundColor: thp.base(c => c.level200),
+            borderColor: thp.base(c => c.level1000),
+            textColor: thp.base(c => c.level0),
         }),
     }
     return css`

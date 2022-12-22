@@ -28,26 +28,26 @@ const SpinnerContainer = styled.span`
 `
 
 const PrimaryButton = () => css<Props>`
-    background: ${thp.primary(c => c.level50)};
-    color: ${thp.common(c => c.white)};
+    background: ${thp.primary(c => c.level500)};
+    color: ${thp.base(c => c.level0)};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.common(c => c.white)};
+        color: ${thp.base(c => c.level0)};
     }
 `
 const SecondaryButton = () => css<Props>`
-    background: ${thp.common(c => c.white)};
-    color: ${thp.common(c => c.black)};
-    border: 1px solid ${thp.common(c => c.black)};
+    background: ${thp.secondary(c => c.level500)};
+    color: ${thp.base(c => c.level0)};
+    border: 1px solid ${thp.base(c => c.level1000)};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.common(c => c.black)};
+        color: ${thp.base(c => c.level1000)};
     }
 `
 
@@ -82,7 +82,7 @@ const Button = styled.button<Props>`
         color: transparent;
     `)};
     &:focus {
-       box-shadow: 0 0 0 4px ${thp.system(c => c.focus)};
+       box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
     }
     &:disabled {
         opacity: 0.5;

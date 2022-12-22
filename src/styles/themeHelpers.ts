@@ -2,6 +2,8 @@ import { DefaultTheme, ThemeProps } from "styled-components"
 import { defaultTheme } from "./defaultTheme"
 
 type ThemeKeys = keyof DefaultTheme["palette"]
+type ThemeSystemKeys = keyof DefaultTheme["palette"]["system"]
+
 type ThemeHelper<k extends ThemeKeys> = <T>(f: (params: DefaultTheme["palette"][k]) => T) => T
 type ThemeHelpers = {
     [K in ThemeKeys]: ThemeHelper<K>;
@@ -15,4 +17,4 @@ export const thp: ThemeHelpers = Object.keys(defaultTheme.palette).reduce((acc, 
     }
 }, {} as ThemeHelpers)
 
-export type AlertLevel = Extract<ThemeKeys, "info" | "warning" | "success" | "critical">;
+export type AlertLevel = Extract<ThemeSystemKeys, "error" | "success" | "warning">
