@@ -1,11 +1,11 @@
 
 import React from "react"
+import { TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
 import { RadioButtonStyled } from "./RadioButtonStyles"
-import { TextWeight } from "../../../styles/typographicHelper"
 
 export type CustomRadioButtonStyles = {
-    textWeight?: TextWeight,
-    textColor?: string,
+    textWeight?: TextWeightKeys,
+    textColor?: ThemeBaseColorKeys,
 }
 export type AccessibilityRadioButton = {
     tabIndex?: number,
@@ -17,13 +17,13 @@ const keySerializator = (() => {
     const emptyValue = ""
     return {
         serialize: (k: ValidKey) =>
-            (k === emptyValue
-                ? emptyValue
-                : JSON.stringify(k)),
+        (k === emptyValue
+            ? emptyValue
+            : JSON.stringify(k)),
         deserialize: <R extends ValidKey>(s: string) =>
-            (s === emptyValue
-                ? emptyValue
-                : JSON.parse(s) as R),
+        (s === emptyValue
+            ? emptyValue
+            : JSON.parse(s) as R),
     }
 })()
 
@@ -148,7 +148,7 @@ RadioButtonGroup_.displayName = "RadioButtonGroup"
 const RadioButtonGroup = RadioButtonGroup_ as <
     K extends ValidKey,
     T extends RadioOption<K>>(props: RadioButtonProps<K, T>
-    & React.RefAttributes<HTMLInputElement>) => JSX.Element
+        & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 
 export default RadioButtonGroup

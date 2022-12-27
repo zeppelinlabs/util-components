@@ -1,6 +1,5 @@
 import { createGlobalStyle, css } from "styled-components"
-import { thp } from "./themeHelpers"
-import { fonts } from "./typographic"
+import { thp, uihp } from "./themeHelpers"
 
 export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	*,
@@ -31,7 +30,7 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	}
 	body {
 		text-rendering: optimizeSpeed;
-		font-family: ${fonts.primary};
+		font-family: ${uihp.FontFamilies(f => f.Primary)};
 		font-weight:400;
 		line-height: 1.1;
 		min-height:100%;

@@ -4,7 +4,6 @@ import Button, { ButtonVariant } from "../../../components/Button/Button"
 import RadioButtonGroup, { RadioOption }
     from "../../../components/Form/RadioButton/RadioButton"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
-import { TextWeight } from "../../../styles/typographicHelper"
 
 enum ListOptionKey {
     FirstKey = "firstKey",
@@ -25,7 +24,7 @@ const listOption1: RadioOption<ListOptionKey>[] = [
     {
         key: ListOptionKey.ThirdKey,
         children: "With text bold",
-        customStyles: { textWeight: TextWeight.Bold, },
+        customStyles: { textWeight: "bold", },
     },
 ]
 
@@ -41,7 +40,7 @@ const listOption2: RadioOption<number>[] = [
     {
         key: 3,
         children: "With other colors",
-        customStyles: { textColor: "green", },
+        customStyles: { textColor: "level700", },
     },
     {
         key: 4,

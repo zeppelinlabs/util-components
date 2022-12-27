@@ -1,13 +1,12 @@
-import styled, { css,} from "styled-components"
-import { thp } from "../../styles/themeHelpers"
-import { getFontWeight } from "../../styles/typographicHelper"
+import styled, { css, } from "styled-components"
+import { thp, uihp } from "../../styles/themeHelpers"
 import {
-    CustomTooltipStyles, TooltipSize, TooltipVariant,TooltipAlign,
+    CustomTooltipStyles, TooltipSize, TooltipVariant, TooltipAlign,
 } from "./Tooltip"
 import { getTooltipPosition, getTooltipAlign } from "./TooltipStyledHelper"
 
 type Props = {
-	customStyles?: CustomTooltipStyles,
+    customStyles?: CustomTooltipStyles,
 }
 
 
@@ -57,7 +56,9 @@ const Tooltip = styled.span<Props>`
     line-height: 1.2;
     transition: scale 0.3s ease-in-out, opacity 0.3s ease-in, visibility 0.5s ease-in;
     box-shadow: 0px 6px 24px rgba(28, 40, 53, 0.1);
-    ${p => (p.customStyles?.textWeight && getFontWeight(p.customStyles?.textWeight))};
+    ${p => (p.customStyles?.textWeight
+        && uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
+    )};
     ${p => (getTooltipVariant(p.customStyles?.tooltipVariant || TooltipVariant.Primary))};
     ${p => {
         if (p.customStyles?.position) {

@@ -1,17 +1,17 @@
 import React from "react"
-import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
 import { LabelStyled } from "./LabelStyles"
 import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
+import { TextAlignKeys, TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
 
 export type CustomLabelStyles = {
-    textColor?: string,
-    textWeight?: TextWeight,
-    textAlign?: TextAlign,
+    textColor?: ThemeBaseColorKeys,
+    textWeight?: TextWeightKeys,
+    textAlign?: TextAlignKeys,
 }
 
-export enum LabelVariant{
+export enum LabelVariant {
     Required = "required",
-    Optional="optional",
+    Optional = "optional",
     Info = "info",
 }
 

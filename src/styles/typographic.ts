@@ -1,27 +1,30 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css } from "styled-components"
 import {
-    TextWeight,
-    TextAlign,
-    getFontWeight,
-} from "./typographicHelper"
-
-export const fonts = {
-    // eslint-disable-next-line max-len
-    primary: "'-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, Arial, sans- serif', sans-serif",
-}
+	TextAlignKeys,
+	TextWeightKeys, ThemeBaseColorKeys, thp, uihp
+} from "./themeHelpers"
 
 type CommonProps = {
-    textWeight?: TextWeight,
-    textAlign?: TextAlign,
-    isCursorPointer?: boolean,
+	textAlign?: TextAlignKeys,
+	textWeight?: TextWeightKeys,
+	textColor?: ThemeBaseColorKeys,
+	isCursorPointer?: boolean,
 }
 
 const TextStyleBase = () => css<CommonProps>`
-	${p => (p.textWeight && getFontWeight(p.textWeight))};
-	${p => (p.textAlign && css`text-align: ${p.textAlign};`)};
+	${p => (p.textAlign && css`
+		text-align: ${p.textAlign};
+	`)};
+	${p => (p.textWeight && css`
+		font-weight: ${uihp.FontWeight(w => w.Primary[p.textWeight!])};
+	`)};
+	${p => (p.textColor && css`
+		color: ${thp.base(c => c[p.textColor!])};
+	`)};
 	${p => (p.isCursorPointer && css`
 		cursor: pointer;
-	`)}
+	`)};
 `
 
 const Heading24 = styled.h2`
@@ -34,6 +37,6 @@ const Body18 = styled.p`
 `
 
 export const TextStyled = {
-    Heading24,
-    Body18,
+	Heading24,
+	Body18,
 }

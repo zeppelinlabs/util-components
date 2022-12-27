@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components"
-import { thp } from "../../../styles/themeHelpers"
+import { thp, uihp } from "../../../styles/themeHelpers"
 import { CustomCheckboxStyles } from "./Checkbox"
 
 type Props = {
@@ -77,7 +77,7 @@ const ChildrenWrapper = styled.div<Props>`
         text-align: ${p.customStyles?.textAlign}
     `)};
     ${p => (p.customStyles?.textWeight && css`
-        font-weight: ${p.customStyles?.textWeight}
+        font-weight: ${uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])}
     `)};
 `
 

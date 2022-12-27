@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components"
-import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
+import { thp, uihp } from "../../../styles/themeHelpers"
 import { CustomRadioButtonStyles } from "./RadioButton"
 
 type Props = {
@@ -76,10 +75,10 @@ const Input = styled.input`
 
 const ChildrenContainer = styled.div<Props>`
     ${p => (p.customStyles?.textColor && css`
-        color: ${p.customStyles?.textColor};
+        color: ${thp.base(w => w[p.customStyles!.textColor!])};
     `)};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
     )};
 `
 

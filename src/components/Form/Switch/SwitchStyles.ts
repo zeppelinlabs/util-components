@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 import { CustomSwitchStyles } from "./Switch"
-import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
+import { thp, uihp } from "../../../styles/themeHelpers"
 
 type Props = {
     customStyles?: CustomSwitchStyles,
@@ -87,7 +86,7 @@ const ChildrenWrapper = styled.div<Props>`
         text-align: ${p.customStyles?.textAlign};
     `)};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
     )};
 `
 

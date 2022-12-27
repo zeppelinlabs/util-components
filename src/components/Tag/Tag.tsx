@@ -1,7 +1,7 @@
 import React from "react"
 import { TagStyled } from "./TagStyled"
-import { ReactComponent as CrossIcon} from "../../assets/icons/cross.svg"
-import { TextWeight } from "../../styles/typographicHelper"
+import { ReactComponent as CrossIcon } from "../../assets/icons/cross.svg"
+import { TextWeightKeys } from "../../styles/themeHelpers"
 
 export enum TagSize {
     Small = "small",
@@ -18,7 +18,7 @@ export type CustomStyles = {
     borderColor?: string,
     backgroundColor?: string,
     textColor?: string,
-    textWeight?: TextWeight,
+    textWeight?: TextWeightKeys,
     size?: TagSize,
     isCursorPointer?: boolean,
 }
@@ -46,7 +46,7 @@ const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElem
         ref={ref}>
         {props.icon?.SVGComponent
             && <TagStyled.CustomIconContainer size={props.customStyles?.size}>
-                <props.icon.SVGComponent/>
+                <props.icon.SVGComponent />
             </TagStyled.CustomIconContainer>}
 
         {props.children}

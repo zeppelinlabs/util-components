@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
-import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
+import { thp, uihp } from "../../../styles/themeHelpers"
 
 type PropsStyled = {
     customStyles?: CustomLabelStyles,
@@ -36,10 +35,10 @@ const LabelText = styled.span<PropsStyled>`
         : "left"
     )};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
     )}
     ${p => (!p.disabled && p.customStyles?.textColor && css`
-        color:${p.customStyles.textColor};
+        color:${thp.base(c => c[p.customStyles!.textColor!])};
     `)};
 `
 
