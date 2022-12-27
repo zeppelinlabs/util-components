@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components"
-import { thp, uihp } from "../../styles/themeHelpers"
+import { FontsTokens } from "../../styles/designTokens/fontsTokens"
+import { thp, } from "../../styles/themeHelpers"
 import { CustomStyles, TagIconPosition, TagSize } from "./Tag"
 
 type TagProps = {
@@ -63,7 +64,7 @@ const Container = styled.span<TagProps>`
 	border-style: solid;
 	width: max-content;
 
-	background-color:${p => (p.customStyles?.backgroundColor || thp.base(c => c.level0))};
+	background-color:${p => (p.customStyles?.backgroundColor || thp.base.level0._)};
 	color:${p => (p.customStyles?.textColor || "inherit")};
 	cursor: ${p => (p.customStyles?.isCursorPointer ? "pointer" : "default")};
 
@@ -72,7 +73,7 @@ const Container = styled.span<TagProps>`
 	: TagSize.Small
 )).tagCss}
 	${p => (p.customStyles?.textWeight
-		&& uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
+		&& FontsTokens.weights.Primary[p.customStyles.textWeight]
 	)};
 	${p => (p.customStyles?.borderColor && css`
 		border-color: ${p.customStyles.borderColor};
@@ -81,8 +82,8 @@ const Container = styled.span<TagProps>`
 		flex-flow: ${p.IconPosition};
 	`)};
 	&:focus {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
-    }
+		box-shadow: 0 0 0 4px ${thp.system.success.level500._};
+	}
 	img{
 		width:100%;
 		max-width:100%;

@@ -1,5 +1,6 @@
 import styled, { css, } from "styled-components"
-import { thp, uihp } from "../../styles/themeHelpers"
+import { FontsTokens } from "../../styles/designTokens/fontsTokens"
+import { thp } from "../../styles/themeHelpers"
 import {
     CustomTooltipStyles, TooltipSize, TooltipVariant, TooltipAlign,
 } from "./Tooltip"
@@ -13,14 +14,14 @@ type Props = {
 const getTooltipVariant = (variant: TooltipVariant) => {
     const TooltipByCase = {
         [TooltipVariant.Primary]: ({
-            backgroundColor: thp.base(c => c.level0),
-            borderColor: thp.base(c => c.level1000),
-            textColor: thp.base(c => c.level1000),
+            backgroundColor: thp.base.level0._,
+            borderColor: thp.base.level1000._,
+            textColor: thp.base.level1000._,
         }),
         [TooltipVariant.Secondary]: ({
-            backgroundColor: thp.base(c => c.level200),
-            borderColor: thp.base(c => c.level1000),
-            textColor: thp.base(c => c.level0),
+            backgroundColor: thp.base.level200._,
+            borderColor: thp.base.level1000._,
+            textColor: thp.base.level0._,
         }),
     }
     return css`
@@ -57,7 +58,7 @@ const Tooltip = styled.span<Props>`
     transition: scale 0.3s ease-in-out, opacity 0.3s ease-in, visibility 0.5s ease-in;
     box-shadow: 0px 6px 24px rgba(28, 40, 53, 0.1);
     ${p => (p.customStyles?.textWeight
-        && uihp.FontWeight(w => w.Primary[p.customStyles!.textWeight!])
+        && FontsTokens.weights.Primary[p.customStyles.textWeight]
     )};
     ${p => (getTooltipVariant(p.customStyles?.tooltipVariant || TooltipVariant.Primary))};
     ${p => {

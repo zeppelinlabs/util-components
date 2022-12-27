@@ -1,5 +1,6 @@
 import { createGlobalStyle, css } from "styled-components"
-import { thp, uihp } from "./themeHelpers"
+import { FontsTokens } from "./designTokens/fontsTokens"
+import { thp } from "./themeHelpers"
 
 export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	*,
@@ -30,14 +31,14 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	}
 	body {
 		text-rendering: optimizeSpeed;
-		font-family: ${uihp.FontFamilies(f => f.Primary)};
-		font-weight:400;
+		font-family: ${FontsTokens.fontFamilies.Primary};
+		font-weight:${FontsTokens.weights.Primary.regular};
 		line-height: 1.1;
 		min-height:100%;
 		position:relative;
 		scroll-behavior: smooth;
 		overflow-x: hidden !important;
-		background-color: ${thp.base(c => c.level0)};
-		color: ${thp.base(c => c.level1000)};
+		background-color: ${thp.base.level0._};
+		color: ${thp.base.level1000._};
 	}
 `

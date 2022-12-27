@@ -28,26 +28,26 @@ const SpinnerContainer = styled.span`
 `
 
 const PrimaryButton = () => css<Props>`
-    background: ${thp.primary(c => c.level500)};
-    color: ${thp.base(c => c.level0)};
+    background: ${thp.primary.level500._};
+    color: ${thp.base.level0._};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.base(c => c.level0)};
+        color: ${thp.base.level0._};
     }
 `
 const SecondaryButton = () => css<Props>`
-    background: ${thp.secondary(c => c.level500)};
-    color: ${thp.base(c => c.level0)};
-    border: 1px solid ${thp.base(c => c.level1000)};
+    background: ${thp.secondary.level500._};
+    color: ${thp.base.level0._};
+    border: 1px solid ${thp.base.level1000._};
 
     &:hover:not(:disabled) {
         // hover styles
     }
     ${SpinnerContainer}{
-        color: ${thp.base(c => c.level1000)};
+        color: ${thp.base.level1000._};
     }
 `
 
@@ -66,7 +66,7 @@ const Button = styled.button<Props>`
 
     padding:${p => (p.isOnlyIcon ? "8px" : "8px 16px")};
     width: ${p => (p.customStyles?.isFullWidth ? "100%" : "fit-content")};
-    flex-direction: ${p => (p.buttonPosition ? p.buttonPosition :"row")};
+    flex-direction: ${p => (p.buttonPosition ? p.buttonPosition : "row")};
     opacity: ${props => (props.loading ? 0 : 1)};
     ${p => (getButtonVariant(p.buttonVariant))}
     img,
@@ -82,16 +82,13 @@ const Button = styled.button<Props>`
         color: transparent;
     `)};
     &:focus {
-       box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
+       box-shadow: 0 0 0 4px ${thp.system.success.level500._};
     }
     &:disabled {
         opacity: 0.5;
         cursor:not-allowed;
     }
 `
-
-
-
 
 const IconContainer = styled.span`
     display: flex;

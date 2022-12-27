@@ -4,7 +4,7 @@ import { thp } from "../../../styles/themeHelpers"
 type SelectProps = {
     errorMessage?: string | null,
     disabled?: boolean,
-    withIcon?:boolean,
+    withIcon?: boolean,
 }
 
 const Select = styled.select<SelectProps>`
@@ -31,7 +31,7 @@ const Select = styled.select<SelectProps>`
     }
 
     &:focus {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
+        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
     }
 
     &:hover {
@@ -42,21 +42,21 @@ const Select = styled.select<SelectProps>`
 const Wrapper = styled.div<SelectProps>`
     width: max-content;
     display: flex;
-    background: ${thp.base(c => c.level0)};
+    background: ${thp.base.level0._};
     border-width: 1px;
     border-style: solid;
     position: relative;
-    border-color: ${thp.base(c => c.level1000)};
-    color: ${thp.base(c => c.level1000)};
+    border-color: ${thp.base.level1000._};
+    color: ${thp.base.level1000._};
 
     ${p => (p.errorMessage && css`
-        border-color: ${thp.system(c => c.error.level500)};
-        color: ${thp.system(c => c.error.level500)};
+        border-color: ${thp.system.success.level500._};
+        color: ${thp.system.success.level500._};
     `)}
 
     ${p => (p.disabled && css`
-        border-color: ${thp.base(c => c.level100)};
-        color: ${thp.base(c => c.level100)};
+        border-color: ${thp.base.level100._};
+        color: ${thp.base.level100._};
     `)}
 `
 
