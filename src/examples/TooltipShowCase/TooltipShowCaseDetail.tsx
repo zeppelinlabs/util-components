@@ -23,15 +23,15 @@ const TooltipShowCaseDetail = () => {
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{ position: TooltipPosition.TopLeft,}}>
-                Tooltip example align to left
+                Tooltip example position top align left
             </Tooltip>
         </div>
         <div>
-            {"Tooltip example align to right in icon "}
+            {"Tooltip example position top align right in icon "}
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{
-                    position: TooltipPosition.Right,
+                    position: TooltipPosition.TopRight,
                     tooltipVariant: TooltipVariant.Secondary,
                 }}>
                 <InfoIcon />
@@ -42,13 +42,6 @@ const TooltipShowCaseDetail = () => {
                 tooltipContent="Content of tooltip"
                 customStyles={{ position: TooltipPosition.Right, }}>
                 Tooltip example position to right
-            </Tooltip>
-        </div>
-        <div>
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{ position: TooltipPosition.Left, }}>
-                Tooltip example position to left
             </Tooltip>
         </div>
         <div>
