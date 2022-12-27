@@ -50,8 +50,8 @@ const Wrapper = styled.div<SelectProps>`
     color: ${thp.base.level1000._};
 
     ${p => (p.errorMessage && css`
-        border-color: ${thp.system.success.level500._};
-        color: ${thp.system.success.level500._};
+        border-color: ${thp.system.error.level500._};
+        color: ${thp.system.error.level500._};
     `)}
 
     ${p => (p.disabled && css`
