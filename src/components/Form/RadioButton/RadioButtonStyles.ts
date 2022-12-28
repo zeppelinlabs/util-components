@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
 import { CustomRadioButtonStyles } from "./RadioButton"
 
 type Props = {
@@ -12,7 +12,7 @@ const Container = styled.label`
     gap: 8px;
     flex-flow: row;
     align-items: center;
-    color: ${thp.base(c => c.level500)};
+    color: ${thp.base.level500._};
     position:relative;
     line-height: 1.3;
 `
@@ -30,8 +30,8 @@ const Radio = styled.span`
     border-radius: 12px;
     border-width: 1px;
     border-style: solid;
-    border-color: ${thp.base(c => c.level500)};
-    background-color: ${thp.base(c => c.level0)};
+    border-color: ${thp.base.level500._};
+    background-color: ${thp.base.level0._};
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
@@ -40,7 +40,7 @@ const Radio = styled.span`
         width: 4px;
         height: 4px;
         border-radius: 6px;
-        background: ${thp.base(c => c.level0)};
+        background: ${thp.base.level0._};
     }
 
     &:hover {
@@ -56,15 +56,15 @@ const Input = styled.input`
     opacity: 0;
 
     &:checked + ${Radio} {
-        background-color: ${thp.primary(c => c.level500)};
-        border-color: ${thp.primary(c => c.level500)};
+        background-color: ${thp.primary.level500._};
+        border-color: ${thp.primary.level500._};
         &:hover{
             //hover styles when checked
         }
     }
 
     &:focus + ${Radio} {
-       box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
+       box-shadow: 0 0 0 4px ${thp.system.success.level500._};
     }
 
     &:disabled + ${Radio} {
@@ -76,15 +76,15 @@ const Input = styled.input`
 
 const ChildrenContainer = styled.div<Props>`
     ${p => (p.customStyles?.textColor && css`
-        color: ${p.customStyles?.textColor};
+        color: ${thp.base[p.customStyles.textColor]._};
     `)};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && FontsTokens.weights.Primary[p.customStyles.textWeight]
     )};
 `
 
 const ErrorMessageContainer = styled.span`
-    color:${thp.system(c => c.warning)};
+    color:${thp.system.error.level500._};
     font-size: 1.4rem;
     font-weight: bold;
 `

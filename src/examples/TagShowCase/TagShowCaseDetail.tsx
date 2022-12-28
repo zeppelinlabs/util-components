@@ -2,7 +2,6 @@ import React from "react"
 import Tag, { TagSize, TagIconPosition } from "../../components/Tag/Tag"
 import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
-import { TextWeight } from "../../styles/typographicHelper"
 
 const TagShowCaseDetail = () => {
     // eslint-disable-next-line no-alert
@@ -35,7 +34,7 @@ const TagShowCaseDetail = () => {
             Without icons
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}
-            customStyles={{ textWeight: TextWeight.Bold, }} >
+            customStyles={{ textWeight: "bold", }} >
             With text bold
         </Tag>
         <Tag onClickRemove={handleOnClick}>
@@ -50,7 +49,7 @@ const TagShowCaseDetail = () => {
             }} >
             With custom colors
         </Tag>
-        <Tag onClick={handleOnClick} customStyles={{isCursorPointer:true,}}>
+        <Tag onClick={handleOnClick} customStyles={{ isCursorPointer: true, }}>
             With onClick event
         </Tag>
     </LayoutExamples>

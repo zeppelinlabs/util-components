@@ -6,7 +6,6 @@ import InputPassword from "../../../components/Form/Input/InputPassword"
 import InputTextArea from "../../../components/Form/Input/InputTextArea"
 import Label from "../../../components/Form/Label/Label"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
-import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
 
 const InputShowCaseDetail = () => {
     const [inputStringState, setInputStringState,] = useState("")
@@ -48,7 +47,7 @@ const InputShowCaseDetail = () => {
                 onChange={setInputAmountState}
                 step={0.01}
                 customStyles={{
-                    textAlign: TextAlign.Right,
+                    textAlign: "right",
                 }}
             />
         </Label>
@@ -60,7 +59,7 @@ const InputShowCaseDetail = () => {
                 onChange={setInputStringState}
                 customStyles={{
                     textColor: "blue",
-                    textWeight: TextWeight.Bold,
+                    textWeight: "bold",
                 }}
             />
         </Label>

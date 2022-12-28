@@ -1,8 +1,8 @@
 import React from "react"
-import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
+import { TextAlignKeys, TextWeightKeys } from "../../../styles/themeHelpers"
 import { SwitchStyled } from "./SwitchStyles"
 
-export enum ContentSwitchPosition{
+export enum ContentSwitchPosition {
     Top = "column-reverse",
     Bottom = "column",
     Left = "row-reverse",
@@ -14,8 +14,8 @@ export enum ContentSwitchAlign {
 
 export type CustomSwitchStyles = {
     textColor?: string,
-    textAlign?: TextAlign,
-    textWeight?: TextWeight,
+    textAlign?: TextAlignKeys,
+    textWeight?: TextWeightKeys,
     contentPosition?: ContentSwitchPosition,
     contentAlign?: ContentSwitchAlign,
 }
@@ -28,7 +28,7 @@ type Props = {
     customStyles?: CustomSwitchStyles,
     accessibility?: {
         tabIndex?: number,
-        autoFocus?:boolean,
+        autoFocus?: boolean,
     },
     children?: React.ReactNode,
 }

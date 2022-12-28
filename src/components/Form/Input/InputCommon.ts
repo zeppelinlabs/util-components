@@ -1,11 +1,13 @@
-import { TextAlign, TextWeight } from "../../../styles/typographicHelper"
+import {
+    TextAlignKeys, TextWeightKeys
+} from "../../../styles/themeHelpers"
 import { IconPosition } from "../../CommonTypes"
 
 export type CustomInputStyles = {
     textColor?: string,
-    textAlign?: TextAlign,
-    textWeight?: TextWeight,
-    isResizable?:boolean,
+    textAlign?: TextAlignKeys,
+    textWeight?: TextWeightKeys,
+    isResizable?: boolean,
 }
 
 export type InputCommonProps<T> = {

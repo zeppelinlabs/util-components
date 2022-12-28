@@ -1,11 +1,11 @@
 import React from "react"
-import { TextAlign, TextWeight } from "../../styles/typographicHelper"
+import { TextAlignKeys, TextWeightKeys } from "../../styles/themeHelpers"
 import { TooltipStyled } from "./TooltipStyled"
 
 export enum TooltipAlign {
-	Center = "center",
+    Center = "center",
     Left = "left",
-	Right = "right",
+    Right = "right",
 }
 export enum TooltipPosition {
     Right = "right",
@@ -13,8 +13,8 @@ export enum TooltipPosition {
     Bottom = "bottom",
 }
 export enum TooltipSize {
-	Small = "190px",
-	Medium = "250px",
+    Small = "190px",
+    Medium = "250px",
     Large = "350px",
     MaxContent = "max-content",
 }
@@ -25,8 +25,8 @@ export enum TooltipVariant {
 
 export type CustomTooltipStyles = {
     tooltipVariant?: TooltipVariant,
-    textAlign?: TextAlign,
-    textWeight?: TextWeight,
+    textAlign?: TextAlignKeys,
+    textWeight?: TextWeightKeys,
     position?: TooltipPosition,
     align?: TooltipAlign,
     size?: TooltipSize,

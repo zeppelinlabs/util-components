@@ -1,20 +1,16 @@
 import { DefaultTheme, ThemeProps } from "styled-components"
-import { defaultTheme } from "./defaultTheme"
+import { getProxy, } from "./ThemeProxy"
+import { FontsTokens } from "./designTokens/fontsTokens"
 
-type ThemeKeys = keyof DefaultTheme["palette"]
+export type ThemeKeys = keyof DefaultTheme["palette"]
 type ThemeSystemKeys = keyof DefaultTheme["palette"]["system"]
-
-type ThemeHelper<k extends ThemeKeys> = <T>(f: (params: DefaultTheme["palette"][k]) => T) => T
-type ThemeHelpers = {
-    [K in ThemeKeys]: ThemeHelper<K>;
-}
-export const thp: ThemeHelpers = Object.keys(defaultTheme.palette).reduce((acc, k) => {
-    const Ktyped = k as ThemeKeys
-    return {
-        ...acc,
-        [k]: <T>(f: (palette: DefaultTheme["palette"][typeof Ktyped]) => T) =>
-            (props: ThemeProps<DefaultTheme>) => f(props.theme.palette[Ktyped]),
-    }
-}, {} as ThemeHelpers)
+export type ThemeBaseColorKeys = keyof DefaultTheme["palette"]["base"]
+export type TextWeightKeys = keyof (typeof FontsTokens)["weights"]["Primary"]
+export type TextSecondaryWeightKeys = keyof (typeof FontsTokens)["weights"]["Secondary"]
 
 export type AlertLevel = Extract<ThemeSystemKeys, "error" | "success" | "warning">
+export type TextAlignKeys = "left" | "center" | "right"
+
+export const {
+    palette: thp,
+} = getProxy((props: ThemeProps<DefaultTheme>) => props, "theme")

@@ -11,7 +11,7 @@ type ValidKey = string | boolean | number | null
 export type SelectOption<K> = {
     key: K,
     text: string,
-    isOptionHidden?:boolean,
+    isOptionHidden?: boolean,
 }
 
 
@@ -21,27 +21,27 @@ export type Props<K extends ValidKey, T extends SelectOption<K>> = {
     label?: LabelProps,
     disabled?: boolean,
     loading?: boolean,
-    errorMessage?: string | null,
+    errorMessage?: string,
     accessibility?: {
         tabIndex?: number,
-        autoFocus:boolean,
+        autoFocus: boolean,
     },
     icon?: React.FunctionComponent,
     onChange?: (value: T) => void,
-    onClick?: () => void,
+    onClick?: (e: React.MouseEvent<HTMLSelectElement>) => void,
 }
 
 const keySerializator = (() => {
     const emptyValue = ""
     return {
         serialize: (k: ValidKey) =>
-            (k === emptyValue
-                ? emptyValue
-                : JSON.stringify(k)),
+        (k === emptyValue
+            ? emptyValue
+            : JSON.stringify(k)),
         deserialize: <R extends ValidKey>(s: string) =>
-            (s === emptyValue
-                ? emptyValue
-                : JSON.parse(s) as R),
+        (s === emptyValue
+            ? emptyValue
+            : JSON.parse(s) as R),
     }
 })()
 
@@ -84,7 +84,6 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
 
                 <SelectStyled.Select
                     withIcon={!!props.icon}
-                    name="test1"
                     ref={ref}
                     value={props.selectedValue
                         && keySerializator.serialize(props.selectedValue)
@@ -117,9 +116,9 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
 
 Select_.displayName = "Select"
 
-const Select = Select_ as<
+const Select = Select_ as <
     K extends ValidKey,
     T extends SelectOption<K>>(props: Props<K, T>
-    & React.RefAttributes<HTMLSelectElement>) => JSX.Element
+        & React.RefAttributes<HTMLSelectElement>) => JSX.Element
 
 export default Select

@@ -26,6 +26,28 @@ const getFontFamilies = () => {
 	return Object.fromEntries(fontForVariantEntries)
 }
 
+type WeightOptions = {
+	[K in string]: string
+}
+
+const transformWeight = (weight: string) => {
+	const options: WeightOptions = {
+		"thin": "100",
+		"extralight": "200",
+		"light": "300",
+		"regular": "400",
+		"medium": "500",
+		"semibold": "600",
+		"bold": "700",
+		"black": "800",
+	}
+	if (!options[weight]) {
+		console.error("Font token weight not found", `Key:${weight}`)
+		throw new Error("Invalid token font weight")
+	}
+	return options[weight]
+}
+
 const getWeights = () => {
 
 	const fontForVariantEntries = ObjectTyped.entries(Fonts).map(([kVariant, vVariant]) => {
@@ -38,8 +60,12 @@ const getWeights = () => {
 				})
 		)
 			.values()]
+
 		const fontWeightsEntries = fontWeights.map(fw => {
-			return [fw.toLowerCase().split(" ").join(""), fw,] as const
+			const key = fw.toLowerCase().split(" ").join("")
+			const value = transformWeight(key)
+
+			return [key, value,] as const
 		})
 		return [kVariant, Object.fromEntries(fontWeightsEntries)] as const
 	})
@@ -51,7 +77,7 @@ const convertPxToRem = (value: string) => {
 	if (parseInt(value) > 0) {
 		const formatValue = (parseInt(value) / 10).toFixed(1)
 		return `${formatValue}rem`
-	}else{
+	} else {
 		return "0"
 	}
 }

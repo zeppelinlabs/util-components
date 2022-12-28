@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { thp } from "../../../styles/themeHelpers"
 import { CustomCheckboxStyles } from "./Checkbox"
 
@@ -22,9 +23,9 @@ const Check = styled.span`
     width: 16px;
     height: 16px;
     border: none;
-    border: 1px solid ${thp.base(c => c.level500)};
+    border: 1px solid ${thp.base.level500._};
     margin-right: 8px;
-    background: ${thp.base(c => c.level0)};
+    background: ${thp.base.level0._};
     transition: ease 0.2s;
 
     &:hover {
@@ -39,14 +40,14 @@ const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
     height: 16px;
 
     &:focus + ${Check} {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
+        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
     }
 
     &:checked + ${Check}  {
         background: ${p => (p.customStyles?.checkBoxColor
         ? p.customStyles?.checkBoxColor
-        : thp.primary(c => c.level500))};
-        border: 1px solid ${thp.base(c => c.level1000)};
+        : thp.primary.level500._)};
+        border: 1px solid ${thp.base.level1000._};
     }
 
     &:disabled + ${Check}, &:disabled:checked + ${Check} {
@@ -77,7 +78,7 @@ const ChildrenWrapper = styled.div<Props>`
         text-align: ${p.customStyles?.textAlign}
     `)};
     ${p => (p.customStyles?.textWeight && css`
-        font-weight: ${p.customStyles?.textWeight}
+        font-weight: ${FontsTokens.weights.Primary[p.customStyles.textWeight]}
     `)};
 `
 

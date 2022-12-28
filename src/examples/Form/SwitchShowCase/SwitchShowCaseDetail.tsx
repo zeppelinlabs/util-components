@@ -3,7 +3,6 @@ import React, { useState } from "react"
 import Switch, { ContentSwitchAlign, ContentSwitchPosition }
     from "../../../components/Form/Switch/Switch"
 import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
-import { TextAlign } from "../../../styles/typographicHelper"
 
 const SwitchShowCaseDetail = () => {
     const [switchValue, setSwitchValue,] = useState(false)
@@ -55,7 +54,7 @@ const SwitchShowCaseDetail = () => {
             customStyles={{
                 contentPosition: ContentSwitchPosition.Top,
                 contentAlign: ContentSwitchAlign.End,
-                textAlign: TextAlign.Center,
+                textAlign: "center",
             }}
         >
             With text or content align to end

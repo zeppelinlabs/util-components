@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
 import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 
 type PropsStyled = {
     customStyles?: CustomLabelStyles,
@@ -15,8 +15,8 @@ const Label = styled.label<PropsStyled>`
     width: 100%;
     font-size: 1.6rem;
     color: ${props => (props.disabled
-        ? thp.base(c => c.level500)
-        : thp.base(c => c.level1000))};
+        ? thp.base.level500._
+        : thp.base.level1000._)};
     ${p => (p.disabled && css`
         cursor: not-allowed;
         > *{
@@ -36,17 +36,17 @@ const LabelText = styled.span<PropsStyled>`
         : "left"
     )};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && FontsTokens.weights.Primary[p.customStyles.textWeight]
     )}
     ${p => (!p.disabled && p.customStyles?.textColor && css`
-        color:${p.customStyles.textColor};
+        color:${thp.base[p.customStyles.textColor]._};
     `)};
 `
 
 const Content = styled.span``
 
 const Required = styled.span`
-    color: ${thp.system(c => c.error.level500)};
+    color: ${thp.system.success.level500._};
 `
 
 const Tag = styled.span`
@@ -57,8 +57,8 @@ const Tag = styled.span`
     border-radius: 4px;
     font-size: 1rem;
     line-height: 1.2;
-    color: ${thp.base(c => c.level1000)};
-    background-color: ${thp.base(c => c.level200)};
+    color: ${thp.base.level1000._};
+    background-color: ${thp.base.level200._};
 `
 
 const ContentInfoIcon = styled.span`

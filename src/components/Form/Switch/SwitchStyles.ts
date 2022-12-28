@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components"
 import { CustomSwitchStyles } from "./Switch"
 import { thp } from "../../../styles/themeHelpers"
-import { getFontWeight } from "../../../styles/typographicHelper"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 
 type Props = {
     customStyles?: CustomSwitchStyles,
@@ -33,8 +33,8 @@ const Slider = styled.span`
     border-radius: 100px;
     position: relative;
     transition: ease 0.3s;
-    background-color:  ${thp.base(c => c.level500)};
-    border: 1px solid ${thp.base(c => c.level1000)};
+    background-color:  ${thp.base.level500._};
+    border: 1px solid ${thp.base.level1000._};
 
     &:before{
         content: "";
@@ -45,7 +45,7 @@ const Slider = styled.span`
         height: 21px;
         border-radius: 21px;
         transition: ease 0.2s;
-        background: ${thp.base(c => c.level0)};
+        background: ${thp.base.level0._};
     };
 `
 
@@ -56,8 +56,8 @@ const Input = styled.input<Props>`
     height: 23px;
 
     &:checked + ${Slider} {
-        background-color: ${thp.primary(c => c.level500)};
-        border: 1px solid ${thp.primary(c => c.level500)};
+        background-color: ${thp.primary.level500._};
+        border: 1px solid ${thp.primary.level500._};
         &:before {
             left: 100%;
             transform: translateX(-100%);
@@ -65,7 +65,7 @@ const Input = styled.input<Props>`
     };
 
     &:focus + ${Slider} {
-        box-shadow: 0 0 0 4px ${thp.system(c => c.success.level500)};
+        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
     };
 
     &:hover + ${Slider} {
@@ -87,7 +87,7 @@ const ChildrenWrapper = styled.div<Props>`
         text-align: ${p.customStyles?.textAlign};
     `)};
     ${p => (p.customStyles?.textWeight
-        && getFontWeight(p.customStyles?.textWeight)
+        && FontsTokens.weights.Primary[p.customStyles.textWeight]
     )};
 `
 
