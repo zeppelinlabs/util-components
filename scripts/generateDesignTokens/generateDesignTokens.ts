@@ -11,8 +11,11 @@ const generateTSFileExportConst = (
     }
 ) => {
     const objectJson = JSON.stringify(options.objectToTransform, null, 4)
-    return ` /* eslint-disable max-len */
-    export const ${options.exportName} = ${objectJson} as const`
+    return `/* eslint-disable max-len */
+/* Don't edit the content of this file.
+Don't commit this file.
+This file was created automatically. */
+export const ${options.exportName} = ${objectJson} as const`
 }
 
 const baseTokenDir = path.resolve("src", "styles", "designTokens")
