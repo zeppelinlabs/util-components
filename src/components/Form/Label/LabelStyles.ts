@@ -2,6 +2,7 @@ import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
 import { thp } from "../../../styles/themeHelpers"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 
 type PropsStyled = {
     customStyles?: CustomLabelStyles,
@@ -56,7 +57,7 @@ const Tag = styled.span`
     justify-content: center;
     align-items: center;
     padding: 2px 5px;
-    border-radius: 4px;
+    border-radius: ${UiTokens.borderRadius.size4};
     font-size: 1rem;
     line-height: 1.2;
     color: ${thp.base.level1000._};

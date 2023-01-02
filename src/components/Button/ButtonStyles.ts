@@ -79,7 +79,7 @@ const PrimaryButton = () => css<Props>`
 const SecondaryButton = () => css<Props>`
 	background: ${thp.primary.level900._};
 	color: ${thp.base.level1000._};
-	border: 1px solid ${thp.base.level400._};
+	border: ${UiTokens.borderWidth.size1} solid ${thp.base.level400._};
 
 	&:not(:disabled) {
 		&:hover{
