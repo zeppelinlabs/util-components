@@ -1,15 +1,37 @@
 import styled, { css } from "styled-components"
-import { CustomSwitchStyles } from "./Switch"
+import { CustomSwitchStyles, SwitchSize } from "./Switch"
 import { thp } from "../../../styles/themeHelpers"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 
 type Props = {
     customStyles?: CustomSwitchStyles,
 }
 
+const getCheckboxSize = (size: SwitchSize) => {
+    const Switch = {
+        [SwitchSize.Small]: {
+            width: 48,
+            height: 24,
+            elipse: 16,
+        },
+        [SwitchSize.Base]: {
+            width: 56,
+            height: 28,
+            elipse: 20,
+        },
+        [SwitchSize.Large]: {
+            width: 64,
+            height: 32,
+            elipse: 24,
+        },
+    }
+    return Switch[size]
+}
+
 const Wrapper = styled.label<Props>`
     display: flex;
-    gap: 10px;
+    gap: ${UiTokens.spacing.size8};
     flex-flow: ${p => (p.customStyles?.contentPosition
         ? p.customStyles?.contentPosition
         : "row"
@@ -21,29 +43,24 @@ const Wrapper = styled.label<Props>`
     width: fit-content;
 `
 
-const Slider = styled.span`
+const Slider = styled.span<Props>`
     display: flex;
     cursor: pointer;
-    width: 38px;
-    min-width: 38px;
-    max-width: 38px;
-    height: 23px;
-    max-height: 23px;
-    min-height: 23px;
-    border-radius: 100px;
+    width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).width}px;
+    height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).height}px;
+    border-radius: ${UiTokens.borderRadius.size60};
     position: relative;
     transition: ease 0.3s;
-    background-color:  ${thp.base.level500._};
-    border: 1px solid ${thp.base.level1000._};
+    background-color:  ${thp.primary.level700._};
 
     &:before{
         content: "";
         position:absolute;
-        top: 0;
-        left: 0;
-        width: 21px;
-        height: 21px;
-        border-radius: 21px;
+        bottom: 4px;
+        left: 5%;
+        width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).elipse}px;
+        height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).elipse}px;
+        border-radius: ${UiTokens.borderRadius.sizeTotal};
         transition: ease 0.2s;
         background: ${thp.base.level0._};
     };
@@ -52,31 +69,38 @@ const Slider = styled.span`
 const Input = styled.input<Props>`
     position: absolute;
     opacity: 0;
-    width: 38px;
-    height: 23px;
 
     &:checked + ${Slider} {
         background-color: ${thp.primary.level500._};
-        border: 1px solid ${thp.primary.level500._};
         &:before {
-            left: 100%;
+            left: 95%;
             transform: translateX(-100%);
         };
     };
 
     &:focus + ${Slider} {
-        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
+        box-shadow: 0 0 0 ${UiTokens.borderWidth.size3} ${thp.primary.level200._};
     };
 
     &:hover + ${Slider} {
         //hover styles
     };
 
-    &:disabled + ${Slider}, &:disabled:checked + ${Slider} {
-        opacity:.5;
+    &:disabled + ${Slider} {
+        background-color: ${thp.base.level500._};
         cursor:not-allowed;
+        &:before {
+            background-color: ${thp.base.level100._};
+        };
     };
-
+    
+    &:disabled:checked + ${Slider} {
+        background-color: ${thp.base.level300._};
+        cursor:not-allowed;
+        &:before {
+            background-color: ${thp.base.level100._};
+        };
+    }
 `
 
 const ChildrenWrapper = styled.div<Props>`
