@@ -14,10 +14,12 @@ const Label = styled.label<PropsStyled>`
     gap: 6px;
     width: 100%;
     font-size: 1.6rem;
-    color: ${props => (props.disabled
+    color: ${({ disabled, }) => (disabled
         ? thp.base.level500._
-        : thp.base.level1000._)};
-    ${p => (p.disabled && css`
+        : thp.base.level1000._
+    )};
+
+    ${({ disabled, }) => (disabled && css`
         cursor: not-allowed;
         > *{
             cursor: not-allowed;
@@ -31,15 +33,15 @@ const LabelText = styled.span<PropsStyled>`
     align-items: center;
     font-size: 1.6rem;
     gap: 8px;
-    text-align: ${p => (p.customStyles?.textAlign
-        ? p.customStyles.textAlign
+    text-align: ${({ customStyles, }) => (customStyles?.textAlign
+        ? customStyles.textAlign
         : "left"
     )};
-    ${p => (p.customStyles?.textWeight
-        && FontsTokens.weights.Primary[p.customStyles.textWeight]
+    ${({ customStyles, }) => (customStyles?.textWeight
+        && FontsTokens.weights.Primary[customStyles.textWeight]
     )}
-    ${p => (!p.disabled && p.customStyles?.textColor && css`
-        color:${thp.base[p.customStyles.textColor]._};
+    ${({ disabled, customStyles, }) => (!disabled && customStyles?.textColor && css`
+        color:${thp.base[customStyles.textColor]._};
     `)};
 `
 
