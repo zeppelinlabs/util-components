@@ -1,5 +1,5 @@
 import React from "react"
-import Tag, { TagSize, TagIconPosition } from "../../components/Tag/Tag"
+import Tag, { TagSize, TagIconPosition, TagVariant } from "../../components/Tag/Tag"
 import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
 
@@ -12,7 +12,7 @@ const TagShowCaseDetail = () => {
             Small
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}
-            customStyles={{ size: TagSize.Medium, }} >
+            customStyles={{ size: TagSize.Base, variant: TagVariant.Secondary, }} >
             Medium
         </Tag>
         <Tag icon={{ SVGComponent: EmailIcon, }}
