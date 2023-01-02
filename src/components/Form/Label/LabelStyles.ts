@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
-import { thp } from "../../../styles/themeHelpers"
+import { thp, TextWeightKeys } from "../../../styles/themeHelpers"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 
@@ -32,15 +32,16 @@ const LabelText = styled.span<PropsStyled>`
     display: flex;
     width: 100%;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     gap: 8px;
     text-align: ${({ customStyles, }) => (customStyles?.textAlign
         ? customStyles.textAlign
         : "left"
     )};
-    ${({ customStyles, }) => (customStyles?.textWeight
-        && FontsTokens.weights.Primary[customStyles.textWeight]
-    )}
+    font-weight: ${({ customStyles, }) => (customStyles?.textWeight
+        ? FontsTokens.weights.Primary[customStyles.textWeight]
+        : FontsTokens.weights.Primary.medium
+    )};
     ${({ disabled, customStyles, }) => (!disabled && customStyles?.textColor && css`
         color:${thp.base[customStyles.textColor]._};
     `)};
