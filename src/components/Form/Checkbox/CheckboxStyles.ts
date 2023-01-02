@@ -19,7 +19,7 @@ const getCheckboxSize = (size: CheckboxSize) => {
 
 const Wrapper = styled.label<Props>`
     display: flex;
-    gap: 10px;
+    gap: ${UiTokens.spacing.size8};
     flex-flow: ${p => (p.customStyles?.contentPosition
         ? p.customStyles?.contentPosition
         : "row"
@@ -32,7 +32,6 @@ const Check = styled.span<Props>`
     cursor: pointer;
     border: ${UiTokens.borderWidth.size1} solid ${thp.primary.level200._};
     border-radius: ${UiTokens.borderRadius.size4};
-    margin-right: 8px;
     background: ${thp.base.level0._};
     transition: ease 0.2s;
     width: ${p => getCheckboxSize(p.customStyles?.size || CheckboxSize.Base)}px;
