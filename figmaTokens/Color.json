@@ -1,85 +1,43 @@
 {
   "Primary": {
-    "Level50": {
-      "value": "#f2e5ff",
+    "Level900": {
+      "value": "#ffffff",
       "type": "color"
     },
-    "Level100": {
-      "value": "#d9b3ff",
+    "Level50": {
+      "value": "#e5e5e5",
       "type": "color"
     },
     "Level200": {
-      "value": "#Bf80ff",
+      "value": "#cccccc",
       "type": "color"
     },
     "Level300": {
-      "value": "#a64cff",
-      "type": "color"
-    },
-    "Level400": {
-      "value": "#8c1aff",
-      "type": "color"
-    },
-    "Level500": {
-      "value": "#8000ff",
+      "value": "#b3b3b3",
       "type": "color"
     },
     "Level600": {
-      "value": "#6600cc",
-      "type": "color"
-    },
-    "Level700": {
-      "value": "#4d0099",
+      "value": "#808080",
       "type": "color"
     },
     "Level800": {
-      "value": "#37006D",
-      "type": "color"
-    },
-    "Level900": {
-      "value": "#27004d",
-      "type": "color"
-    }
-  },
-  "Secondary": {
-    "Level50": {
-      "value": "#e5ebff",
+      "value": "#666666",
       "type": "color"
     },
     "Level100": {
-      "value": "#b3c3ff",
-      "type": "color"
-    },
-    "Level200": {
-      "value": "#809cff",
-      "type": "color"
-    },
-    "Level300": {
-      "value": "#4c74ff",
-      "type": "color"
-    },
-    "Level400": {
-      "value": "#1a4cff",
+      "value": "#4c4c4c",
       "type": "color"
     },
     "Level500": {
-      "value": "#0038ff",
-      "type": "color"
-    },
-    "Level600": {
-      "value": "#002dcc",
+      "value": "#000000",
       "type": "color"
     },
     "Level700": {
-      "value": "#002299",
+      "value": "#332907",
       "type": "color"
     },
-    "Level800": {
-      "value": "#001666",
-      "type": "color"
-    },
-    "Level900": {
-      "value": "#001048",
+    "Level400": {
+      "value": "#000000",
       "type": "color"
     }
   },
