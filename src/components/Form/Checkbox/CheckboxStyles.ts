@@ -70,7 +70,7 @@ const Tick = styled.div`
     align-content: center;
     justify-content: center;
     height: 100%;
-    width:8px;
+    width: 50%;
     margin: 0 auto;
 
    svg{
