@@ -50,7 +50,7 @@ const LabelText = styled.span<PropsStyled>`
 const Content = styled.span``
 
 const Required = styled.span`
-    color: ${thp.system.success.level500._};
+    color: ${thp.system.error.level500._};
 `
 
 const Tag = styled.span`
