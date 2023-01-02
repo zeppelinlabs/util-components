@@ -39,7 +39,7 @@ const PrimaryButton = () => css<Props>`
     }
 `
 const SecondaryButton = () => css<Props>`
-    background: ${thp.secondary.level500._};
+    background: ${thp.primary.level500._};
     color: ${thp.base.level0._};
     border: 1px solid ${thp.base.level1000._};
 

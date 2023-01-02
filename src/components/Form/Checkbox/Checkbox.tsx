@@ -9,12 +9,19 @@ export enum ContentCheckboxPosition {
     Left = "row-reverse",
 }
 
+export enum CheckboxSize {
+    Small = "small",
+    Base = "base",
+    Large = "large",
+}
+
 export type CustomCheckboxStyles = {
     checkBoxColor?: string,
     textColor?: string,
     textAlign?: TextAlignKeys,
     textWeight?: TextWeightKeys,
     contentPosition?: ContentCheckboxPosition,
+    size?: CheckboxSize,
 }
 
 export type Props = {
