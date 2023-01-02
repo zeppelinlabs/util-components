@@ -1,15 +1,22 @@
 
 import React from "react"
 import { TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
+import { renderErrorMessage } from "../FormCommon"
 import { RadioButtonStyled } from "./RadioButtonStyles"
 
 export type CustomRadioButtonStyles = {
     textWeight?: TextWeightKeys,
     textColor?: ThemeBaseColorKeys,
+    size?: RadioButtonSize,
 }
 export type AccessibilityRadioButton = {
     tabIndex?: number,
     autoFocus?: boolean,
+}
+export enum RadioButtonSize {
+    Small = "small",
+    Base = "base",
+    Large = "large",
 }
 
 
@@ -136,9 +143,9 @@ const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioO
                     {propsChild.children}
                 </InputRadio>
             })}
-            {props.errorMessage && <RadioButtonStyled.ErrorMessageContainer>
-                {props.errorMessage}
-            </RadioButtonStyled.ErrorMessageContainer>}
+            {props.errorMessage
+                && renderErrorMessage(props.errorMessage)
+            }
         </>
     )
 })
