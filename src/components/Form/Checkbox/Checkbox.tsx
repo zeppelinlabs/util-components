@@ -2,6 +2,7 @@
 import React from "react"
 import { CheckboxStyled } from "./CheckboxStyles"
 import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
+import { ReactComponent as MinusIcon } from "../../../assets/minus.svg"
 import { renderErrorMessage } from "../FormCommon"
 import { TextAlignKeys, TextWeightKeys } from "../../../styles/themeHelpers"
 
@@ -22,6 +23,7 @@ export type CustomCheckboxStyles = {
     textWeight?: TextWeightKeys,
     contentPosition?: ContentCheckboxPosition,
     size?: CheckboxSize,
+    isIndeterminate?: boolean,
 }
 
 export type Props = {
@@ -62,7 +64,10 @@ const Checkbox = React.forwardRef((
                 <CheckboxStyled.Check>
                     {props.value && (
                         <CheckboxStyled.Tick>
-                            <TickIcon />
+                            {props.customStyles?.isIndeterminate
+                                ? <MinusIcon />
+                                : <TickIcon />
+                            }
                         </CheckboxStyled.Tick>
                     )}
                 </CheckboxStyled.Check>
