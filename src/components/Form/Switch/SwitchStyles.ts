@@ -57,7 +57,7 @@ const Slider = styled.span<Props>`
         content: "";
         position:absolute;
         bottom: 4px;
-        left: 5%;
+        left: 4px;
         width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).elipse}px;
         height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).elipse}px;
         border-radius: ${UiTokens.borderRadius.sizeTotal};
@@ -73,13 +73,13 @@ const Input = styled.input<Props>`
     &:checked + ${Slider} {
         background-color: ${thp.primary.level500._};
         &:before {
-            left: 95%;
+            left: calc(100% - 4px);
             transform: translateX(-100%);
         };
     };
 
     &:focus + ${Slider} {
-        box-shadow: 0 0 0 ${UiTokens.borderWidth.size3} ${thp.primary.level200._};
+        box-shadow: 0 0 0 4px ${thp.primary.level200._};
     };
 
     &:hover + ${Slider} {
