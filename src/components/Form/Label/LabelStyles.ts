@@ -12,7 +12,7 @@ type PropsStyled = {
 const Label = styled.label<PropsStyled>`
     display: flex;
     flex-flow: column;
-    gap: 6px;
+    gap: ${UiTokens.spacing.size8};
     width: 100%;
     font-size: 1.6rem;
     color: ${({ disabled, }) => (disabled

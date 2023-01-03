@@ -57,7 +57,6 @@ const Tooltip = styled.span<Props>`
     font-size: 1.4rem;
     line-height: 1.2;
     transition: scale 0.3s ease-in-out, opacity 0.3s ease-in, visibility 0.5s ease-in;
-    box-shadow: 0px 6px 24px rgba(28, 40, 53, 0.1);
     ${({ customStyles, }) => (customStyles?.textWeight
         && FontsTokens.weights.Primary[customStyles.textWeight]
     )};

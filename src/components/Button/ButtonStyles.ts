@@ -108,7 +108,7 @@ const Button = styled.button<Props>`
 	cursor: pointer;
 	font-size: ${({ buttonSize, }) => (getButtonSize(buttonSize).fontSize)};
 	transition: all .3s ease-out;
-	gap: 8px;
+	gap: ${UiTokens.spacing.size8};
 	position: relative;
 	outline: none;
 
