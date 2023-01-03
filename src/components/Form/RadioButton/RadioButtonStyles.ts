@@ -70,7 +70,7 @@ const Input = styled.input`
     }
 
     &:focus + ${Radio} {
-       box-shadow: 0 0 0 ${UiTokens.borderWidth.size3} ${thp.primary.level200._};
+       box-shadow: 0 0 0 4px ${thp.primary.level200._};
     }
 
     &:disabled + ${Radio} {
