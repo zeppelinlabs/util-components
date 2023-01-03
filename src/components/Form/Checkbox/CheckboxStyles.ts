@@ -47,14 +47,17 @@ const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
     opacity: 0;
 
     &:focus + ${Check} {
-        box-shadow: 0 0 0 ${UiTokens.borderWidth.size3} ${thp.primary.level200._};
+        box-shadow: 0 0 0 4px ${thp.primary.level200._};
     }
 
     &:checked + ${Check}  {
         background: ${p => (p.customStyles?.checkBoxColor
         ? p.customStyles?.checkBoxColor
         : thp.primary.level500._)};
-        border: none;
+        
+        border-color: ${p => (p.customStyles?.checkBoxColor
+        ? p.customStyles?.checkBoxColor
+        : thp.primary.level500._)};;
     }
 
     &:disabled + ${Check}, &:disabled:checked + ${Check} {
