@@ -8,6 +8,7 @@ export type CustomInputStyles = {
     textAlign?: TextAlignKeys,
     textWeight?: TextWeightKeys,
     isResizable?: boolean,
+    size?: InputSize,
 }
 
 export type InputCommonProps<T> = {
@@ -28,4 +29,11 @@ export type InputCommonProps<T> = {
         tabIndex?: number,
         autoFocus?: boolean,
     },
+}
+
+export enum InputSize {
+    Small = "small",
+    Medium = "medium",
+    Large = "large",
+    Xlarge = "xlarge",
 }

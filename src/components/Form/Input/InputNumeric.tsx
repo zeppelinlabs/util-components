@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { useRef, useEffect, useState } from "react"
-import { renderErrorMessage, } from "../FormCommon"
+import { renderErrorMessage, renderIcon, } from "../FormCommon"
 import { InputStyled } from "./InputStyles"
 import { InputCommonProps } from "./InputCommon"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
@@ -87,9 +87,7 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
         <InputStyled.InputContainer>
             {renderInput()}
             {props.icon && props.icon.position
-                && <InputStyled.IconContainer position={props.icon.position}>
-                    <props.icon.SVGComponent />
-                </InputStyled.IconContainer>
+                && renderIcon(props.icon.position, <props.icon.SVGComponent />)
             }
             {props.leadingLabel && renderLeadingLabel()}
         </InputStyled.InputContainer>

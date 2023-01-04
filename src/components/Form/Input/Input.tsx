@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from "react"
 import { IconPosition } from "../../CommonTypes"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
-import { renderErrorMessage, } from "../FormCommon"
+import { renderErrorMessage, renderIcon, } from "../FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
 
@@ -53,9 +53,7 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.icon && props.icon.position === IconPosition.right
-                    && <InputStyled.IconContainer position={props.icon.position}>
-                        {props.icon.SVGComponent}
-                    </InputStyled.IconContainer>}
+                    && renderIcon(props.icon.position, <props.icon.SVGComponent />)}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
                 {props.loading
@@ -80,9 +78,7 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
         <InputStyled.InputContainer>
             {renderInput()}
             {props.icon && props.icon.position
-                && <InputStyled.IconContainer position={props.icon.position}>
-                    <props.icon.SVGComponent />
-                </InputStyled.IconContainer>
+                && renderIcon(props.icon.position, <props.icon.SVGComponent />)
             }
             {props.leadingLabel && renderLeadingLabel()}
         </InputStyled.InputContainer>
