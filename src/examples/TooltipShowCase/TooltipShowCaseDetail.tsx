@@ -2,11 +2,12 @@
 import React from "react"
 import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
     from "../../components/Tooltip/Tooltip"
-import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import { ReactComponent as InfoIcon } from "../../assets/info.svg"
+import LayoutDescriptionComponent
+    from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
 
 const TooltipShowCaseDetail = () => {
-    return <LayoutExamples>
+    return <LayoutDescriptionComponent>
         <div>
             <Tooltip tooltipContent="Content of tooltip">
                 Tooltip example
@@ -22,7 +23,7 @@ const TooltipShowCaseDetail = () => {
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip"
-                customStyles={{ align: TooltipAlign.Left,}}>
+                customStyles={{ align: TooltipAlign.Left, }}>
                 Tooltip example align to left
             </Tooltip>
         </div>
@@ -58,7 +59,7 @@ const TooltipShowCaseDetail = () => {
                 Tooltip example position to bottom
             </Tooltip>
         </div>
-    </LayoutExamples>
+    </LayoutDescriptionComponent>
 }
 
 export default TooltipShowCaseDetail

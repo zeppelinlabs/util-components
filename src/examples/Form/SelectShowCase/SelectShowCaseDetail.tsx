@@ -1,8 +1,9 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
 import Select, { SelectOption } from "../../../components/Form/Select/Select"
-import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
 import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
+import LayoutDescriptionComponent
+    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
 
 
 enum ListOptionKey {
@@ -102,7 +103,7 @@ const SelectShowCaseDetail = () => {
     const [thirdValue, setThirdValue,] = useState<SelectOption<string | null>>()
     const [fourValue, setFourValue,] = useState<SelectOption<string>>(listOption4[1])
     const [fiveValue, setFiveValue,] = useState<SelectOption<string | null>>()
-    const [sixValue, setSixValue,] = useState <SelectOption<number>>()
+    const [sixValue, setSixValue,] = useState<SelectOption<number>>()
 
     const handleChange1 = (value: SelectOption<ListOptionKey>) => {
         setValue(value)
@@ -126,12 +127,12 @@ const SelectShowCaseDetail = () => {
     }
 
 
-    return <LayoutExamples>
+    return <LayoutDescriptionComponent>
         <Select
             options={listOption1}
             selectedValue={value?.key}
             onChange={handleChange1}
-            label={{text:"Select with label",}}
+            label={{ text: "Select with label", }}
         />
         <Select
             options={listOption2}
@@ -173,7 +174,7 @@ const SelectShowCaseDetail = () => {
             disabled={true}
             label={{ text: "With disabled state", }}
         />
-    </LayoutExamples>
+    </LayoutDescriptionComponent>
 }
 
 export default SelectShowCaseDetail
