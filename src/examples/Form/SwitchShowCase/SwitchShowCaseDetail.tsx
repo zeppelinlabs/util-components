@@ -2,12 +2,13 @@
 import React, { useState } from "react"
 import Switch, { ContentSwitchAlign, ContentSwitchPosition }
     from "../../../components/Form/Switch/Switch"
-import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
+import LayoutDescriptionComponent
+    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
 
 const SwitchShowCaseDetail = () => {
     const [switchValue, setSwitchValue,] = useState(false)
 
-    return <LayoutExamples>
+    return <LayoutDescriptionComponent>
         <Switch
             value={switchValue}
             onChange={(value) => setSwitchValue(value)}
@@ -59,7 +60,7 @@ const SwitchShowCaseDetail = () => {
         >
             With text or content align to end
         </Switch>
-    </LayoutExamples>
+    </LayoutDescriptionComponent>
 }
 
 export default SwitchShowCaseDetail

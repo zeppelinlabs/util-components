@@ -16,12 +16,15 @@ import InputShowCaseDetail from "./examples/Form/InputShowCase/InputShowCaseDeta
 import RadioButtonShowCaseDetail
     from "./examples/Form/RadioButtonShowCase/RadioButtonShowCaseDetail"
 import SelectShowCaseDetail from "./examples/Form/SelectShowCase/SelectShowCaseDetail"
+import Header from "./examples/Layout/Header/Header"
+import Footer from "./examples/Layout/Footer/Footer"
 
 const App = () => {
     return (
         <ThemeProvider theme={defaultTheme}>
             <ResetStyled />
             <GlobalStyled />
+            <Header />
             <Routes>
                 <Route path={Paths.Home} element={
                     <Home />
@@ -54,6 +57,7 @@ const App = () => {
                     <SelectShowCaseDetail />
                 } />
             </Routes>
+            <Footer />
         </ThemeProvider >
     )
 }

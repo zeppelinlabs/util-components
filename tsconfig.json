@@ -19,22 +19,5 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "paths": {
-      "@/assets/*": [
-        "./src/assets/*"
-      ],
-      "@/hooks/*": [
-        "./src/hooks/*"
-      ],
-      "@/components/*": [
-        "./src/components/*"
-      ],
-      "@/utils/*": [
-        "./src/util/*"
-      ],
-    }
   },
-  "include": [
-    "src"
-  ]
 }
