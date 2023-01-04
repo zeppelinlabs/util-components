@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
-import { thp } from "../../../styles/themeHelpers"
+import { thp, TextWeightKeys } from "../../../styles/themeHelpers"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 
 type PropsStyled = {
     customStyles?: CustomLabelStyles,
@@ -11,13 +12,15 @@ type PropsStyled = {
 const Label = styled.label<PropsStyled>`
     display: flex;
     flex-flow: column;
-    gap: 6px;
+    gap: ${UiTokens.spacing.size8};
     width: 100%;
     font-size: 1.6rem;
-    color: ${props => (props.disabled
+    color: ${({ disabled, }) => (disabled
         ? thp.base.level500._
-        : thp.base.level1000._)};
-    ${p => (p.disabled && css`
+        : thp.base.level1000._
+    )};
+
+    ${({ disabled, }) => (disabled && css`
         cursor: not-allowed;
         > *{
             cursor: not-allowed;
@@ -29,24 +32,25 @@ const LabelText = styled.span<PropsStyled>`
     display: flex;
     width: 100%;
     align-items: center;
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     gap: 8px;
-    text-align: ${p => (p.customStyles?.textAlign
-        ? p.customStyles.textAlign
+    text-align: ${({ customStyles, }) => (customStyles?.textAlign
+        ? customStyles.textAlign
         : "left"
     )};
-    ${p => (p.customStyles?.textWeight
-        && FontsTokens.weights.Primary[p.customStyles.textWeight]
-    )}
-    ${p => (!p.disabled && p.customStyles?.textColor && css`
-        color:${thp.base[p.customStyles.textColor]._};
+    font-weight: ${({ customStyles, }) => (customStyles?.textWeight
+        ? FontsTokens.weights.Primary[customStyles.textWeight]
+        : FontsTokens.weights.Primary.medium
+    )};
+    ${({ disabled, customStyles, }) => (!disabled && customStyles?.textColor && css`
+        color:${thp.base[customStyles.textColor]._};
     `)};
 `
 
 const Content = styled.span``
 
 const Required = styled.span`
-    color: ${thp.system.success.level500._};
+    color: ${thp.system.error.level500._};
 `
 
 const Tag = styled.span`
@@ -54,7 +58,7 @@ const Tag = styled.span`
     justify-content: center;
     align-items: center;
     padding: 2px 5px;
-    border-radius: 4px;
+    border-radius: ${UiTokens.borderRadius.size4};
     font-size: 1rem;
     line-height: 1.2;
     color: ${thp.base.level1000._};

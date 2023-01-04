@@ -1,5 +1,6 @@
 import styled, { css, } from "styled-components"
 import { FontsTokens } from "../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../styles/designTokens/uiTokens"
 import { thp } from "../../styles/themeHelpers"
 import {
     CustomTooltipStyles, TooltipSize, TooltipVariant, TooltipAlign,
@@ -14,14 +15,14 @@ type Props = {
 const getTooltipVariant = (variant: TooltipVariant) => {
     const TooltipByCase = {
         [TooltipVariant.Primary]: ({
-            backgroundColor: thp.base.level0._,
-            borderColor: thp.base.level1000._,
-            textColor: thp.base.level1000._,
-        }),
-        [TooltipVariant.Secondary]: ({
-            backgroundColor: thp.base.level200._,
+            backgroundColor: thp.base.level1000._,
             borderColor: thp.base.level1000._,
             textColor: thp.base.level0._,
+        }),
+        [TooltipVariant.Secondary]: ({
+            backgroundColor: thp.base.level100._,
+            borderColor: thp.base.level100._,
+            textColor: thp.base.level1000._,
         }),
     }
     return css`
@@ -44,28 +45,28 @@ const Tooltip = styled.span<Props>`
     visibility:hidden;
     position: absolute;
 	border-style: solid;
-	border-width: 1px;
-	border-radius: 8px;
+	border-width: ${UiTokens.borderWidth.size1};
+	border-radius: ${UiTokens.borderRadius.size8};
 	align-items: center;
 	justify-content: center;
-	padding: 12px 16px 10px;
-    width: ${p => (p.customStyles?.size
-        ? p.customStyles?.size
+	padding: 8px 16px 4px;
+    width: ${({ customStyles, }) => (customStyles?.size
+        ? customStyles?.size
         : TooltipSize.MaxContent
     )};
     font-size: 1.4rem;
     line-height: 1.2;
     transition: scale 0.3s ease-in-out, opacity 0.3s ease-in, visibility 0.5s ease-in;
-    box-shadow: 0px 6px 24px rgba(28, 40, 53, 0.1);
-    ${p => (p.customStyles?.textWeight
-        && FontsTokens.weights.Primary[p.customStyles.textWeight]
+    ${({ customStyles, }) => (customStyles?.textWeight
+        && FontsTokens.weights.Primary[customStyles.textWeight]
     )};
-    ${p => (getTooltipVariant(p.customStyles?.tooltipVariant || TooltipVariant.Primary))};
-    ${p => {
-        if (p.customStyles?.position) {
-            return getTooltipPosition(p.customStyles?.position)
-        } else if (p.customStyles?.align) {
-            return getTooltipAlign(p.customStyles?.align)
+    ${({ customStyles, }) => (getTooltipVariant(customStyles?.tooltipVariant
+        || TooltipVariant.Primary))};
+    ${({ customStyles, }) => {
+        if (customStyles?.position) {
+            return getTooltipPosition(customStyles?.position)
+        } else if (customStyles?.align) {
+            return getTooltipAlign(customStyles?.align)
         } else {
             return getTooltipAlign(TooltipAlign.Center)
         }
@@ -93,8 +94,8 @@ const Wrapper = styled.span<Props>`
 `
 
 const Content = styled.span<Props>`
-    text-align: ${p => (p.customStyles?.textAlign
-        ? p.customStyles?.textAlign
+    text-align: ${({ customStyles, }) => (customStyles?.textAlign
+        ? customStyles?.textAlign
         : "center"
     )};
 `
