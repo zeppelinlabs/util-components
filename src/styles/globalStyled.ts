@@ -21,7 +21,6 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 		box-sizing: border-box;
 		-webkit-text-size-adjust: 100%;
 		font-size: 62.5%;
-		line-height: 1.15;
 		min-height:100%;
 		scroll-behavior: smooth;
 		position:relative;
@@ -33,7 +32,7 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 		text-rendering: optimizeSpeed;
 		font-family: ${FontsTokens.fontFamilies.Primary};
 		font-weight:${FontsTokens.weights.Primary.regular};
-		line-height: 1.1;
+		line-height: 1;
 		min-height:100%;
 		position:relative;
 		scroll-behavior: smooth;

@@ -1,9 +1,11 @@
 import styled, { css } from "styled-components"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
 
 type SelectProps = {
     errorMessage?: string | null,
     disabled?: boolean,
+    loading?: boolean,
     withIcon?: boolean,
 }
 
@@ -21,9 +23,10 @@ const Select = styled.select<SelectProps>`
     min-height: 36px;
     line-height: 1;
     cursor: pointer;
-    padding: ${p => (p.withIcon
-        ? "8px 36px"
-        : "8px 36px 8px 16px"
+    border-radius: ${UiTokens.borderRadius.size8};
+    padding: ${({ withIcon, }) => (withIcon
+        ? "8px 40px"
+        : "8px 40px 8px 16px"
     )};
 
     &:disabled {
@@ -31,7 +34,7 @@ const Select = styled.select<SelectProps>`
     }
 
     &:focus {
-        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
+        box-shadow: 0 0 0 3px ${thp.primary.level200._};
     }
 
     &:hover {
@@ -46,28 +49,31 @@ const Wrapper = styled.div<SelectProps>`
     border-width: 1px;
     border-style: solid;
     position: relative;
-    border-color: ${thp.base.level1000._};
+    border-color: ${thp.base.level200._};
+    border-radius: ${UiTokens.borderRadius.size8};
     color: ${thp.base.level1000._};
 
-    ${p => (p.errorMessage && css`
+    ${({ errorMessage, }) => (errorMessage && css`
         border-color: ${thp.system.error.level500._};
         color: ${thp.system.error.level500._};
     `)}
 
-    ${p => (p.disabled && css`
-        border-color: ${thp.base.level100._};
-        color: ${thp.base.level100._};
+    ${({ disabled, }) => (disabled && css`
+        background-color: ${thp.base.level100._};
+        border-color: ${thp.base.level200._};
+        color: ${thp.base.level300._};
     `)}
 `
 
 const iconContainerBase = css`
-    width: 36px;
-    height: 36px;
+    width: 16px;
+    height: 16px;
+    top: 50%;
+    translate: 0 -50%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: absolute;
-    padding: 10px;
     img,
     svg{
         width: 100%;
@@ -81,17 +87,19 @@ const iconContainerBase = css`
 
 const WrapperIcon = styled.div`
     ${iconContainerBase};
+    left: 13px;
 `
 
 const WrapperArrow = styled.div`
     ${iconContainerBase};
-    right: 0;
+    right: 12px;
+    padding: 2px;
 `
 
 const Option = styled.option<{
     isOptionHidden?: boolean,
 }>`
-    ${p => (p.isOptionHidden && css`
+    ${({ isOptionHidden, }) => (isOptionHidden && css`
         display: none;
     `)}
 `
