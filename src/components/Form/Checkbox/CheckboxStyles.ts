@@ -42,7 +42,7 @@ const Check = styled.span<Props>`
     }
 `
 
-const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
+const Input = styled.input<Props>`
     position: absolute;
     opacity: 0;
 
