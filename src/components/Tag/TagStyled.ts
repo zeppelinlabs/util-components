@@ -1,85 +1,46 @@
 import styled, { css } from "styled-components"
 import { FontsTokens } from "../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../styles/designTokens/uiTokens"
 import { thp, } from "../../styles/themeHelpers"
-import { CustomStyles, TagIconPosition, TagSize } from "./Tag"
+import { CustomStyles, TagIconPosition, TagSize, } from "./Tag"
+import { getTagSize, getTagVariant } from "./TagStyledHelper"
 
 type TagProps = {
 	customStyles?: CustomStyles,
 	IconPosition?: TagIconPosition,
 }
 
-const getTagSize = (size: TagSize) => {
-	const sizeByCase = {
-		[TagSize.Small]: ({
-			fontSize: "1.3rem",
-			padding: "4px 6px",
-			gap: "6px",
-			borderWidth: "1px",
-			iconSize: "11px",
-			closeIconSize: "8px",
-		}),
-		[TagSize.Medium]: ({
-			fontSize: "1.4rem",
-			padding: "6px 8px",
-			gap: "7px",
-			borderWidth: "1px",
-			iconSize: "14px",
-			closeIconSize: "10px",
-		}),
-		[TagSize.Large]: ({
-			fontSize: "1.5rem",
-			padding: "8px 10px",
-			gap: "8px",
-			borderWidth: "1px",
-			iconSize: "16px",
-			closeIconSize: "10px",
-		}),
-	}
-	return {
-		tagCss: css`
-			padding: ${sizeByCase[size].padding};
-			font-size: ${sizeByCase[size].fontSize};
-			gap:${sizeByCase[size].gap};
-			border-width: ${sizeByCase[size].borderWidth};
-		`,
-		iconSize: css`
-			max-width: ${sizeByCase[size].iconSize};
-			min-width: ${sizeByCase[size].iconSize};
-			height: ${sizeByCase[size].iconSize};
-		`,
-		closeIconSize: css`
-			max-width: ${sizeByCase[size].closeIconSize};
-			min-width: ${sizeByCase[size].closeIconSize};
-			height: ${sizeByCase[size].closeIconSize};
-		`,
-	}
-}
-
 const Container = styled.span<TagProps>`
 	display: inline-flex;
 	align-items: center;
 	justify-content: center;
-	line-height: 1;
-	border-radius: 5px;
+	border-radius: ${UiTokens.borderRadius.size76};
 	border-style: solid;
 	width: max-content;
+	cursor: ${({ customStyles, }) => (customStyles?.isCursorPointer ? "pointer" : "default")};
 
-	background-color:${p => (p.customStyles?.backgroundColor || thp.base.level0._)};
-	color:${p => (p.customStyles?.textColor || "inherit")};
-	cursor: ${p => (p.customStyles?.isCursorPointer ? "pointer" : "default")};
+	${({ customStyles, }) => ((
+		getTagVariant({
+			variant: customStyles?.variant,
+			customVariant: {
+				borderColor: customStyles?.borderColor,
+				backgroundColor: customStyles?.backgroundColor,
+				textColor: customStyles?.textColor,
+			},
+		}
+		))
+	)}
 
-	${p => (getTagSize(p.customStyles?.size
-	? p.customStyles.size
-	: TagSize.Small
-)).tagCss}
-	${p => (p.customStyles?.textWeight
-		&& FontsTokens.weights.Primary[p.customStyles.textWeight]
+	${({ customStyles, }) => (getTagSize(customStyles?.size
+		? customStyles.size
+		: TagSize.Base
+	)).tagCss}
+
+	${({ customStyles, }) => (customStyles?.textWeight
+		&& FontsTokens.weights.Primary[customStyles.textWeight]
 	)};
-	${p => (p.customStyles?.borderColor && css`
-		border-color: ${p.customStyles.borderColor};
-	`)};
-	${p => (p.IconPosition && css`
-		flex-flow: ${p.IconPosition};
+	${({ IconPosition, }) => (IconPosition && css`
+		flex-flow: ${IconPosition};
 	`)};
 	&:focus {
 		box-shadow: 0 0 0 4px ${thp.system.success.level500._};
@@ -88,7 +49,6 @@ const Container = styled.span<TagProps>`
 		width:100%;
 		max-width:100%;
 	}
-
 	svg{
 		width: 100%;
 		height: 100%;
@@ -105,7 +65,7 @@ const CrossIconContainer = styled.span<{ size?: TagSize, }>`
 	cursor: pointer;
 	object-fit: contain;
 	object-position:center ;
-	${p => (getTagSize(p.size ? p.size : TagSize.Small)).closeIconSize};
+	${({ size, }) => (getTagSize(size ? size : TagSize.Small)).closeIconSize};
 `
 
 const CustomIconContainer = styled.span<{ size?: TagSize, }>`
@@ -114,7 +74,7 @@ const CustomIconContainer = styled.span<{ size?: TagSize, }>`
 	justify-content: center;
 	object-fit: contain;
 	object-position:center ;
-	${p => (getTagSize(p.size ? p.size : TagSize.Small)).iconSize}
+	${({ size, }) => (getTagSize(size ? size : TagSize.Small)).iconSize}
 `
 
 export const TagStyled = {

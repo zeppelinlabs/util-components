@@ -4,14 +4,19 @@ import { ReactComponent as CrossIcon } from "../../assets/icons/cross.svg"
 import { TextWeightKeys } from "../../styles/themeHelpers"
 
 export enum TagSize {
+    Base = "base",
     Small = "small",
-    Medium = "medium",
     Large = "large",
 }
 
 export enum TagIconPosition {
     Left = "row",
     Right = "row-reverse",
+}
+
+export enum TagVariant {
+    Primary = "primary",
+    Secondary = "secondary",
 }
 
 export type CustomStyles = {
@@ -21,6 +26,7 @@ export type CustomStyles = {
     textWeight?: TextWeightKeys,
     size?: TagSize,
     isCursorPointer?: boolean,
+    variant?: TagVariant,
 }
 
 type Props = {
