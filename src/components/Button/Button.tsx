@@ -6,6 +6,13 @@ export enum ButtonVariant {
     Primary = "PRIMARY",
     Secondary = "SECONDARY",
 }
+
+export enum ButtonSize {
+    Small = "SMALL",
+    Base = "BASE",
+    Large = "LARGE",
+    XLarge = "XLARGE",
+}
 export enum ButtonIconPosition {
     Left = "row",
     Right = "row-reverse",
@@ -20,6 +27,7 @@ type BaseProps = {
     loading?: boolean,
     disabled?: boolean,
     buttonVariant: ButtonVariant,
+    buttonSize?: ButtonSize,
     customStyles?: CustomButtonStyles,
     icon?: {
         SVGComponent: React.FunctionComponent,
@@ -56,6 +64,7 @@ const Button = React.forwardRef((
         type={props.type}
         buttonVariant={props.buttonVariant}
         buttonPosition={props.icon?.position}
+        buttonSize={props.buttonSize ? props.buttonSize : ButtonSize.Base}
         customStyles={props.customStyles}
         isOnlyIcon={!props.children}
         onClick={props.type === "submit"
@@ -64,7 +73,9 @@ const Button = React.forwardRef((
         }
     >
         {props.icon
-            && <ButtonStyled.IconContainer>
+            && <ButtonStyled.IconContainer
+                buttonSize={props.buttonSize ? props.buttonSize : ButtonSize.Base}
+            >
                 <props.icon.SVGComponent />
             </ButtonStyled.IconContainer>
         }

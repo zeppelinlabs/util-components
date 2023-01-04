@@ -62,10 +62,11 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
         }
     }
 
+
     return (
         <Label {...props.label}>
             <SelectStyled.Wrapper
-                disabled={props.disabled}
+                disabled={props.disabled || props.loading}
                 errorMessage={props.errorMessage}
             >
 

@@ -4,7 +4,7 @@ import Tag, { TagSize } from "../../components/Tag/Tag"
 
 const TagShowCaseDetailListItem = () => {
     return <Tag icon={{ SVGComponent: EmailIcon, }}
-        customStyles={{ size: TagSize.Medium, }} >
+        customStyles={{ size: TagSize.Base, }} >
         Medium
     </Tag>
 }
