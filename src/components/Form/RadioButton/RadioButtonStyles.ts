@@ -10,9 +10,18 @@ type Props = {
 
 const getRadioSize = (size: RadioButtonSize) => {
     const Radio = {
-        [RadioButtonSize.Small]: 16,
-        [RadioButtonSize.Base]: 20,
-        [RadioButtonSize.Large]: 24,
+        [RadioButtonSize.Small]: {
+            size: 16,
+            padding: 2,
+        },
+        [RadioButtonSize.Base]: {
+            size: 20,
+            padding: 3,
+        },
+        [RadioButtonSize.Large]: {
+            size: 24,
+            padding: 4,
+        },
     }
     return Radio[size]
 }
@@ -31,8 +40,12 @@ const Radio = styled.span<Props>`
     cursor: pointer;
     display: flex;
     position: relative;
-    width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base)}px;
-    height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base)}px;
+    width: 100%;
+    height: 100%;
+    min-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
+    max-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
+    min-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
+    max-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
     border-radius: ${UiTokens.borderRadius.sizeTotal};
     border-width: ${UiTokens.borderWidth.size2};
     border-style: solid;
@@ -41,10 +54,11 @@ const Radio = styled.span<Props>`
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
+    padding: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).padding}px;
     &:after{
         content: "";
-        width: 50%;
-        height: 50%;
+        width: 100%;
+        height: 100%;
         border-radius: ${UiTokens.borderRadius.sizeTotal};
         background: ${thp.base.level0._};
     }
