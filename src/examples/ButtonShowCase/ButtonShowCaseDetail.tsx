@@ -5,10 +5,10 @@ import Button, { ButtonVariant, ButtonIconPosition }
 import LayoutDescriptionComponent
     from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
-import { toast } from "react-toastify"
+import { toastNotification } from "../../util/toastNotification"
 
 const ButtonShowCaseDetail = () => {
-    const handleOnClick = () => toast("Fantastic! A button click has occurred!")
+    const handleOnClick = () => toastNotification("Fantastic! A button click has occurred!")
 
     return <LayoutDescriptionComponent>
         <Button

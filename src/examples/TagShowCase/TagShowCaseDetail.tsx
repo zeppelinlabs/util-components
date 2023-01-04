@@ -3,10 +3,10 @@ import Tag, { TagSize, TagIconPosition, TagVariant } from "../../components/Tag/
 import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
 import LayoutDescriptionComponent
     from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
-import { toast } from "react-toastify"
+import { toastNotification } from "../../util/toastNotification"
 
 const TagShowCaseDetail = () => {
-    const handleOnClick = () => toast("Fantastic! A button remove click has occurred!")
+    const handleOnClick = () => toastNotification("Fantastic! A button click remove has occurred!")
 
     return <LayoutDescriptionComponent>
         <Tag icon={{ SVGComponent: EmailIcon, }} >
