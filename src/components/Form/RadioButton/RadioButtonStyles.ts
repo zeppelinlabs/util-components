@@ -42,10 +42,10 @@ const Radio = styled.span<Props>`
     position: relative;
     width: 100%;
     height: 100%;
-    min-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
-    max-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
-    min-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
-    max-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).size}px;
+    min-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
+    max-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
+    min-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
+    max-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
     border-radius: ${UiTokens.borderRadius.sizeTotal};
     border-width: ${UiTokens.borderWidth.size2};
     border-style: solid;
@@ -54,7 +54,7 @@ const Radio = styled.span<Props>`
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
-    padding: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Large).padding}px;
+    padding: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).padding}px;
     &:after{
         content: "";
         width: 100%;
