@@ -46,8 +46,12 @@ const Wrapper = styled.label<Props>`
 const Slider = styled.span<Props>`
     display: flex;
     cursor: pointer;
-    width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).width}px;
-    height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).height}px;
+    width: 100%;
+    height: 100%;
+    max-height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).height}px;
+    min-height: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).height}px;
+    max-width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).width}px;
+    min-width: ${p => getCheckboxSize(p.customStyles?.size || SwitchSize.Base).width}px;
     border-radius: ${UiTokens.borderRadius.size60};
     position: relative;
     transition: ease 0.3s;
