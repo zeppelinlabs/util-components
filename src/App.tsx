@@ -18,10 +18,12 @@ import RadioButtonShowCaseDetail
 import SelectShowCaseDetail from "./examples/Form/SelectShowCase/SelectShowCaseDetail"
 import Header from "./examples/Layout/Header/Header"
 import Footer from "./examples/Layout/Footer/Footer"
+import { FontSrc } from "./fonts/fontsSrc"
 
 const App = () => {
     return (
         <ThemeProvider theme={defaultTheme}>
+            <FontSrc />
             <ResetStyled />
             <GlobalStyled />
             <Header />
