@@ -5,10 +5,10 @@ import Button, { ButtonVariant, ButtonIconPosition }
 import LayoutDescriptionComponent
     from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
+import { toast } from "react-toastify"
 
 const ButtonShowCaseDetail = () => {
-    // eslint-disable-next-line no-alert
-    const handleOnClick = () => alert("Remove")
+    const handleOnClick = () => toast("Fantastic! A button click has occurred!")
 
     return <LayoutDescriptionComponent>
         <Button

@@ -1,10 +1,10 @@
 import React from "react"
+import { toast } from "react-toastify"
 import Button, { ButtonVariant } from "../../components/Button/Button"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetailListItem = () => {
-    // eslint-disable-next-line no-alert
-    const handleOnClick = () => alert("Click")
+    const handleOnClick = () => toast("Fantastic! A button click has occurred!")
 
     return <Button
         buttonVariant={ButtonVariant.Primary}
@@ -14,7 +14,7 @@ const ButtonShowCaseDetailListItem = () => {
         }}
         type="button"
     >
-            Button
+        Button
     </Button>
 }
 
