@@ -78,7 +78,6 @@ const InputShowCaseDetail = () => {
             <InputTextArea
                 value={inputStringState}
                 onChange={setInputStringState}
-                maxLength={100}
                 customStyles={{ isResizable: true, }}
             />
         </Label>
