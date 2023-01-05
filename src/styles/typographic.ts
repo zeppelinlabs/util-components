@@ -13,33 +13,77 @@ type CommonProps = {
 	textWeight?: TextWeightKeys,
 	textColor?: ThemeBaseColorKeys,
 	isCursorPointer?: boolean,
+	hasDotEnd?: boolean,
 }
 
 const TextStyleBase = () => css<CommonProps>`
-	${p => (p.textAlign && css`
-		text-align: ${p.textAlign};
+	font-weight: ${({ textWeight, }) => (
+		textWeight
+			? FontsTokens.weights.Primary[textWeight]
+			: FontsTokens.weights.Primary.regular
+	)};
+	${({ textAlign, }) => (textAlign && css`
+		text-align: ${textAlign};
 	`)};
-	${p => (p.textWeight && css`
-		font-weight: ${FontsTokens.weights.Primary[p.textWeight]};
+	${({ textColor, }) => (textColor && css`
+		color: ${thp.base[textColor]._};
 	`)};
-	${p => (p.textColor && css`
-		color: ${thp.base[p.textColor]._};
-	`)};
-	${p => (p.isCursorPointer && css`
+	${({ isCursorPointer, }) => (isCursorPointer && css`
 		cursor: pointer;
 	`)};
+	${({ hasDotEnd, }) => (hasDotEnd && css`
+		&:after{
+			content:"";
+			display:inline-block;
+			width:8px;
+			height:8px;
+			border-radius:8px;
+			background-color: #EC3615;
+			margin-left:8px;
+		}
+	`)}
 `
 
-const Heading24 = styled.h2`
-	${TextStyleBase}
-	font-size: 2.4rem;
+const Weight = styled.strong<{ textWeight: TextWeightKeys, }>`
+	font-weight: ${({ textWeight, }) => (FontsTokens.weights.Primary[textWeight])};
 `
-const Body18 = styled.p`
+
+const Heading7xl = styled.h1<CommonProps>`
 	${TextStyleBase}
-	font-size: 1.8rem;
+	${FontsTokens.sizes.Primary["7xl"]};
+`
+
+const Heading5xl = styled.h2<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary["5xl"]};
+`
+
+const Heading3xl = styled.h3<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary["3xl"]};
+`
+
+const Heading2xl = styled.h4<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary["2xl"]};
+`
+
+const HeadingXl = styled.h4<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary.xl};
+`
+
+const BodyBase = styled.p<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary.base};
 `
 
 export const TextStyled = {
-	Heading24,
-	Body18,
+	Weight,
+	Heading7xl,
+	Heading5xl,
+	Heading3xl,
+	Heading2xl,
+	HeadingXl,
+	BodyBase,
 }

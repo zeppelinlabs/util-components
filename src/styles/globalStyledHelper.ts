@@ -17,11 +17,8 @@ const _Layout = css`
 `
 const _Row = css`
 	width: 100%;
-	max-width: 1500px;
-
-	@media ${device.desktopM} {
-		max-width: 1750px;
-	}
+	max-width: 100%;
+	max-width: 1350px;
 `
 
 export const GlobalStyledHelper = {

@@ -1,15 +1,25 @@
 import styled, { css } from "styled-components"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
-import { CustomCheckboxStyles } from "./Checkbox"
+import { CheckboxSize, CustomCheckboxStyles } from "./Checkbox"
 
 type Props = {
     customStyles?: CustomCheckboxStyles,
 }
 
+const getCheckboxSize = (size: CheckboxSize) => {
+    const Checkbox = {
+        [CheckboxSize.Small]: 16,
+        [CheckboxSize.Base]: 20,
+        [CheckboxSize.Large]: 24,
+    }
+    return Checkbox[size]
+}
+
 const Wrapper = styled.label<Props>`
     display: flex;
-    gap: 10px;
+    gap: ${UiTokens.spacing.size8};
     flex-flow: ${p => (p.customStyles?.contentPosition
         ? p.customStyles?.contentPosition
         : "row"
@@ -17,41 +27,42 @@ const Wrapper = styled.label<Props>`
     width: fit-content;
 `
 
-const Check = styled.span`
+const Check = styled.span<Props>`
     position: relative;
     cursor: pointer;
-    width: 16px;
-    height: 16px;
-    border: none;
-    border: 1px solid ${thp.base.level500._};
-    margin-right: 8px;
+    border: ${UiTokens.borderWidth.size1} solid ${thp.primary.level200._};
+    border-radius: ${UiTokens.borderRadius.size4};
     background: ${thp.base.level0._};
     transition: ease 0.2s;
+    width: ${p => getCheckboxSize(p.customStyles?.size || CheckboxSize.Base)}px;
+    height: ${p => getCheckboxSize(p.customStyles?.size || CheckboxSize.Base)}px;
 
     &:hover {
         //hover styles
     }
 `
 
-const Input = styled.input.attrs({ type: "checkbox", }) <Props>`
+const Input = styled.input<Props>`
     position: absolute;
     opacity: 0;
-    width: 16px;
-    height: 16px;
 
     &:focus + ${Check} {
-        box-shadow: 0 0 0 4px ${thp.system.success.level500._};
+        box-shadow: 0 0 0 4px ${thp.primary.level200._};
     }
 
     &:checked + ${Check}  {
         background: ${p => (p.customStyles?.checkBoxColor
         ? p.customStyles?.checkBoxColor
         : thp.primary.level500._)};
-        border: 1px solid ${thp.base.level1000._};
+        
+        border-color: ${p => (p.customStyles?.checkBoxColor
+        ? p.customStyles?.checkBoxColor
+        : thp.primary.level500._)};;
     }
 
     &:disabled + ${Check}, &:disabled:checked + ${Check} {
-        opacity:.5;
+        background: ${thp.base.level100._};
+        border: ${UiTokens.borderWidth.size1} solid ${thp.base.level200._};
         cursor:not-allowed
     }
 `
@@ -61,7 +72,7 @@ const Tick = styled.div`
     align-content: center;
     justify-content: center;
     height: 100%;
-    width:8px;
+    width: 70%;
     margin: 0 auto;
 
    svg{

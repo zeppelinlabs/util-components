@@ -4,7 +4,7 @@ import { ResetStyled } from "./styles/resetStyled"
 import { ThemeProvider } from "styled-components"
 import { defaultTheme } from "./styles/defaultTheme"
 import Home from "./examples/Home"
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route, Navigate } from "react-router-dom"
 import { Paths } from "./examples/Paths"
 import ButtonShowCaseDetail from "./examples/ButtonShowCase/ButtonShowCaseDetail"
 import TagShowCaseDetail from "./examples/TagShowCase/TagShowCaseDetail"
@@ -16,14 +16,16 @@ import InputShowCaseDetail from "./examples/Form/InputShowCase/InputShowCaseDeta
 import RadioButtonShowCaseDetail
     from "./examples/Form/RadioButtonShowCase/RadioButtonShowCaseDetail"
 import SelectShowCaseDetail from "./examples/Form/SelectShowCase/SelectShowCaseDetail"
-import Header from "./examples/Layout/Header/Header"
-import Footer from "./examples/Layout/Footer/Footer"
+import Header from "./examples/_Layout/Header/Header"
+import Footer from "./examples/_Layout/Footer/Footer"
 import "react-toastify/dist/ReactToastify.css"
 import { ToastContainer } from "react-toastify"
+import { FontSrc } from "./fonts/fontsSrc"
 
 const App = () => {
     return (
-        <ThemeProvider theme={defaultTheme} >
+        <ThemeProvider theme={defaultTheme}>
+            <FontSrc />
             <ResetStyled />
             <GlobalStyled />
             <ToastContainer />
@@ -31,6 +33,9 @@ const App = () => {
             <Routes>
                 <Route path={Paths.Home} element={
                     <Home />
+                } />
+                <Route path={Paths.Components} element={
+                    <Navigate to={Paths.Button} />
                 } />
                 <Route path={Paths.Tag} element={
                     <TagShowCaseDetail />

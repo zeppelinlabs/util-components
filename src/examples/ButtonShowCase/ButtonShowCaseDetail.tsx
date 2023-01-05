@@ -2,15 +2,15 @@
 import React from "react"
 import Button, { ButtonVariant, ButtonIconPosition }
     from "../../components/Button/Button"
-import LayoutDescriptionComponent
-    from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../_Layout/DetailComponentPage/DetailComponentPage"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 import { toastNotification } from "../../util/toastNotification"
 
 const ButtonShowCaseDetail = () => {
     const handleOnClick = () => toastNotification("Fantastic! A button click has occurred!")
 
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <Button
             buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
@@ -70,7 +70,7 @@ const ButtonShowCaseDetail = () => {
             type="submit">
             With full width
         </Button>
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default ButtonShowCaseDetail

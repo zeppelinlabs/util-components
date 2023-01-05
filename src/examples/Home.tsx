@@ -1,8 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
-import LayoutHome from "../styles/Layout/LayoutHome/LayoutHome"
-import { Link } from "react-router-dom"
-import { Paths } from "./Paths"
+import HomePage from "./_Layout/HomePage/HomePage"
+import { HomePageStyled } from "./_Layout/HomePage/HomePageStyled"
 import ButtonShowCaseDetailListItem from "./ButtonShowCase/ButtonShowCaseListItem"
 import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
 import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseListItem"
@@ -16,44 +15,35 @@ import SelectShowCaseDetailListItem from "./Form/SelectShowCase/SelectShowCaseDe
 
 const Home = () => {
     return (
-        <LayoutHome>
-            <Link to={Paths.Tag}>Tag</Link>
-            <TagShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Tooltip}>Tooltip</Link>
-            <TooltipShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Button}>Button</Link>
-            <ButtonShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Switch}>Switch</Link>
-            <SwitchShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Label}>Label</Link>
-            <LabelShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Checkbox}>Checkbox</Link>
-            <CheckboxShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.RadioButton}>Radio Button</Link>
-            <RadioButtonShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Input}>Input</Link>
-            <InputShowCaseDetailListItem />
-            <hr />
-
-            <Link to={Paths.Select}>Select</Link>
-            <SelectShowCaseDetailListItem />
-            <hr />
-
-        </LayoutHome>
+        <HomePage>
+            <HomePageStyled.ContainerComponent>
+                <TagShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <TooltipShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <ButtonShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <SwitchShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <LabelShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <CheckboxShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <RadioButtonShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <InputShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <SelectShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+        </HomePage>
     )
 }
 

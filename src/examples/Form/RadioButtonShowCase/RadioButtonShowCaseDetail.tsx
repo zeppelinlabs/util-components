@@ -3,8 +3,8 @@ import React, { useState } from "react"
 import Button, { ButtonVariant } from "../../../components/Button/Button"
 import RadioButtonGroup, { RadioOption }
     from "../../../components/Form/RadioButton/RadioButton"
-import LayoutDescriptionComponent
-    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 enum ListOptionKey {
     FirstKey = "firstKey",
@@ -105,7 +105,7 @@ const RadioButtonShowCaseDetail = () => {
     }
 
 
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <RadioButtonGroup
             selectedValue={value}
             onChange={handleChange1}
@@ -146,7 +146,7 @@ const RadioButtonShowCaseDetail = () => {
             name="group-5"
             options={listOption5}
         />
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default RadioButtonShowCaseDetail

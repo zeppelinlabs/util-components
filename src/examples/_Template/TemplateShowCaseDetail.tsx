@@ -1,10 +1,10 @@
 import React from "react"
-import LayoutDescriptionComponent
-    from "../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../_Layout/DetailComponentPage/DetailComponentPage"
 
 const TemplateShowCaseDetail = () => {
-    return <LayoutDescriptionComponent>
-    </LayoutDescriptionComponent>
+    return <DetailComponentPage>
+    </DetailComponentPage>
 }
 
 export default TemplateShowCaseDetail
