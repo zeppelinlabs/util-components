@@ -93,7 +93,7 @@ export type RadioOption<K extends ValidKey> = {
     disabled?: boolean,
 }
 
-type RadioButtonProps<K extends ValidKey, T extends RadioOption<K>> = {
+export type RadioButtonProps<K extends ValidKey, T extends RadioOption<K>> = {
     name: string,
     selectedValue?: K,
     options: T[],
