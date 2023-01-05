@@ -1,6 +1,7 @@
 import React from "react"
 import Tag, { TagSize, TagIconPosition, TagVariant } from "../../components/Tag/Tag"
-import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
+import { ReactComponent as EmailIcon }
+    from "../../assets/email_icon.svg"
 import DetailComponentPage
     from "../_Layout/DetailComponentPage/DetailComponentPage"
 
