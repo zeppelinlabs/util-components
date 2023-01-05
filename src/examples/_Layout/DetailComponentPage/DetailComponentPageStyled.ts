@@ -67,7 +67,6 @@ const WrapperContent = styled.main`
 	gap: 40px;
 	padding: 70px 0;
 	align-items: flex-start;
-	font-size: 1.6rem;
 	@media ${device.desktopM} {
 		grid-column: 4/17;
 	}
