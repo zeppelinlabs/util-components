@@ -1,16 +1,16 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
-import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
 import Button, { ButtonVariant, ButtonIconPosition }
     from "../../components/Button/Button"
-
+import DetailComponentPage
+    from "../_Layout/DetailComponentPage/DetailComponentPage"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 
 const ButtonShowCaseDetail = () => {
     // eslint-disable-next-line no-alert
     const handleOnClick = () => alert("Remove")
 
-    return <LayoutExamples>
+    return <DetailComponentPage>
         <Button
             buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
@@ -66,11 +66,11 @@ const ButtonShowCaseDetail = () => {
         </Button>
         <Button
             buttonVariant={ButtonVariant.Primary}
-            customStyles={{isFullWidth:true,}}
+            customStyles={{ isFullWidth: true, }}
             type="submit">
             With full width
         </Button>
-    </LayoutExamples>
+    </DetailComponentPage>
 }
 
 export default ButtonShowCaseDetail

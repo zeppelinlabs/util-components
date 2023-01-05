@@ -17,7 +17,7 @@ type InputProps = {
 
 const InputContainer = styled.div`
   position: relative;
-  width: fit-content;
+  width: 100%;
   display:flex;
   flex-direction:column;
 `

@@ -1,9 +1,10 @@
 import React from "react"
-import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
+import DetailComponentPage
+    from "../_Layout/DetailComponentPage/DetailComponentPage"
 
 const TemplateShowCaseDetail = () => {
-    return <LayoutExamples>
-    </LayoutExamples>
+    return <DetailComponentPage>
+    </DetailComponentPage>
 }
 
 export default TemplateShowCaseDetail

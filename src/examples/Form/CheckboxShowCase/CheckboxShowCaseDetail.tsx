@@ -1,15 +1,16 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
 import Checkbox, { ContentCheckboxPosition } from "../../../components/Form/Checkbox/Checkbox"
-import LayoutExamples from "../../../styles/Layout/LayoutExamples/LayoutExamples"
 import CheckboxGroupShowCase from "./CheckboxGroupShowcase"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
 
     const handleOnChange = (value: boolean) => setValue(value)
 
-    return <LayoutExamples>
+    return <DetailComponentPage>
         <Checkbox
             value={value}
             onChange={handleOnChange}
@@ -49,7 +50,7 @@ const CheckboxShowCaseDetail = () => {
         <hr />
         <CheckboxGroupShowCase />
         <hr />
-    </LayoutExamples>
+    </DetailComponentPage>
 }
 
 export default CheckboxShowCaseDetail

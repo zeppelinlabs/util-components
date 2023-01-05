@@ -1,13 +1,15 @@
 import React from "react"
 import Tag, { TagSize, TagIconPosition, TagVariant } from "../../components/Tag/Tag"
-import LayoutExamples from "../../styles/Layout/LayoutExamples/LayoutExamples"
-import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
+import { ReactComponent as EmailIcon }
+    from "../../assets/email_icon.svg"
+import DetailComponentPage
+    from "../_Layout/DetailComponentPage/DetailComponentPage"
 
 const TagShowCaseDetail = () => {
     // eslint-disable-next-line no-alert
     const handleOnClick = () => alert("Remove")
 
-    return <LayoutExamples>
+    return <DetailComponentPage>
         <Tag icon={{ SVGComponent: EmailIcon, }} >
             Small
         </Tag>
@@ -52,7 +54,7 @@ const TagShowCaseDetail = () => {
         <Tag onClick={handleOnClick} customStyles={{ isCursorPointer: true, }}>
             With onClick event
         </Tag>
-    </LayoutExamples>
+    </DetailComponentPage>
 }
 
 export default TagShowCaseDetail

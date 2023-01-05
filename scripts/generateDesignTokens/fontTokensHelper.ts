@@ -93,7 +93,6 @@ const getSize = () => {
 							lineHeight: convertPxToRem(vWeight.value.lineHeight),
 							fontSize: convertPxToRem(vWeight.value.fontSize),
 							letterSpacing: convertPxToRem(vWeight.value.letterSpacing),
-							paragraphSpacing: convertPxToRem(vWeight.value.paragraphSpacing),
 						}
 						return [
 							kSize,

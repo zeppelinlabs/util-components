@@ -13,9 +13,23 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 		${p => p.debug && css`
 			outline: 1px solid gray;
 		`}
-		/* Variant DEBUG
-			background-color: rgba(0,0,0,.3);
-		*/
+	}
+	::-webkit-scrollbar {
+		width: 7px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		background-color: ${thp.base.level500._};
+		border-radius: 20px;
+	}
+
+	::-webkit-scrollbar-track {
+		background-color: ${thp.base.level700._};
+	}
+
+	::selection {
+		color: ${thp.base.level1000._};
+		background-color: rgba(236, 54, 21, .6);
 	}
 	html {
 		box-sizing: border-box;
