@@ -11,6 +11,12 @@ export enum ContentSwitchAlign {
     Start = "flex-start",
     End = "flex-end",
 }
+export enum SwitchSize {
+    Small = "small",
+    Base = "base",
+    Large = "large",
+
+}
 
 export type CustomSwitchStyles = {
     textColor?: string,
@@ -18,6 +24,7 @@ export type CustomSwitchStyles = {
     textWeight?: TextWeightKeys,
     contentPosition?: ContentSwitchPosition,
     contentAlign?: ContentSwitchAlign,
+    size?: SwitchSize,
 }
 
 type Props = {
