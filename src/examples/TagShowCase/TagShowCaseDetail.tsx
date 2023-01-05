@@ -4,10 +4,10 @@ import { ReactComponent as EmailIcon }
     from "../../assets/email_icon.svg"
 import DetailComponentPage
     from "../_Layout/DetailComponentPage/DetailComponentPage"
+import { toastNotification } from "../../util/toastNotification"
 
 const TagShowCaseDetail = () => {
-    // eslint-disable-next-line no-alert
-    const handleOnClick = () => alert("Remove")
+    const handleOnClick = () => toastNotification("Fantastic! A button click remove has occurred!")
 
     return <DetailComponentPage>
         <Tag icon={{ SVGComponent: EmailIcon, }} >

@@ -5,10 +5,10 @@ import Button, { ButtonVariant, ButtonIconPosition }
 import DetailComponentPage
     from "../_Layout/DetailComponentPage/DetailComponentPage"
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
+import { toastNotification } from "../../util/toastNotification"
 
 const ButtonShowCaseDetail = () => {
-    // eslint-disable-next-line no-alert
-    const handleOnClick = () => alert("Remove")
+    const handleOnClick = () => toastNotification("Fantastic! A button click has occurred!")
 
     return <DetailComponentPage>
         <Button

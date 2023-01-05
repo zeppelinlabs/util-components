@@ -18,6 +18,8 @@ import RadioButtonShowCaseDetail
 import SelectShowCaseDetail from "./examples/Form/SelectShowCase/SelectShowCaseDetail"
 import Header from "./examples/_Layout/Header/Header"
 import Footer from "./examples/_Layout/Footer/Footer"
+import "react-toastify/dist/ReactToastify.css"
+import { ToastContainer } from "react-toastify"
 import { FontSrc } from "./fonts/fontsSrc"
 
 const App = () => {
@@ -26,6 +28,7 @@ const App = () => {
             <FontSrc />
             <ResetStyled />
             <GlobalStyled />
+            <ToastContainer />
             <Header />
             <Routes>
                 <Route path={Paths.Home} element={
