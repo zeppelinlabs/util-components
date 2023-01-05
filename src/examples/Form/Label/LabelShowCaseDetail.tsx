@@ -1,11 +1,11 @@
 import React from "react"
 import Input from "../../../components/Form/Input/Input"
 import Label, { LabelVariant } from "../../../components/Form/Label/Label"
-import LayoutDescriptionComponent
-    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 const LabelShowCaseDetail = () => {
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <Label text="Label text"
             labelVariant={LabelVariant.Optional}>
             <Input type="text" value="" />
@@ -28,7 +28,7 @@ const LabelShowCaseDetail = () => {
         >
             <Input type="text" value="" />
         </Label>
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default LabelShowCaseDetail

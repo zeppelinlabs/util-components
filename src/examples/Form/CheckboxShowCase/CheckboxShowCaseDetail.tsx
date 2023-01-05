@@ -2,15 +2,15 @@
 import React, { useState } from "react"
 import Checkbox, { ContentCheckboxPosition } from "../../../components/Form/Checkbox/Checkbox"
 import CheckboxGroupShowCase from "./CheckboxGroupShowcase"
-import LayoutDescriptionComponent
-    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
 
     const handleOnChange = (value: boolean) => setValue(value)
 
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <Checkbox
             value={value}
             onChange={handleOnChange}
@@ -50,7 +50,7 @@ const CheckboxShowCaseDetail = () => {
         <hr />
         <CheckboxGroupShowCase />
         <hr />
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default CheckboxShowCaseDetail

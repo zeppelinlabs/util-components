@@ -12,7 +12,7 @@ const Header = () => {
 	const [searchValue, setSearchValue,] = useState<string>("")
 
 	const HandleSearch = () => {
-		console.log()
+		window.open("https://github.com/zeppelinlabs/util-components/", "_blank")
 	}
 
 	return <HeaderStyled.Wrapper>
@@ -24,15 +24,9 @@ const Header = () => {
 				<HeaderStyled.NavList>
 					<HeaderStyled.NavListItem>
 						<HeaderStyled.NavListLink
-							to={Paths.Home}
+							to={Paths.Components}
 						>
 							Components
-						</HeaderStyled.NavListLink>
-					</HeaderStyled.NavListItem>
-					<HeaderStyled.NavListItem>
-						<HeaderStyled.NavListLink
-							to={Paths.Components}>
-							How it works
 						</HeaderStyled.NavListLink>
 					</HeaderStyled.NavListItem>
 					<HeaderStyled.NavListItem>

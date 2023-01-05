@@ -5,8 +5,8 @@ import InputNumeric from "../../../components/Form/Input/InputNumeric"
 import InputPassword from "../../../components/Form/Input/InputPassword"
 import InputTextArea from "../../../components/Form/Input/InputTextArea"
 import Label from "../../../components/Form/Label/Label"
-import LayoutDescriptionComponent
-    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 
 const InputShowCaseDetail = () => {
@@ -14,7 +14,7 @@ const InputShowCaseDetail = () => {
     const [inputNumericState, setInputNumericState,] = useState<number | null>(1)
     const [inputAmountState, setInputAmountState,] = useState<number | null>(1)
 
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <Label text="Input text">
             <Input
                 type="text"
@@ -99,7 +99,7 @@ const InputShowCaseDetail = () => {
                 errorMessage={inputStringState ? undefined : "Cannot be empty"}
             />
         </Label>
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default InputShowCaseDetail

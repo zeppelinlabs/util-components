@@ -2,8 +2,8 @@
 import React, { useState } from "react"
 import Select, { SelectOption } from "../../../components/Form/Select/Select"
 import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
-import LayoutDescriptionComponent
-    from "../../Layout/LayoutDescriptionComponent/LayoutDescriptionComponent"
+import DetailComponentPage
+    from "../../_Layout/DetailComponentPage/DetailComponentPage"
 
 
 enum ListOptionKey {
@@ -127,7 +127,7 @@ const SelectShowCaseDetail = () => {
     }
 
 
-    return <LayoutDescriptionComponent>
+    return <DetailComponentPage>
         <Select
             options={listOption1}
             selectedValue={value?.key}
@@ -174,7 +174,7 @@ const SelectShowCaseDetail = () => {
             disabled={true}
             label={{ text: "With disabled state", }}
         />
-    </LayoutDescriptionComponent>
+    </DetailComponentPage>
 }
 
 export default SelectShowCaseDetail

@@ -74,7 +74,7 @@ const WrapperContent = styled.main`
 `
 
 
-export const LayoutDescriptionComponentStyled = {
+export const DetailComponentPageStyled = {
 	Wrapper,
 	Row,
 	ContainerNavigation,
