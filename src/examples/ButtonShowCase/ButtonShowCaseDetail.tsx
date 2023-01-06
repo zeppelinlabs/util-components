@@ -12,14 +12,12 @@ const ButtonShowCaseDetail = () => {
 
     return <DetailComponentPage>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             type="button"
         >
             Button
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
@@ -29,7 +27,6 @@ const ButtonShowCaseDetail = () => {
             With icon
         </Button >
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
@@ -40,32 +37,29 @@ const ButtonShowCaseDetail = () => {
             Icon position right
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Secondary}
+            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
             type="submit"
             loading={true}
         >
             Submit
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             type="submit"
             icon={{
                 SVGComponent: ArrowIcon,
             }}
         />
         <Button
-            buttonVariant={ButtonVariant.Secondary}
+            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
             type="submit">
             Button second variant
         </Button>
 
         <Button
-            buttonVariant={ButtonVariant.Primary}
             type="submit">
             With custom <em>JSX content</em>
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             customStyles={{ isFullWidth: true, }}
             type="submit">
             With full width

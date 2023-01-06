@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { HeaderStyled } from "./HeaderStyled"
 import ZeppelinComponentsLogo from "../../../assets/examples/zeppelin-components.svg"
 import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
-import Button, { ButtonVariant } from "../../../components/Button/Button"
+import Button from "../../../components/Button/Button"
 import Input from "../../../components/Form/Input/Input"
 import { Paths } from "../../Paths"
 import { NavLink } from "react-router-dom"
@@ -47,7 +47,6 @@ const Header = () => {
 				/>
 				<Button
 					type="button"
-					buttonVariant={ButtonVariant.Primary}
 					onClick={HandleSearch}
 					icon={{
 						SVGComponent: GithubIcon,

@@ -40,7 +40,6 @@ const HomePage = (props: Props) => {
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Primary}
 							onClick={redirectToComponents}
 							buttonSize={ButtonSize.XLarge}
 						>
@@ -48,7 +47,7 @@ const HomePage = (props: Props) => {
 						</Button>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Secondary}
+							customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
 							onClick={redirectToComponents}
 							buttonSize={ButtonSize.XLarge}
 						>
@@ -121,7 +120,6 @@ const HomePage = (props: Props) => {
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Primary}
 							onClick={redirectToComponents}
 							buttonSize={ButtonSize.XLarge}
 						>

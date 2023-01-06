@@ -1,6 +1,6 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
-import Button, { ButtonVariant } from "../../../components/Button/Button"
+import Button from "../../../components/Button/Button"
 import RadioButtonGroup, { RadioOption }
     from "../../../components/Form/RadioButton/RadioButton"
 import DetailComponentPage
@@ -136,7 +136,7 @@ const RadioButtonShowCaseDetail = () => {
         />
         <Button type="button"
             onClick={() => setFourValue(undefined)}
-            buttonVariant={ButtonVariant.Primary}>
+        >
             Clear value of input radio
         </Button>
         <hr />

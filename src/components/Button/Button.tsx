@@ -20,7 +20,7 @@ export enum ButtonIconPosition {
 
 export type CustomButtonStyles = {
     isFullWidth?: boolean,
-    buttonVariant: ButtonVariant,
+    buttonVariant?: ButtonVariant,
 }
 
 type BaseProps = {
