@@ -1,14 +1,15 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import React from "react"
-import { ReactComponent as EmailIcon } from "../../assets/email_icon.svg"
+import { ReactComponent as CircleIcon } from "../../assets/icons/circle.svg"
 import Tag, { TagSize } from "../../components/Tag/Tag"
+import { toastNotification } from "../../util/toastNotification"
 
 const TagShowCaseDetailListItem = () => {
-    return <Tag icon={{ SVGComponent: EmailIcon, }}
+    return <Tag icon={{ SVGComponent: CircleIcon, }}
         customStyles={{ size: TagSize.Base, }}
-        onClickRemove={() => { }}
+        onClickRemove={() => toastNotification("Fantastic! A button click remove has occurred!")}
     >
-        Medium
+        Tag Base
     </Tag>
 }
 

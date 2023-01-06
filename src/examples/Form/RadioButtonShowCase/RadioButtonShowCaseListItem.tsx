@@ -5,7 +5,7 @@ import RadioButtonGroup, { RadioOption, } from "../../../components/Form/RadioBu
 const listOption: RadioOption<string>[] = [
     {
         key: "1",
-        children: "Input radio",
+        children: "",
     },
 ]
 
