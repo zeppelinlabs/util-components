@@ -7,7 +7,6 @@ import TagShowCaseDetailListItem from "./TagShowCase/TagShowCaseListItem"
 import SwitchShowCaseDetailListItem from "./Form/SwitchShowCase/SwitchShowCaseListItem"
 import TooltipShowCaseDetailListItem from "./TooltipShowCase/TooltipShowCaseListItem"
 import CheckboxShowCaseDetailListItem from "./Form/CheckboxShowCase/CheckboxShowCaseListItem"
-import LabelShowCaseDetailListItem from "./Form/Label/LabelShowCaseListItem"
 import InputShowCaseDetailListItem from "./Form/InputShowCase/InputShowCaseListItem"
 import RadioButtonShowCaseDetailListItem
     from "./Form/RadioButtonShowCase/RadioButtonShowCaseListItem"
@@ -29,7 +28,7 @@ const Home = () => {
                 <TagShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
-                <LabelShowCaseDetailListItem />
+                <InputShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
                 <SelectShowCaseDetailListItem />

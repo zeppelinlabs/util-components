@@ -91,6 +91,13 @@ const Wrapper = styled.span<Props>`
             visibility: visible;
 		};
 	}
+    ${(p) => p.customStyles?.showAlways && css`
+        ${Tooltip}{
+            opacity: 1;
+            scale: 1;
+            visibility: visible;
+        };
+    `}
 `
 
 const Content = styled.span<Props>`

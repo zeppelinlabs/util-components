@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import Label from "../../../components/Form/Label/Label"
 import Select, { SelectOption } from "../../../components/Form/Select/Select"
 
 const listOption1: SelectOption<number>[] = [
@@ -23,11 +24,13 @@ const SelectShowCaseDetailListItem = () => {
         setValue(value)
     }
 
-    return <Select
-        options={listOption1}
-        selectedValue={value?.key}
-        onChange={handleChange1}
-    />
+    return <Label text="Switch">
+        <Select
+            options={listOption1}
+            selectedValue={value?.key}
+            onChange={handleChange1}
+        />
+    </Label>
 }
 
 export default SelectShowCaseDetailListItem

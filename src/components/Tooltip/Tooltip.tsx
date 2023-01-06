@@ -30,6 +30,7 @@ export type CustomTooltipStyles = {
     position?: TooltipPosition,
     align?: TooltipAlign,
     size?: TooltipSize,
+    showAlways?: boolean,
 }
 
 export type TooltipProps = {
@@ -39,9 +40,16 @@ export type TooltipProps = {
 }
 
 const Tooltip = (props: TooltipProps) => {
-    return (
-        <TooltipStyled.Wrapper customStyles={props.customStyles}>
 
+    const handleOnClick = (e: React.MouseEvent<unknown, MouseEvent>) => {
+        e.stopPropagation()
+    }
+
+    return (
+        <TooltipStyled.Wrapper
+            onClick={handleOnClick}
+            customStyles={props.customStyles}
+        >
             {props.children}
             <TooltipStyled.Tooltip customStyles={props.customStyles}>
                 <TooltipStyled.Content customStyles={props.customStyles}>
