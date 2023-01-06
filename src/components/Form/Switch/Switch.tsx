@@ -59,6 +59,7 @@ const Switch = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInput
                 customStyles={props.customStyles}
             />
             <SwitchStyled.Slider
+                customStyles={props.customStyles}
                 onClick={props.onClick}
             />
             {props.children
