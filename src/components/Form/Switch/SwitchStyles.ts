@@ -75,7 +75,7 @@ const Input = styled.input<Props>`
     opacity: 0;
 
     &:checked + ${Slider} {
-        background-color: ${thp.primary.level500._};
+        background-color: ${thp.system.success.level500._};
         &:before {
             left: calc(100% - 4px);
             transform: translateX(-100%);

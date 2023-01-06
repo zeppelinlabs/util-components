@@ -70,7 +70,7 @@ const InputRadio_ = React.forwardRef(<K extends ValidKey>(
                 autoFocus={props.accessibility?.autoFocus}
             />
 
-            <RadioButtonStyled.Radio onClick={props.onClick} />
+            <RadioButtonStyled.Radio customStyles={props.customStyles} onClick={props.onClick} />
 
             <RadioButtonStyled.ChildrenContainer
                 customStyles={props.customStyles}>
@@ -111,7 +111,6 @@ const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioO
     const handleOnChange = (e: K) => {
         const selected = e
         const value = props.options.find(o => o.key === selected)
-
         if (value) {
             props.onChange && props.onChange(value.key)
         } else {
@@ -124,7 +123,6 @@ const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioO
         <>
             {props.options.map((propsChild: RadioOption<K>) => {
                 const key = keySerializator.serialize(propsChild.key)
-
                 return <InputRadio
                     ref={ref}
                     key={key}

@@ -61,7 +61,7 @@ const Checkbox = React.forwardRef((
                     tabIndex={props.accessibility?.tabIndex}
                     autoFocus={props.accessibility?.autoFocus}
                 />
-                <CheckboxStyled.Check>
+                <CheckboxStyled.Check customStyles={props.customStyles}>
                     {props.value && (
                         <CheckboxStyled.Tick>
                             {props.customStyles?.isIndeterminate
@@ -71,9 +71,10 @@ const Checkbox = React.forwardRef((
                         </CheckboxStyled.Tick>
                     )}
                 </CheckboxStyled.Check>
-                {props.children && <CheckboxStyled.ChildrenWrapper>
-                    {props.children}
-                </CheckboxStyled.ChildrenWrapper>}
+                {props.children
+                    && <CheckboxStyled.ChildrenWrapper customStyles={props.customStyles}>
+                        {props.children}
+                    </CheckboxStyled.ChildrenWrapper>}
             </CheckboxStyled.Wrapper>
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
