@@ -20,13 +20,13 @@ export enum ButtonIconPosition {
 
 export type CustomButtonStyles = {
     isFullWidth?: boolean,
+    buttonVariant: ButtonVariant,
 }
 
 type BaseProps = {
     children?: React.ReactNode,
     loading?: boolean,
     disabled?: boolean,
-    buttonVariant: ButtonVariant,
     buttonSize?: ButtonSize,
     customStyles?: CustomButtonStyles,
     icon?: {
@@ -62,7 +62,6 @@ const Button = React.forwardRef((
         tabIndex={props.accessibility?.tabIndex}
         autoFocus={props.accessibility?.autoFocus}
         type={props.type}
-        buttonVariant={props.buttonVariant}
         buttonPosition={props.icon?.position}
         buttonSize={props.buttonSize ? props.buttonSize : ButtonSize.Base}
         customStyles={props.customStyles}

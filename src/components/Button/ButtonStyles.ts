@@ -6,7 +6,6 @@ import {
 } from "./Button"
 
 type Props = {
-	buttonVariant: ButtonVariant,
 	buttonSize: ButtonSize,
 	buttonPosition?: ButtonIconPosition,
 	loading?: boolean,
@@ -116,7 +115,8 @@ const Button = styled.button<Props>`
 	width: ${({ customStyles, }) => (customStyles?.isFullWidth ? "100%" : "fit-content")};
 	flex-direction: ${({ buttonPosition, }) => (buttonPosition ? buttonPosition : "row")};
 	border-radius: ${UiTokens.borderRadius.size76};
-	${({ buttonVariant, }) => (getButtonVariant(buttonVariant))}
+	${({ customStyles, }) => (getButtonVariant(customStyles?.buttonVariant
+	|| ButtonVariant.Primary))}
 	img,
 	svg{
 		width: 100%;
@@ -132,6 +132,9 @@ const Button = styled.button<Props>`
 	${({ loading, }) => (loading && css`
 		color: transparent !important;
 	`)};
+	${({ isOnlyIcon, }) => (isOnlyIcon && css`
+		aspect-ratio: 1/1;
+		`)};
 `
 
 const IconContainer = styled.span<{ buttonSize: ButtonSize, }>`
