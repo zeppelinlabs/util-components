@@ -10,7 +10,7 @@ const listOption: RadioOption<string>[] = [
 ]
 
 const RadioButtonShowCaseDetailListItem = () => {
-    const [value, setValue,] = useState("")
+    const [value, setValue,] = useState("1")
 
     const handleOnChange = (value: string) => {
         setValue(value)

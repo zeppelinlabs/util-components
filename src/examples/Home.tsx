@@ -17,31 +17,28 @@ const Home = () => {
     return (
         <HomePage>
             <HomePageStyled.ContainerComponent>
-                <TagShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <TooltipShowCaseDetailListItem />
+                <CheckboxShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
                 <ButtonShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
-                <SwitchShowCaseDetailListItem />
+                <RadioButtonShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <TagShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
                 <LabelShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
             <HomePageStyled.ContainerComponent>
-                <CheckboxShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <RadioButtonShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <InputShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
                 <SelectShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <TooltipShowCaseDetailListItem />
+            </HomePageStyled.ContainerComponent>
+            <HomePageStyled.ContainerComponent>
+                <SwitchShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
         </HomePage>
     )
