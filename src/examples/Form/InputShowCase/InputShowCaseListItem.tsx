@@ -6,7 +6,12 @@ const InputShowCaseDetailListItem = () => {
     const [inputValue, setInputValue,] = useState("")
 
     return <Label text="Label">
-        <Input type="text" value={inputValue} onChange={setInputValue} />
+        <Input
+            type="text"
+            value={inputValue}
+            onChange={setInputValue}
+            placeholder="Input"
+        />
     </Label >
 }
 
