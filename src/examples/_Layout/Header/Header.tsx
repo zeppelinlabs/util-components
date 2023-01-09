@@ -3,7 +3,7 @@ import React, { useState } from "react"
 import { HeaderStyled } from "./HeaderStyled"
 import ZeppelinComponentsLogo from "../../../assets/examples/zeppelin-components.svg"
 import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
-import Button, { ButtonVariant } from "../../../components/Button/Button"
+import Button from "../../../components/Button/Button"
 import Input from "../../../components/Form/Input/Input"
 import { Paths } from "../../Paths"
 import { NavLink } from "react-router-dom"
@@ -12,7 +12,7 @@ const Header = () => {
 	const [searchValue, setSearchValue,] = useState<string>("")
 
 	const HandleSearch = () => {
-		window.open("https://github.com/zeppelinlabs/util-components/", "_blank")
+		window.open(Paths.Github, "_blank")
 	}
 
 	return <HeaderStyled.Wrapper>
@@ -28,6 +28,14 @@ const Header = () => {
 						>
 							Components
 						</HeaderStyled.NavListLink>
+					</HeaderStyled.NavListItem>
+					<HeaderStyled.NavListItem>
+						<HeaderStyled.NavListAnchor
+							href={Paths.Github}
+							target="_blank"
+						>
+							How it works
+						</HeaderStyled.NavListAnchor>
 					</HeaderStyled.NavListItem>
 					<HeaderStyled.NavListItem>
 						<HeaderStyled.NavListAnchor
@@ -47,7 +55,6 @@ const Header = () => {
 				/>
 				<Button
 					type="button"
-					buttonVariant={ButtonVariant.Primary}
 					onClick={HandleSearch}
 					icon={{
 						SVGComponent: GithubIcon,

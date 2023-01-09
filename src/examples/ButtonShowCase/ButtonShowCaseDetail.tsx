@@ -1,5 +1,5 @@
 /* eslint-disable max-lines-per-function */
-import React from "react"
+import React, { useState } from "react"
 import Button, { ButtonVariant, ButtonIconPosition }
     from "../../components/Button/Button"
 import DetailComponentPage
@@ -7,19 +7,31 @@ import DetailComponentPage
 import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
 import { toastNotification } from "../../util/toastNotification"
 
+const messageList = [
+    "Fantastic! A button click has occurred!",
+    "Wow another click!",
+    "Yep, still working",
+    "Still clicking",
+    "Again ? really ? You already know that its working",
+    "This is getting out of hands",
+]
+
 const ButtonShowCaseDetail = () => {
-    const handleOnClick = () => toastNotification("Fantastic! A button click has occurred!")
+    const [clickCount, setClickCount,] = useState(0)
+
+    const handleOnClick = () => {
+        toastNotification(messageList[clickCount])
+        setClickCount((clickCount < (messageList.length - 1)) ? clickCount + 1 : 0)
+    }
 
     return <DetailComponentPage>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             type="button"
         >
             Button
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
@@ -29,7 +41,6 @@ const ButtonShowCaseDetail = () => {
             With icon
         </Button >
         <Button
-            buttonVariant={ButtonVariant.Primary}
             onClick={handleOnClick}
             icon={{
                 SVGComponent: ArrowIcon,
@@ -40,34 +51,35 @@ const ButtonShowCaseDetail = () => {
             Icon position right
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Secondary}
+            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
             type="submit"
             loading={true}
         >
             Submit
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
-            type="submit"
+            onClick={handleOnClick}
+            type="button"
             icon={{
                 SVGComponent: ArrowIcon,
             }}
         />
         <Button
-            buttonVariant={ButtonVariant.Secondary}
-            type="submit">
+            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
+            onClick={handleOnClick}
+            type="button">
             Button second variant
         </Button>
 
         <Button
-            buttonVariant={ButtonVariant.Primary}
-            type="submit">
+            onClick={handleOnClick}
+            type="button">
             With custom <em>JSX content</em>
         </Button>
         <Button
-            buttonVariant={ButtonVariant.Primary}
             customStyles={{ isFullWidth: true, }}
-            type="submit">
+            onClick={handleOnClick}
+            type="button">
             With full width
         </Button>
     </DetailComponentPage>

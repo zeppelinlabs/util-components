@@ -18,6 +18,10 @@ const HomePage = (props: Props) => {
 		return navigate(Paths.Components)
 	}
 
+	const redirectToFigma = () => {
+		return window.open(Paths.Figma, "_blank")
+	}
+
 	return <>
 		<HomePageStyled.Layout>
 			<HomePageStyled.Row>
@@ -33,14 +37,12 @@ const HomePage = (props: Props) => {
 
 					<HomePageStyled.HeroContainer>
 						<TextStyled.Heading2xl textColor="level300">
-							Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.
-						</TextStyled.Heading2xl>
+							UI tools to create whatever you want. Use our library full of production-ready components, or customize it as you need!						</TextStyled.Heading2xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Primary}
 							onClick={redirectToComponents}
 							buttonSize={ButtonSize.XLarge}
 						>
@@ -48,11 +50,11 @@ const HomePage = (props: Props) => {
 						</Button>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Secondary}
-							onClick={redirectToComponents}
+							customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
+							onClick={redirectToFigma}
 							buttonSize={ButtonSize.XLarge}
 						>
-							How it works
+							Figma File
 						</Button>
 					</HomePageStyled.AlignContentCenter>
 				</HomePageStyled.WrapperContent>
@@ -71,34 +73,34 @@ const HomePage = (props: Props) => {
 					<HomePageStyled.Grid>
 						<HomePageStyled.AnswerColumn>
 							<TextStyled.HeadingXl textWeight="medium">
-								Title 1
+								Customizable
 							</TextStyled.HeadingXl>
 							<TextStyled.BodyBase>
-								Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema.
+								You can change colors, fonts, sizes, or whatever you want! Have full control over how they look and behave.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
 							<TextStyled.HeadingXl textWeight="medium">
-								Title 2
+								Easy to use
 							</TextStyled.HeadingXl>
 							<TextStyled.BodyBase>
-								Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema.
+								Ready to copy and paste, just adjust the styles as you want or need.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
 							<TextStyled.HeadingXl textWeight="medium">
-								Title 3
+								Figma file
 							</TextStyled.HeadingXl>
 							<TextStyled.BodyBase>
-								Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema.
+								Full Figma design source, a file you could use to prototype or experiment.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
 							<TextStyled.HeadingXl textWeight="medium">
-								Title 4
+								Ready to use
 							</TextStyled.HeadingXl>
 							<TextStyled.BodyBase>
-								Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema. Aca un texto explicativo sobre el tema.Aca un texto explicativo sobre el tema.
+								Our library is designed and coded, every component you use is ready for production.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 					</HomePageStyled.Grid>
@@ -121,7 +123,6 @@ const HomePage = (props: Props) => {
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
-							buttonVariant={ButtonVariant.Primary}
 							onClick={redirectToComponents}
 							buttonSize={ButtonSize.XLarge}
 						>

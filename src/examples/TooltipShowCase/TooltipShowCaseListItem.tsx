@@ -1,13 +1,16 @@
 import React from "react"
-import Tooltip from "../../components/Tooltip/Tooltip"
-import { TextStyled } from "../../styles/typographic"
+import Tooltip, { TooltipAlign, TooltipVariant } from "../../components/Tooltip/Tooltip"
 
 const TooltipShowCaseDetailListItem = () => {
-    return <div>
-        <Tooltip tooltipContent="Content of tooltip">
-            <TextStyled.BodyBase>
-                Hover here for reveal tooltip
-            </TextStyled.BodyBase>
+    return <div style={{ marginTop: "50px", }}>
+        <Tooltip
+            tooltipContent="Tooltip"
+            customStyles={{
+                align: TooltipAlign.Right,
+                tooltipVariant: TooltipVariant.Secondary,
+                showAlways: true,
+            }}
+        >
         </Tooltip>
     </div>
 }

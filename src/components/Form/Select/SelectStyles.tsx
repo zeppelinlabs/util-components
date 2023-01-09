@@ -10,7 +10,7 @@ type SelectProps = {
 }
 
 const Select = styled.select<SelectProps>`
-    width: max-content;
+    width: 100%;
     position: relative;
     outline:none;
     font-size: 1.6rem;
@@ -43,7 +43,7 @@ const Select = styled.select<SelectProps>`
 `
 
 const Wrapper = styled.div<SelectProps>`
-    width: max-content;
+    width: 100%;
     display: flex;
     background: ${thp.base.level0._};
     border-width: 1px;

@@ -8,33 +8,37 @@ type Props = {
 
 const DetailComponentPage = (props: Props) => {
 
+	const handleOnClick = () => {
+		window.scrollTo(0, 0)
+	}
+
 	const ButtonList = () => {
 		return <>
-			<DetailComponentPageStyled.Link to={Paths.Button}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Button}>
 				Button
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Input}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Input}>
 				Input
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Select}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Select}>
 				Select
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Checkbox}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Checkbox}>
 				Checkbox
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.RadioButton}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.RadioButton}>
 				Radio
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Switch}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Switch}>
 				Switch
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Label}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Label}>
 				Label
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Tag}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Tag}>
 				Tag
 			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link to={Paths.Tooltip}>
+			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Tooltip}>
 				Tooltip
 			</DetailComponentPageStyled.Link>
 		</>

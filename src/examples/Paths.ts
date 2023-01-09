@@ -1,7 +1,10 @@
+/* eslint-disable max-len */
 export const Paths = {
     Home: "/",
     Components: "/components",
     AboutUs: "https://zeppelinlabs.io/",
+    Github: "https://github.com/zeppelinlabs/util-components",
+    Figma: "https://www.figma.com/file/L7qcgCGalo515TlDQqomKN/Showcase-Zeppcomponents?node-id=0%3A1&t=4HvlZIOszArxQIbz-1",
     zeppelinSocialMedia: [
         {
             text: "Twitter",

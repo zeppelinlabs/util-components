@@ -2,7 +2,7 @@ import React, { useState } from "react"
 import Checkbox from "../../../components/Form/Checkbox/Checkbox"
 
 const CheckboxShowCaseDetailListItem = () => {
-    const [value, setValue,] = useState(false)
+    const [value, setValue,] = useState(true)
 
     const handleOnChange = (value: boolean) => setValue(value)
 

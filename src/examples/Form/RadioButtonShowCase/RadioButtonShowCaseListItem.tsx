@@ -5,12 +5,12 @@ import RadioButtonGroup, { RadioOption, } from "../../../components/Form/RadioBu
 const listOption: RadioOption<string>[] = [
     {
         key: "1",
-        children: "Input radio",
+        children: "",
     },
 ]
 
 const RadioButtonShowCaseDetailListItem = () => {
-    const [value, setValue,] = useState("")
+    const [value, setValue,] = useState("1")
 
     const handleOnChange = (value: string) => {
         setValue(value)
