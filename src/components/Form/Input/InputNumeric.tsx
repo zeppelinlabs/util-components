@@ -60,12 +60,12 @@ const InputNumeric = React.forwardRef((props: Props, ref: React.ForwardedRef<HTM
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
                     customStyles={props.customStyles}
-                    loading={props.loading}
+                    isLoading={props.isLoading}
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
-                {props.loading
+                {props.isLoading
                     && <InputStyled.SpinnerContainer>
                         <Spinner size={SpinnerSize.small} />
                     </InputStyled.SpinnerContainer>

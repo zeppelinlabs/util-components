@@ -5,58 +5,77 @@ import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
 import { ReactComponent as InfoIcon } from "../../assets/info.svg"
 import DetailComponentPage
     from "../_Layout/DetailComponentPage/DetailComponentPage"
+import { TextStyled } from "../../styles/typographic"
 
 const TooltipShowCaseDetail = () => {
     return <DetailComponentPage>
         <div>
             <Tooltip tooltipContent="Content of tooltip">
-                Tooltip example
+                <TextStyled.BodyBase>
+                    Tooltip example
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip with small size"
                 customStyles={{ size: TooltipSize.Small, }}>
-                Tooltip size
+                <TextStyled.BodyBase>
+                    Tooltip size
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{ align: TooltipAlign.Left, }}>
-                Tooltip example align to left
+                <TextStyled.BodyBase>
+                    Tooltip example align to left
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
         <div>
-            {"Tooltip example align to right in icon "}
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{
-                    align: TooltipAlign.Right,
-                    tooltipVariant: TooltipVariant.Secondary,
-                }}>
-                <InfoIcon />
-            </Tooltip>
+            <TextStyled.BodyBase style={{
+                "display": "flex",
+                "gap": "10px",
+                "alignItems": "center",
+            }}>
+                Tooltip example align to right in icon
+                <Tooltip
+                    tooltipContent="Content of tooltip"
+                    customStyles={{
+                        align: TooltipAlign.Right,
+                        tooltipVariant: TooltipVariant.Secondary,
+                    }}>
+                    <InfoIcon />
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{ position: TooltipPosition.Right, }}>
-                Tooltip example position to right
+                <TextStyled.BodyBase>
+                    Tooltip example position to right
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{ position: TooltipPosition.Left, }}>
-                Tooltip example position to left
+                <TextStyled.BodyBase>
+                    Tooltip example position to left
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
         <div>
             <Tooltip
                 tooltipContent="Content of tooltip"
                 customStyles={{ position: TooltipPosition.Bottom, }}>
-                Tooltip example position to bottom
+                <TextStyled.BodyBase>
+                    Tooltip example position to bottom
+                </TextStyled.BodyBase>
             </Tooltip>
         </div>
     </DetailComponentPage>

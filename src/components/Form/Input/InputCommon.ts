@@ -15,7 +15,7 @@ export type InputCommonProps<T> = {
     value: T,
     placeholder?: string,
     disabled?: boolean,
-    loading?: boolean,
+    isLoading?: boolean,
     errorMessage?: string,
     onChange?: (value: T) => void,
     onBlur?: () => void,

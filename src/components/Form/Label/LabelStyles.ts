@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components"
 import { CustomLabelStyles } from "./Label"
-import { thp, TextWeightKeys } from "../../../styles/themeHelpers"
+import { thp, } from "../../../styles/themeHelpers"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 

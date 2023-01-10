@@ -4,6 +4,7 @@ import Checkbox, { CustomCheckboxStyles } from "./Checkbox"
 import { HTMLSetCustomValidityElement, useSetCustomValidity }
     from "../../../hooks/useSetCustomValidity"
 import { renderErrorMessage } from "../FormCommon"
+import { CheckboxStyled } from "./CheckboxStyles"
 
 export type CheckboxGroupOption<K> = {
     key: K,
@@ -42,6 +43,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
             const hasKeyBeforeChange = hasKey(props.keyValue, option.key)
 
             if (props.keyValue.some(k => !optionsByKey[k])) {
+                // eslint-disable-next-line no-console
                 console.warn("keyValue not in options", props)
             }
 
@@ -56,7 +58,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
     }
 
     return (
-        <>
+        <CheckboxStyled.Container>
             {props.options.map((option, i) => {
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
@@ -73,10 +75,10 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </>
+        </CheckboxStyled.Container>
     )
 }) as <K extends ValidKey,
-    T extends CheckboxGroupOption<K>>(props: Props<K, T>
-        & React.RefAttributes<HTMLInputElement>) => JSX.Element
+        T extends CheckboxGroupOption<K>>(props: Props<K, T>
+            & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export default CheckboxGroup

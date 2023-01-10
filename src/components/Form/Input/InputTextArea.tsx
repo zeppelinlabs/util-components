@@ -19,8 +19,7 @@ const InputTextArea = React.forwardRef((
 
     useEffect(() => {
         if (props.autoHeight && innerRef.current) {
-            // eslint-disable-next-line @typescript-eslint/restrict-plus-operands
-            innerRef.current.style.height = `${(innerRef.current.scrollHeight) + 2}px`
+            innerRef.current.style.height = `${innerRef.current.scrollHeight + 2}px`
         }
     }, [innerRef, props.autoHeight,])
 
@@ -58,14 +57,14 @@ const InputTextArea = React.forwardRef((
                 maxLength={props.maxLength}
                 autoHeight={props.autoHeight}
                 customStyles={props.customStyles}
-                loading={props.loading}
+                isLoading={props.isLoading}
                 autoComplete="off"
                 spellCheck="false"
             />
             {props.maxLength && renderCharacterCount()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
-            {props.loading
+            {props.isLoading
                 && <InputStyled.SpinnerContainer>
                     <Spinner size={SpinnerSize.small} />
                 </InputStyled.SpinnerContainer>

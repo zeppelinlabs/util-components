@@ -53,7 +53,7 @@ const ButtonShowCaseDetail = () => {
         <Button
             customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
             type="submit"
-            loading={true}
+            isLoading={true}
         >
             Submit
         </Button>

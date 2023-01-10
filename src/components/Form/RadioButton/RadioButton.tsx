@@ -114,13 +114,14 @@ const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioO
         if (value) {
             props.onChange && props.onChange(value.key)
         } else {
+            // eslint-disable-next-line no-console
             console.error("Option not found", value, [e, selected,])
             throw new Error("Option not found")
         }
     }
 
     return (
-        <>
+        <RadioButtonStyled.Wrapper>
             {props.options.map((propsChild: RadioOption<K>) => {
                 const key = keySerializator.serialize(propsChild.key)
                 return <InputRadio
@@ -144,7 +145,7 @@ const RadioButtonGroup_ = React.forwardRef(<K extends ValidKey, T extends RadioO
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </>
+        </RadioButtonStyled.Wrapper>
     )
 })
 

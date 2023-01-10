@@ -86,7 +86,7 @@ const InputShowCaseDetail = () => {
             <Input
                 type="text"
                 value="Loading"
-                loading
+                isLoading
             />
         </Label>
         <hr />

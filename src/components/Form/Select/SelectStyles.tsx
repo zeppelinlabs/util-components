@@ -1,13 +1,21 @@
 import styled, { css } from "styled-components"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
+import { CustomSelectStyles } from "./Select"
 
 type SelectProps = {
     errorMessage?: string | null,
     disabled?: boolean,
     loading?: boolean,
     withIcon?: boolean,
+    customStyles?: CustomSelectStyles,
 }
+
+
+const Container = styled.div`
+    display: grid;
+`
 
 const Select = styled.select<SelectProps>`
     width: 100%;
@@ -28,6 +36,9 @@ const Select = styled.select<SelectProps>`
         ? "8px 40px"
         : "8px 40px 8px 16px"
     )};
+    ${({ customStyles, }) => (customStyles?.textWeight && css`
+        font-weight: ${FontsTokens.weights.Primary[customStyles.textWeight]};
+    `)}
 
     &:disabled {
         cursor: not-allowed;
@@ -105,6 +116,7 @@ const Option = styled.option<{
 `
 
 export const SelectStyled = {
+    Container,
     Select,
     Wrapper,
     WrapperIcon,

@@ -4,6 +4,7 @@ import Select, { SelectOption } from "../../../components/Form/Select/Select"
 import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
 import DetailComponentPage
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
+import Label from "../../../components/Form/Label/Label"
 
 
 enum ListOptionKey {
@@ -128,52 +129,60 @@ const SelectShowCaseDetail = () => {
 
 
     return <DetailComponentPage>
-        <Select
-            options={listOption1}
-            selectedValue={value?.key}
-            onChange={handleChange1}
-            label={{ text: "Select with label", }}
-        />
-        <Select
-            options={listOption2}
-            selectedValue={secondValue?.key}
-            onChange={handleChange2}
-            errorMessage={"Error message"}
-            label={{ text: "With error", }}
-        />
-        <Select
-            options={listOption3}
-            selectedValue={thirdValue?.key}
-            onChange={handleChange3}
-            label={{ text: "Send a null value", }}
-        />
-        <Select
-            options={listOption4}
-            selectedValue={fourValue?.key}
-            onChange={handleChange4}
-            label={{ text: "With option selected", }}
-        />
-        <Select
-            options={listOption5}
-            selectedValue={fiveValue?.key}
-            onChange={handleChange5}
-            icon={InfoIcon}
-            label={{ text: "With placeholder hidden and icon", }}
-        />
-        <Select
-            options={listOption6}
-            selectedValue={sixValue?.key}
-            onChange={handleChange6}
-            loading={true}
-            label={{ text: "With loading state", }}
-        />
-        <Select
-            options={listOption6}
-            selectedValue={sixValue?.key}
-            onChange={handleChange6}
-            disabled={true}
-            label={{ text: "With disabled state", }}
-        />
+        <Label text="Select with label">
+            <Select
+                options={listOption1}
+                selectedValue={value?.key}
+                onChange={handleChange1}
+            />
+        </Label>
+        <Label text="With error">
+            <Select
+                options={listOption2}
+                selectedValue={secondValue?.key}
+                onChange={handleChange2}
+                errorMessage={"Error message"}
+            />
+        </Label>
+        <Label text="Send a null value">
+            <Select
+                options={listOption3}
+                selectedValue={thirdValue?.key}
+                onChange={handleChange3}
+            />
+        </Label>
+        <Label text="With option selected">
+            <Select
+                options={listOption4}
+                selectedValue={fourValue?.key}
+                onChange={handleChange4}
+                customStyles={{ textWeight: "bold", }}
+            />
+        </Label>
+        <Label text="With placeholder hidden and icon">
+            <Select
+                options={listOption5}
+                selectedValue={fiveValue?.key}
+                onChange={handleChange5}
+                icon={InfoIcon}
+            />
+        </Label>
+        <Label text="With loading state">
+            <Select
+                options={listOption6}
+                selectedValue={sixValue?.key}
+                onChange={handleChange6}
+                isLoading={true}
+            />
+        </Label>
+        <Label text="With disabled state">
+            <Select
+                options={listOption6}
+                selectedValue={sixValue?.key}
+                onChange={handleChange6}
+                disabled={true}
+            />
+        </Label>
     </DetailComponentPage>
 }
 

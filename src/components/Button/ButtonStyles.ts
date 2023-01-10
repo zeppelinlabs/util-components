@@ -8,7 +8,7 @@ import {
 type Props = {
 	buttonSize: ButtonSize,
 	buttonPosition?: ButtonIconPosition,
-	loading?: boolean,
+	isLoading?: boolean,
 	disabled?: boolean,
 	customStyles?: CustomButtonStyles,
 	isOnlyIcon: boolean,
@@ -129,7 +129,7 @@ const Button = styled.button<Props>`
 	&:disabled {
 		cursor:not-allowed;
 	}
-	${({ loading, }) => (loading && css`
+	${({ isLoading, }) => (isLoading && css`
 		color: transparent !important;
 	`)};
 	${({ isOnlyIcon, }) => (isOnlyIcon && css`

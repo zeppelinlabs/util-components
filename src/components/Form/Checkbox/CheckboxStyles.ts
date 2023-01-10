@@ -20,11 +20,12 @@ const getCheckboxSize = (size: CheckboxSize) => {
 const Wrapper = styled.label<Props>`
     display: flex;
     gap: ${UiTokens.spacing.size8};
-    flex-flow: ${p => (p.customStyles?.contentPosition
-        ? p.customStyles?.contentPosition
+    flex-flow: ${({ customStyles, }) => (customStyles?.contentPosition
+        ? customStyles?.contentPosition
         : "row"
     )};
     width: fit-content;
+    align-items: center;
 `
 
 const Check = styled.span<Props>`
@@ -34,8 +35,8 @@ const Check = styled.span<Props>`
     border-radius: ${UiTokens.borderRadius.size4};
     background: ${thp.base.level0._};
     transition: ease 0.2s;
-    width: ${p => getCheckboxSize(p.customStyles?.size || CheckboxSize.Base)}px;
-    height: ${p => getCheckboxSize(p.customStyles?.size || CheckboxSize.Base)}px;
+    width: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
+    height: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
 
     &:hover {
         //hover styles
@@ -51,12 +52,12 @@ const Input = styled.input<Props>`
     }
 
     &:checked + ${Check}  {
-        background: ${p => (p.customStyles?.checkBoxColor
-        ? p.customStyles?.checkBoxColor
+        background: ${({ customStyles, }) => (customStyles?.checkBoxColor
+        ? customStyles?.checkBoxColor
         : thp.primary.level500._)};
-        
-        border-color: ${p => (p.customStyles?.checkBoxColor
-        ? p.customStyles?.checkBoxColor
+
+        border-color: ${({ customStyles, }) => (customStyles?.checkBoxColor
+        ? customStyles?.checkBoxColor
         : thp.primary.level500._)};;
     }
 
@@ -82,15 +83,21 @@ const Tick = styled.div`
 `
 
 const ChildrenWrapper = styled.div<Props>`
-    ${p => (p.customStyles?.textColor && css`
-        color: ${p.customStyles?.textColor}
+    font-size: 1.6rem;
+    ${({ customStyles, }) => (customStyles?.textColor && css`
+        color: ${customStyles?.textColor};
     `)};
-    ${p => (p.customStyles?.textAlign && css`
-        text-align: ${p.customStyles?.textAlign}
+    ${({ customStyles, }) => (customStyles?.textAlign && css`
+        text-align: ${customStyles?.textAlign};
     `)};
-    ${p => (p.customStyles?.textWeight && css`
-        font-weight: ${FontsTokens.weights.Primary[p.customStyles.textWeight]}
+    ${({ customStyles, }) => (customStyles?.textWeight && css`
+        font-weight: ${FontsTokens.weights.Primary[customStyles.textWeight]};
     `)};
+`
+
+const Container = styled.div`
+    display: grid;
+    gap: ${UiTokens.spacing.size8};
 `
 
 export const CheckboxStyled = {
@@ -99,4 +106,5 @@ export const CheckboxStyled = {
     Check,
     Tick,
     ChildrenWrapper,
+    Container,
 }

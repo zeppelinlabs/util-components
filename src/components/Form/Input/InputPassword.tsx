@@ -52,12 +52,12 @@ const InputPassword = React.forwardRef((
                 autoFocus={props.accessibility?.autoFocus}
                 tabIndex={props.accessibility?.tabIndex}
                 customStyles={props.customStyles}
-                loading={props.loading}
+                isLoading={props.isLoading}
             />
             {renderIconAction()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
-            {props.loading
+            {props.isLoading
                 && <InputStyled.SpinnerContainer>
                     <Spinner size={SpinnerSize.small} />
                 </InputStyled.SpinnerContainer>

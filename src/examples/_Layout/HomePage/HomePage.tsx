@@ -23,21 +23,19 @@ const HomePage = (props: Props) => {
 	}
 
 	return <>
-		<HomePageStyled.Layout>
+		<HomePageStyled.Layout isMainBanner>
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent centerContent>
-					<HomePageStyled.HeroContainer>
-						<TextStyled.Heading7xl textWeight="medium">
-							Design and build
-						</TextStyled.Heading7xl>
-						<TextStyled.Heading3xl>
-							with Zeppelin Components
-						</TextStyled.Heading3xl>
+					<HomePageStyled.HeroContainer isBigTitle>
+						<TextStyled.Heading6xl textWeight="medium">
+							Simple and fast fully customizable components
+						</TextStyled.Heading6xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.HeroContainer>
 						<TextStyled.Heading2xl textColor="level300">
-							UI tools to create whatever you want. Use our library full of production-ready components, or customize it as you need!						</TextStyled.Heading2xl>
+							UI tools to create whatever you want. Use our library full of production-ready components, or customize it as you need!
+						</TextStyled.Heading2xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.AlignContentCenter>
@@ -64,12 +62,6 @@ const HomePage = (props: Props) => {
 		<HomePageStyled.Layout isDarkMode>
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent>
-					<TextStyled.Heading5xl textWeight={"light"}>
-						<TextStyled.Weight textWeight="semibold">
-							Why use a</TextStyled.Weight> <br />Design System
-						<TextStyled.Weight textWeight="semibold">?</TextStyled.Weight>
-					</TextStyled.Heading5xl>
-
 					<HomePageStyled.Grid>
 						<HomePageStyled.AnswerColumn>
 							<TextStyled.HeadingXl textWeight="medium">

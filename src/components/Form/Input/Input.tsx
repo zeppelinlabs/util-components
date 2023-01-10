@@ -47,7 +47,7 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     autoFocus={props.accessibility?.autoFocus}
                     tabIndex={props.accessibility?.tabIndex}
                     customStyles={props.customStyles}
-                    loading={props.loading}
+                    isLoading={props.isLoading}
                     autoComplete="off"
                     spellCheck="false"
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
@@ -56,7 +56,7 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     && renderIcon(props.icon.position, <props.icon.SVGComponent />)}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
-                {props.loading
+                {props.isLoading
                     && <InputStyled.SpinnerContainer>
                         <Spinner size={SpinnerSize.small} />
                     </InputStyled.SpinnerContainer>

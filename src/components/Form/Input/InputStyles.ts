@@ -12,7 +12,7 @@ type InputProps = {
     leadingLabelWidth?: number,
     customStyles?: CustomInputStyles,
     autoHeight?: boolean,
-    loading?: boolean,
+    isLoading?: boolean,
 }
 
 const getInputSize = (size: InputSize) => {
@@ -113,7 +113,7 @@ const Input = styled.input <InputProps>`
     ${props => props.customStyles?.textWeight && css`
         font-weight: ${props.customStyles?.textWeight};
     `};
-    ${props => (props.loading && css`
+    ${props => (props.isLoading && css`
         visibility: hidden;
     `)};
 `
@@ -125,7 +125,7 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     position: absolute;
     top: 30%;
     left: 16px;
-    color: ${props => (props.errorMessage
+    color: ${({ errorMessage, }) => (errorMessage
         ? thp.system.error.level500._
         : thp.base.level300._)};
 `
@@ -151,7 +151,7 @@ const InputAction = styled.button`
 const InputTextArea = styled.textarea<InputProps>`
     ${InputGeneralStyles};
     max-width: 100%;
-    resize: ${p => (p.customStyles?.isResizable ? "auto" : "none")};
+    resize: ${({ customStyles, }) => (customStyles?.isResizable ? "auto" : "none")};
     width: auto;
     line-height: ${FontsTokens.sizes.Primary.sm.lineHeight};
     min-height: ${p => getInputTextAreaSize(p.customStyles?.size || InputSize.Medium)}px;
@@ -169,7 +169,7 @@ const CharacterCount = styled.span<CharacterCountProps>`
     font-size: ${FontsTokens.sizes.Primary.xs.fontSize};
     font-weight: ${FontsTokens.weights.Primary.light};
     line-height: ${FontsTokens.sizes.Primary.xs.lineHeight};
-    color: ${props => (props.reachesTheLimit
+    color: ${({ reachesTheLimit, }) => (reachesTheLimit
         ? thp.system.error.level500._
         : thp.base.level1000._)};
     margin:4px 0px;

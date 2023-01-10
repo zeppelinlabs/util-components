@@ -2,22 +2,65 @@ import styled, { css } from "styled-components"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
 import { thp } from "../../../styles/themeHelpers"
-
-const Layout = styled.section<{ isDarkMode?: boolean, }>`
-	${GlobalStyledHelper._Layout};
-	${({ isDarkMode, }) => (isDarkMode && css`
-		background-color: ${thp.base.level1000._};
-		color: ${thp.base.level0._};
-	`)}
-`
+import MainBannerLeft from "../../../assets/examples/hero-home-left.png"
+import MainBannerRight from "../../../assets/examples/hero-home-right.png"
+import { device } from "../../../styles/mediaQueries"
 
 const Row = styled.section`
 	${GlobalStyledHelper._Row};
 `
 
-const HeroContainer = styled.article`
+const Layout = styled.section<{
+	isDarkMode?: boolean,
+	isMainBanner?: boolean,
+}>`
+	${GlobalStyledHelper._Layout};
+	${({ isDarkMode, }) => (isDarkMode && css`
+		background-color: ${thp.base.level1000._};
+		color: ${thp.base.level0._};
+	`)}
+	${({ isMainBanner, }) => (isMainBanner && css`
+	position: relative;
+	&::after,
+	&::before{
+			content: "";
+			width: calc(50vw - 240px);
+			position: absolute;
+			height: 100%;
+			top: 0;
+			background-repeat: no-repeat;
+			background-size: auto 100%;
+		}
+		&::before{
+			left: 0;
+			background-image: url(${MainBannerLeft});
+			background-position: right center;
+		}
+		&::after{
+			right: 0;
+			background-image: url(${MainBannerRight});
+			background-position: left center;
+		}
+	`)}
+	${Row}{
+		position:relative;
+		z-index: 1;
+	}
+	@media ${device.desktopXL} {
+		&::before{
+			background-position: left center;
+		}
+		&::after{
+			background-position: right center;
+		}
+	}
+`
+
+
+
+const HeroContainer = styled.article<{ isBigTitle?: boolean, }>`
 	text-align: center;
-	max-width: 660px;
+	max-width: ${({ isBigTitle, }) => (isBigTitle ? " 820px" : "630px")};
 `
 
 const ContainerComponent = styled.article`
@@ -60,7 +103,7 @@ const WrapperContent = styled.section<{ centerContent?: boolean, }>`
 	gap: ${UiTokens.spacing.size96};
 	padding: ${UiTokens.spacing.size128} 0;
 	${({ centerContent, }) => (centerContent && css`
-		justify-content: center;
+		place-items: center;
 	`)}
 `
 

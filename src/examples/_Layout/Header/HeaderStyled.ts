@@ -20,7 +20,7 @@ const Wrapper = styled.header`
 const Row = styled.section`
 	${GlobalStyledHelper._Row}
 	display: grid;
-	grid-template-columns: 260px 1fr 260px;
+	grid-template-columns: 260px 1fr 310px;
 	align-items: center;
 	gap: ${UiTokens.spacing.size16};
 `
@@ -79,6 +79,48 @@ const ContainerSearchBar = styled.article`
 	gap: ${UiTokens.spacing.size20};
 `
 
+const SearchContainer = styled.article`
+	display: flex;
+	position: relative;
+`
+
+const SearchOption = styled.div`
+	display: grid;
+	grid-template-columns: 20px 1fr 16px;
+	padding: 20px;
+	gap: 20px;
+	color: ${thp.base.level400._};
+	border-bottom: 1px solid ${thp.base.level100._};
+	cursor: pointer;
+	font-size: 1.4rem;
+	transition: all .3s ease-out;
+	align-items: center;
+	text-transform: capitalize;
+	&:hover{
+		background-color: ${thp.base.level100._};
+	}
+`
+
+const SearchListOptions = styled.div`
+	display: grid;
+	position: absolute;
+	top: calc(100% + ${UiTokens.spacing.size8});
+	left: 0;
+	width: 100%;
+	height: auto;
+	background-color: ${thp.base.level0._};
+	border-radius: ${UiTokens.borderRadius.size8};
+	box-shadow: ${UiTokens.shadows.shadow8};
+	overflow: hidden;
+`
+
+const SearchResultNotFound = styled.div`
+	display: grid;
+	padding: 20px;
+	color: ${thp.system.error.level500._};
+	font-size: 1.2rem;
+`
+
 export const HeaderStyled = {
 	Wrapper,
 	Row,
@@ -88,4 +130,8 @@ export const HeaderStyled = {
 	NavListLink,
 	NavListAnchor,
 	ContainerSearchBar,
+	SearchContainer,
+	SearchListOptions,
+	SearchOption,
+	SearchResultNotFound,
 }

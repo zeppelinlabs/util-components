@@ -32,12 +32,12 @@ const getCheckboxSize = (size: SwitchSize) => {
 const Wrapper = styled.label<Props>`
     display: flex;
     gap: ${UiTokens.spacing.size8};
-    flex-flow: ${p => (p.customStyles?.contentPosition
-        ? p.customStyles?.contentPosition
+    flex-flow: ${({ customStyles, }) => (customStyles?.contentPosition
+        ? customStyles?.contentPosition
         : "row"
     )};
-    align-items: ${p => (p.customStyles?.contentAlign
-        ? p.customStyles?.contentAlign
+    align-items: ${({ customStyles, }) => (customStyles?.contentAlign
+        ? customStyles?.contentAlign
         : "center"
     )};
     width: fit-content;
@@ -67,6 +67,7 @@ const Slider = styled.span<Props>`
         border-radius: ${UiTokens.borderRadius.sizeTotal};
         transition: ease 0.2s;
         background: ${thp.base.level0._};
+        box-shadow: ${UiTokens.shadows.shadow6};
     };
 `
 
@@ -97,7 +98,7 @@ const Input = styled.input<Props>`
             background-color: ${thp.base.level100._};
         };
     };
-    
+
     &:disabled:checked + ${Slider} {
         background-color: ${thp.base.level300._};
         cursor:not-allowed;
@@ -108,14 +109,15 @@ const Input = styled.input<Props>`
 `
 
 const ChildrenWrapper = styled.div<Props>`
-    ${p => (p.customStyles?.textColor && css`
-        color: ${p.customStyles?.textColor};
+    font-size: 1.6rem;
+    ${({ customStyles, }) => (customStyles?.textColor && css`
+        color: ${customStyles?.textColor};
     `)};
-    ${p => (p.customStyles?.textAlign && css`
-        text-align: ${p.customStyles?.textAlign};
+    ${({ customStyles, }) => (customStyles?.textAlign && css`
+        text-align: ${customStyles?.textAlign};
     `)};
-    ${p => (p.customStyles?.textWeight
-        && FontsTokens.weights.Primary[p.customStyles.textWeight]
+    ${({ customStyles, }) => (customStyles?.textWeight
+        && FontsTokens.weights.Primary[customStyles.textWeight]
     )};
 `
 

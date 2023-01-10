@@ -906,7 +906,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Thin",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -917,7 +917,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Extra Light",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -928,7 +928,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Light",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -939,7 +939,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Regular",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -950,7 +950,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Medium",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -961,7 +961,7 @@
           "fontFamily": "Silka",
           "fontWeight": "SemiBold",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -972,7 +972,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Bold",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },
@@ -983,7 +983,7 @@
           "fontFamily": "Silka",
           "fontWeight": "Black",
           "lineHeight": "108",
-          "fontSize": "72",
+          "fontSize": "80",
           "letterSpacing": "0",
           "paragraphSpacing": "0"
         },

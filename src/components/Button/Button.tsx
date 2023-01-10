@@ -25,7 +25,7 @@ export type CustomButtonStyles = {
 
 type BaseProps = {
     children?: React.ReactNode,
-    loading?: boolean,
+    isLoading?: boolean,
     disabled?: boolean,
     buttonSize?: ButtonSize,
     customStyles?: CustomButtonStyles,
@@ -57,8 +57,8 @@ const Button = React.forwardRef((
 ) => {
     return <ButtonStyled.Button
         ref={ref}
-        disabled={props.disabled || props.loading}
-        loading={props.loading}
+        disabled={props.disabled || props.isLoading}
+        isLoading={props.isLoading}
         tabIndex={props.accessibility?.tabIndex}
         autoFocus={props.accessibility?.autoFocus}
         type={props.type}
@@ -79,7 +79,7 @@ const Button = React.forwardRef((
             </ButtonStyled.IconContainer>
         }
         {props.children}
-        {props.loading
+        {props.isLoading
             && <ButtonStyled.SpinnerContainer>
                 <Spinner size={SpinnerSize.small} />
             </ButtonStyled.SpinnerContainer>

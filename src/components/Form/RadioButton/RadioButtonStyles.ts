@@ -26,6 +26,11 @@ const getRadioSize = (size: RadioButtonSize) => {
     return Radio[size]
 }
 
+const Wrapper = styled.span`
+    display: grid;
+    gap: ${UiTokens.spacing.size8};
+`
+
 const Container = styled.label`
     display: flex;
     gap: ${UiTokens.spacing.size8};
@@ -33,7 +38,7 @@ const Container = styled.label`
     align-items: center;
     color: ${thp.base.level500._};
     position:relative;
-    line-height: 1.3;
+    line-height: 1;
 `
 
 const Radio = styled.span<Props>`
@@ -42,10 +47,18 @@ const Radio = styled.span<Props>`
     position: relative;
     width: 100%;
     height: 100%;
-    min-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
-    max-width: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
-    min-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
-    max-height: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).size}px;
+    min-width: ${({ customStyles, }) => (
+        getRadioSize(customStyles?.size || RadioButtonSize.Base).size
+    )}px;
+    max-width: ${({ customStyles, }) => (
+        getRadioSize(customStyles?.size || RadioButtonSize.Base).size
+    )}px;
+    min-height: ${({ customStyles, }) => (
+        getRadioSize(customStyles?.size || RadioButtonSize.Base).size
+    )}px;
+    max-height: ${({ customStyles, }) => (
+        getRadioSize(customStyles?.size || RadioButtonSize.Base).size
+    )}px;
     border-radius: ${UiTokens.borderRadius.sizeTotal};
     border-width: ${UiTokens.borderWidth.size2};
     border-style: solid;
@@ -54,7 +67,9 @@ const Radio = styled.span<Props>`
     transition: ease-in-out 0.2s;
     align-items: center;
     justify-content: center;
-    padding: ${p => getRadioSize(p.customStyles?.size || RadioButtonSize.Base).padding}px;
+    padding: ${({ customStyles, }) => (
+        getRadioSize(customStyles?.size || RadioButtonSize.Base).padding
+    )}px;
     &:after{
         content: "";
         width: 100%;
@@ -100,15 +115,17 @@ const Input = styled.input`
 `
 
 const ChildrenContainer = styled.div<Props>`
-    ${p => (p.customStyles?.textColor && css`
-        color: ${thp.base[p.customStyles.textColor]._};
+    font-size: 1.6rem;
+    ${({ customStyles, }) => (customStyles?.textColor && css`
+        color: ${thp.base[customStyles.textColor]._};
     `)};
-    ${p => (p.customStyles?.textWeight
-        && FontsTokens.weights.Primary[p.customStyles.textWeight]
+    ${({ customStyles, }) => (customStyles?.textWeight
+        && FontsTokens.weights.Primary[customStyles.textWeight]
     )};
 `
 
 export const RadioButtonStyled = {
+    Wrapper,
     Input,
     Radio,
     Container,

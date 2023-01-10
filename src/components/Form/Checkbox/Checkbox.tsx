@@ -49,7 +49,7 @@ const Checkbox = React.forwardRef((
     }
 
     return (
-        <>
+        <CheckboxStyled.Container>
             <CheckboxStyled.Wrapper customStyles={props.customStyles}>
                 <CheckboxStyled.Input
                     type="checkbox"
@@ -79,7 +79,7 @@ const Checkbox = React.forwardRef((
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </>
+        </CheckboxStyled.Container>
     )
 })
 

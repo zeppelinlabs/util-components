@@ -52,6 +52,10 @@ const Heading7xl = styled.h1<CommonProps>`
 	${TextStyleBase}
 	${FontsTokens.sizes.Primary["7xl"]};
 `
+const Heading6xl = styled.h2<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary["6xl"]};
+`
 
 const Heading5xl = styled.h2<CommonProps>`
 	${TextStyleBase}
@@ -81,6 +85,7 @@ const BodyBase = styled.p<CommonProps>`
 export const TextStyled = {
 	Weight,
 	Heading7xl,
+	Heading6xl,
 	Heading5xl,
 	Heading3xl,
 	Heading2xl,

@@ -1,10 +1,10 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
 import { SelectStyled } from "./SelectStyles"
-import Label, { LabelProps } from "../Label/Label"
 import { renderErrorMessage } from "../FormCommon"
 import { ReactComponent as ArrowDown } from "../../../assets/pointer_down.svg"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
+import { TextWeightKeys } from "../../../styles/themeHelpers"
 
 type ValidKey = string | boolean | number | null
 
@@ -14,18 +14,21 @@ export type SelectOption<K> = {
     isOptionHidden?: boolean,
 }
 
+export type CustomSelectStyles = {
+    textWeight?: TextWeightKeys,
+}
 
 export type Props<K extends ValidKey, T extends SelectOption<K>> = {
     selectedValue?: K,
     options: T[],
-    label?: LabelProps,
     disabled?: boolean,
-    loading?: boolean,
+    isLoading?: boolean,
     errorMessage?: string,
     accessibility?: {
         tabIndex?: number,
         autoFocus: boolean,
     },
+    customStyles?: CustomSelectStyles,
     icon?: React.FunctionComponent,
     onChange?: (value: T) => void,
     onClick?: (e: React.MouseEvent<HTMLSelectElement>) => void,
@@ -57,6 +60,7 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
         if (value) {
             props.onChange && props.onChange(value)
         } else {
+            // eslint-disable-next-line no-console
             console.error("Option not found", value, e.target.value, selected)
             throw new Error("Option not found")
         }
@@ -64,9 +68,9 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
 
 
     return (
-        <Label {...props.label}>
+        <SelectStyled.Container>
             <SelectStyled.Wrapper
-                disabled={props.disabled || props.loading}
+                disabled={props.disabled || props.isLoading}
                 errorMessage={props.errorMessage}
             >
 
@@ -77,7 +81,7 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
                 }
 
                 <SelectStyled.WrapperArrow>
-                    {props.loading
+                    {props.isLoading
                         ? <Spinner size={SpinnerSize.small} />
                         : <ArrowDown />
                     }
@@ -91,8 +95,9 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
                     }
                     onChange={handleOnChange}
                     onClick={props.onClick}
-                    disabled={props.disabled || props.loading}
+                    disabled={props.disabled || props.isLoading}
                     errorMessage={props.errorMessage}
+                    customStyles={props.customStyles}
                 >
                     {props.options.map((opt) => {
                         const key = keySerializator.serialize(opt.key)
@@ -111,7 +116,7 @@ const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>
                 props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </Label>
+        </SelectStyled.Container>
     )
 })
 
