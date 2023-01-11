@@ -28,8 +28,8 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	}
 
 	::selection {
-		color: ${thp.base.level1000._};
-		background-color: rgba(236, 54, 21, .6);
+		color: ${thp.base.level0._};
+		background-color: ${thp.primary.level100._};
 	}
 	html {
 		box-sizing: border-box;

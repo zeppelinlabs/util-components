@@ -62,11 +62,16 @@ const Link = styled(NavLink)`
 
 const WrapperContent = styled.main`
 	grid-column: 5/17;
-	display: grid;
+	display: flex;
+	flex-flow: column;
+	align-items: flex-start;
 	gap: 40px;
 	padding: 70px 0;
 	@media ${device.desktopM} {
 		grid-column: 4/17;
+	}
+	hr{
+		width: 100%;
 	}
 `
 

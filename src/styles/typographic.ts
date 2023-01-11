@@ -62,6 +62,11 @@ const Heading5xl = styled.h2<CommonProps>`
 	${FontsTokens.sizes.Primary["5xl"]};
 `
 
+const Heading4xl = styled.h3<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary["4xl"]};
+`
+
 const Heading3xl = styled.h3<CommonProps>`
 	${TextStyleBase}
 	${FontsTokens.sizes.Primary["3xl"]};
@@ -87,6 +92,7 @@ export const TextStyled = {
 	Heading7xl,
 	Heading6xl,
 	Heading5xl,
+	Heading4xl,
 	Heading3xl,
 	Heading2xl,
 	HeadingXl,
