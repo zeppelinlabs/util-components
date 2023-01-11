@@ -100,8 +100,8 @@ const AnswerColumn = styled.article`
 
 const WrapperContent = styled.section<{ centerContent?: boolean, }>`
 	display: grid;
-	gap: ${UiTokens.spacing.size96};
-	padding: ${UiTokens.spacing.size128} 0;
+	gap: ${UiTokens.spacing.size80};
+	padding: ${UiTokens.spacing.size96} 0;
 	${({ centerContent, }) => (centerContent && css`
 		place-items: center;
 	`)}

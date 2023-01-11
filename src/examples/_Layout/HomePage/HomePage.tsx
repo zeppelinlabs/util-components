@@ -27,9 +27,9 @@ const HomePage = (props: Props) => {
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent centerContent>
 					<HomePageStyled.HeroContainer isBigTitle>
-						<TextStyled.Heading6xl textWeight="medium">
+						<TextStyled.Heading5xl textWeight="medium">
 							Simple and fast fully customizable components
-						</TextStyled.Heading6xl>
+						</TextStyled.Heading5xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.HeroContainer>
@@ -67,7 +67,7 @@ const HomePage = (props: Props) => {
 							<TextStyled.HeadingXl textWeight="medium">
 								Customizable
 							</TextStyled.HeadingXl>
-							<TextStyled.BodyBase>
+							<TextStyled.BodyBase textWeight="light">
 								You can change colors, fonts, sizes, or whatever you want! Have full control over how they look and behave.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
@@ -75,7 +75,7 @@ const HomePage = (props: Props) => {
 							<TextStyled.HeadingXl textWeight="medium">
 								Easy to use
 							</TextStyled.HeadingXl>
-							<TextStyled.BodyBase>
+							<TextStyled.BodyBase textWeight="light">
 								Ready to copy and paste, just adjust the styles as you want or need.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
@@ -83,7 +83,7 @@ const HomePage = (props: Props) => {
 							<TextStyled.HeadingXl textWeight="medium">
 								Figma file
 							</TextStyled.HeadingXl>
-							<TextStyled.BodyBase>
+							<TextStyled.BodyBase textWeight="light">
 								Full Figma design source, a file you could use to prototype or experiment.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
@@ -91,7 +91,7 @@ const HomePage = (props: Props) => {
 							<TextStyled.HeadingXl textWeight="medium">
 								Ready to use
 							</TextStyled.HeadingXl>
-							<TextStyled.BodyBase>
+							<TextStyled.BodyBase textWeight="light">
 								Our library is designed and coded, every component you use is ready for production.
 							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
@@ -103,12 +103,12 @@ const HomePage = (props: Props) => {
 		<HomePageStyled.Layout>
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent>
-					<TextStyled.Heading5xl textWeight={"light"} hasDotEnd>
+					<TextStyled.Heading4xl textWeight={"light"} hasDotEnd>
 						<TextStyled.Weight textWeight="semibold">
 							Essential components <br />
 						</TextStyled.Weight>
 						and much more
-					</TextStyled.Heading5xl>
+					</TextStyled.Heading4xl>
 					<HomePageStyled.Grid withoutGap>
 						{props.children}
 					</HomePageStyled.Grid>

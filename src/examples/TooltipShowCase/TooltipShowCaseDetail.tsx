@@ -10,29 +10,29 @@ import { TextStyled } from "../../styles/typographic"
 const TooltipShowCaseDetail = () => {
     return <DetailComponentPage>
         <div>
-            <Tooltip tooltipContent="Content of tooltip">
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip tooltipContent="Content of tooltip">
                     Tooltip example
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
-            <Tooltip
-                tooltipContent="Content of tooltip with small size"
-                customStyles={{ size: TooltipSize.Small, }}>
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip
+                    tooltipContent="Content of tooltip with small size"
+                    customStyles={{ size: TooltipSize.Small, }}>
                     Tooltip size
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{ align: TooltipAlign.Left, }}>
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip
+                    tooltipContent="Content of tooltip"
+                    customStyles={{ align: TooltipAlign.Left, }}>
                     Tooltip example align to left
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
             <TextStyled.BodyBase style={{
@@ -52,31 +52,34 @@ const TooltipShowCaseDetail = () => {
             </TextStyled.BodyBase>
         </div>
         <div>
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{ position: TooltipPosition.Right, }}>
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip
+                    tooltipContent="Content of tooltip"
+                    customStyles={{ position: TooltipPosition.Right, }}>
                     Tooltip example position to right
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{ position: TooltipPosition.Left, }}>
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip
+                    tooltipContent="Content of tooltip"
+                    customStyles={{
+                        position: TooltipPosition.Left,
+                        tooltipVariant: TooltipVariant.Secondary,
+                    }}>
                     Tooltip example position to left
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
         <div>
-            <Tooltip
-                tooltipContent="Content of tooltip"
-                customStyles={{ position: TooltipPosition.Bottom, }}>
-                <TextStyled.BodyBase>
+            <TextStyled.BodyBase>
+                <Tooltip
+                    tooltipContent="Content of tooltip"
+                    customStyles={{ position: TooltipPosition.Bottom, }}>
                     Tooltip example position to bottom
-                </TextStyled.BodyBase>
-            </Tooltip>
+                </Tooltip>
+            </TextStyled.BodyBase>
         </div>
     </DetailComponentPage>
 }
