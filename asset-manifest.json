@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/util-components/static/css/main.99d38bd1.css",
-    "main.js": "/util-components/static/js/main.dd832221.js",
+    "main.js": "/util-components/static/js/main.5a283e4b.js",
     "static/media/Inter-Bold.woff2": "/util-components/static/media/Inter-Bold.df454d31cb00344b1ff1.woff2",
     "static/media/Inter-SemiBold.woff2": "/util-components/static/media/Inter-SemiBold.7249951440b8b2f3f6ba.woff2",
     "static/media/Inter-Medium.woff2": "/util-components/static/media/Inter-Medium.d4b5441320ecab87d64a.woff2",
@@ -39,10 +39,10 @@
     "static/media/pointer_down.svg": "/util-components/static/media/pointer_down.e0d9cf7bd35f590d74b570559d05c0e5.svg",
     "static/media/minus.svg": "/util-components/static/media/minus.9af6e20f80e56f6e253fe2fe07ebe6bc.svg",
     "main.99d38bd1.css.map": "/util-components/static/css/main.99d38bd1.css.map",
-    "main.dd832221.js.map": "/util-components/static/js/main.dd832221.js.map"
+    "main.5a283e4b.js.map": "/util-components/static/js/main.5a283e4b.js.map"
   },
   "entrypoints": [
     "static/css/main.99d38bd1.css",
-    "static/js/main.dd832221.js"
+    "static/js/main.5a283e4b.js"
   ]
 }
