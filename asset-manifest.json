@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/util-components/static/css/main.99d38bd1.css",
-    "main.js": "/util-components/static/js/main.5a283e4b.js",
+    "main.js": "/util-components/static/js/main.9b4f2a3d.js",
     "static/media/Inter-Bold.woff2": "/util-components/static/media/Inter-Bold.df454d31cb00344b1ff1.woff2",
     "static/media/Inter-SemiBold.woff2": "/util-components/static/media/Inter-SemiBold.7249951440b8b2f3f6ba.woff2",
     "static/media/Inter-Medium.woff2": "/util-components/static/media/Inter-Medium.d4b5441320ecab87d64a.woff2",
@@ -31,18 +31,16 @@
     "static/media/spinner.svg": "/util-components/static/media/spinner.e7af5e611f7c3de5a0f9f12f3e681203.svg",
     "index.html": "/util-components/index.html",
     "static/media/info.svg": "/util-components/static/media/info.f0754aa1200385b8318bf6e514f6bd45.svg",
-    "static/media/email_icon.svg": "/util-components/static/media/email_icon.3345346dba8f97ae218357c6777defa6.svg",
     "static/media/cross.svg": "/util-components/static/media/cross.7c34bafdef340102a70092c8aa0d926b.svg",
-    "static/media/arrow_left.svg": "/util-components/static/media/arrow_left.89cda6907d2f8b5d408b75624e081e3a.svg",
     "static/media/tick.svg": "/util-components/static/media/tick.cac5631dd8b78d5a212ff4659f8b7b46.svg",
     "static/media/angle-right.svg": "/util-components/static/media/angle-right.ecd311090fdbfd3166393267c24bd914.svg",
     "static/media/pointer_down.svg": "/util-components/static/media/pointer_down.e0d9cf7bd35f590d74b570559d05c0e5.svg",
     "static/media/minus.svg": "/util-components/static/media/minus.9af6e20f80e56f6e253fe2fe07ebe6bc.svg",
     "main.99d38bd1.css.map": "/util-components/static/css/main.99d38bd1.css.map",
-    "main.5a283e4b.js.map": "/util-components/static/js/main.5a283e4b.js.map"
+    "main.9b4f2a3d.js.map": "/util-components/static/js/main.9b4f2a3d.js.map"
   },
   "entrypoints": [
     "static/css/main.99d38bd1.css",
-    "static/js/main.5a283e4b.js"
+    "static/js/main.9b4f2a3d.js"
   ]
 }
