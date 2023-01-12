@@ -1,0 +1,21 @@
+{
+    "common": {
+        "primary": "Primary",
+        "secondary": "Secondary",
+        "danger": "Danger",
+        "standard": "Standard",
+        "disabled": "Disabled",
+        "checked": "Checked",
+        "unchecked": "Unchecked",
+        "indeterminate": "Indeterminate",
+        "loading": "Loading",
+        "onlyText": "Only text",
+        "onlyIcon": "Only icon",
+        "selected": "Selected",
+        "unselected": "Unselected",
+        "single": "Single",
+        "error": "Error",
+        "on": "On",
+        "off": "Off"
+    }
+}

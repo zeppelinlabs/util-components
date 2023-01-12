@@ -8,6 +8,7 @@ import { getTagSize, getTagVariant } from "./TagStyledHelper"
 type TagProps = {
 	customStyles?: CustomStyles,
 	IconPosition?: TagIconPosition,
+	isDisabled?: boolean,
 }
 
 const Container = styled.span<TagProps>`
@@ -42,6 +43,11 @@ const Container = styled.span<TagProps>`
 	${({ IconPosition, }) => (IconPosition && css`
 		flex-flow: ${IconPosition};
 	`)};
+	${({ isDisabled, }) => (isDisabled && css`
+		cursor: not-allowed;
+		opacity: 0.5;
+	`)}
+
 	&:focus {
 		box-shadow: 0 0 0 4px ${thp.system.success.level500._};
 	}
@@ -58,13 +64,16 @@ const Container = styled.span<TagProps>`
 	}
 `
 
-const CrossIconContainer = styled.span<{ size?: TagSize, }>`
+const CrossIconContainer = styled.span<{
+	size?: TagSize,
+	isDisabled?: boolean,
+}>`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	cursor: pointer;
 	object-fit: contain;
 	object-position:center ;
+	cursor: ${({ isDisabled, }) => (isDisabled ? "not-allowed" : "pointer")};
 	${({ size, }) => (getTagSize(size ? size : TagSize.Small)).closeIconSize};
 `
 

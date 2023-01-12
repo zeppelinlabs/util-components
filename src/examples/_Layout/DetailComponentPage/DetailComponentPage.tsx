@@ -1,4 +1,5 @@
 import React from "react"
+import { TextStyled } from "../../../styles/typographic"
 import { Paths } from "../../Paths"
 import { DetailComponentPageStyled } from "./DetailComponentPageStyled"
 
@@ -60,3 +61,49 @@ const DetailComponentPage = (props: Props) => {
 	</DetailComponentPageStyled.Wrapper>
 }
 export default DetailComponentPage
+type TitleProps = {
+	title: string,
+	children: React.ReactNode,
+}
+export const Title = (props: TitleProps) => {
+	return <DetailComponentPageStyled.WrapperTitle>
+		<TextStyled.Heading3xl textWeight="semibold">
+			{props.title}
+		</TextStyled.Heading3xl>
+		<TextStyled.BodyXl textColor="level400">
+			{props.children}
+		</TextStyled.BodyXl>
+	</DetailComponentPageStyled.WrapperTitle>
+}
+
+type DescriptionProps = {
+	title: string,
+	description?: React.ReactNode,
+	componentList?: {
+		name: string,
+		component: React.ReactNode,
+	}[],
+	children?: React.ReactNode,
+}
+export const Description = (props: DescriptionProps) => {
+	return <DetailComponentPageStyled.WrapperSubTitle>
+		<TextStyled.HeadingXl textWeight="semibold">
+			{props.title}
+		</TextStyled.HeadingXl>
+		{props.description && <TextStyled.BodyBase textColor="level400">
+			{props.description}
+		</TextStyled.BodyBase>}
+		{props.componentList && <DetailComponentPageStyled.StageComponents>
+			{props.componentList.map((item, i) => {
+				return <DetailComponentPageStyled.ContainComponentAndText key={i}>
+					<DetailComponentPageStyled.ContainComponent>
+						{item.component}
+					</DetailComponentPageStyled.ContainComponent>
+					<TextStyled.BodySm textWeight="light" textColor="level500">
+						{item.name}
+					</TextStyled.BodySm>
+				</DetailComponentPageStyled.ContainComponentAndText>
+			})}
+		</DetailComponentPageStyled.StageComponents>}
+	</DetailComponentPageStyled.WrapperSubTitle>
+}

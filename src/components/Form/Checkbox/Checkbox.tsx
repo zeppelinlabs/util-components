@@ -4,7 +4,7 @@ import { CheckboxStyled } from "./CheckboxStyles"
 import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
 import { ReactComponent as MinusIcon } from "../../../assets/minus.svg"
 import { renderErrorMessage } from "../FormCommon"
-import { TextAlignKeys, TextWeightKeys } from "../../../styles/themeHelpers"
+import { TextAlignKeys, TextSizeKeys, TextWeightKeys } from "../../../styles/themeHelpers"
 
 export enum ContentCheckboxPosition {
     Left = "row-reverse",
@@ -20,6 +20,7 @@ export type CustomCheckboxStyles = {
     checkBoxColor?: string,
     textColor?: string,
     textAlign?: TextAlignKeys,
+    textSize?: TextSizeKeys,
     textWeight?: TextWeightKeys,
     contentPosition?: ContentCheckboxPosition,
     size?: CheckboxSize,

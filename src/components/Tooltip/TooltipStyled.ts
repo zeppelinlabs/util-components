@@ -39,6 +39,7 @@ const getTooltipVariant = (variant: TooltipVariant) => {
 }
 
 const Tooltip = styled.span<Props>`
+    z-index: 1;
     display: flex;
     opacity: 0;
     scale: .9;
@@ -54,8 +55,10 @@ const Tooltip = styled.span<Props>`
         ? customStyles?.size
         : TooltipSize.MaxContent
     )};
-    font-size: 1.4rem;
-    line-height: 1.2;
+    ${({ customStyles, }) => (customStyles?.textSize
+        ? FontsTokens.sizes.Primary[customStyles.textSize]
+        : FontsTokens.sizes.Primary.base
+    )};
     transition: scale 0.3s ease-in-out, opacity 0.3s ease-in, visibility 0.5s ease-in;
     ${({ customStyles, }) => (customStyles?.textWeight
         && FontsTokens.weights.Primary[customStyles.textWeight]

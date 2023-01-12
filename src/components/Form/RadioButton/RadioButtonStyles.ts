@@ -31,10 +31,13 @@ const Wrapper = styled.span`
     gap: ${UiTokens.spacing.size8};
 `
 
-const Container = styled.label`
+const Container = styled.label<Props>`
     display: flex;
     gap: ${UiTokens.spacing.size8};
-    flex-flow: row;
+    flex-flow: ${({ customStyles, }) => (customStyles?.contentPosition
+        ? customStyles?.contentPosition
+        : "row"
+    )};
     align-items: center;
     color: ${thp.base.level500._};
     position:relative;
@@ -115,7 +118,10 @@ const Input = styled.input`
 `
 
 const ChildrenContainer = styled.div<Props>`
-    font-size: 1.6rem;
+    ${({ customStyles, }) => (customStyles?.textSize
+        ? FontsTokens.sizes.Primary[customStyles.textSize]
+        : FontsTokens.sizes.Primary.base
+    )};
     ${({ customStyles, }) => (customStyles?.textColor && css`
         color: ${thp.base[customStyles.textColor]._};
     `)};
