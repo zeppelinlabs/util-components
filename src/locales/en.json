@@ -11,12 +11,15 @@
         "loading": "Loading",
         "onlyText": "Only text",
         "onlyIcon": "Only icon",
+        "witIcon": "With icon",
         "selected": "Selected",
         "unselected": "Unselected",
         "single": "Single",
         "error": "Error",
         "on": "On",
-        "off": "Off"
+        "off": "Off",
+        "required": "Required",
+        "optional": "Optional"
     },
     "copy": {
         "success": "Copy successful!",

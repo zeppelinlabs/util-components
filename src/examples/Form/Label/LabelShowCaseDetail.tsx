@@ -1,33 +1,83 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
+import { useTranslation } from "react-i18next"
 import Input from "../../../components/Form/Input/Input"
 import Label, { LabelVariant } from "../../../components/Form/Label/Label"
-import DetailComponentPage
+import DetailComponentPage, { Title, Description, }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
+import { DetailComponentPageStyled }
+    from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
+
 
 const LabelShowCaseDetail = () => {
+    const { t, } = useTranslation()
+    const { t: t_PageLabel, } = useTranslation("PageComponentLabel")
+
     return <DetailComponentPage>
-        <Label text="Label text"
-            labelVariant={LabelVariant.Optional}>
-            <Input type="text" value="" />
-        </Label>
-        <Label text="Label required" labelVariant={LabelVariant.Required}>
-            <Input type="text" value="" />
-        </Label>
-        <Label text="Label disabled"
-            customStyles={{ textColor: "level700", }}
-            disabled
-        >
-            Plain content
-        </Label>
-        <Label text="Label custom color"
-            labelVariant={LabelVariant.Info}
-            customStyles={{
-                textColor: "level400",
-                textWeight: "bold",
-            }}
-        >
-            <Input type="text" value="" />
-        </Label>
+        <Title title={t_PageLabel("mainSection.title")}>
+            {t_PageLabel("mainSection.description")}
+        </Title>
+
+        <Description title={t_PageLabel("variantSection.title")}
+            description={t_PageLabel("variantSection.description")}
+            componentList={[
+                {
+                    name: t("common.optional"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Label text={`${t_PageLabel("label")}`}
+                            labelVariant={LabelVariant.Optional}>
+                            <Input type="text" value="" />
+                        </Label>
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+                {
+                    name: t_PageLabel("titleValue"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Label text={`${t_PageLabel("label")}`}>
+                            {t("common.onlyText")}
+                        </Label>
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+                {
+                    name: t("common.disabled"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Label text={`${t_PageLabel("label")}`}
+                            disabled>
+                            {t("common.onlyText")}
+                        </Label>
+                    </DetailComponentPageStyled.ContainerForInputs >,
+                },
+                {
+                    name: t("common.required"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Label text={`${t_PageLabel("label")}`}
+                            labelVariant={LabelVariant.Required}>
+                            <Input type="text" value="" />
+                        </Label>
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+            ]}
+        >{`import Label, { LabelVariant } from "components/Form/Label/Label"
+
+<Label text={"${t("common.optional")}"}
+    labelVariant={LabelVariant.Optional}>
+    <Input type="text" value="" />
+</Label>
+
+<Label text={"${t_PageLabel("titleValue")}"}>
+    {t("common.onlyText")}
+</Label>
+
+<Label text={"${t("common.disabled")}"}
+    disabled>
+    Plain content
+</Label>
+
+<Label text={"${t("common.required")}"}
+    labelVariant={LabelVariant.Required}>
+    <Input type="text" value="" />
+</Label>`}
+        </Description>
     </DetailComponentPage>
 }
 
