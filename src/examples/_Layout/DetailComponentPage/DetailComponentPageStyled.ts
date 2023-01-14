@@ -120,12 +120,16 @@ const ContainerForInputs = styled.div`
 const WrapperCode = styled.article`
 	${FontsTokens.sizes.Primary.sm}
 	position: relative;
+	> pre{
+		border-radius: ${UiTokens.borderRadius.size16} !important;
+		padding: ${UiTokens.spacing.size24} !important;
+	}
 `
 
 const ContainerCopyButton = styled.div`
 	position: absolute;
-	top: 20px;
-	right: 10px;
+	top: 25px;
+	right: 15px;
 `
 
 export const DetailComponentPageStyled = {

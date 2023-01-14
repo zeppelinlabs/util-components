@@ -58,8 +58,7 @@ const ButtonShowCaseDetail = () => {
 					</Button>,
 				},
 			]}
-		>{`import React from 'react'
-import Button, { ButtonVariant, } from 'components/Button/Button'
+		>{`import Button, { ButtonVariant, } from "components/Button/Button"
 
 <Button type='button'
 	onClick={(handleOnClick)}>
@@ -107,7 +106,25 @@ import Button, { ButtonVariant, } from 'components/Button/Button'
 					</Button>,
 				},
 			]}
-		/>
+		>{`import Button from "components/Button/Button"
+
+<Button type="button"
+	onClick={handleOnClick}>
+	${t("common.standard")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	disabled={true}>
+	${t("common.disabled")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	isLoading={true}>
+	${t("common.loading")}
+</Button>`
+			}</Description>
 
 		<Description title={t_PageButton("variantSection.title")}
 			description={t_PageButton("variantSection.description")}
@@ -148,7 +165,36 @@ import Button, { ButtonVariant, } from 'components/Button/Button'
 					/>,
 				},
 			]}
-		/>
+		>{`import Button, { ButtonPosition, } from "components/Button/Button"
+import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
+
+<Button type="button"
+	onClick={handleOnClick}>
+	${t("common.onlyText")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{ SVGComponent: CircleIcon, }}>
+	${t_PageButton("leftIcon")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{
+		SVGComponent: CircleIcon,
+		position: ButtonIconPosition.Right,
+	}}>
+	${t_PageButton("rightIcon")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{
+		SVGComponent: CircleIcon,
+	}}
+/>`
+			}</Description>
 
 		<Description title={t_PageButton("sizeSection.title")}
 			componentList={[
@@ -202,7 +248,33 @@ import Button, { ButtonVariant, } from 'components/Button/Button'
 				},
 			]}
 
-		/>
+		>{`import Button, { ButtonSize, } from "components/Button/Button"
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Small}>
+	${t_PageButton("sizeSmall")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Base}>
+	${t_PageButton("sizeBase")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Large}>
+	${t_PageButton("sizeLarge")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.XLarge}>
+	${t_PageButton("sizeXLarge")}
+</Button>`
+			}
+		</Description>
 	</DetailComponentPage >
 }
 

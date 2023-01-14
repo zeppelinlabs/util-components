@@ -94,6 +94,7 @@ type DescriptionProps = {
 }
 export const Description = (props: DescriptionProps) => {
 
+	const editorHeader = "import React from \"react\"\n"
 	const { t, } = useTranslation()
 
 	const copyItem = (text?: string) => {
@@ -133,7 +134,7 @@ export const Description = (props: DescriptionProps) => {
 			<DetailComponentPageStyled.ContainerCopyButton>
 				<Button type="button"
 					buttonSize={ButtonSize.Small}
-					onClick={() => copyItem(props.children)}>
+					onClick={() => copyItem(`${editorHeader}${props.children}`)}>
 					Copy
 				</Button>
 			</DetailComponentPageStyled.ContainerCopyButton>
@@ -145,7 +146,7 @@ export const Description = (props: DescriptionProps) => {
 				wrapLongLines
 				wrapLines
 			>
-				{props.children}
+				{`${editorHeader}${props.children}`}
 			</SyntaxHighlighter>
 		</DetailComponentPageStyled.WrapperCode>}
 

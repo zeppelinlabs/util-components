@@ -34,7 +34,16 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        />
+        >{`import Tag, { TagVariant } from "components/Tag/Tag"
+
+<Tag>
+    ${t("common.primary")}
+</Tag>
+
+<Tag customStyles={{ variant: TagVariant.Secondary, }}>
+    ${t("common.secondary")}
+</Tag>`
+            }</Description>
         <Description title={t_PageTags("stateSection.title")}
             description={t_PageTags("stateSection.description")}
             componentList={[
@@ -51,7 +60,16 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        />
+        >{`import Tag from "components/Tag/Tag"
+
+<Tag onClickRemove={handleOnClick}>
+    ${t("common.standard")}
+</Tag>
+
+<Tag onClickRemove={handleOnClick} isDisabled>
+    ${t("common.disabled")}
+</Tag>`
+            }</Description>
         <Description title={t_PageTags("variantSection.title")}
             description={t_PageTags("variantSection.description")}
             componentList={[
@@ -94,7 +112,33 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        />
+        >{`import Tag, { TagIconPosition, } from "components/Tag/Tag"
+import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
+
+<Tag>
+    ${t("common.onlyText")}
+</Tag>
+
+<Tag icon={{SVGCircleIcon,}}>
+    ${t_PageTags("withIcon")}
+</Tag>
+
+<Tag icon={{
+    SVGCircleIcon,
+    position:TagIconPosition.Right,
+}}>
+    ${t_PageTags("withIconRight")}
+</Tag>
+
+<Tag onClickRemove={handleOnClick}>
+    ${t_PageTags("withClose")}
+</Tag>
+
+<Tag onClickRemove={handleOnClick}
+    icon={{SVGCircleIcon,}}>
+    ${t_PageTags("withIconAndClose")}
+</Tag>`
+            }</Description>
         <Description title={t_PageTags("sizeSection.title")}
             componentList={[
                 {
@@ -128,7 +172,26 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        />
+        >{`import Tag, { TagSize, } from "components/Tag/Tag"
+
+<Tag onClickRemove={handleOnClick}
+    customStyles={{ size: TagSize.Small, }}
+    icon={{SVGComponent: CircleIcon,}}>
+    ${t_PageTags("sizeSmall")}
+</Tag>
+
+<Tag onClickRemove={handleOnClick}
+    customStyles={{ size: TagSize.Base, }}
+    icon={{SVGComponent: CircleIcon,}}>
+    ${t_PageTags("sizeBase")}
+</Tag>
+
+<Tag onClickRemove={handleOnClick}
+    customStyles={{ size: TagSize.Large, }}
+    icon={{SVGComponent: CircleIcon,}}>
+    ${t_PageTags("sizeLarge")}
+</Tag>`
+            }</Description>
     </DetailComponentPage>
 }
 

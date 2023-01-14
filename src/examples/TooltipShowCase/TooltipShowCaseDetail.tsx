@@ -39,7 +39,18 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        />
+        >{`import Tooltip, { TooltipVariant } from "components/Tooltip/Tooltip"
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}>
+    ${t("common.primary")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ tooltipVariant: TooltipVariant.Secondary, }}
+>
+    ${t("common.secondary")}
+</Tooltip>`}
+        </Description>
 
         <Description title={t_PageTooltip("variantSection.title")}
             description={t_PageTooltip("variantSection.description")}
@@ -108,7 +119,39 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        />
+        >{`import Tooltip, { TooltipPosition, TooltipAlign }
+    from "components/Tooltip/Tooltip"
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ align: TooltipAlign.Center, }}>
+    ${t_PageTooltip("center")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ align: TooltipAlign.Left, }}>
+    ${t_PageTooltip("topLeft")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ align: TooltipAlign.Right, }}>
+    ${t_PageTooltip("topRight")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ position: TooltipPosition.Left,}}>
+    ${t_PageTooltip("left")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ position: TooltipPosition.Right,}}>
+    ${t_PageTooltip("right")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{ position: TooltipPosition.Bottom,}}>
+    ${t_PageTooltip("bottom")}
+</Tooltip>`}
+        </Description>
 
         <Description title={t_PageTooltip("sizeSection.title")}
             componentList={[
@@ -160,7 +203,39 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        />
+        >{`import Tooltip, { TooltipSize } from "components/Tooltip/Tooltip"
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{
+        size: TooltipSize.MaxContent,
+    }}>
+    ${t_PageTooltip("auto")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{
+        size: TooltipSize.Small,
+        textSize: "xs",
+    }}>
+    ${t_PageTooltip("small")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{
+        size: TooltipSize.Medium,
+        textSize: "xl",
+    }}>
+    ${t_PageTooltip("medium")}
+</Tooltip>
+
+<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
+    customStyles={{
+        size: TooltipSize.Large,
+        textSize: "2xl",
+    }}>
+    ${t_PageTooltip("large")}
+</Tooltip>`}
+        </Description>
 
         {/* <div>
             <TextStyled.BodyBase>
