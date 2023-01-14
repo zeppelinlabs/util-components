@@ -79,7 +79,34 @@ const InputShowCaseDetail = () => {
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        />
+        >{`import Input from "components/Form/Input/Input"
+import InputNumeric from "components/Form/Input/InputNumeric"
+import InputPassword from "components/Form/Input/InputPassword"
+import InputTextArea from "components/Form/Input/InputTextArea"
+
+<Input value={inputStringState}
+    type="text"
+    onChange={setInputStringState}
+    placeholder={"${t("common.standard")}"}
+/>
+
+<InputNumeric value={inputAmountState}
+    leadingLabel="$"
+    onChange={setInputAmountState}
+    placeholder={"${t_PageInput("prefix")}"}
+/>
+
+<InputTextArea value={inputStringState}
+    onChange={setInputStringState}
+    maxLength={100}
+    placeholder={"${t_PageInput("textarea")}"}
+/>
+
+<InputPassword value={inputStringState}
+    onChange={setInputStringState}
+    placeholder={"${t_PageInput("password")}"}
+/>`}
+        </Description>
         <Description title={t_PageInput("stateSection.title")}
             description={t_PageInput("stateSection.description")}
             componentList={[
@@ -139,7 +166,38 @@ const InputShowCaseDetail = () => {
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        />
+        >{`import Input from "components/Form/Input/Input"
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    placeholder={"${t_PageInput("unfilled")}"}
+/>
+
+<Input type="text"
+    value={inputStringStateFilled!}
+    onChange={setInputStringStateFilled}
+    placeholder={"${t_PageInput("filled")}"}
+/>
+
+<Input type="text"
+    value={inputStringState}
+    placeholder={"${t("common.disabled")}"}
+    disabled
+/>
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    placeholder={"${t("common.error")}"}
+    errorMessage={inputStringState ? undefined : "Cannot be empty"}
+/>
+
+<Input type="text"
+    value={inputStringState}
+    isLoading
+/>`}
+        </Description>
         <Description title={t_PageInput("variantSection.title")}
             description={t_PageInput("variantSection.description")}
             componentList={[
@@ -159,7 +217,21 @@ const InputShowCaseDetail = () => {
                     </>,
                 },
             ]}
-        />
+        >{`import Input from "components/Form/Input/Input"
+import { IconPosition } from "components/CommonTypes"
+import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    icon={{
+        SVGComponent: CircleIcon,
+        position: IconPosition.right,
+    }}
+    placeholder={"${t_PageInput("withIcon")}"}
+/>
+        `}
+        </Description>
         <Description title={t_PageInput("sizeSection.title")}
             componentList={[
                 {
@@ -211,7 +283,37 @@ const InputShowCaseDetail = () => {
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        />
+        >{`import Input from "components/Form/Input/Input"
+import { InputSize } from "components/Form/Input/InputCommon"
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    customStyles={{ size: InputSize.Small, }}
+    placeholder={"${t_PageInput("small")}"}
+/>
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    customStyles={{ size: InputSize.Medium, }}
+    placeholder={"${t_PageInput("base")}"}
+/>
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    customStyles={{ size: InputSize.Large, }}
+    placeholder={"${t_PageInput("large")}"}
+/>
+
+<Input type="text"
+    value={inputStringState}
+    onChange={setInputStringState}
+    customStyles={{ size: InputSize.Xlarge, }}
+    placeholder={"${t_PageInput("xLarge")}"}
+/>`}
+        </Description>
         {/* <Label text="Input text">
             <Input
                 type="text"

@@ -2,7 +2,7 @@
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import Button from "../../../components/Button/Button"
-import RadioButtonGroup, { RadioOption, InputRadio, ContentRadioPosition, RadioButtonSize }
+import RadioButtonGroup, { RadioOption, ContentRadioPosition, RadioButtonSize }
     from "../../../components/Form/RadioButton/RadioButton"
 import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
@@ -189,7 +189,46 @@ const RadioButtonShowCaseDetail = () => {
                     />,
                 },
             ]}
-        />
+        >{` import RadioButtonGroup, { RadioOption, }
+    from "components/Form/RadioButton/RadioButton"
+
+enum ListOptionKey {
+    FirstKey = "firstKey",
+    SecondKey = "secondKey",
+    ThirdKey = "thirdKey",
+}
+
+const listOption: RadioOption<ListOptionKey>[] = [
+    {
+        key: ListOptionKey.FirstKey,
+        children: "${t("common.selected")}",
+    },
+    {
+        key: ListOptionKey.SecondKey,
+        children: "${t("common.unselected")}",
+    },
+    {
+        key: ListOptionKey.SecondKey,
+        children: "${t("common.disabled")}",
+        disabled: true,
+    },
+]
+
+const [value, setValue,] = useState<ListOptionKey | null>(ListOptionKey.SecondKey)
+
+const handleChange = (value: ListOptionKey) => {
+    setValue(value)
+}
+
+<RadioButtonGroup
+    selectedValue={value}
+    onChange={handleChange}
+    name="group-1"
+    options={listOption}
+/>
+    `}
+        </Description>
+
         <Description title={t_PageRadio("variantSection.title")}
             description={t_PageRadio("variantSection.description")}
             componentList={[
@@ -221,7 +260,39 @@ const RadioButtonShowCaseDetail = () => {
                     />,
                 },
             ]}
-        />
+        >{` import RadioButtonGroup, { RadioOption, ContentRadioPosition, }
+    from "components/Form/RadioButton/RadioButton"
+
+const listOption: RadioOption<string>[] = [
+    {
+        key: "01",
+        children: "${t("common.single")}",
+    },
+    {
+        key: "02",
+        children: "${t_PageRadio("left")}",
+    },
+    {
+        key: "03",
+        children: "${t_PageRadio("right")}",
+        customStyles: { contentPosition: ContentRadioPosition.Left, },
+    },
+]
+
+const [value, setValue,] = useState<string | null>("01")
+
+const handleChange = (value: string) => {
+    setValue(value)
+}
+
+<RadioButtonGroup
+    selectedValue={value}
+    onChange={handleChange}
+    name="group-2"
+    options={listOption}
+/>`}
+        </Description>
+
         <Description title={t_PageRadio("sizeSection.title")}
             componentList={[
                 {
@@ -252,7 +323,45 @@ const RadioButtonShowCaseDetail = () => {
                     />,
                 },
             ]}
-        />
+        >{` import RadioButtonGroup, { RadioOption, RadioButtonSize, }
+    from "components/Form/RadioButton/RadioButton"
+
+const listOption: RadioOption<number>[] = [
+    {
+        key: 1,
+        children: "${t_PageRadio("small")}",
+        customStyles: {
+            size: RadioButtonSize.Small,
+            textSize: "xs",
+        },
+    },
+    {
+        key: 2,
+        children: "${t_PageRadio("base")}",
+    },
+    {
+        key: 3,
+        children: "${t_PageRadio("large")}",
+        customStyles: {
+            size: RadioButtonSize.Large,
+            textSize: "xl",
+        },
+    },
+]
+
+const [value, setValue,] = useState<string | null>()
+
+const handleChange = (value: number) => {
+    setValue(value)
+}
+
+<RadioButtonGroup
+    selectedValue={value}
+    onChange={handleChange}
+    name="group-3"
+    options={listOption}
+/>`}
+        </Description>
         {/* <RadioButtonGroup
             selectedValue={value}
             onChange={handleChange1}

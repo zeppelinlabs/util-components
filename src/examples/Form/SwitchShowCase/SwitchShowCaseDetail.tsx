@@ -1,7 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
-import Switch, { ContentSwitchAlign, ContentSwitchPosition, SwitchSize }
+import Switch, { ContentSwitchPosition, SwitchSize }
     from "../../../components/Form/Switch/Switch"
 import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
@@ -46,7 +46,23 @@ const SwitchShowCaseDetail = () => {
                     />,
                 },
             ]}
-        />
+        >{`import Switch from "components/Form/Switch/Switch"
+
+const [switchValue, setSwitchValue,] = useState(false)
+
+<Switch value={false} //${t("common.off")}
+    onChange={() => {}}
+/>
+
+<Switch value={switchValue} //${t("common.on")}
+    onChange={(value) => setSwitchValue(value)}
+/>
+
+<Switch value={false}
+    onChange={() => {}}
+    disabled //${t("common.disabled")}
+/>`
+            }</Description>
         <Description title={t_PageSwitch("variantSection.title")}
             description={t_PageSwitch("variantSection.description")}
             componentList={[
@@ -91,7 +107,30 @@ const SwitchShowCaseDetail = () => {
                     </Switch>,
                 },
             ]}
-        />
+        >{`import Switch, { ContentSwitchPosition, }
+    from "components/Form/Switch/Switch"
+
+<Switch value={switchValue}/>
+
+<Switch value={switchValue}>
+    ${t("common.left")}
+</Switch>
+
+<Switch value={switchValue}
+    customStyles={{
+        contentPosition: ContentSwitchPosition.Left,
+    }}>
+    ${t_PageSwitch("right")}
+</Switch>
+
+<Switch
+    value={switchValue}
+    customStyles={{
+        contentPosition: ContentSwitchPosition.Bottom,
+    }}>
+    ${t_PageSwitch("bottom")}
+</Switch>`
+            }</Description>
         <Description title={t_PageSwitch("sizeSection.title")}
             componentList={[
                 {
@@ -130,7 +169,28 @@ const SwitchShowCaseDetail = () => {
                     </Switch>,
                 },
             ]}
-        />
+        >{`import Switch, { SwitchSize, } from "components/Form/Switch/Switch"
+
+<Switch value={switchValue}
+    customStyles={{
+        size: SwitchSize.Small,
+        textSize: "xs",
+    }}>
+    ${t_PageSwitch("small")}
+</Switch>
+
+<Switch value={switchValue}>
+    ${t_PageSwitch("base")}
+</Switch>
+
+<Switch value={switchValue}
+    customStyles={{
+        size: SwitchSize.Large,
+        textSize: "xl",
+    }}>
+    ${t_PageSwitch("large")}
+</Switch>`
+            }</Description>
         {/* <Switch
             value={switchValue}
             onChange={(value) => setSwitchValue(value)}
