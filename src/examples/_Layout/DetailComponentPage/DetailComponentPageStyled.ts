@@ -117,6 +117,16 @@ const ContainerForInputs = styled.div`
 	min-width: 250px;
 	width: 100%;
 `
+const WrapperCode = styled.article`
+	${FontsTokens.sizes.Primary.sm}
+	position: relative;
+`
+
+const ContainerCopyButton = styled.div`
+	position: absolute;
+	top: 20px;
+	right: 10px;
+`
 
 export const DetailComponentPageStyled = {
 	Wrapper,
@@ -131,4 +141,6 @@ export const DetailComponentPageStyled = {
 	ContainComponentAndText,
 	ContainerForInputs,
 	ContainComponent,
+	WrapperCode,
+	ContainerCopyButton,
 }

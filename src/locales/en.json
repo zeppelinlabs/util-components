@@ -17,5 +17,10 @@
         "error": "Error",
         "on": "On",
         "off": "Off"
+    },
+    "copy": {
+        "success": "Copy successful!",
+        "error": "Error trying to copy!",
+        "wrong": "Something was wrong :("
     }
 }

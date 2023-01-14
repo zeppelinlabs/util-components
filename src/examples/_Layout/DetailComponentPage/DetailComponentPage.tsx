@@ -1,5 +1,12 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
+import { useTranslation } from "react-i18next"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
+import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
+import Button, { ButtonSize } from "../../../components/Button/Button"
+
 import { TextStyled } from "../../../styles/typographic"
+import { toastNotification } from "../../../util/toastNotification"
 import { Paths } from "../../Paths"
 import { DetailComponentPageStyled } from "./DetailComponentPageStyled"
 
@@ -83,9 +90,25 @@ type DescriptionProps = {
 		name: string,
 		component: React.ReactNode,
 	}[],
-	children?: React.ReactNode,
+	children?: string,
 }
 export const Description = (props: DescriptionProps) => {
+
+	const { t, } = useTranslation()
+
+	const copyItem = (text?: string) => {
+		if (text) {
+			try {
+				navigator.clipboard.writeText(text)
+				toastNotification(t("copy.success"))
+			} catch {
+				toastNotification(t("copy.error"))
+			}
+		} else {
+			toastNotification(t("copy.wrong"))
+		}
+	}
+
 	return <DetailComponentPageStyled.WrapperSubTitle>
 		<TextStyled.HeadingXl textWeight="semibold">
 			{props.title}
@@ -105,5 +128,26 @@ export const Description = (props: DescriptionProps) => {
 				</DetailComponentPageStyled.ContainComponentAndText>
 			})}
 		</DetailComponentPageStyled.StageComponents>}
+
+		{props.children && <DetailComponentPageStyled.WrapperCode>
+			<DetailComponentPageStyled.ContainerCopyButton>
+				<Button type="button"
+					buttonSize={ButtonSize.Small}
+					onClick={() => copyItem(props.children)}>
+					Copy
+				</Button>
+			</DetailComponentPageStyled.ContainerCopyButton>
+			<SyntaxHighlighter
+				language="jsx"
+				style={oneDark}
+				showLineNumbers
+				showInlineLineNumbers
+				wrapLongLines
+				wrapLines
+			>
+				{props.children}
+			</SyntaxHighlighter>
+		</DetailComponentPageStyled.WrapperCode>}
+
 	</DetailComponentPageStyled.WrapperSubTitle>
 }
