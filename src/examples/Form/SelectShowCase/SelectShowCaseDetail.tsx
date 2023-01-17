@@ -1,10 +1,12 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
 import Select, { SelectOption } from "../../../components/Form/Select/Select"
-import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
-import DetailComponentPage
+import { ReactComponent as CircleIcon } from "../../../assets/icons/circle.svg"
+import DetailComponentPage, { Title, Description, }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
-import Label from "../../../components/Form/Label/Label"
+import { useTranslation } from "react-i18next"
+import { DetailComponentPageStyled }
+    from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
 
 
 enum ListOptionKey {
@@ -106,6 +108,9 @@ const SelectShowCaseDetail = () => {
     const [fiveValue, setFiveValue,] = useState<SelectOption<string | null>>()
     const [sixValue, setSixValue,] = useState<SelectOption<number>>()
 
+    const { t, } = useTranslation()
+    const { t: t_PageSelect, } = useTranslation("PageComponentSelect")
+
     const handleChange1 = (value: SelectOption<ListOptionKey>) => {
         setValue(value)
     }
@@ -129,60 +134,136 @@ const SelectShowCaseDetail = () => {
 
 
     return <DetailComponentPage>
-        <Label text="Select with label">
-            <Select
-                options={listOption1}
-                selectedValue={value?.key}
-                onChange={handleChange1}
-            />
-        </Label>
-        <Label text="With error">
-            <Select
-                options={listOption2}
-                selectedValue={secondValue?.key}
-                onChange={handleChange2}
-                errorMessage={"Error message"}
-            />
-        </Label>
-        <Label text="Send a null value">
-            <Select
-                options={listOption3}
-                selectedValue={thirdValue?.key}
-                onChange={handleChange3}
-            />
-        </Label>
-        <Label text="With option selected">
-            <Select
-                options={listOption4}
-                selectedValue={fourValue?.key}
-                onChange={handleChange4}
-                customStyles={{ textWeight: "bold", }}
-            />
-        </Label>
-        <Label text="With placeholder hidden and icon">
-            <Select
-                options={listOption5}
-                selectedValue={fiveValue?.key}
-                onChange={handleChange5}
-                icon={InfoIcon}
-            />
-        </Label>
-        <Label text="With loading state">
-            <Select
-                options={listOption6}
-                selectedValue={sixValue?.key}
-                onChange={handleChange6}
-                isLoading={true}
-            />
-        </Label>
-        <Label text="With disabled state">
-            <Select
-                options={listOption6}
-                selectedValue={sixValue?.key}
-                onChange={handleChange6}
-                disabled={true}
-            />
-        </Label>
+        <Title title={t_PageSelect("mainSection.title")}>
+            {t_PageSelect("mainSection.description")}
+        </Title>
+
+        <Description title={t_PageSelect("typeSection.title")}
+            description={t_PageSelect("typeSection.description")}
+            componentList={[
+                {
+                    name: t("common.standard"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Select
+                            options={listOption1}
+                            selectedValue={value?.key}
+                            onChange={handleChange1}
+                        />
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+                {
+                    name: t("common.witIcon"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Select
+                            options={listOption5}
+                            selectedValue={fiveValue?.key}
+                            onChange={handleChange5}
+                            icon={CircleIcon}
+                        />
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+            ]}
+        >{`import Select, { SelectOption } from "components/Form/Select/Select"
+import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
+
+const listOption: SelectOption<string>[] = [
+    {
+        key: "1",
+        text: "Option 1",
+    },
+    {
+        key: "2",
+        text: "Option 2",
+    },
+]
+
+const [value, setValue,] = useState<SelectOption<string>>()
+
+<Select options={listOption}
+    selectedValue={value.key}
+    onChange={handleChange}
+/>
+
+<Select options={listOption}
+    selectedValue={value.key}
+    onChange={handleChange}
+    icon={CircleIcon}
+/>`}
+        </Description>
+
+        <Description title={t_PageSelect("variantSection.title")}
+            description={t_PageSelect("variantSection.description")}
+            componentList={[
+                {
+                    name: t("common.error"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Select
+                            options={listOption2}
+                            selectedValue={secondValue?.key}
+                            onChange={handleChange2}
+                            errorMessage={"Error message"}
+                        />
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+                {
+                    name: t("common.disabled"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Select
+                            options={listOption6}
+                            selectedValue={sixValue?.key}
+                            onChange={handleChange6}
+                            disabled={true}
+                        />
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+                {
+                    name: t("common.loading"),
+                    component: <DetailComponentPageStyled.ContainerForInputs>
+                        <Select
+                            options={listOption6}
+                            selectedValue={sixValue?.key}
+                            onChange={handleChange6}
+                            isLoading={true}
+                        />
+                    </DetailComponentPageStyled.ContainerForInputs>,
+                },
+            ]}
+        >{`import Select, { SelectOption } from "components/Form/Select/Select"
+
+const listOption: SelectOption<string>[] = [
+    {
+        key: "1",
+        text: "Option 1",
+    },
+    {
+        key: "2",
+        text: "Option 2",
+    },
+]
+
+const [value, setValue,] = useState<SelectOption<string>>()
+
+<Select
+    options={listOption}
+    selectedValue={value.key}
+    onChange={handleChange}
+    errorMessage={"Error message"}
+/>
+
+<Select
+    options={listOption}
+    selectedValue={value.key}
+    onChange={handleChange}
+    disabled={true}
+/>
+
+<Select
+    options={listOption}
+    selectedValue={value.key}
+    onChange={handleChange}
+    isLoading={true}
+/>`}
+        </Description>
     </DetailComponentPage>
 }
 

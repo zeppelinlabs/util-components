@@ -7,6 +7,7 @@ type ThemeSystemKeys = keyof DefaultTheme["palette"]["system"]
 export type ThemeBaseColorKeys = keyof DefaultTheme["palette"]["base"]
 export type TextWeightKeys = keyof (typeof FontsTokens)["weights"]["Primary"]
 export type TextSecondaryWeightKeys = keyof (typeof FontsTokens)["weights"]["Secondary"]
+export type TextSizeKeys = keyof (typeof FontsTokens)["sizes"]["Primary"]
 
 export type AlertLevel = Extract<ThemeSystemKeys, "error" | "success" | "warning">
 export type TextAlignKeys = "left" | "center" | "right"

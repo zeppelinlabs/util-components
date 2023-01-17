@@ -1,0 +1,22 @@
+{
+    "mainSection": {
+        "title": "Radio",
+        "description": "The Radio button components allows the user to select one option from a set."
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of the switch communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Radios are set in different possible variants"
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "left": "Left side label",
+    "right": "Right side label",
+    "small": "Small - font size: 12",
+    "base": "Base - font size: 16",
+    "large": "Large - font size: 20"
+}

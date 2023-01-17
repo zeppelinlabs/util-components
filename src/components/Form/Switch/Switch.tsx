@@ -1,5 +1,5 @@
 import React from "react"
-import { TextAlignKeys, TextWeightKeys } from "../../../styles/themeHelpers"
+import { TextAlignKeys, TextSizeKeys, TextWeightKeys } from "../../../styles/themeHelpers"
 import { SwitchStyled } from "./SwitchStyles"
 
 export enum ContentSwitchPosition {
@@ -22,6 +22,7 @@ export type CustomSwitchStyles = {
     textColor?: string,
     textAlign?: TextAlignKeys,
     textWeight?: TextWeightKeys,
+    textSize?: TextSizeKeys,
     contentPosition?: ContentSwitchPosition,
     contentAlign?: ContentSwitchAlign,
     size?: SwitchSize,

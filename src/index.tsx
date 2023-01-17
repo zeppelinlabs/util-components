@@ -2,6 +2,7 @@
 import React from "react"
 import ReactDOM from "react-dom"
 import App from "./App"
+import "./locales/i18n"
 import { BrowserRouter } from "react-router-dom"
 
 ReactDOM.render(

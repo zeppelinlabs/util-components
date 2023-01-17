@@ -18,6 +18,7 @@ const getButtonVariant = (variant: ButtonVariant) => {
 	const ButtonByCase = {
 		[ButtonVariant.Primary]: (PrimaryButton),
 		[ButtonVariant.Secondary]: (SecondaryButton),
+		[ButtonVariant.Danger]: (DangerButton),
 	}
 	return ButtonByCase[variant]
 }
@@ -79,6 +80,28 @@ const SecondaryButton = () => css<Props>`
 	background: ${thp.primary.level900._};
 	color: ${thp.base.level1000._};
 	border: ${UiTokens.borderWidth.size1} solid ${thp.base.level400._};
+
+	&:not(:disabled) {
+		&:hover{
+			box-shadow: 0 0 0 1px ${thp.primary.level400._};
+		}
+	}
+	&:focus{
+		box-shadow: 0 0 0 2px ${thp.primary.level400._};
+	}
+	&:disabled{
+		color: ${thp.primary.level200._};
+		border: 1px solid ${thp.primary.level200._};
+	}
+	${SpinnerContainer}{
+		color: ${thp.base.level1000._};
+	}
+`
+
+const DangerButton = () => css<Props>`
+	background: ${thp.system.error.level400._};
+	color: ${thp.base.level0._};
+	border: ${UiTokens.borderWidth.size1} solid ${thp.system.error.level600._};
 
 	&:not(:disabled) {
 		&:hover{

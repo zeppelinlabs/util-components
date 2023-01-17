@@ -47,7 +47,11 @@ const LabelText = styled.span<PropsStyled>`
     `)};
 `
 
-const Content = styled.span``
+const Content = styled.span`
+    min-height: 40px;
+    display: grid;
+    align-items: center;
+`
 
 const Required = styled.span`
     color: ${thp.system.error.level500._};

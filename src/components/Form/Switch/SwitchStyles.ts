@@ -109,7 +109,10 @@ const Input = styled.input<Props>`
 `
 
 const ChildrenWrapper = styled.div<Props>`
-    font-size: 1.6rem;
+    ${({ customStyles, }) => (customStyles?.textSize
+        ? FontsTokens.sizes.Primary[customStyles.textSize]
+        : FontsTokens.sizes.Primary.base
+    )};
     ${({ customStyles, }) => (customStyles?.textColor && css`
         color: ${customStyles?.textColor};
     `)};

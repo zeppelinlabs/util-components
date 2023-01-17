@@ -36,6 +36,7 @@ type Props = {
         position?: TagIconPosition,
     },
     customStyles?: CustomStyles,
+    isDisabled?: boolean,
     onClick?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     onClickRemove?: (e: React.MouseEvent<HTMLSpanElement>) => void,
     accessibility?: {
@@ -44,11 +45,19 @@ type Props = {
 }
 
 const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElement>) => {
+
+    const handleOnClick = (e: React.MouseEvent<HTMLSpanElement>) => {
+        if (!props.isDisabled) {
+            return props.onClickRemove && props.onClickRemove(e)
+        }
+    }
+
     return <TagStyled.Container
         IconPosition={props.icon?.position}
         customStyles={props.customStyles}
         onClick={props.onClick}
         tabIndex={props.accessibility?.tabIndex}
+        isDisabled={props.isDisabled}
         ref={ref}>
         {props.icon?.SVGComponent
             && <TagStyled.CustomIconContainer size={props.customStyles?.size}>
@@ -60,7 +69,8 @@ const Tag = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLSpanElem
         {props.onClickRemove
             && <TagStyled.CrossIconContainer
                 size={props.customStyles?.size}
-                onClick={props.onClickRemove}>
+                isDisabled={props.isDisabled}
+                onClick={handleOnClick}>
                 <CrossIcon />
             </TagStyled.CrossIconContainer>}
     </TagStyled.Container>

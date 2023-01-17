@@ -1,0 +1,14 @@
+{
+    "mainSection": {
+        "title": "Select",
+        "description": "A common use case is when we need our user to select a single option from a list that we provide."
+    },
+    "typeSection": {
+        "title": "Type",
+        "description": "The different types of selects communicates specific actions or states"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Selects are set in different possible variants"
+    }
+}

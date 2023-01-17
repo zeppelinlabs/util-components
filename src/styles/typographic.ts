@@ -81,10 +81,24 @@ const HeadingXl = styled.h4<CommonProps>`
 	${TextStyleBase}
 	${FontsTokens.sizes.Primary.xl};
 `
+const BodyLg = styled.p<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary.lg};
+`
+
+const BodyXl = styled.p<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary.xl};
+`
 
 const BodyBase = styled.p<CommonProps>`
 	${TextStyleBase}
 	${FontsTokens.sizes.Primary.base};
+`
+
+const BodySm = styled.p<CommonProps>`
+	${TextStyleBase}
+	${FontsTokens.sizes.Primary.sm};
 `
 
 export const TextStyled = {
@@ -96,5 +110,8 @@ export const TextStyled = {
 	Heading3xl,
 	Heading2xl,
 	HeadingXl,
+	BodyLg,
+	BodyXl,
+	BodySm,
 	BodyBase,
 }

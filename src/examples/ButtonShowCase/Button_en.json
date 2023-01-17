@@ -1,0 +1,28 @@
+{
+    "buttonText": "Button",
+    "mainSection": {
+        "title": "Button",
+        "description": "Buttons communicate possible actions and allow users to perform them with a tap or a click."
+    },
+    "typeSection": {
+        "title": "Type",
+        "description": "The different types of buttons communicates specific actions or states"
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of buttons communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Buttons are set in different possible variants"
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "leftIcon": "Left icon + Text",
+    "rightIcon": "Text + Right icon",
+    "sizeSmall": "Small - font size: 14",
+    "sizeBase": "Base - font size: 16",
+    "sizeLarge": "Large - font size: 18",
+    "sizeXLarge": "X Large - font size: 20"
+}

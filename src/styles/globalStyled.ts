@@ -44,7 +44,7 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 	}
 	body {
 		text-rendering: optimizeSpeed;
-		font-family: ${FontsTokens.fontFamilies.Primary};
+		font-family: ${FontsTokens.fontFamilies.Primary}, sans-serif;
 		font-weight:${FontsTokens.weights.Primary.regular};
 		line-height: 1;
 		min-height:100%;

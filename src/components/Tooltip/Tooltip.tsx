@@ -1,5 +1,5 @@
 import React from "react"
-import { TextAlignKeys, TextWeightKeys } from "../../styles/themeHelpers"
+import { TextAlignKeys, TextSizeKeys, TextWeightKeys } from "../../styles/themeHelpers"
 import { TooltipStyled } from "./TooltipStyled"
 
 export enum TooltipAlign {
@@ -25,6 +25,7 @@ export enum TooltipVariant {
 
 export type CustomTooltipStyles = {
     tooltipVariant?: TooltipVariant,
+    textSize?: TextSizeKeys,
     textAlign?: TextAlignKeys,
     textWeight?: TextWeightKeys,
     position?: TooltipPosition,

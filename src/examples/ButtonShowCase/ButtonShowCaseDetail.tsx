@@ -1,88 +1,281 @@
 /* eslint-disable max-lines-per-function */
 import React, { useState } from "react"
-import Button, { ButtonVariant, ButtonIconPosition }
-    from "../../components/Button/Button"
-import DetailComponentPage
-    from "../_Layout/DetailComponentPage/DetailComponentPage"
-import { ReactComponent as ArrowIcon } from ".././../assets/arrow_left.svg"
+import Button, { ButtonVariant, ButtonIconPosition, ButtonSize }
+	from "../../components/Button/Button"
+import DetailComponentPage, { Title, Description }
+	from "../_Layout/DetailComponentPage/DetailComponentPage"
+import { ReactComponent as CircleIcon } from ".././../assets/icons/circle.svg"
 import { toastNotification } from "../../util/toastNotification"
+import { useTranslation } from "react-i18next"
 
 const messageList = [
-    "Fantastic! A button click has occurred!",
-    "Wow another click!",
-    "Yep, still working",
-    "Still clicking",
-    "Again ? really ? You already know that its working",
-    "This is getting out of hands",
+	"Fantastic! A button click has occurred!",
+	"Wow another click!",
+	"Yep, still working",
+	"Still clicking",
+	"Again ? really ? You already know that its working",
+	"This is getting out of hands",
 ]
 
 const ButtonShowCaseDetail = () => {
-    const [clickCount, setClickCount,] = useState(0)
+	const [clickCount, setClickCount,] = useState(0)
+	const { t, } = useTranslation()
+	const { t: t_PageButton, } = useTranslation("PageComponentButton")
 
-    const handleOnClick = () => {
-        toastNotification(messageList[clickCount])
-        setClickCount((clickCount < (messageList.length - 1)) ? clickCount + 1 : 0)
-    }
+	const handleOnClick = () => {
+		toastNotification(messageList[clickCount])
+		setClickCount((clickCount < (messageList.length - 1)) ? clickCount + 1 : 0)
+	}
 
-    return <DetailComponentPage>
-        <Button
-            onClick={handleOnClick}
-            type="button"
-        >
-            Button
-        </Button>
-        <Button
-            onClick={handleOnClick}
-            icon={{
-                SVGComponent: ArrowIcon,
-            }}
-            type="button"
-        >
-            With icon
-        </Button >
-        <Button
-            onClick={handleOnClick}
-            icon={{
-                SVGComponent: ArrowIcon,
-                position: ButtonIconPosition.Right,
-            }}
-            type="button"
-        >
-            Icon position right
-        </Button>
-        <Button
-            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
-            type="submit"
-            isLoading={true}
-        >
-            Submit
-        </Button>
-        <Button
-            onClick={handleOnClick}
-            type="button"
-            icon={{
-                SVGComponent: ArrowIcon,
-            }}
-        />
-        <Button
-            customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
-            onClick={handleOnClick}
-            type="button">
-            Button second variant
-        </Button>
+	return <DetailComponentPage>
+		<Title title={t_PageButton("mainSection.title")}>
+			{t_PageButton("mainSection.description")}
+		</Title>
+		<Description title={t_PageButton("typeSection.title")}
+			description={t_PageButton("typeSection.description")}
+			componentList={[
+				{
+					name: t("common.primary"),
+					component: <Button type="button"
+						onClick={handleOnClick} >
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.secondary"),
+					component: <Button type="button"
+						onClick={handleOnClick}
+						customStyles={{ buttonVariant: ButtonVariant.Secondary, }} >
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.danger"),
+					component: <Button type="button"
+						onClick={handleOnClick}
+						customStyles={{ buttonVariant: ButtonVariant.Danger, }} >
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+			]}
+		>{`import Button, { ButtonVariant, } from "components/Button/Button"
 
-        <Button
-            onClick={handleOnClick}
-            type="button">
-            With custom <em>JSX content</em>
-        </Button>
-        <Button
-            customStyles={{ isFullWidth: true, }}
-            onClick={handleOnClick}
-            type="button">
-            With full width
-        </Button>
-    </DetailComponentPage>
+<Button type='button'
+	onClick={(handleOnClick)}>
+	${t("common.primary")}
+</Button>
+
+<Button type='button'
+	onClick={handleOnClick}
+	customStyles={{ buttonVariant: ButtonVariant.Secondary, }}>
+	${t("common.secondary")}
+</Button>
+
+<Button type='button'
+	onClick={handleOnClick}
+	customStyles={{ buttonVariant: ButtonVariant.Danger, }}>
+	${t("common.danger")}
+</Button>`
+			}</Description>
+
+		<Description title={t_PageButton("stateSection.title")}
+			description={t_PageButton("stateSection.description")}
+			componentList={[
+				{
+					name: t("common.standard"),
+					component: <Button type="button"
+						onClick={handleOnClick}>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.disabled"),
+					component: <Button type="button"
+						onClick={handleOnClick}
+						customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
+						disabled>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.loading"),
+					component: <Button type="button"
+						onClick={handleOnClick}
+						isLoading>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+			]}
+		>{`import Button from "components/Button/Button"
+
+<Button type="button"
+	onClick={handleOnClick}>
+	${t("common.standard")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	disabled={true}>
+	${t("common.disabled")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	isLoading={true}>
+	${t("common.loading")}
+</Button>`
+			}</Description>
+
+		<Description title={t_PageButton("variantSection.title")}
+			description={t_PageButton("variantSection.description")}
+			componentList={[
+				{
+					name: t("common.onlyText"),
+					component: <Button type="button"
+						onClick={handleOnClick}>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t_PageButton("leftIcon"),
+					component: <Button type="button"
+						icon={{ SVGComponent: CircleIcon, }}
+						onClick={handleOnClick}>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t_PageButton("rightIcon"),
+					component: <Button type="button"
+						icon={{
+							SVGComponent: CircleIcon,
+							position: ButtonIconPosition.Right,
+						}}
+						onClick={handleOnClick}>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.onlyIcon"),
+					component: <Button type="button"
+						icon={{
+							SVGComponent: CircleIcon,
+						}}
+						onClick={handleOnClick}
+					/>,
+				},
+			]}
+		>{`import Button, { ButtonPosition, } from "components/Button/Button"
+import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
+
+<Button type="button"
+	onClick={handleOnClick}>
+	${t("common.onlyText")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{ SVGComponent: CircleIcon, }}>
+	${t_PageButton("leftIcon")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{
+		SVGComponent: CircleIcon,
+		position: ButtonIconPosition.Right,
+	}}>
+	${t_PageButton("rightIcon")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	icon={{
+		SVGComponent: CircleIcon,
+	}}
+/>`
+			}</Description>
+
+		<Description title={t_PageButton("sizeSection.title")}
+			componentList={[
+				{
+					name: t_PageButton("sizeSmall"),
+					component: <Button type="button"
+						buttonSize={ButtonSize.Small}
+						icon={{
+							SVGComponent: CircleIcon,
+						}}
+						onClick={handleOnClick}
+					>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t_PageButton("sizeBase"),
+					component: <Button type="button"
+						buttonSize={ButtonSize.Base}
+						icon={{
+							SVGComponent: CircleIcon,
+						}}
+						onClick={handleOnClick}
+					>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t_PageButton("sizeLarge"),
+					component: <Button type="button"
+						buttonSize={ButtonSize.Large}
+						icon={{
+							SVGComponent: CircleIcon,
+						}}
+						onClick={handleOnClick}
+					>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t_PageButton("sizeXLarge"),
+					component: <Button type="button"
+						buttonSize={ButtonSize.XLarge}
+						icon={{
+							SVGComponent: CircleIcon,
+						}}
+						onClick={handleOnClick}
+					>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+			]}
+
+		>{`import Button, { ButtonSize, } from "components/Button/Button"
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Small}>
+	${t_PageButton("sizeSmall")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Base}>
+	${t_PageButton("sizeBase")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.Large}>
+	${t_PageButton("sizeLarge")}
+</Button>
+
+<Button type="button"
+	onClick={handleOnClick}
+	buttonSize={ButtonSize.XLarge}>
+	${t_PageButton("sizeXLarge")}
+</Button>`
+			}
+		</Description>
+	</DetailComponentPage >
 }
 
 export default ButtonShowCaseDetail

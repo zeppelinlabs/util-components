@@ -1,13 +1,19 @@
 
 import React from "react"
-import { TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
+import { TextSizeKeys, TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
 import { renderErrorMessage } from "../FormCommon"
 import { RadioButtonStyled } from "./RadioButtonStyles"
+
+export enum ContentRadioPosition {
+    Left = "row-reverse",
+}
 
 export type CustomRadioButtonStyles = {
     textWeight?: TextWeightKeys,
     textColor?: ThemeBaseColorKeys,
+    textSize?: TextSizeKeys,
     size?: RadioButtonSize,
+    contentPosition?: ContentRadioPosition,
 }
 export type AccessibilityRadioButton = {
     tabIndex?: number,
@@ -57,7 +63,7 @@ const InputRadio_ = React.forwardRef(<K extends ValidKey>(
     }
 
     return (
-        <RadioButtonStyled.Container>
+        <RadioButtonStyled.Container customStyles={props.customStyles}>
             <RadioButtonStyled.Input
                 ref={ref}
                 type="radio"
@@ -81,7 +87,7 @@ const InputRadio_ = React.forwardRef(<K extends ValidKey>(
 })
 InputRadio_.displayName = "InputRadio"
 
-const InputRadio = InputRadio_ as <K extends ValidKey>(props: InputRadioProps<K>
+export const InputRadio = InputRadio_ as <K extends ValidKey>(props: InputRadioProps<K>
     & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export type RadioOption<K extends ValidKey> = {
