@@ -1,6 +1,7 @@
 {
   "short_name": "Zeppelin Components",
   "name": "Zeppelin Components",
+  "description": "Simple and fast fully customizable components!",
   "icons": [
     {
       "src": "favicon.ico",
