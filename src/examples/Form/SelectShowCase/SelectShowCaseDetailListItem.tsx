@@ -24,7 +24,7 @@ const SelectShowCaseDetailListItem = () => {
         setValue(value)
     }
 
-    return <Label text="Switch">
+    return <Label text="Select">
         <Select
             options={listOption1}
             selectedValue={value?.key}
