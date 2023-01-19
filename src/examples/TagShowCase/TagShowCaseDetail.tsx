@@ -6,6 +6,7 @@ import DetailComponentPage, { Title, Description }
     from "../_Layout/DetailComponentPage/DetailComponentPage"
 import { toastNotification } from "../../util/toastNotification"
 import { useTranslation } from "react-i18next"
+import TagCodeViewerStrings from "./TagCodeViewerStrings"
 
 const TagShowCaseDetail = () => {
     const { t, } = useTranslation()
@@ -34,16 +35,9 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        >{`import Tag, { TagVariant } from "components/Tag/Tag"
-
-<Tag>
-    ${t("common.primary")}
-</Tag>
-
-<Tag customStyles={{ variant: TagVariant.Secondary, }}>
-    ${t("common.secondary")}
-</Tag>`
-            }</Description>
+        >
+            {TagCodeViewerStrings.type({ tagText: t_PageTags("tagText"), })}
+        </Description>
         <Description title={t_PageTags("stateSection.title")}
             description={t_PageTags("stateSection.description")}
             componentList={[
@@ -60,16 +54,9 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        >{`import Tag from "components/Tag/Tag"
-
-<Tag onClickRemove={handleOnClick}>
-    ${t("common.standard")}
-</Tag>
-
-<Tag onClickRemove={handleOnClick} isDisabled>
-    ${t("common.disabled")}
-</Tag>`
-            }</Description>
+        >
+            {TagCodeViewerStrings.state({ tagText: t_PageTags("tagText"), })}
+        </Description>
         <Description title={t_PageTags("variantSection.title")}
             description={t_PageTags("variantSection.description")}
             componentList={[
@@ -112,33 +99,9 @@ const TagShowCaseDetail = () => {
                     </Tag>,
                 },
             ]}
-        >{`import Tag, { TagIconPosition, } from "components/Tag/Tag"
-import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
-
-<Tag>
-    ${t("common.onlyText")}
-</Tag>
-
-<Tag icon={{SVGCircleIcon,}}>
-    ${t_PageTags("withIcon")}
-</Tag>
-
-<Tag icon={{
-    SVGCircleIcon,
-    position:TagIconPosition.Right,
-}}>
-    ${t_PageTags("withIconRight")}
-</Tag>
-
-<Tag onClickRemove={handleOnClick}>
-    ${t_PageTags("withClose")}
-</Tag>
-
-<Tag onClickRemove={handleOnClick}
-    icon={{SVGCircleIcon,}}>
-    ${t_PageTags("withIconAndClose")}
-</Tag>`
-            }</Description>
+        >
+            {TagCodeViewerStrings.variants({ tagText: t_PageTags("tagText"), })}
+        </Description>
         <Description title={t_PageTags("sizeSection.title")}
             componentList={[
                 {
@@ -172,26 +135,9 @@ import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
                     </Tag>,
                 },
             ]}
-        >{`import Tag, { TagSize, } from "components/Tag/Tag"
-
-<Tag onClickRemove={handleOnClick}
-    customStyles={{ size: TagSize.Small, }}
-    icon={{SVGComponent: CircleIcon,}}>
-    ${t_PageTags("sizeSmall")}
-</Tag>
-
-<Tag onClickRemove={handleOnClick}
-    customStyles={{ size: TagSize.Base, }}
-    icon={{SVGComponent: CircleIcon,}}>
-    ${t_PageTags("sizeBase")}
-</Tag>
-
-<Tag onClickRemove={handleOnClick}
-    customStyles={{ size: TagSize.Large, }}
-    icon={{SVGComponent: CircleIcon,}}>
-    ${t_PageTags("sizeLarge")}
-</Tag>`
-            }</Description>
+        >
+            {TagCodeViewerStrings.sizes({ tagText: t_PageTags("tagText"), })}
+        </Description>
     </DetailComponentPage>
 }
 
