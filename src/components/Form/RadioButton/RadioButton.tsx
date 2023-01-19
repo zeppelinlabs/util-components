@@ -1,7 +1,7 @@
 
 import React from "react"
 import { TextSizeKeys, TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
-import { renderErrorMessage } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { RadioButtonStyled } from "./RadioButtonStyles"
 
 export enum ContentRadioPosition {

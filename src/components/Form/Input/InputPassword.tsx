@@ -4,7 +4,7 @@ import { InputStyled } from "./InputStyles"
 import { useState } from "react"
 import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
 import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
-import { renderErrorMessage } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
@@ -28,12 +28,12 @@ const InputPassword = React.forwardRef((
 
     const renderIconAction = () => {
         return (
-            <InputStyled.InputAction
+            <InputStyled.ActionButton
                 type="button"
                 onClick={handleToggleShowPassword}
             >
                 {showPassword ? <ShowIcon /> : <HideIcon />}
-            </InputStyled.InputAction>
+            </InputStyled.ActionButton>
         )
     }
 
