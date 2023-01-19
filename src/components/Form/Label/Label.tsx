@@ -1,6 +1,6 @@
 import React from "react"
 import { LabelStyled } from "./LabelStyles"
-import { ReactComponent as InfoIcon } from "../../../assets/info.svg"
+import { ReactComponent as InfoIcon } from "../../../assets/icons/info.svg"
 import { TextAlignKeys, TextWeightKeys, ThemeBaseColorKeys } from "../../../styles/themeHelpers"
 
 export type CustomLabelStyles = {
