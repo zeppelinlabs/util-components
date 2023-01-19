@@ -7,6 +7,7 @@ import DetailComponentPage, { Title, Description, }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import { DetailComponentPageStyled }
     from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
+import labelCodeViewerStrings from "./LabelCodeViewerStrings"
 
 
 const LabelShowCaseDetail = () => {
@@ -57,26 +58,11 @@ const LabelShowCaseDetail = () => {
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        >{`import Label, { LabelVariant } from "components/Form/Label/Label"
-
-<Label text={"${t("common.optional")}"}
-    labelVariant={LabelVariant.Optional}>
-    <Input type="text" value="" />
-</Label>
-
-<Label text={"${t_PageLabel("titleValue")}"}>
-    {t("common.onlyText")}
-</Label>
-
-<Label text={"${t("common.disabled")}"}
-    disabled>
-    Plain content
-</Label>
-
-<Label text={"${t("common.required")}"}
-    labelVariant={LabelVariant.Required}>
-    <Input type="text" value="" />
-</Label>`}
+        >
+            {labelCodeViewerStrings.variants({
+                labelText: t_PageLabel("label"),
+                children: t("common.onlyText"),
+            })}
         </Description>
     </DetailComponentPage>
 }
