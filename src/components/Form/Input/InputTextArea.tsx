@@ -2,7 +2,7 @@
 import React, { useEffect } from "react"
 import { useCombinedRefs } from "../../../hooks/useCombineRefs"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
-import { renderErrorMessage } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
 

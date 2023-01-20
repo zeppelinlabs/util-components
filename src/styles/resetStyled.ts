@@ -34,12 +34,6 @@ export const ResetStyled = createGlobalStyle`
 		display: flex;
 		border-style: none;
 	}
-	svg{
-		width: 100%;
-		max-width: 100%;
-		object-fit: contain;
-		object-position: center;
-	}
 	button,
 	select{
 		text-transform: none;

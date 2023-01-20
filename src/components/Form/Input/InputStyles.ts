@@ -91,7 +91,6 @@ export const InputGeneralStyles = css<InputProps>`
     }
 `
 
-
 const Input = styled.input <InputProps>`
     ${InputGeneralStyles};
     ${props => props.position === IconPosition.left && css`
@@ -130,7 +129,7 @@ const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
         : thp.base.level300._)};
 `
 
-const InputAction = styled.button`
+const ActionButton = styled.button`
     width: 14px;
     height: 14px;
     outline:none;
@@ -138,14 +137,21 @@ const InputAction = styled.button`
     background: none;
     border:none;
     position: absolute;
-    top:10px;
-    right:12px;
+    top: 30%;
+    right: 16px;
     z-index:1;
-
+    
     &:disabled {
         opacity: 0.5;
         cursor:not-allowed;
     };
+    svg {
+		width: 100%;
+		height: 100%;
+		path{
+			fill: currentColor;
+		}
+	}
 `
 
 const InputTextArea = styled.textarea<InputProps>`
@@ -185,12 +191,40 @@ const SpinnerContainer = styled.span`
     transform: translate(-50%, -50%);
 `
 
+type IconContainerProps = {
+    position?: IconPosition,
+}
+
+const IconContainer = styled.div<IconContainerProps>`
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 14px;
+    pointer-events: none;
+    display: flex;
+    place-items: center;
+    ${props => (!props.position || props.position === IconPosition.left) && css`
+        left: 12px;
+    `};
+     ${props => props.position === IconPosition.right && css`
+        right: 12px;
+    `};
+    svg {
+		width: 100%;
+		height: 100%;
+		path{
+			fill: currentColor;
+		}
+	}
+`
+
 export const InputStyled = {
     InputContainer,
     Input,
     LeadingLabel,
-    InputAction,
+    ActionButton,
     CharacterCount,
     InputTextArea,
     SpinnerContainer,
+    IconContainer,
 }
