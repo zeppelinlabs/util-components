@@ -141,14 +141,6 @@ const Button = styled.button<Props>`
 	${({ customStyles, }) => (getButtonVariant(customStyles?.buttonVariant
 	|| ButtonVariant.Primary))}
 	img,
-	svg{
-		width: 100%;
-		height: 100%;
-		object-fit: contain;
-		path{
-			fill: currentColor;
-		}
-	}
 	&:disabled {
 		cursor:not-allowed;
 	}

@@ -54,4 +54,13 @@ export const GlobalStyled = createGlobalStyle<{ debug?: boolean, }>`
 		background-color: ${thp.base.level0._};
 		color: ${thp.base.level1000._};
 	}
+	svg {
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+		path{
+			fill: currentColor;
+		}
+	}
 `

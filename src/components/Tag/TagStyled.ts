@@ -55,13 +55,6 @@ const Container = styled.span<TagProps>`
 		width:100%;
 		max-width:100%;
 	}
-	svg{
-		width: 100%;
-		height: 100%;
-		path{
-			fill: currentColor;
-		}
-	}
 `
 
 const CrossIconContainer = styled.span<{

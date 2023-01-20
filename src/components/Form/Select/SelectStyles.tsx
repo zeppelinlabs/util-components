@@ -85,15 +85,6 @@ const iconContainerBase = css`
     justify-content: center;
     align-items: center;
     position: absolute;
-    img,
-    svg{
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-        path{
-            fill: currentColor;
-        }
-    }
 `
 
 const WrapperIcon = styled.div`
