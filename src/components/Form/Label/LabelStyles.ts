@@ -75,14 +75,6 @@ const ContentInfoIcon = styled.span`
     display: flex;
     align-content: center;
     justify-content: center;
-
-    svg{
-        width: 100%;
-        height: 100%;
-        path{
-            fill: currentColor;
-        }
-    }
 `
 
 export const LabelStyled = {

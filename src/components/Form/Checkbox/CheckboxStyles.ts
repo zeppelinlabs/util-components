@@ -75,11 +75,6 @@ const Tick = styled.div`
     height: 100%;
     width: 70%;
     margin: 0 auto;
-
-   svg{
-       width: 100%;
-       height: 100%;
-   }
 `
 
 const ChildrenWrapper = styled.div<Props>`
