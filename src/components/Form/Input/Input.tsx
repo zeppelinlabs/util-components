@@ -1,8 +1,7 @@
 /* eslint-disable max-lines-per-function */
 import React, { useEffect, useRef, useState } from "react"
-import { IconPosition } from "../../CommonTypes"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
-import { renderErrorMessage, renderIcon, } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { InputCommonProps } from "./InputCommon"
 import { InputStyled } from "./InputStyles"
 
@@ -52,8 +51,6 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
                     spellCheck="false"
                     {...(props.leadingLabel && { leadingLabelWidth: leadingLabelWidth, })}
                 />
-                {props.icon && props.icon.position === IconPosition.right
-                    && renderIcon(props.icon.position, <props.icon.SVGComponent />)}
                 {props.errorMessage
                     && renderErrorMessage(props.errorMessage)}
                 {props.isLoading
@@ -77,9 +74,9 @@ const Input = React.forwardRef((props: Props, ref: React.ForwardedRef<HTMLInputE
     return (
         <InputStyled.InputContainer>
             {renderInput()}
-            {props.icon && props.icon.position
-                && renderIcon(props.icon.position, <props.icon.SVGComponent />)
-            }
+            {props.icon && <InputStyled.IconContainer position={props.icon.position}>
+                <props.icon.SVGComponent />
+            </InputStyled.IconContainer>}
             {props.leadingLabel && renderLeadingLabel()}
         </InputStyled.InputContainer>
     )

@@ -3,7 +3,7 @@ import { toDictionary } from "../../../util/toDictionary"
 import Checkbox, { CustomCheckboxStyles } from "./Checkbox"
 import { HTMLSetCustomValidityElement, useSetCustomValidity }
     from "../../../hooks/useSetCustomValidity"
-import { renderErrorMessage } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { CheckboxStyled } from "./CheckboxStyles"
 
 export type CheckboxGroupOption<K> = {
@@ -78,7 +78,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
         </CheckboxStyled.Container>
     )
 }) as <K extends ValidKey,
-        T extends CheckboxGroupOption<K>>(props: Props<K, T>
-            & React.RefAttributes<HTMLInputElement>) => JSX.Element
+    T extends CheckboxGroupOption<K>>(props: Props<K, T>
+        & React.RefAttributes<HTMLInputElement>) => JSX.Element
 
 export default CheckboxGroup

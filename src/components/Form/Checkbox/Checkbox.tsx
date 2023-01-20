@@ -3,7 +3,7 @@ import React from "react"
 import { CheckboxStyled } from "./CheckboxStyles"
 import { ReactComponent as TickIcon } from "../../../assets/tick.svg"
 import { ReactComponent as MinusIcon } from "../../../assets/minus.svg"
-import { renderErrorMessage } from "../FormCommon"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
 import { TextAlignKeys, TextSizeKeys, TextWeightKeys } from "../../../styles/themeHelpers"
 
 export enum ContentCheckboxPosition {
