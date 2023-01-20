@@ -6,6 +6,7 @@ import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
 import { TextStyled } from "../../styles/typographic"
 import DetailComponentPage, { Title, Description }
     from "../_Layout/DetailComponentPage/DetailComponentPage"
+import tooltipCodeViewerStrings from "./TooltipCodeViewerStrings"
 
 const TooltipShowCaseDetail = () => {
 
@@ -39,17 +40,11 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        >{`import Tooltip, { TooltipVariant } from "components/Tooltip/Tooltip"
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}>
-    ${t("common.primary")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ tooltipVariant: TooltipVariant.Secondary, }}
->
-    ${t("common.secondary")}
-</Tooltip>`}
+        >
+            {tooltipCodeViewerStrings.type({
+                tooltipContent: t_PageTooltip("tooltip"),
+                label: t_PageTooltip("hover"),
+            })}
         </Description>
 
         <Description title={t_PageTooltip("variantSection.title")}
@@ -119,38 +114,11 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        >{`import Tooltip, { TooltipPosition, TooltipAlign }
-    from "components/Tooltip/Tooltip"
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ align: TooltipAlign.Center, }}>
-    ${t_PageTooltip("center")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ align: TooltipAlign.Left, }}>
-    ${t_PageTooltip("topLeft")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ align: TooltipAlign.Right, }}>
-    ${t_PageTooltip("topRight")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ position: TooltipPosition.Left,}}>
-    ${t_PageTooltip("left")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ position: TooltipPosition.Right,}}>
-    ${t_PageTooltip("right")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{ position: TooltipPosition.Bottom,}}>
-    ${t_PageTooltip("bottom")}
-</Tooltip>`}
+        >
+            {tooltipCodeViewerStrings.variants({
+                tooltipContent: t_PageTooltip("tooltip"),
+                label: t_PageTooltip("hover"),
+            })}
         </Description>
 
         <Description title={t_PageTooltip("sizeSection.title")}
@@ -203,112 +171,12 @@ const TooltipShowCaseDetail = () => {
                     </Tooltip>,
                 },
             ]}
-        >{`import Tooltip, { TooltipSize } from "components/Tooltip/Tooltip"
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{
-        size: TooltipSize.MaxContent,
-    }}>
-    ${t_PageTooltip("auto")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{
-        size: TooltipSize.Small,
-        textSize: "xs",
-    }}>
-    ${t_PageTooltip("small")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{
-        size: TooltipSize.Medium,
-        textSize: "xl",
-    }}>
-    ${t_PageTooltip("medium")}
-</Tooltip>
-
-<Tooltip tooltipContent={${t_PageTooltip("tooltip")}}
-    customStyles={{
-        size: TooltipSize.Large,
-        textSize: "2xl",
-    }}>
-    ${t_PageTooltip("large")}
-</Tooltip>`}
+        >
+            {tooltipCodeViewerStrings.sizes({
+                tooltipContent: t_PageTooltip("tooltip"),
+                label: t_PageTooltip("hover"),
+            })}
         </Description>
-
-        {/* <div>
-            <TextStyled.BodyBase>
-                <Tooltip tooltipContent="Content of tooltip">
-                    Tooltip example
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase>
-                <Tooltip
-                    tooltipContent="Content of tooltip with small size"
-                    customStyles={{ size: TooltipSize.Small, }}>
-                    Tooltip size
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase>
-                <Tooltip
-                    tooltipContent="Content of tooltip"
-                    customStyles={{ align: TooltipAlign.Left, }}>
-                    Tooltip example align to left
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase style={{
-                "display": "flex",
-                "gap": "10px",
-                "alignItems": "center",
-            }}>
-                Tooltip example align to right in icon
-                <Tooltip
-                    tooltipContent="Content of tooltip"
-                    customStyles={{
-                        align: TooltipAlign.Right,
-                        tooltipVariant: TooltipVariant.Secondary,
-                    }}>
-                    <InfoIcon />
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase>
-                <Tooltip
-                    tooltipContent="Content of tooltip"
-                    customStyles={{ position: TooltipPosition.Right, }}>
-                    Tooltip example position to right
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase>
-                <Tooltip
-                    tooltipContent="Content of tooltip"
-                    customStyles={{
-                        position: TooltipPosition.Left,
-                        tooltipVariant: TooltipVariant.Secondary,
-                    }}>
-                    Tooltip example position to left
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div>
-        <div>
-            <TextStyled.BodyBase>
-                <Tooltip
-                    tooltipContent="Content of tooltip"
-                    customStyles={{ position: TooltipPosition.Bottom, }}>
-                    Tooltip example position to bottom
-                </Tooltip>
-            </TextStyled.BodyBase>
-        </div> */}
     </DetailComponentPage>
 }
 

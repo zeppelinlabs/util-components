@@ -2,10 +2,10 @@
 import React, { useState } from "react"
 import Checkbox, { CheckboxSize, ContentCheckboxPosition }
     from "../../../components/Form/Checkbox/Checkbox"
-import CheckboxGroupShowCase from "./CheckboxGroupShowcase"
 import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import { useTranslation } from "react-i18next"
+import checkboxCodeViewerStrings from "./CheckboxCodeViewerStrings"
 
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
@@ -53,29 +53,13 @@ const CheckboxShowCaseDetail = () => {
                     />,
                 },
             ]}
-        >{`import Checkbox from "components/Form/Checkbox/Checkbox"
-
-<Checkbox
-    value={value} //${t("common.unchecked")}
-    onChange={handleOnChange}
-/>
-
-<Checkbox
-    value={true} //${t("common.checked")}
-    onChange={handleOnChange}
-/>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    customStyles={{ isIndeterminate: true, }} //${t("common.indeterminate")}
-/>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    disabled={true} //${t("common.disabled")}
-/>`}
+        >
+            {checkboxCodeViewerStrings.state({
+                checked: t("common.checked"),
+                unchecked: t("common.unchecked"),
+                indeterminate: t("common.indeterminate"),
+                disabled: t("common.disabled"),
+            })}
         </Description>
         <Description title={t_PageCheckbox("variantSection.title")}
             description={t_PageCheckbox("variantSection.description")}
@@ -108,29 +92,8 @@ const CheckboxShowCaseDetail = () => {
                 },
 
             ]}
-        >{`import Checkbox, { ContentCheckboxPosition, }
-    from "components/Form/Checkbox/Checkbox"
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}>
-    ${t_PageCheckbox("single")}
-</Checkbox>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    customStyles={{
-        contentPosition: ContentCheckboxPosition.Left,
-    }}>
-    ${t_PageCheckbox("left")}
-</Checkbox>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}>
-    ${t_PageCheckbox("right")}
-</Checkbox>`}
+        >
+            {checkboxCodeViewerStrings.variants({ checkboxText: t_PageCheckbox("label"), })}
         </Description>
         <Description title={t_PageCheckbox("sizeSection.title")}
             componentList={[
@@ -171,42 +134,9 @@ const CheckboxShowCaseDetail = () => {
                     </Checkbox>,
                 },
             ]}
-        >{`import Checkbox, { CheckboxSize, }
-    from "components/Form/Checkbox/Checkbox"
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    customStyles={{
-        size: CheckboxSize.Small,
-        textSize: "xs",
-    }}>
-    ${t_PageCheckbox("small")}
-</Checkbox>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    customStyles={{
-        size: CheckboxSize.Base,
-    }}>
-    ${t_PageCheckbox("base")}
-</Checkbox>
-
-<Checkbox
-    value={value}
-    onChange={handleOnChange}
-    customStyles={{
-        size: CheckboxSize.Large,
-        textSize: "xl",
-    }}>
-    ${t_PageCheckbox("large")}
-</Checkbox>`}
+        >
+            {checkboxCodeViewerStrings.sizes({ checkboxText: t_PageCheckbox("label"), })}
         </Description>
-        { /*
-        <hr />
-        <CheckboxGroupShowCase />
-        <hr /> */}
     </DetailComponentPage>
 }
 

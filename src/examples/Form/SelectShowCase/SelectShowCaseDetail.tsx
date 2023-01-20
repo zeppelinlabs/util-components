@@ -7,6 +7,7 @@ import DetailComponentPage, { Title, Description, }
 import { useTranslation } from "react-i18next"
 import { DetailComponentPageStyled }
     from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
+import selectCodeViewerStrings from "./SelectCodeViewerStrings"
 
 
 enum ListOptionKey {
@@ -58,28 +59,6 @@ const listOption2: SelectOption<number>[] = [
     },
 ]
 
-const listOption3: SelectOption<string | null>[] = [
-    {
-        key: null,
-        text: "Option 1",
-    },
-    {
-        key: "1",
-        text: "Option 2",
-    },
-]
-
-const listOption4: SelectOption<string>[] = [
-    {
-        key: "1",
-        text: "Option 1",
-    },
-    {
-        key: "2",
-        text: "Option 2",
-    },
-]
-
 const listOption5: SelectOption<string | null>[] = [
     {
         key: null,
@@ -103,10 +82,8 @@ const SelectShowCaseDetail = () => {
 
     const [value, setValue,] = useState<SelectOption<ListOptionKey>>()
     const [secondValue, setSecondValue,] = useState<SelectOption<number> | undefined>()
-    const [thirdValue, setThirdValue,] = useState<SelectOption<string | null>>()
-    const [fourValue, setFourValue,] = useState<SelectOption<string>>(listOption4[1])
-    const [fiveValue, setFiveValue,] = useState<SelectOption<string | null>>()
-    const [sixValue, setSixValue,] = useState<SelectOption<number>>()
+    const [thirdValue, setFiveValue,] = useState<SelectOption<string | null>>()
+    const [fourthValue, setSixValue,] = useState<SelectOption<number>>()
 
     const { t, } = useTranslation()
     const { t: t_PageSelect, } = useTranslation("PageComponentSelect")
@@ -120,15 +97,10 @@ const SelectShowCaseDetail = () => {
     }
 
     const handleChange3 = (value: SelectOption<string | null>) => {
-        setThirdValue(value)
-    }
-    const handleChange4 = (value: SelectOption<string>) => {
-        setFourValue(value)
-    }
-    const handleChange5 = (value: SelectOption<string | null>) => {
         setFiveValue(value)
     }
-    const handleChange6 = (value: SelectOption<number>) => {
+
+    const handleChange4 = (value: SelectOption<number>) => {
         setSixValue(value)
     }
 
@@ -156,39 +128,15 @@ const SelectShowCaseDetail = () => {
                     component: <DetailComponentPageStyled.ContainerForInputs>
                         <Select
                             options={listOption5}
-                            selectedValue={fiveValue?.key}
-                            onChange={handleChange5}
+                            selectedValue={thirdValue?.key}
+                            onChange={handleChange3}
                             icon={CircleIcon}
                         />
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        >{`import Select, { SelectOption } from "components/Form/Select/Select"
-import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
-
-const listOption: SelectOption<string>[] = [
-    {
-        key: "1",
-        text: "Option 1",
-    },
-    {
-        key: "2",
-        text: "Option 2",
-    },
-]
-
-const [value, setValue,] = useState<SelectOption<string>>()
-
-<Select options={listOption}
-    selectedValue={value.key}
-    onChange={handleChange}
-/>
-
-<Select options={listOption}
-    selectedValue={value.key}
-    onChange={handleChange}
-    icon={CircleIcon}
-/>`}
+        >
+            {selectCodeViewerStrings.type}
         </Description>
 
         <Description title={t_PageSelect("variantSection.title")}
@@ -210,8 +158,8 @@ const [value, setValue,] = useState<SelectOption<string>>()
                     component: <DetailComponentPageStyled.ContainerForInputs>
                         <Select
                             options={listOption6}
-                            selectedValue={sixValue?.key}
-                            onChange={handleChange6}
+                            selectedValue={fourthValue?.key}
+                            onChange={handleChange4}
                             disabled={true}
                         />
                     </DetailComponentPageStyled.ContainerForInputs>,
@@ -221,48 +169,15 @@ const [value, setValue,] = useState<SelectOption<string>>()
                     component: <DetailComponentPageStyled.ContainerForInputs>
                         <Select
                             options={listOption6}
-                            selectedValue={sixValue?.key}
-                            onChange={handleChange6}
+                            selectedValue={fourthValue?.key}
+                            onChange={handleChange4}
                             isLoading={true}
                         />
                     </DetailComponentPageStyled.ContainerForInputs>,
                 },
             ]}
-        >{`import Select, { SelectOption } from "components/Form/Select/Select"
-
-const listOption: SelectOption<string>[] = [
-    {
-        key: "1",
-        text: "Option 1",
-    },
-    {
-        key: "2",
-        text: "Option 2",
-    },
-]
-
-const [value, setValue,] = useState<SelectOption<string>>()
-
-<Select
-    options={listOption}
-    selectedValue={value.key}
-    onChange={handleChange}
-    errorMessage={"Error message"}
-/>
-
-<Select
-    options={listOption}
-    selectedValue={value.key}
-    onChange={handleChange}
-    disabled={true}
-/>
-
-<Select
-    options={listOption}
-    selectedValue={value.key}
-    onChange={handleChange}
-    isLoading={true}
-/>`}
+        >
+            {selectCodeViewerStrings.variants}
         </Description>
     </DetailComponentPage>
 }

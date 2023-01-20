@@ -7,6 +7,7 @@ import DetailComponentPage, { Title, Description }
 import { ReactComponent as CircleIcon } from ".././../assets/icons/circle.svg"
 import { toastNotification } from "../../util/toastNotification"
 import { useTranslation } from "react-i18next"
+import ButtonCodeViewerStrings from "./ButtonCodeViewerStrings"
 
 const messageList = [
 	"Fantastic! A button click has occurred!",
@@ -58,25 +59,9 @@ const ButtonShowCaseDetail = () => {
 					</Button>,
 				},
 			]}
-		>{`import Button, { ButtonVariant, } from "components/Button/Button"
-
-<Button type='button'
-	onClick={(handleOnClick)}>
-	${t("common.primary")}
-</Button>
-
-<Button type='button'
-	onClick={handleOnClick}
-	customStyles={{ buttonVariant: ButtonVariant.Secondary, }}>
-	${t("common.secondary")}
-</Button>
-
-<Button type='button'
-	onClick={handleOnClick}
-	customStyles={{ buttonVariant: ButtonVariant.Danger, }}>
-	${t("common.danger")}
-</Button>`
-			}</Description>
+		>
+			{ButtonCodeViewerStrings.type({ buttonText: t_PageButton("buttonText"), })}
+		</Description>
 
 		<Description title={t_PageButton("stateSection.title")}
 			description={t_PageButton("stateSection.description")}
@@ -106,25 +91,9 @@ const ButtonShowCaseDetail = () => {
 					</Button>,
 				},
 			]}
-		>{`import Button from "components/Button/Button"
-
-<Button type="button"
-	onClick={handleOnClick}>
-	${t("common.standard")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	disabled={true}>
-	${t("common.disabled")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	isLoading={true}>
-	${t("common.loading")}
-</Button>`
-			}</Description>
+		>{
+				ButtonCodeViewerStrings.type({ buttonText: t_PageButton("buttonText"), })}
+		</Description>
 
 		<Description title={t_PageButton("variantSection.title")}
 			description={t_PageButton("variantSection.description")}
@@ -165,36 +134,9 @@ const ButtonShowCaseDetail = () => {
 					/>,
 				},
 			]}
-		>{`import Button, { ButtonPosition, } from "components/Button/Button"
-import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
-
-<Button type="button"
-	onClick={handleOnClick}>
-	${t("common.onlyText")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	icon={{ SVGComponent: CircleIcon, }}>
-	${t_PageButton("leftIcon")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	icon={{
-		SVGComponent: CircleIcon,
-		position: ButtonIconPosition.Right,
-	}}>
-	${t_PageButton("rightIcon")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	icon={{
-		SVGComponent: CircleIcon,
-	}}
-/>`
-			}</Description>
+		>
+			{ButtonCodeViewerStrings.variants({ buttonText: t_PageButton("buttonText"), })}
+		</Description>
 
 		<Description title={t_PageButton("sizeSection.title")}
 			componentList={[
@@ -247,33 +189,8 @@ import { ReactComponent as CircleIcon } from "assets/icons/circle.svg"
 					</Button>,
 				},
 			]}
-
-		>{`import Button, { ButtonSize, } from "components/Button/Button"
-
-<Button type="button"
-	onClick={handleOnClick}
-	buttonSize={ButtonSize.Small}>
-	${t_PageButton("sizeSmall")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	buttonSize={ButtonSize.Base}>
-	${t_PageButton("sizeBase")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	buttonSize={ButtonSize.Large}>
-	${t_PageButton("sizeLarge")}
-</Button>
-
-<Button type="button"
-	onClick={handleOnClick}
-	buttonSize={ButtonSize.XLarge}>
-	${t_PageButton("sizeXLarge")}
-</Button>`
-			}
+		>
+			{ButtonCodeViewerStrings.sizes({ buttonText: t_PageButton("buttonText"), })}
 		</Description>
 	</DetailComponentPage >
 }
