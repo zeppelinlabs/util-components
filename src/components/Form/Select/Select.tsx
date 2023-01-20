@@ -2,7 +2,7 @@
 import React from "react"
 import { SelectStyled } from "./SelectStyles"
 import { renderErrorMessage } from "../FormCommon/FormCommon"
-import { ReactComponent as ArrowDown } from "../../../assets/pointer_down.svg"
+import { ReactComponent as ArrowDown } from "../../../assets/icons/pointer_down.svg"
 import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 import { TextWeightKeys } from "../../../styles/themeHelpers"
 
