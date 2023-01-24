@@ -74,10 +74,9 @@ const ContainerComponent = styled.article`
 	padding: 0 ${UiTokens.spacing.size40};
 `
 
-const Grid = styled.section<{ withoutGap?: boolean, }>`
+const Grid = styled.section`
 	display: grid;
-	grid-template-columns: repeat(8,1fr);
-	gap: ${({ withoutGap, }) => (withoutGap ? "0px" : UiTokens.spacing.size20)};
+	gap: ${UiTokens.spacing.size48};
 	${ContainerComponent}{
 		&:nth-child(4n){
 			border-right: none;
@@ -88,6 +87,41 @@ const Grid = styled.section<{ withoutGap?: boolean, }>`
 		&:nth-child(4){
 			border-top: none;
 		}
+	}
+	@media ${device.desktop} {
+		grid-template-columns: repeat(8,1fr);
+		gap: ${UiTokens.spacing.size20};
+	}
+`
+
+const ComponentsGrid = styled.section`
+	display: grid;
+	grid-template-columns: repeat(4,1fr);
+	${ContainerComponent} {
+		&:nth-child(2n) {
+			border-right: none;
+		}
+		&:nth-child(1),
+		&:nth-child(2) {
+			border-top: none;
+		}
+	}
+	@media ${device.desktop} {
+		grid-template-columns: repeat(8,1fr);
+		${ContainerComponent} {
+			&:nth-child(2n) {
+				border-right: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
+			}
+			&:nth-child(4n) {
+				border-right: none;
+			}
+			&:nth-child(1),
+			&:nth-child(2),
+			&:nth-child(3),
+			&:nth-child(4) {
+				border-top: none;
+			}
+	}
 	}
 `
 
@@ -100,11 +134,14 @@ const AnswerColumn = styled.article`
 
 const WrapperContent = styled.section<{ centerContent?: boolean, }>`
 	display: grid;
+	padding: ${UiTokens.spacing.size52} 0;
 	gap: ${UiTokens.spacing.size80};
-	padding: ${UiTokens.spacing.size96} 0;
 	${({ centerContent, }) => (centerContent && css`
 		place-items: center;
 	`)}
+	@media ${device.desktop} {
+		padding: ${UiTokens.spacing.size96} 0;
+	}
 `
 
 const AlignContentCenter = styled.article`
@@ -119,6 +156,7 @@ export const HomePageStyled = {
 	Layout,
 	Row,
 	Grid,
+	ComponentsGrid,
 	AnswerColumn,
 	WrapperContent,
 	AlignContentCenter,

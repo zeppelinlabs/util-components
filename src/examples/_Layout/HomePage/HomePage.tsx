@@ -109,9 +109,9 @@ const HomePage = (props: Props) => {
 						</TextStyled.Weight>
 						and much more
 					</TextStyled.Heading4xl>
-					<HomePageStyled.Grid withoutGap>
+					<HomePageStyled.ComponentsGrid>
 						{props.children}
-					</HomePageStyled.Grid>
+					</HomePageStyled.ComponentsGrid>
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"

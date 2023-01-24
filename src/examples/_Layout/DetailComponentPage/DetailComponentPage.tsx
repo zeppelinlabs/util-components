@@ -68,6 +68,7 @@ const DetailComponentPage = (props: Props) => {
 	</DetailComponentPageStyled.Wrapper>
 }
 export default DetailComponentPage
+
 type TitleProps = {
 	title: string,
 	children: React.ReactNode,
