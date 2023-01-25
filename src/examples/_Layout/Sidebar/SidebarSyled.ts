@@ -4,6 +4,7 @@ import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { device } from "../../../styles/mediaQueries"
 import { thp } from "../../../styles/themeHelpers"
+import { zIndex } from "../../../styles/zIndexHelper"
 
 const ContainerNavigation = styled.article`
 	background-color: ${thp.base.level1000._};
@@ -58,7 +59,7 @@ const OverlayMenu = styled.div<{ isOpen: boolean, }>`
 	width: 100%;
 	height: 100%;
 	background-color: ${thp.base.level1000._};
-	z-index: 1;
+	z-index: ${zIndex.layer2};
 	transition: all .3s ease-out;
 	opacity: 0;
 	visibility: hidden;
@@ -103,7 +104,7 @@ const AccordionContent = styled.div<{ isOpen: boolean, }>`
 	max-height: 0;
 	transition: max-height .1s;
 	${({ isOpen, }) => isOpen && css`
-		max-height: 400px;
+		max-height: 800px;
 		transition: max-height .3s;
 	`}
 `

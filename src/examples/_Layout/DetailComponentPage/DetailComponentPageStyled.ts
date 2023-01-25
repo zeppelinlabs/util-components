@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
@@ -9,6 +8,7 @@ import { thp } from "../../../styles/themeHelpers"
 
 const Wrapper = styled.section`
 	${GlobalStyledHelper._Layout}
+	display: block;
 `
 
 const Row = styled.article`
@@ -20,14 +20,18 @@ const Row = styled.article`
 `
 
 const WrapperContent = styled.main`
-	grid-column: 5/17;
 	display: flex;
 	flex-flow: column;
-	align-items: flex-start;
-	gap: ${UiTokens.spacing.size80};
-	padding: 70px 0;
+	gap: ${UiTokens.spacing.size60};
+	padding: 32px 0;
 	@media ${device.desktopM} {
 		grid-column: 4/17;
+	}
+	@media ${device.desktop} {
+		align-items: flex-start;
+		grid-column: 5/17;
+		gap: ${UiTokens.spacing.size80};
+		padding: 70px 0;
 	}
 	hr{
 		width: 100%;
@@ -40,22 +44,31 @@ const WrapperTitle = styled.article`
 `
 
 const WrapperSubTitle = styled.article`
-	display: grid;
+	display: flex;
 	width: 100%;
 	gap: ${UiTokens.spacing.size16};
+	flex-direction: column;
+	@media ${device.desktop} {
+		display: grid;
+	}
 `
 
 const StageComponents = styled.div`
-	display: flex;
+	display: grid;
 	flex-wrap: wrap;
 	justify-content: center;
 	border-radius: ${UiTokens.borderRadius.size8};
 	border: 1px solid ${thp.base.level100._};
-	padding: ${UiTokens.spacing.size60};
-	gap: ${UiTokens.spacing.size60};
+	padding: ${UiTokens.spacing.size48};
+	gap: ${UiTokens.spacing.size48};
 	width: 100%;
-	margin-top: ${UiTokens.spacing.size20};
 	background-color: #FAFAFA;
+	margin-top: ${UiTokens.spacing.size20};
+	@media ${device.desktop} {
+		display: flex;
+		gap: ${UiTokens.spacing.size60};
+		padding: ${UiTokens.spacing.size60};
+	}
 `
 const ContainComponentAndText = styled.div`
 	display: grid;

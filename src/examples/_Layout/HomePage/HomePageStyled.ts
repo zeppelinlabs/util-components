@@ -5,6 +5,7 @@ import { thp } from "../../../styles/themeHelpers"
 import MainBannerLeft from "../../../assets/examples/hero-home-left.png"
 import MainBannerRight from "../../../assets/examples/hero-home-right.png"
 import { device } from "../../../styles/mediaQueries"
+import { zIndex } from "../../../styles/zIndexHelper"
 
 const Row = styled.section`
 	${GlobalStyledHelper._Row};
@@ -44,7 +45,7 @@ const Layout = styled.section<{
 	`)}
 	${Row}{
 		position:relative;
-		z-index: 1;
+		z-index: ${zIndex.layer1};
 	}
 	@media ${device.desktopXL} {
 		&::before{

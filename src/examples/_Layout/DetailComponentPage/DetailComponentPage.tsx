@@ -6,7 +6,6 @@ import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import Button, { ButtonSize } from "../../../components/Button/Button"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
-
 import { TextStyled } from "../../../styles/typographic"
 import { toastNotification } from "../../../util/toastNotification"
 import { SidebarDesktop } from "../Sidebar/Sidebar"
