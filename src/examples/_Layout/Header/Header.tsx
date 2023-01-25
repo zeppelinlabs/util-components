@@ -9,6 +9,7 @@ import { NavLink } from "react-router-dom"
 import Search from "./Search"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
+import { Sidebar } from "../Sidebar/Sidebar"
 
 const Header = () => {
 	const windowSize = useWindowSize()
@@ -73,7 +74,10 @@ const Header = () => {
 
 			</HeaderStyled.Row>
 		</HeaderStyled.Wrapper>
-		{windowSize.width < size.desktop && <Search />}
+		{windowSize.width < size.desktop && <>
+			<Search />
+			<Sidebar isOpen={isMenuOpen} onNavigate={() => setIsMenuOpen(false)} />
+		</>}
 	</>
 }
 

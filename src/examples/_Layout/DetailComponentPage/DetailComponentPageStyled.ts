@@ -19,48 +19,6 @@ const Row = styled.article`
 	height: auto;
 `
 
-const ContainerNavigation = styled.article`
-	background-color: ${thp.base.level1000._};
-	grid-column: span 3;
-	position: relative;
-	padding: 70px 0;
-	&:before{
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 25vw;
-		height: 100%;
-		background-color: ${thp.base.level1000._};
-	}
-	@media ${device.desktopM} {
-		grid-column: span 2;
-	}
-`
-
-const Navigation = styled.nav`
-	position: sticky;
-	display: grid;
-	gap: 16px;
-	top: 130px;
-`
-
-const Link = styled(NavLink)`
-	text-decoration: none;
-	color: ${thp.base.level500._};
-	font-size: 1.6rem;
-	font-weight: ${FontsTokens.weights.Primary.regular};
-	transition: all .3s ease-out;
-
-	&.active{
-		color: ${thp.base.level0._};
-		font-weight: ${FontsTokens.weights.Primary.semibold};
-	}
-	&:hover{
-		color: ${thp.base.level0._};
-	}
-`
-
 const WrapperContent = styled.main`
 	grid-column: 5/17;
 	display: flex;
@@ -135,10 +93,7 @@ const ContainerCopyButton = styled.div`
 export const DetailComponentPageStyled = {
 	Wrapper,
 	Row,
-	ContainerNavigation,
 	WrapperContent,
-	Link,
-	Navigation,
 	WrapperTitle,
 	WrapperSubTitle,
 	StageComponents,
