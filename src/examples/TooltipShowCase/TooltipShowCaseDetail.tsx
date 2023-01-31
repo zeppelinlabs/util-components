@@ -3,15 +3,21 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
     from "../../components/Tooltip/Tooltip"
+import { useWindowSize } from "../../hooks/useWindowsSize"
+import { size } from "../../styles/mediaQueries"
 import { TextStyled } from "../../styles/typographic"
 import DetailComponentPage, { Title, Description }
     from "../_Layout/DetailComponentPage/DetailComponentPage"
 import tooltipCodeViewerStrings from "./TooltipCodeViewerStrings"
 
 const TooltipShowCaseDetail = () => {
+    const windowSize = useWindowSize()
+    const isDesktop = windowSize.width >= size.desktop
 
     const { t, } = useTranslation()
     const { t: t_PageTooltip, } = useTranslation("PageComponentTooltip")
+
+    const labelText = isDesktop ? t_PageTooltip("hover") : t_PageTooltip("click")
 
     return <DetailComponentPage>
         <Title title={t_PageTooltip("mainSection.title")}>
@@ -25,7 +31,7 @@ const TooltipShowCaseDetail = () => {
                     name: t("common.primary"),
                     component: <Tooltip tooltipContent={t_PageTooltip("tooltip")}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -35,7 +41,7 @@ const TooltipShowCaseDetail = () => {
                         customStyles={{ tooltipVariant: TooltipVariant.Secondary, }}
                     >
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -43,7 +49,7 @@ const TooltipShowCaseDetail = () => {
         >
             {tooltipCodeViewerStrings.type({
                 tooltipContent: t_PageTooltip("tooltip"),
-                label: t_PageTooltip("hover"),
+                label: labelText,
             })}
         </Description>
 
@@ -55,7 +61,7 @@ const TooltipShowCaseDetail = () => {
                     component: <Tooltip tooltipContent={t_PageTooltip("tooltip")}
                         customStyles={{ align: TooltipAlign.Center, }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -64,7 +70,7 @@ const TooltipShowCaseDetail = () => {
                     component: <Tooltip tooltipContent={t_PageTooltip("tooltip")}
                         customStyles={{ align: TooltipAlign.Left, }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -73,7 +79,7 @@ const TooltipShowCaseDetail = () => {
                     component: <Tooltip tooltipContent={t_PageTooltip("tooltip")}
                         customStyles={{ align: TooltipAlign.Right, }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -85,7 +91,7 @@ const TooltipShowCaseDetail = () => {
                             position: TooltipPosition.Left,
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -97,7 +103,7 @@ const TooltipShowCaseDetail = () => {
                             position: TooltipPosition.Right,
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -109,7 +115,7 @@ const TooltipShowCaseDetail = () => {
                             position: TooltipPosition.Bottom,
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -117,7 +123,7 @@ const TooltipShowCaseDetail = () => {
         >
             {tooltipCodeViewerStrings.variants({
                 tooltipContent: t_PageTooltip("tooltip"),
-                label: t_PageTooltip("hover"),
+                label: labelText,
             })}
         </Description>
 
@@ -130,7 +136,7 @@ const TooltipShowCaseDetail = () => {
                             size: TooltipSize.MaxContent,
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -142,7 +148,7 @@ const TooltipShowCaseDetail = () => {
                             textSize: "xs",
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -154,7 +160,7 @@ const TooltipShowCaseDetail = () => {
                             textSize: "xl",
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -166,7 +172,7 @@ const TooltipShowCaseDetail = () => {
                             textSize: "2xl",
                         }}>
                         <TextStyled.BodyBase>
-                            {t_PageTooltip("hover")}
+                            {labelText}
                         </TextStyled.BodyBase>
                     </Tooltip>,
                 },
@@ -174,7 +180,7 @@ const TooltipShowCaseDetail = () => {
         >
             {tooltipCodeViewerStrings.sizes({
                 tooltipContent: t_PageTooltip("tooltip"),
-                label: t_PageTooltip("hover"),
+                label: labelText,
             })}
         </Description>
     </DetailComponentPage>

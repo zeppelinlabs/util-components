@@ -1,5 +1,6 @@
 {
     "hover": "Hover here",
+    "click": "Click here",
     "tooltip": "Tooltip",
     "mainSection": {
         "title": "Tooltip",
