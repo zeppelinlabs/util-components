@@ -8,7 +8,6 @@ import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg"
 import { useNavigate } from "react-router-dom"
 import { IconPosition } from "../../../components/CommonTypes"
 
-
 const Search = () => {
 	const [searchValue, setSearchValue,] = useState<string>("")
 
@@ -50,7 +49,9 @@ const Search = () => {
 								<span>
 									{result.name}
 								</span>
-								<AngleRight />
+								<HeaderStyled.ArrowContainer>
+									<AngleRight />
+								</HeaderStyled.ArrowContainer>
 							</HeaderStyled.SearchOption>
 						})
 						: <HeaderStyled.SearchResultNotFound>

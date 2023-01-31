@@ -101,6 +101,7 @@ const SearchContainer = styled.article`
 	display: flex;
 	position: relative;
 	margin: 16px 16px 0 16px;
+	z-index: ${zIndex.layer2};
 	@media ${device.desktop} {
 		display: flex;
 		margin: 0;
@@ -179,6 +180,14 @@ const ButtonLine = styled.div`
 	transform-origin: left;
 `
 
+const ArrowContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 16px;
+	height: 16px;
+`
+
 export const HeaderStyled = {
 	Wrapper,
 	Row,
@@ -194,4 +203,5 @@ export const HeaderStyled = {
 	SearchResultNotFound,
 	ButtonMenu,
 	ButtonLine,
+	ArrowContainer,
 }
