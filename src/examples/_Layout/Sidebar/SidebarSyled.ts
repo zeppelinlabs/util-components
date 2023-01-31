@@ -63,6 +63,7 @@ const OverlayMenu = styled.div<{ isOpen: boolean, }>`
 	transition: all .3s ease-out;
 	opacity: 0;
 	visibility: hidden;
+	overflow-y: auto;
 	${({ isOpen, }) => isOpen && css`
 		opacity: 1;
 		visibility: visible;
