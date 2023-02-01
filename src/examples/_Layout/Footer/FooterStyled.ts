@@ -1,3 +1,4 @@
+import { FontsTokens } from "./../../../styles/designTokens/fontsTokens"
 import styled from "styled-components"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
@@ -37,7 +38,8 @@ const ContainerFooterNav = styled.article`
 `
 
 const Link = styled.a`
-	font-size: 1.6rem;
+	font-size: ${FontsTokens.sizes.Primary.base};
+	font-weight: ${FontsTokens.weights.Primary.regular};
 	color: ${thp.base.level200._};
 	text-decoration: none;
 	transition: all .3s ease-out;
