@@ -94,6 +94,7 @@ const HeadingXl = styled.h4<TextStyleCommonProps>`
 		${FontsTokens.sizes.Primary.xl};
 	}
 `
+
 const BodyLg = styled.p<TextStyleCommonProps>`
 	${TextStyleBase}
 	${FontsTokens.sizes.Primary.base}
