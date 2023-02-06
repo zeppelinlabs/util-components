@@ -103,7 +103,6 @@ const SearchContainer = styled.article`
 	margin: 16px 16px 0 16px;
 	z-index: ${zIndex.layer2};
 	@media ${device.desktop} {
-		display: flex;
 		margin: 0;
 	}
 `

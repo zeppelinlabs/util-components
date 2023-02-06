@@ -14,8 +14,8 @@ const Row = styled.section`
 `
 
 const Layout = styled.section<{
-	isDarkMode?: boolean,
-	isMainBanner?: boolean,
+    isDarkMode?: boolean,
+    isMainBanner?: boolean,
 }>`
     ${GlobalStyledHelper._Layout};
     ${({ isDarkMode, }) => (isDarkMode && css`
@@ -151,65 +151,14 @@ const AlignContentCenter = styled.article`
     justify-content: center;
     width: 100%;
 `
-
-const Title = styled.text`
-    ${TextStyleBase}
-    font-weight: ${FontsTokens.weights.Primary.medium};
-    ${FontsTokens.sizes.Primary["2xl"]};
-    @media ${device.desktop} {
-        ${FontsTokens.sizes.Primary["5xl"]};
-    }
-`
-
-const Subtitle = styled.text`
-    ${TextStyleBase}
-    font-weight: ${FontsTokens.weights.Primary.medium};
-    ${FontsTokens.sizes.Primary.lg};
-    @media ${device.desktop} {
-        ${FontsTokens.sizes.Primary.xl};
-    }
-`
-
-const Text = styled.text`
-    ${TextStyleBase}
-    color: ${thp.base.level300._};
-    ${FontsTokens.sizes.Primary.base};
-    @media ${device.desktop} {
-        ${FontsTokens.sizes.Primary["2xl"]};
-    }
-`
-
-const Paragraph = styled.p`
-    ${TextStyleBase}
-    font-weight: ${FontsTokens.weights.Primary.light};
-    ${FontsTokens.sizes.Primary.sm};
-    @media ${device.desktop} {
-        ${FontsTokens.sizes.Primary.base};
-    }
-`
-
-const ExtraTitle = styled.text<TextStyleCommonProps>`
-    ${TextStyleBase}
-    font-weight: ${FontsTokens.weights.Primary.light};
-    ${FontsTokens.sizes.Primary.xl};
-    @media ${device.desktop} {
-        ${FontsTokens.sizes.Primary["4xl"]};
-    }
-`
-
 export const HomePageStyled = {
-	Layout,
-	Row,
-	Grid,
-	ComponentsGrid,
-	AnswerColumn,
-	WrapperContent,
-	AlignContentCenter,
-	ContainerComponent,
-	HeroContainer,
-	Title,
-	Subtitle,
-	Text,
-	Paragraph,
-	ExtraTitle,
+    Layout,
+    Row,
+    Grid,
+    ComponentsGrid,
+    AnswerColumn,
+    WrapperContent,
+    AlignContentCenter,
+    ContainerComponent,
+    HeroContainer,
 }

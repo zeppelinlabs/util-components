@@ -30,15 +30,15 @@ const HomePage = (props: Props) => {
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent centerContent>
 					<HomePageStyled.HeroContainer isBigTitle>
-						<HomePageStyled.Title>
+						<TextStyled.Heading5xl textWeight="medium">
 							Simple and fast fully customizable components
-						</HomePageStyled.Title>
+						</TextStyled.Heading5xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.HeroContainer>
-						<HomePageStyled.Text>
+						<TextStyled.Heading2xl textColor="level400">
 							UI tools to create whatever you want. Use our library full of production-ready components, or customize it as you need!
-						</HomePageStyled.Text>
+						</TextStyled.Heading2xl>
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.AlignContentCenter>
@@ -67,36 +67,36 @@ const HomePage = (props: Props) => {
 				<HomePageStyled.WrapperContent>
 					<HomePageStyled.Grid>
 						<HomePageStyled.AnswerColumn>
-							<HomePageStyled.Subtitle>
+							<TextStyled.HeadingXl textWeight="medium">
 								Customizable
-							</HomePageStyled.Subtitle>
-							<HomePageStyled.Paragraph>
+							</TextStyled.HeadingXl>
+							<TextStyled.BodyBase textWeight="light">
 								You can change colors, fonts, sizes, or whatever you want! Have full control over how they look and behave.
-							</HomePageStyled.Paragraph>
+							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
-							<HomePageStyled.Subtitle>
+							<TextStyled.HeadingXl textWeight="medium">
 								Easy to use
-							</HomePageStyled.Subtitle>
-							<HomePageStyled.Paragraph>
+							</TextStyled.HeadingXl>
+							<TextStyled.BodyBase textWeight="light">
 								Ready to copy and paste, just adjust the styles as you want or need.
-							</HomePageStyled.Paragraph>
+							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
-							<HomePageStyled.Subtitle>
+							<TextStyled.HeadingXl textWeight="medium">
 								Figma file
-							</HomePageStyled.Subtitle>
-							<HomePageStyled.Paragraph>
+							</TextStyled.HeadingXl>
+							<TextStyled.BodyBase textWeight="light">
 								Full Figma design source, a file you could use to prototype or experiment.
-							</HomePageStyled.Paragraph>
+							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 						<HomePageStyled.AnswerColumn>
-							<HomePageStyled.Subtitle>
+							<TextStyled.HeadingXl textWeight="medium">
 								Ready to use
-							</HomePageStyled.Subtitle>
-							<HomePageStyled.Paragraph>
+							</TextStyled.HeadingXl>
+							<TextStyled.BodyBase textWeight="light">
 								Our library is designed and coded, every component you use is ready for production.
-							</HomePageStyled.Paragraph>
+							</TextStyled.BodyBase>
 						</HomePageStyled.AnswerColumn>
 					</HomePageStyled.Grid>
 				</HomePageStyled.WrapperContent>
@@ -106,12 +106,12 @@ const HomePage = (props: Props) => {
 		<HomePageStyled.Layout>
 			<HomePageStyled.Row>
 				<HomePageStyled.WrapperContent>
-					<HomePageStyled.ExtraTitle hasDotEnd>
+					<TextStyled.Heading4xl textWeight={"light"} hasDotEnd>
 						<TextStyled.Weight textWeight="semibold">
 							Essential components <br />
 						</TextStyled.Weight>
 						and much more
-					</HomePageStyled.ExtraTitle>
+					</TextStyled.Heading4xl>
 					<HomePageStyled.ComponentsGrid>
 						{props.children}
 					</HomePageStyled.ComponentsGrid>

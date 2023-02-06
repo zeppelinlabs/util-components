@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import styled, { css } from "styled-components"
 import { FontsTokens } from "./designTokens/fontsTokens"
+import { device } from "./mediaQueries"
 import {
 	TextAlignKeys,
 	TextWeightKeys,
@@ -59,7 +60,10 @@ const Heading6xl = styled.h2<TextStyleCommonProps>`
 
 const Heading5xl = styled.h2<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary["5xl"]};
+	${FontsTokens.sizes.Primary["2xl"]};
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary["5xl"]};
+	}
 `
 
 const Heading4xl = styled.h3<TextStyleCommonProps>`
@@ -69,21 +73,33 @@ const Heading4xl = styled.h3<TextStyleCommonProps>`
 
 const Heading3xl = styled.h3<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary["3xl"]};
+	${FontsTokens.sizes.Primary.xl}
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary["3xl"]};
+	}
 `
 
 const Heading2xl = styled.h4<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary["2xl"]};
+	${FontsTokens.sizes.Primary.base}
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary["2xl"]};
+	}
 `
 
 const HeadingXl = styled.h4<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary.xl};
+	${FontsTokens.sizes.Primary.lg}
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary.xl};
+	}
 `
 const BodyLg = styled.p<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary.lg};
+	${FontsTokens.sizes.Primary.base}
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary.lg};
+	}
 `
 
 const BodyXl = styled.p<TextStyleCommonProps>`
@@ -93,7 +109,10 @@ const BodyXl = styled.p<TextStyleCommonProps>`
 
 const BodyBase = styled.p<TextStyleCommonProps>`
 	${TextStyleBase}
-	${FontsTokens.sizes.Primary.base};
+	${FontsTokens.sizes.Primary.sm};
+	@media ${device.desktop} {
+		${FontsTokens.sizes.Primary.base};
+	}
 `
 
 const BodySm = styled.p<TextStyleCommonProps>`
