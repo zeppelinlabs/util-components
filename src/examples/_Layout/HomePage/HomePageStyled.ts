@@ -94,7 +94,7 @@ const Grid = styled.section`
 
 const ComponentsGrid = styled.section`
     display: grid;
-    grid-template-columns: 1fr ,1fr;
+    grid-template-columns: 1fr 1fr;
     ${ContainerComponent} {
         &:nth-child(2n) {
             border-right: none;
