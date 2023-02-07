@@ -26,11 +26,11 @@ const ContainerNavigation = styled.article`
 `
 
 const Navigation = styled.nav`
-	position: sticky;
 	display: grid;
 	gap: 24px;
-	top: 130px;
 	@media ${device.desktop} {
+		top: 130px;
+		position: sticky;
 		gap: 16px;
 	}
 `
@@ -53,11 +53,11 @@ const Link = styled(NavLink)`
 
 const OverlayMenu = styled.div<{ isOpen: boolean, }>`
 	position: fixed;
-	padding: 124px 16px;
-	top: 0;
+	padding: 24px 16px;
+	top: 100px;
 	left: 0;
 	width: 100%;
-	height: 100%;
+	height: calc(100vh - 100px);
 	background-color: ${thp.base.level1000._};
 	z-index: ${zIndex.layer2};
 	transition: all .3s ease-out;
@@ -88,7 +88,7 @@ const NavLinkAnchor = styled.a`
 
 const AccordionLabel = styled.label<{ isOpen: boolean, }>`
 	color: ${thp.base.level0._};
-	font-size: 1.6rem;
+	font-size: ${FontsTokens.sizes.Primary.base};
 	font-weight: ${FontsTokens.weights.Primary.semibold};
 	display: grid;
 	align-items: center;
@@ -103,10 +103,10 @@ const AccordionLabel = styled.label<{ isOpen: boolean, }>`
 const AccordionContent = styled.div<{ isOpen: boolean, }>`
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height .1s;
+	transition: max-height .1s ease-in;
 	${({ isOpen, }) => isOpen && css`
-		max-height: 800px;
-		transition: max-height .3s;
+		max-height: 100%;
+		transition: max-height .3s ease-out;
 	`}
 `
 
