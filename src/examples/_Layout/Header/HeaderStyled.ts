@@ -170,12 +170,12 @@ const ButtonMenu = styled.button<{ isOpen: boolean, }>`
 	}
 `
 
-const ButtonLine = styled.div`
+const ButtonLine = styled.span`
 	background: ${thp.base.level1000._};
 	height: 3px;
 	width: 75%;
 	border-radius: 5px;
-	transition: all .5s;
+	transition: all .5s ease-out;
 	transform-origin: left;
 `
 

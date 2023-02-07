@@ -6,8 +6,6 @@ import MainBannerLeft from "../../../assets/examples/hero-home-left.png"
 import MainBannerRight from "../../../assets/examples/hero-home-right.png"
 import { device } from "../../../styles/mediaQueries"
 import { zIndex } from "../../../styles/zIndexHelper"
-import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
-import { TextStyleBase, TextStyleCommonProps } from "../../../styles/typographic"
 
 const Row = styled.section`
     ${GlobalStyledHelper._Row};
@@ -67,7 +65,6 @@ const HeroContainer = styled.article<{ isBigTitle?: boolean, }>`
 const ContainerComponent = styled.article`
     border-top: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
     border-right: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
-    grid-column: span 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +94,7 @@ const Grid = styled.section`
 
 const ComponentsGrid = styled.section`
     display: grid;
-    grid-template-columns: repeat(4,1fr);
+    grid-template-columns: 1fr ,1fr;
     ${ContainerComponent} {
         &:nth-child(2n) {
             border-right: none;
@@ -108,7 +105,7 @@ const ComponentsGrid = styled.section`
         }
     }
     @media ${device.desktop} {
-        grid-template-columns: repeat(8,1fr);
+        grid-template-columns: repeat(4,1fr);
         ${ContainerComponent} {
             &:nth-child(2n) {
                 border-right: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
@@ -122,7 +119,7 @@ const ComponentsGrid = styled.section`
             &:nth-child(4) {
                 border-top: none;
             }
-    }
+        }
     }
 `
 
@@ -151,6 +148,7 @@ const AlignContentCenter = styled.article`
     justify-content: center;
     width: 100%;
 `
+
 export const HomePageStyled = {
     Layout,
     Row,
