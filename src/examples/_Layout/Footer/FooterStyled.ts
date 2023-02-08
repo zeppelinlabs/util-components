@@ -9,8 +9,11 @@ const Wrapper = styled.footer`
 	${GlobalStyledHelper._Layout}
 	justify-content: center;
 	background-color: ${thp.base.level1000._};
-	padding-top: 20px;
-	padding-bottom: 20px;
+	padding-top: 45px;
+	padding-bottom: 45px;
+	@media ${device.desktop} {
+		height: 100px;
+	}
 `
 
 const Row = styled.section`

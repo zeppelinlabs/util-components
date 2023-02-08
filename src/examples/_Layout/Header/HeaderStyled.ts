@@ -8,7 +8,7 @@ import { device } from "../../../styles/mediaQueries"
 
 const Wrapper = styled.header`
 	${GlobalStyledHelper._Layout}
-	min-height: 100px;
+	height: 80px;
 	justify-content: center;
 	position: sticky;
 	top: 0;
@@ -16,6 +16,9 @@ const Wrapper = styled.header`
 	background-color: ${thp.base.level0._};
 	border-bottom: 1px solid ${thp.base.level100._};
 	z-index: ${zIndex.layer3};
+	@media ${device.desktop} {
+		height: 100px;
+	}
 `
 
 const Row = styled.section`
