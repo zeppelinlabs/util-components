@@ -21,26 +21,38 @@ const Layout = styled.section<{
         color: ${thp.base.level0._};
     `)}
     ${({ isMainBanner, }) => (isMainBanner && css`
-    position: relative;
-    &::after,
-    &::before{
-            content: "";
-            width: calc(50vw - 240px);
-            position: absolute;
-            height: 100%;
-            top: 0;
-            background-repeat: no-repeat;
-            background-size: auto 100%;
+        position: relative;
+        &::after,
+        &::before {
+                content: "";
+                width: calc(50vw - 100px);
+                position: absolute;
+                height: 100%;
+                top: 0;
+                background-repeat: no-repeat;
+                background-size: auto 100%;
         }
-        &::before{
+        &::before {
             left: 0;
             background-image: url(${MainBannerLeft});
             background-position: right center;
         }
-        &::after{
+        &::after {
             right: 0;
             background-image: url(${MainBannerRight});
             background-position: left center;
+        }
+        @media ${device.tablet} {
+            &::after,
+            &::before {
+                width: calc(50vw - 200px);
+            }
+        }
+        @media ${device.desktop} {
+            &::after,
+            &::before {
+                width: calc(50vw - 240px);
+            }
         }
     `)}
     ${Row}{
@@ -59,7 +71,10 @@ const Layout = styled.section<{
 
 const HeroContainer = styled.article<{ isBigTitle?: boolean, }>`
     text-align: center;
-    max-width: ${({ isBigTitle, }) => (isBigTitle ? " 820px" : "630px")};
+    max-width: ${({ isBigTitle, }) => (isBigTitle ? "500px" : "400px")};
+    @media ${device.desktop} {
+        max-width: ${({ isBigTitle, }) => (isBigTitle ? "820px" : "630px")};
+    }
 `
 
 const ContainerComponent = styled.article`

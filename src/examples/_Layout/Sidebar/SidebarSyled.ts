@@ -91,13 +91,15 @@ const AccordionLabel = styled.label<{ isOpen: boolean, }>`
 	font-size: ${FontsTokens.sizes.Primary.base};
 	font-weight: ${FontsTokens.weights.Primary.semibold};
 	display: grid;
-	align-items: center;
 	grid-template-columns: auto 1fr;
 	column-gap: ${UiTokens.spacing.size12};
 	cursor: pointer;
 	${({ isOpen, }) => isOpen && css`
-		row-gap: ${UiTokens.spacing.size24};
+	row-gap: ${UiTokens.spacing.size24};
 	`}
+	@media ${device.desktop} {
+		align-items: center;
+	}
 `
 
 const AccordionContent = styled.div<{ isOpen: boolean, }>`
