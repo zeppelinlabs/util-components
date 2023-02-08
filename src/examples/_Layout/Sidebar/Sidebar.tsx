@@ -8,7 +8,7 @@ import { ReactComponent as ArrowTop } from "../../../assets/icons/arrow-top.svg"
 const ComponentsButtonList = (props: { onNavigate?: () => void, }) => {
 
     const handleOnClick = () => {
-        window.scrollTo(0, 0)
+        setTimeout(() => { window.scrollTo(0, 0) }, 100)
         props.onNavigate && props.onNavigate()
     }
 

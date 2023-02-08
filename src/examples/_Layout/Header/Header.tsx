@@ -23,7 +23,10 @@ const Header = () => {
 	return <>
 		<HeaderStyled.Wrapper>
 			<HeaderStyled.Row>
-				<NavLink onClick={() => window.scrollTo(0, 0)} to={Paths.Home}>
+				<NavLink
+					onClick={() => setTimeout(() => { window.scrollTo(0, 0) }, 100)}
+					to={Paths.Home}
+				>
 					<img src={ZeppelinComponentsLogo} alt="Zeppelin Components" />
 				</NavLink>
 				<HeaderStyled.Nav>

@@ -23,7 +23,7 @@ const Search = () => {
 		setSearchValue("")
 		navigate(link)
 
-		return window.scrollTo(0, 0)
+		return setTimeout(() => { window.scrollTo(0, 0) }, 100)
 	}
 
 	return <HeaderStyled.SearchContainer>
