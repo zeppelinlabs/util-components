@@ -103,7 +103,7 @@ const AccordionLabel = styled.label<{ isOpen: boolean, }>`
 const AccordionContent = styled.div<{ isOpen: boolean, }>`
 	overflow: hidden;
 	max-height: 0;
-	transition: max-height .1s ease-in;
+	transition: max-height .1s;
 	${({ isOpen, }) => isOpen && css`
 		max-height: 100%;
 		transition: max-height .3s ease-out;
