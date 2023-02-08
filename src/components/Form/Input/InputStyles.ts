@@ -49,7 +49,7 @@ export const InputGeneralStyles = css<InputProps>`
     box-sizing: border-box;
     padding: 8px 16px;
     color: ${thp.base.level1000._};
-    font-size: ${FontsTokens.sizes.Primary.sm.fontSize};
+    font-size: ${FontsTokens.sizes.Primary.base.fontSize};
     width: auto;
     height: ${p => getInputSize(p.customStyles?.size || InputSize.Medium)}px;
 
@@ -119,7 +119,7 @@ const Input = styled.input <InputProps>`
 
 const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     font-family:inherit;
-    font-size: ${FontsTokens.sizes.Primary.sm.fontSize};
+    font-size: ${FontsTokens.sizes.Primary.base.fontSize};
     font-weight: ${FontsTokens.weights.Primary.bold};
     position: absolute;
     top: 30%;
