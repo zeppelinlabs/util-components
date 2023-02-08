@@ -3,6 +3,7 @@ import { toast } from "react-toastify"
 import { DefaultThemeTokens } from "../styles/designTokens/defaultThemeTokens"
 import { FontsTokens } from "../styles/designTokens/fontsTokens"
 import { UiTokens } from "../styles/designTokens/uiTokens"
+import { device } from "../styles/mediaQueries"
 
 export const toastNotification = (message: string) => toast(message, {
     position: "bottom-center",
@@ -21,5 +22,6 @@ export const toastNotification = (message: string) => toast(message, {
         fontSize: FontsTokens.sizes.Primary.sm.fontSize,
         color: DefaultThemeTokens.base.level1000,
         borderRadius: UiTokens.borderRadius.size8,
+        margin: "24px 16px",
     },
 })
