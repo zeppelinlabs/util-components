@@ -64,6 +64,12 @@ const ButtonList = (props: { onNavigate?: () => void, }) => {
         <SidebarStyled.NavLinkAnchor href={Paths.AboutUs} target="_blank">
             About us
         </SidebarStyled.NavLinkAnchor>
+        <SidebarStyled.NavLinkAnchor href={Paths.Github} target="_blank">
+            Github
+        </SidebarStyled.NavLinkAnchor>
+        <SidebarStyled.NavLinkAnchor href={Paths.Figma} target="_blank">
+            Figma
+        </SidebarStyled.NavLinkAnchor>
     </>
 }
 
