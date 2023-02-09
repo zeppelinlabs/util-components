@@ -6,9 +6,11 @@ import { thp } from "../../../styles/themeHelpers"
 import { zIndex } from "../../../styles/zIndexHelper"
 import { device } from "../../../styles/mediaQueries"
 
+export const headerMobileHeight = "80px"
+
 const Wrapper = styled.header`
 	${GlobalStyledHelper._Layout}
-	height: 80px;
+	height: ${headerMobileHeight};
 	justify-content: center;
 	position: sticky;
 	top: 0;
