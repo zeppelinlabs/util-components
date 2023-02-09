@@ -90,6 +90,7 @@ const ContainerComponent = styled.article`
 const Grid = styled.section`
     display: grid;
     gap: ${UiTokens.spacing.size48};
+    padding: 0 ${UiTokens.spacing.size36};
     ${ContainerComponent}{
         &:nth-child(4n){
             border-right: none;
@@ -103,7 +104,8 @@ const Grid = styled.section`
     }
     @media ${device.desktop} {
         grid-template-columns: repeat(8,1fr);
-        gap: ${UiTokens.spacing.size20};
+        gap: ${UiTokens.spacing.size40};
+        padding: 0;
     }
 `
 
