@@ -54,10 +54,10 @@ const Link = styled(NavLink)`
 const OverlayMenu = styled.div<{ isOpen: boolean, }>`
 	position: fixed;
 	padding: 24px 16px;
-	top: 100px;
+	top: 80px;
 	left: 0;
 	width: 100%;
-	height: calc(100vh - 100px);
+	height: calc(100vh - 80px);
 	background-color: ${thp.base.level1000._};
 	z-index: ${zIndex.layer2};
 	transition: all .3s ease-out;
