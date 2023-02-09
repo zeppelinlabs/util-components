@@ -1,9 +1,7 @@
-import React from "react"
 import { toast } from "react-toastify"
 import { DefaultThemeTokens } from "../styles/designTokens/defaultThemeTokens"
 import { FontsTokens } from "../styles/designTokens/fontsTokens"
 import { UiTokens } from "../styles/designTokens/uiTokens"
-import { device } from "../styles/mediaQueries"
 
 export const toastNotification = (message: string) => toast(message, {
     position: "bottom-center",
