@@ -16,7 +16,7 @@ const ContainerNavigation = styled.article`
 		position: absolute;
 		top: 0;
 		right: 0;
-		width: 25vw;
+		width: 30vw;
 		height: 100%;
 		background-color: ${thp.base.level1000._};
 	}
@@ -29,7 +29,7 @@ const Navigation = styled.nav`
 	display: grid;
 	gap: 24px;
 	@media ${device.desktop} {
-		top: 130px;
+		top: 150px;
 		position: sticky;
 		gap: 16px;
 	}

@@ -64,8 +64,10 @@ const StageComponents = styled.div`
 	width: 100%;
 	background-color: #FAFAFA;
 	margin-top: ${UiTokens.spacing.size20};
-	@media ${device.desktop} {
+	@media ${device.tablet} {
 		display: flex;
+	}
+	@media ${device.desktop} {
 		gap: ${UiTokens.spacing.size60};
 		padding: ${UiTokens.spacing.size60};
 	}
