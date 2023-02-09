@@ -94,12 +94,12 @@ const NavListAnchor = styled.a`
 `
 
 const ContainerSearchBar = styled.article`
-	gap: ${UiTokens.spacing.size16};
 	justify-content: end;
-	grid-template-columns: 1fr;
 	display: none;
 	@media ${device.desktop} {
 		display: grid;
+		gap: ${UiTokens.spacing.size16};
+		grid-template-columns: 1fr 36px 36px;
 	}
 `
 

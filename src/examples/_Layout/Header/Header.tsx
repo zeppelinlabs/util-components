@@ -8,11 +8,22 @@ import Search from "./Search"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
 import { Sidebar } from "../Sidebar/Sidebar"
+import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
+import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
+import Button from "../../../components/Button/Button"
 
 const Header = () => {
 	const windowSize = useWindowSize()
 
 	const [isMenuOpen, setIsMenuOpen,] = useState(false)
+
+	const redirectToGithub = () => {
+		window.open(Paths.Github, "_blank")
+	}
+
+	const redirectToFigma = () => {
+		window.open(Paths.Figma, "_blank")
+	}
 
 	return <>
 		<HeaderStyled.Wrapper>
@@ -51,6 +62,20 @@ const Header = () => {
 				</HeaderStyled.Nav>
 				<HeaderStyled.ContainerSearchBar>
 					<Search />
+					<Button
+						type="button"
+						onClick={redirectToGithub}
+						icon={{
+							SVGComponent: GithubIcon,
+						}}
+					/>
+					<Button
+						type="button"
+						onClick={redirectToFigma}
+						icon={{
+							SVGComponent: FigmaIcon,
+						}}
+					/>
 				</HeaderStyled.ContainerSearchBar>
 				<HeaderStyled.ButtonMenu isOpen={isMenuOpen}
 					type="button"
