@@ -14,10 +14,6 @@ const Header = () => {
 
 	const [isMenuOpen, setIsMenuOpen,] = useState(false)
 
-	const HandleSearch = () => {
-		window.open(Paths.Github, "_blank")
-	}
-
 	return <>
 		<HeaderStyled.Wrapper>
 			<HeaderStyled.Row>
