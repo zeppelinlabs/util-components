@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom"
 import { Paths } from "../../Paths"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
+import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
+import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
 
 type Props = {
 	children: React.ReactNode,
@@ -19,6 +21,10 @@ const HomePage = (props: Props) => {
 
 	const redirectToComponents = () => {
 		return navigate(Paths.Components)
+	}
+
+	const redirectToGithub = () => {
+		return window.open(Paths.Github, "_blank")
 	}
 
 	const redirectToFigma = () => {
@@ -44,16 +50,22 @@ const HomePage = (props: Props) => {
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
-							onClick={redirectToComponents}
+							onClick={redirectToGithub}
 							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
+							icon={{
+								SVGComponent: GithubIcon,
+							}}
 						>
-							Get started!
+							Github
 						</Button>
 						<Button
 							type="button"
 							customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
 							onClick={redirectToFigma}
 							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
+							icon={{
+								SVGComponent: FigmaIcon,
+							}}
 						>
 							Figma File
 						</Button>
