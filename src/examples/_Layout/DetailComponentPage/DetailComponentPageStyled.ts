@@ -96,6 +96,9 @@ const WrapperCode = styled.article`
 	> pre{
 		border-radius: ${UiTokens.borderRadius.size16} !important;
 		padding: ${UiTokens.spacing.size24} !important;
+		> code {
+			white-space: pre !important;
+		}
 	}
 `
 
