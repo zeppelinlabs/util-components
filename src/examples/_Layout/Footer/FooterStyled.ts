@@ -20,22 +20,26 @@ const Row = styled.section`
 	${GlobalStyledHelper._Row}
 	display: grid;
 	grid-template-columns: 1fr;
+	img {
+		height: 30px;
+	}
 	@media ${device.desktop} {
 		grid-template-columns: 160px 1fr;
 		gap: ${UiTokens.spacing.size16};
 	}
 `
+
 const ContainerFooterNav = styled.article`
-	display: grid;
+	display: flex;
+	flex-direction: column;
 	gap: ${UiTokens.spacing.size16};
-	grid-template-rows: repeat(5, 1fr);
 	align-items: center;
 	justify-content: center;
 	margin-top: ${UiTokens.spacing.size24};
 	@media ${device.desktop} {
 		gap: ${UiTokens.spacing.size52};
 		justify-content: flex-end;
-		display: flex;
+		flex-direction: row;
 		margin: 0;
 	}
 `

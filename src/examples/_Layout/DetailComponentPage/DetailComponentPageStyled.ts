@@ -54,8 +54,9 @@ const WrapperSubTitle = styled.article`
 `
 
 const StageComponents = styled.div`
-	display: grid;
+	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
 	border-radius: ${UiTokens.borderRadius.size8};
 	border: 1px solid ${thp.base.level100._};
@@ -65,7 +66,7 @@ const StageComponents = styled.div`
 	background-color: #FAFAFA;
 	margin-top: ${UiTokens.spacing.size20};
 	@media ${device.tablet} {
-		display: flex;
+		flex-direction: unset;
 	}
 	@media ${device.desktop} {
 		gap: ${UiTokens.spacing.size60};

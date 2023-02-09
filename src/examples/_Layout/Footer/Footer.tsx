@@ -6,7 +6,7 @@ import { Paths } from "../../Paths"
 const Footer = () => {
 	return <FooterStyled.Wrapper>
 		<FooterStyled.Row>
-			<img src={ZeppelinLabsLogo} alt="Zeppelin Labs" height={"30px"} />
+			<img src={ZeppelinLabsLogo} alt="Zeppelin Labs" />
 			<FooterStyled.ContainerFooterNav>
 				{Paths.zeppelinSocialMedia.map((link, i) => {
 					return <FooterStyled.Link key={i} href={link.link} target="_blank">
