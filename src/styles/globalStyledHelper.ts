@@ -11,8 +11,8 @@ const _Layout = css`
 	align-items: center;
 
 	@media ${device.desktop} {
-		padding-left: 120px;
-		padding-right: 120px;
+		padding-left: 40px;
+		padding-right: 40px;
     }
 `
 const _Row = css`

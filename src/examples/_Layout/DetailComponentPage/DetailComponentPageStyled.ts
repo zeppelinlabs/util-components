@@ -9,6 +9,9 @@ import { thp } from "../../../styles/themeHelpers"
 const Wrapper = styled.section`
 	${GlobalStyledHelper._Layout}
 	display: block;
+	@media ${device.desktop} {
+		display: flex;
+	}
 `
 
 const Row = styled.article`
@@ -37,6 +40,7 @@ const WrapperContent = styled.main`
 		width: 100%;
 	}
 `
+
 const WrapperTitle = styled.article`
 	display: grid;
 	width: 100%;
