@@ -4,8 +4,9 @@ import { HeaderStyled } from "./HeaderStyled"
 import { SearchListData } from "./SearchListData"
 import { ReactComponent as AngleRight } from "../../../assets/icons/angle-right.svg"
 import { ReactComponent as FileAttachment } from "../../../assets/icons/file-attachment.svg"
+import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg"
 import { useNavigate } from "react-router-dom"
-
+import { IconPosition } from "../../../components/CommonTypes"
 
 const Search = () => {
 	const [searchValue, setSearchValue,] = useState<string>("")
@@ -22,7 +23,7 @@ const Search = () => {
 		setSearchValue("")
 		navigate(link)
 
-		return window.scrollTo(0, 0)
+		return setTimeout(() => { window.scrollTo(0, 0) }, 100)
 	}
 
 	return <HeaderStyled.SearchContainer>
@@ -31,6 +32,11 @@ const Search = () => {
 			placeholder="Search components"
 			value={searchValue}
 			onChange={setSearchValue}
+			icon={{
+				SVGComponent: SearchIcon,
+				position: IconPosition.right,
+			}
+			}
 		/>
 		{searchValue !== ""
 			&& <HeaderStyled.SearchListOptions>
@@ -43,7 +49,9 @@ const Search = () => {
 								<span>
 									{result.name}
 								</span>
-								<AngleRight />
+								<HeaderStyled.ArrowContainer>
+									<AngleRight />
+								</HeaderStyled.ArrowContainer>
 							</HeaderStyled.SearchOption>
 						})
 						: <HeaderStyled.SearchResultNotFound>

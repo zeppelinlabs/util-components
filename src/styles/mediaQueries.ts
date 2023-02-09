@@ -1,15 +1,15 @@
-const size = {
-    tablet: "768px",
-    desktop: "1024px",
-    desktopM: "1200px",
-    desktopL: "1440px",
-    desktopXL: "1550px",
+export const size = {
+    tablet: 768,
+    desktop: 1024,
+    desktopM: 1200,
+    desktopL: 1440,
+    desktopXL: 1550,
 }
 
 export const device = {
-    tablet: `(min-width: ${size.tablet})`,
-    desktop: `(min-width: ${size.desktop})`,
-    desktopM: `(min-width: ${size.desktopM})`,
-    desktopL: `(min-width: ${size.desktopL})`,
-    desktopXL: `(min-width: ${size.desktopXL})`,
+    tablet: `(min-width: ${size.tablet}px)`,
+    desktop: `(min-width: ${size.desktop}px)`,
+    desktopM: `(min-width: ${size.desktopM}px)`,
+    desktopL: `(min-width: ${size.desktopL}px)`,
+    desktopXL: `(min-width: ${size.desktopXL}px)`,
 }

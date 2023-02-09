@@ -145,13 +145,6 @@ const ActionButton = styled.button`
         opacity: 0.5;
         cursor:not-allowed;
     };
-    svg {
-		width: 100%;
-		height: 100%;
-		path{
-			fill: currentColor;
-		}
-	}
 `
 
 const InputTextArea = styled.textarea<InputProps>`
@@ -209,13 +202,6 @@ const IconContainer = styled.div<IconContainerProps>`
      ${props => props.position === IconPosition.right && css`
         right: 12px;
     `};
-    svg {
-		width: 100%;
-		height: 100%;
-		path{
-			fill: currentColor;
-		}
-	}
 `
 
 export const InputStyled = {

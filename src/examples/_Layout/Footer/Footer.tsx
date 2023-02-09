@@ -3,7 +3,6 @@ import { FooterStyled } from "./FooterStyled"
 import ZeppelinLabsLogo from "../../../assets/examples/zeppelin-labs.svg"
 import { Paths } from "../../Paths"
 
-
 const Footer = () => {
 	return <FooterStyled.Wrapper>
 		<FooterStyled.Row>

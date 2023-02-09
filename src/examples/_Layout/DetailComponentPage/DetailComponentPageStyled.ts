@@ -1,4 +1,3 @@
-import { NavLink } from "react-router-dom"
 import styled from "styled-components"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
@@ -9,6 +8,10 @@ import { thp } from "../../../styles/themeHelpers"
 
 const Wrapper = styled.section`
 	${GlobalStyledHelper._Layout}
+	display: block;
+	@media ${device.desktop} {
+		display: flex;
+	}
 `
 
 const Row = styled.article`
@@ -19,62 +22,25 @@ const Row = styled.article`
 	height: auto;
 `
 
-const ContainerNavigation = styled.article`
-	background-color: ${thp.base.level1000._};
-	grid-column: span 3;
-	position: relative;
-	padding: 70px 0;
-	&:before{
-		content: "";
-		position: absolute;
-		top: 0;
-		right: 0;
-		width: 25vw;
-		height: 100%;
-		background-color: ${thp.base.level1000._};
-	}
-	@media ${device.desktopM} {
-		grid-column: span 2;
-	}
-`
-
-const Navigation = styled.nav`
-	position: sticky;
-	display: grid;
-	gap: 16px;
-	top: 130px;
-`
-
-const Link = styled(NavLink)`
-	text-decoration: none;
-	color: ${thp.base.level500._};
-	font-size: 1.6rem;
-	font-weight: ${FontsTokens.weights.Primary.regular};
-	transition: all .3s ease-out;
-
-	&.active{
-		color: ${thp.base.level0._};
-		font-weight: ${FontsTokens.weights.Primary.semibold};
-	}
-	&:hover{
-		color: ${thp.base.level0._};
-	}
-`
-
 const WrapperContent = styled.main`
-	grid-column: 5/17;
 	display: flex;
 	flex-flow: column;
-	align-items: flex-start;
-	gap: ${UiTokens.spacing.size80};
-	padding: 70px 0;
+	gap: ${UiTokens.spacing.size60};
+	padding: 32px 0;
 	@media ${device.desktopM} {
 		grid-column: 4/17;
+	}
+	@media ${device.desktop} {
+		align-items: flex-start;
+		grid-column: 5/17;
+		gap: ${UiTokens.spacing.size80};
+		padding: 70px 0;
 	}
 	hr{
 		width: 100%;
 	}
 `
+
 const WrapperTitle = styled.article`
 	display: grid;
 	width: 100%;
@@ -82,22 +48,34 @@ const WrapperTitle = styled.article`
 `
 
 const WrapperSubTitle = styled.article`
-	display: grid;
+	display: flex;
 	width: 100%;
 	gap: ${UiTokens.spacing.size16};
+	flex-direction: column;
+	@media ${device.desktop} {
+		display: grid;
+	}
 `
 
 const StageComponents = styled.div`
 	display: flex;
 	flex-wrap: wrap;
+	flex-direction: column;
 	justify-content: center;
 	border-radius: ${UiTokens.borderRadius.size8};
 	border: 1px solid ${thp.base.level100._};
-	padding: ${UiTokens.spacing.size60};
-	gap: ${UiTokens.spacing.size60};
+	padding: ${UiTokens.spacing.size48};
+	gap: ${UiTokens.spacing.size48};
 	width: 100%;
-	margin-top: ${UiTokens.spacing.size20};
 	background-color: #FAFAFA;
+	margin-top: ${UiTokens.spacing.size20};
+	@media ${device.tablet} {
+		flex-direction: unset;
+	}
+	@media ${device.desktop} {
+		gap: ${UiTokens.spacing.size60};
+		padding: ${UiTokens.spacing.size60};
+	}
 `
 const ContainComponentAndText = styled.div`
 	display: grid;
@@ -123,6 +101,9 @@ const WrapperCode = styled.article`
 	> pre{
 		border-radius: ${UiTokens.borderRadius.size16} !important;
 		padding: ${UiTokens.spacing.size24} !important;
+		> code {
+			white-space: pre !important;
+		}
 	}
 `
 
@@ -135,10 +116,7 @@ const ContainerCopyButton = styled.div`
 export const DetailComponentPageStyled = {
 	Wrapper,
 	Row,
-	ContainerNavigation,
 	WrapperContent,
-	Link,
-	Navigation,
 	WrapperTitle,
 	WrapperSubTitle,
 	StageComponents,

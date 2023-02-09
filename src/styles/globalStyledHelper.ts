@@ -4,8 +4,8 @@ import { device } from "./mediaQueries"
 const _Layout = css`
 	display: flex;
 	flex-flow: column;
-	padding-left: 30px;
-	padding-right: 30px;
+	padding-left: 16px;
+	padding-right: 16px;
 	width: 100%;
 	height: auto;
 	align-items: center;

@@ -6,12 +6,15 @@ import { TextStyled } from "../../../styles/typographic"
 import Button, { ButtonSize, ButtonVariant } from "../../../components/Button/Button"
 import { useNavigate } from "react-router-dom"
 import { Paths } from "../../Paths"
+import { useWindowSize } from "../../../hooks/useWindowsSize"
+import { size } from "../../../styles/mediaQueries"
 
 type Props = {
 	children: React.ReactNode,
 }
 
 const HomePage = (props: Props) => {
+	const windowSize = useWindowSize()
 	const navigate = useNavigate()
 
 	const redirectToComponents = () => {
@@ -33,7 +36,7 @@ const HomePage = (props: Props) => {
 					</HomePageStyled.HeroContainer>
 
 					<HomePageStyled.HeroContainer>
-						<TextStyled.Heading2xl textColor="level300">
+						<TextStyled.Heading2xl textColor="level400">
 							UI tools to create whatever you want. Use our library full of production-ready components, or customize it as you need!
 						</TextStyled.Heading2xl>
 					</HomePageStyled.HeroContainer>
@@ -42,7 +45,7 @@ const HomePage = (props: Props) => {
 						<Button
 							type="button"
 							onClick={redirectToComponents}
-							buttonSize={ButtonSize.XLarge}
+							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
 						>
 							Get started!
 						</Button>
@@ -50,7 +53,7 @@ const HomePage = (props: Props) => {
 							type="button"
 							customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
 							onClick={redirectToFigma}
-							buttonSize={ButtonSize.XLarge}
+							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
 						>
 							Figma File
 						</Button>
@@ -109,14 +112,14 @@ const HomePage = (props: Props) => {
 						</TextStyled.Weight>
 						and much more
 					</TextStyled.Heading4xl>
-					<HomePageStyled.Grid withoutGap>
+					<HomePageStyled.ComponentsGrid>
 						{props.children}
-					</HomePageStyled.Grid>
+					</HomePageStyled.ComponentsGrid>
 					<HomePageStyled.AlignContentCenter>
 						<Button
 							type="button"
 							onClick={redirectToComponents}
-							buttonSize={ButtonSize.XLarge}
+							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
 						>
 							All components
 						</Button>

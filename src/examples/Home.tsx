@@ -11,8 +11,12 @@ import InputShowCaseDetailListItem from "./Form/InputShowCase/InputShowCaseListI
 import RadioButtonShowCaseDetailListItem
     from "./Form/RadioButtonShowCase/RadioButtonShowCaseListItem"
 import SelectShowCaseDetailListItem from "./Form/SelectShowCase/SelectShowCaseDetailListItem"
+import { useWindowSize } from "../hooks/useWindowsSize"
+import { size } from "../styles/mediaQueries"
 
 const Home = () => {
+    const windowSize = useWindowSize()
+
     return (
         <HomePage>
             <HomePageStyled.ContainerComponent>
@@ -21,18 +25,20 @@ const Home = () => {
             <HomePageStyled.ContainerComponent>
                 <ButtonShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <RadioButtonShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <TagShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <InputShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
-            <HomePageStyled.ContainerComponent>
-                <SelectShowCaseDetailListItem />
-            </HomePageStyled.ContainerComponent>
+            {windowSize.width >= size.desktop && <>
+                <HomePageStyled.ContainerComponent>
+                    <RadioButtonShowCaseDetailListItem />
+                </HomePageStyled.ContainerComponent>
+                <HomePageStyled.ContainerComponent>
+                    <TagShowCaseDetailListItem />
+                </HomePageStyled.ContainerComponent>
+                <HomePageStyled.ContainerComponent>
+                    <InputShowCaseDetailListItem />
+                </HomePageStyled.ContainerComponent>
+                <HomePageStyled.ContainerComponent>
+                    <SelectShowCaseDetailListItem />
+                </HomePageStyled.ContainerComponent>
+            </>}
             <HomePageStyled.ContainerComponent>
                 <TooltipShowCaseDetailListItem />
             </HomePageStyled.ContainerComponent>

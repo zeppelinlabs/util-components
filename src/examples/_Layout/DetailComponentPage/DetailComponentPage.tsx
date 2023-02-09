@@ -4,10 +4,11 @@ import { useTranslation } from "react-i18next"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import Button, { ButtonSize } from "../../../components/Button/Button"
-
+import { useWindowSize } from "../../../hooks/useWindowsSize"
+import { size } from "../../../styles/mediaQueries"
 import { TextStyled } from "../../../styles/typographic"
 import { toastNotification } from "../../../util/toastNotification"
-import { Paths } from "../../Paths"
+import { SidebarDesktop } from "../Sidebar/Sidebar"
 import { DetailComponentPageStyled } from "./DetailComponentPageStyled"
 
 type Props = {
@@ -15,59 +16,25 @@ type Props = {
 }
 
 const DetailComponentPage = (props: Props) => {
-
-	const handleOnClick = () => {
-		window.scrollTo(0, 0)
-	}
-
-	const ButtonList = () => {
-		return <>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Button}>
-				Button
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Input}>
-				Input
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Select}>
-				Select
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Checkbox}>
-				Checkbox
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.RadioButton}>
-				Radio
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Switch}>
-				Switch
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Label}>
-				Label
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Tag}>
-				Tag
-			</DetailComponentPageStyled.Link>
-			<DetailComponentPageStyled.Link onClick={handleOnClick} to={Paths.Tooltip}>
-				Tooltip
-			</DetailComponentPageStyled.Link>
-		</>
-	}
+	const windowSize = useWindowSize()
 
 	return <DetailComponentPageStyled.Wrapper>
-		<DetailComponentPageStyled.Row>
-			<DetailComponentPageStyled.ContainerNavigation>
-				<DetailComponentPageStyled.Navigation>
-					<ButtonList />
-				</DetailComponentPageStyled.Navigation>
-
-			</DetailComponentPageStyled.ContainerNavigation>
-
-			<DetailComponentPageStyled.WrapperContent>
+		{windowSize.width >= size.desktop
+			? (<DetailComponentPageStyled.Row>
+				<SidebarDesktop />
+				<DetailComponentPageStyled.WrapperContent>
+					{props.children}
+				</DetailComponentPageStyled.WrapperContent>
+			</DetailComponentPageStyled.Row>)
+			: (<DetailComponentPageStyled.WrapperContent>
 				{props.children}
-			</DetailComponentPageStyled.WrapperContent>
-		</DetailComponentPageStyled.Row>
+			</DetailComponentPageStyled.WrapperContent>)
+		}
 	</DetailComponentPageStyled.Wrapper>
 }
+
 export default DetailComponentPage
+
 type TitleProps = {
 	title: string,
 	children: React.ReactNode,
