@@ -26,11 +26,13 @@ const Wrapper = styled.header`
 const Row = styled.section`
 	${GlobalStyledHelper._Row}
 	display: grid;
-	grid-template-columns: 220px 1fr;
+	grid-template-columns: 220px 20px;
 	align-items: center;
+	justify-content: space-between;
 	@media ${device.desktop} {
 		gap: ${UiTokens.spacing.size16};
 		grid-template-columns: 260px 1fr 310px;
+		justify-content: center;
 	}
 `
 
@@ -92,13 +94,12 @@ const NavListAnchor = styled.a`
 `
 
 const ContainerSearchBar = styled.article`
-	display: grid;
-	grid-template-columns: 36px 36px;
 	gap: ${UiTokens.spacing.size16};
 	justify-content: end;
+	grid-template-columns: 1fr;
+	display: none;
 	@media ${device.desktop} {
-		gap: ${UiTokens.spacing.size20};
-		grid-template-columns: 1fr 36px;
+		display: grid;
 	}
 `
 
@@ -158,7 +159,7 @@ const ButtonMenu = styled.button<{ isOpen: boolean, }>`
 	height: 100%;
 	border: 0;
 	background: transparent;
-	gap: .65rem;
+	gap: ${UiTokens.spacing.size4};
 	${(p) => p.isOpen && css`
 		${ButtonLine}:nth-child(1){
 			transform: rotate(45deg);
@@ -177,11 +178,11 @@ const ButtonMenu = styled.button<{ isOpen: boolean, }>`
 
 const ButtonLine = styled.span`
 	background: ${thp.base.level1000._};
-	height: 3px;
-	width: 75%;
+	height: 2px;
+	width: 100%;
 	border-radius: 5px;
 	transition: all .5s ease-out;
-	transform-origin: left;
+	transform-origin: 1.5px;
 `
 
 const ArrowContainer = styled.div`

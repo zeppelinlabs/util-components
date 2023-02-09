@@ -55,26 +55,17 @@ const Header = () => {
 						</HeaderStyled.NavListItem>
 					</HeaderStyled.NavList>
 				</HeaderStyled.Nav>
-
 				<HeaderStyled.ContainerSearchBar>
-					{windowSize.width >= size.desktop && <Search />}
-					<Button
-						type="button"
-						onClick={HandleSearch}
-						icon={{
-							SVGComponent: GithubIcon,
-						}}
-					/>
-					<HeaderStyled.ButtonMenu isOpen={isMenuOpen}
-						type="button"
-						onClick={() => setIsMenuOpen(!isMenuOpen)}
-					>
-						<HeaderStyled.ButtonLine />
-						<HeaderStyled.ButtonLine />
-						<HeaderStyled.ButtonLine />
-					</HeaderStyled.ButtonMenu>
+					<Search />
 				</HeaderStyled.ContainerSearchBar>
-
+				<HeaderStyled.ButtonMenu isOpen={isMenuOpen}
+					type="button"
+					onClick={() => setIsMenuOpen(!isMenuOpen)}
+				>
+					<HeaderStyled.ButtonLine />
+					<HeaderStyled.ButtonLine />
+					<HeaderStyled.ButtonLine />
+				</HeaderStyled.ButtonMenu>
 			</HeaderStyled.Row>
 		</HeaderStyled.Wrapper>
 		{windowSize.width < size.desktop && <>
