@@ -77,6 +77,7 @@ const StageComponents = styled.div`
 		padding: ${UiTokens.spacing.size60};
 	}
 `
+
 const ContainComponentAndText = styled.div`
 	display: grid;
 	gap: ${UiTokens.spacing.size20};

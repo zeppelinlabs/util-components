@@ -1,4 +1,5 @@
-import React, { useState } from "react"
+/* eslint-disable max-lines-per-function */
+import React, { useEffect, useState } from "react"
 import Input from "../../../components/Form/Input/Input"
 import { HeaderStyled } from "./HeaderStyled"
 import { SearchListData } from "./SearchListData"
@@ -7,11 +8,13 @@ import { ReactComponent as FileAttachment } from "../../../assets/icons/file-att
 import { ReactComponent as SearchIcon } from "../../../assets/icons/search.svg"
 import { useNavigate } from "react-router-dom"
 import { IconPosition } from "../../../components/CommonTypes"
+import { useClickOutside } from "../../../hooks/useClickOutside"
 
 const Search = () => {
-	const [searchValue, setSearchValue,] = useState<string>("")
-
 	const navigate = useNavigate()
+	const { isOpen, elementRef, setIsOpen, } = useClickOutside()
+
+	const [searchValue, setSearchValue,] = useState<string>("")
 
 	const filteredBoardList = SearchListData.filter((component) => {
 		return component.name
@@ -19,14 +22,18 @@ const Search = () => {
 			.includes(searchValue.toLowerCase())
 	})
 
+	useEffect(() => {
+		searchValue === "" ? setIsOpen(false) : setIsOpen(true)
+	}, [searchValue,])
+
+
 	const handleOnClick = (link: string) => {
 		setSearchValue("")
 		navigate(link)
-
 		return setTimeout(() => { window.scrollTo(0, 0) }, 100)
 	}
 
-	return <HeaderStyled.SearchContainer>
+	return <HeaderStyled.SearchContainer ref={elementRef}>
 		<Input
 			type="text"
 			placeholder="Search components"
@@ -35,11 +42,10 @@ const Search = () => {
 			icon={{
 				SVGComponent: SearchIcon,
 				position: IconPosition.right,
-			}
-			}
+			}}
 		/>
-		{searchValue !== ""
-			&& <HeaderStyled.SearchListOptions>
+		{isOpen
+			&& <HeaderStyled.SearchListOptions >
 				{
 					filteredBoardList.length > 0
 						? filteredBoardList.map((result, i) => {
