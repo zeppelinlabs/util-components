@@ -6,6 +6,7 @@ import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import { useTranslation } from "react-i18next"
 import checkboxCodeViewerStrings from "./CheckboxCodeViewerStrings"
+import { Paths } from "../../Paths"
 
 const CheckboxShowCaseDetail = () => {
     const [value, setValue,] = useState(false)
@@ -16,7 +17,10 @@ const CheckboxShowCaseDetail = () => {
     const handleOnChange = (value: boolean) => setValue(value)
 
     return <DetailComponentPage>
-        <Title title={t_PageCheckbox("mainSection.title")}>
+        <Title
+            title={t_PageCheckbox("mainSection.title")}
+            githubLink={Paths.GithubComponents.Checkbox}
+        >
             {t_PageCheckbox("mainSection.description")}
         </Title>
         <Description title={t_PageCheckbox("stateSection.title")}

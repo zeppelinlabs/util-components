@@ -44,7 +44,7 @@ const WrapperContent = styled.main`
 const WrapperTitle = styled.article`
 	display: grid;
 	width: 100%;
-	gap: ${UiTokens.spacing.size12};
+	gap: ${UiTokens.spacing.size16};
 `
 
 const WrapperSubTitle = styled.article`
@@ -52,9 +52,6 @@ const WrapperSubTitle = styled.article`
 	width: 100%;
 	gap: ${UiTokens.spacing.size16};
 	flex-direction: column;
-	@media ${device.desktop} {
-		display: grid;
-	}
 `
 
 const StageComponents = styled.div`
@@ -77,6 +74,7 @@ const StageComponents = styled.div`
 		padding: ${UiTokens.spacing.size60};
 	}
 `
+
 const ContainComponentAndText = styled.div`
 	display: grid;
 	gap: ${UiTokens.spacing.size20};
@@ -95,6 +93,7 @@ const ContainerForInputs = styled.div`
 	min-width: 250px;
 	width: 100%;
 `
+
 const WrapperCode = styled.article`
 	${FontsTokens.sizes.Primary.sm}
 	position: relative;
@@ -113,6 +112,11 @@ const ContainerCopyButton = styled.div`
 	right: 15px;
 `
 
+const ContainerInLine = styled.div`
+	display: inline-flex;
+	justify-content: space-between;
+`
+
 export const DetailComponentPageStyled = {
 	Wrapper,
 	Row,
@@ -125,4 +129,5 @@ export const DetailComponentPageStyled = {
 	ContainComponent,
 	WrapperCode,
 	ContainerCopyButton,
+	ContainerInLine,
 }

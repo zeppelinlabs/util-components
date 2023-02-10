@@ -27,6 +27,17 @@ export const Paths = {
             link: "mailto:hello@zeppelinlabs.io",
         },
     ],
+    GithubComponents: {
+        Tag: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Tag/Tag.tsx",
+        Tooltip: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Tooltip/Tooltip.tsx",
+        Button: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Button/Button.tsx",
+        Switch: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/Switch/Switch.tsx",
+        Label: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/Label/Label.tsx",
+        Checkbox: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/Checkbox/Checkbox.tsx",
+        RadioButton: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/RadioButton/RadioButton.tsx",
+        Input: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/Input/Input.tsx",
+        Select: "https://github.com/zeppelinlabs/util-components/blob/dev/src/components/Form/Select/Select.tsx",
+    },
 
     Tag: "/components/tag",
     Tooltip: "/components/tooltip",

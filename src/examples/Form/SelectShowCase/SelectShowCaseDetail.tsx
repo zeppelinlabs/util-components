@@ -8,6 +8,7 @@ import { useTranslation } from "react-i18next"
 import { DetailComponentPageStyled }
     from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
 import selectCodeViewerStrings from "./SelectCodeViewerStrings"
+import { Paths } from "../../Paths"
 
 
 enum ListOptionKey {
@@ -106,7 +107,10 @@ const SelectShowCaseDetail = () => {
 
 
     return <DetailComponentPage>
-        <Title title={t_PageSelect("mainSection.title")}>
+        <Title
+            title={t_PageSelect("mainSection.title")}
+            githubLink={Paths.GithubComponents.Select}
+        >
             {t_PageSelect("mainSection.description")}
         </Title>
 

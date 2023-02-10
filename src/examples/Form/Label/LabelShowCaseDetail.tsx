@@ -3,6 +3,7 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import Input from "../../../components/Form/Input/Input"
 import Label, { LabelVariant } from "../../../components/Form/Label/Label"
+import { Paths } from "../../Paths"
 import DetailComponentPage, { Title, Description, }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import { DetailComponentPageStyled }
@@ -15,7 +16,10 @@ const LabelShowCaseDetail = () => {
     const { t: t_PageLabel, } = useTranslation("PageComponentLabel")
 
     return <DetailComponentPage>
-        <Title title={t_PageLabel("mainSection.title")}>
+        <Title
+            title={t_PageLabel("mainSection.title")}
+            githubLink={Paths.GithubComponents.Label}
+        >
             {t_PageLabel("mainSection.description")}
         </Title>
 

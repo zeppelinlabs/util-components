@@ -8,6 +8,7 @@ import { ReactComponent as CircleIcon } from ".././../assets/icons/circle.svg"
 import { toastNotification } from "../../util/toastNotification"
 import { useTranslation } from "react-i18next"
 import ButtonCodeViewerStrings from "./ButtonCodeViewerStrings"
+import { Paths } from "../Paths"
 
 const messageList = [
 	"Fantastic! A button click has occurred!",
@@ -29,7 +30,10 @@ const ButtonShowCaseDetail = () => {
 	}
 
 	return <DetailComponentPage>
-		<Title title={t_PageButton("mainSection.title")}>
+		<Title
+			title={t_PageButton("mainSection.title")}
+			githubLink={Paths.GithubComponents.Button}
+		>
 			{t_PageButton("mainSection.description")}
 		</Title>
 		<Description title={t_PageButton("typeSection.title")}
