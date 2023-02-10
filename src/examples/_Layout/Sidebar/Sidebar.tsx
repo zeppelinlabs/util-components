@@ -16,23 +16,23 @@ const ComponentsButtonList = (props: { onNavigate?: () => void, }) => {
         <SidebarStyled.Link onClick={handleOnClick} to={Paths.Button}>
             Button
         </SidebarStyled.Link>
+        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Checkbox}>
+            Checkbox
+        </SidebarStyled.Link>
         <SidebarStyled.Link onClick={handleOnClick} to={Paths.Input}>
             Input
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Select}>
-            Select
-        </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Checkbox}>
-            Checkbox
+        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Label}>
+            Label
         </SidebarStyled.Link>
         <SidebarStyled.Link onClick={handleOnClick} to={Paths.RadioButton}>
             Radio
         </SidebarStyled.Link>
+        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Select}>
+            Select
+        </SidebarStyled.Link>
         <SidebarStyled.Link onClick={handleOnClick} to={Paths.Switch}>
             Switch
-        </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Label}>
-            Label
         </SidebarStyled.Link>
         <SidebarStyled.Link onClick={handleOnClick} to={Paths.Tag}>
             Tag
