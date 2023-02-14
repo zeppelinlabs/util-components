@@ -85,6 +85,9 @@ const NavLinkAnchor = styled.a`
 	color: ${thp.base.level0._};
 	font-size: 1.6rem;
 	font-weight: ${FontsTokens.weights.Primary.semibold};
+	display: inline-flex;
+	align-items: center;
+	gap: ${UiTokens.spacing.size8};
 `
 
 const AccordionLabel = styled.label<{ isOpen: boolean, }>`
@@ -113,6 +116,14 @@ const AccordionContent = styled.div<{ isOpen: boolean, }>`
 	`}
 `
 
+const NavLinkIcon = styled.span`
+	width: 16px;
+	height: 16px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+`
+
 export const SidebarStyled = {
 	ContainerNavigation,
 	Link,
@@ -120,6 +131,7 @@ export const SidebarStyled = {
 	OverlayMenu,
 	WrapperArrow,
 	NavLinkAnchor,
+	NavLinkIcon,
 	AccordionLabel,
 	AccordionContent,
 }

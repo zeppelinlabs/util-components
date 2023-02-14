@@ -3,6 +3,8 @@ import { Paths } from "../../Paths"
 import { SidebarStyled } from "./SidebarSyled"
 import { ReactComponent as ArrowDown } from "../../../assets/icons/arrow-down.svg"
 import { ReactComponent as ArrowTop } from "../../../assets/icons/arrow-top.svg"
+import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
+import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
 
 
 const ComponentsButtonList = (props: { onNavigate?: () => void, }) => {
@@ -63,6 +65,18 @@ const ButtonList = (props: { onNavigate?: () => void, }) => {
         </SidebarStyled.NavLinkAnchor>
         <SidebarStyled.NavLinkAnchor href={Paths.AboutUs} target="_blank">
             About us
+        </SidebarStyled.NavLinkAnchor>
+        <SidebarStyled.NavLinkAnchor href={Paths.Github} target="_blank">
+            <SidebarStyled.NavLinkIcon>
+                <GithubIcon />
+            </SidebarStyled.NavLinkIcon>
+            Github
+        </SidebarStyled.NavLinkAnchor>
+        <SidebarStyled.NavLinkAnchor href={Paths.Figma} target="_blank">
+            <SidebarStyled.NavLinkIcon>
+                <FigmaIcon />
+            </SidebarStyled.NavLinkIcon>
+            Figma
         </SidebarStyled.NavLinkAnchor>
     </>
 }
