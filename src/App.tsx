@@ -1,3 +1,4 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import { GlobalStyled } from "../src/styles/globalStyled"
 import { ResetStyled } from "./styles/resetStyled"
@@ -21,6 +22,8 @@ import Footer from "./examples/_Layout/Footer/Footer"
 import "react-toastify/dist/ReactToastify.css"
 import { ToastContainer } from "react-toastify"
 import { FontSrc } from "./fonts/fontsSrc"
+import HowItWorksDesign from "./examples/HowItWorksDesign"
+import HowItWorksDevelop from "./examples/HowItWorksDevelop"
 
 const App = () => {
     return (
@@ -33,6 +36,12 @@ const App = () => {
             <Routes>
                 <Route path={Paths.Home} element={
                     <Home />
+                } />
+                <Route path={Paths.HowItWorksDesign || Paths.HowItWorks} element={
+                    <HowItWorksDesign />
+                } />
+                <Route path={Paths.HowItWorksDevelop} element={
+                    <HowItWorksDevelop />
                 } />
                 <Route path={Paths.Components} element={
                     <Navigate to={Paths.Button} />

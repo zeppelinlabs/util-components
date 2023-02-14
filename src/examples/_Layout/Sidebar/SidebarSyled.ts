@@ -87,6 +87,13 @@ const NavLinkAnchor = styled.a`
 	font-weight: ${FontsTokens.weights.Primary.semibold};
 `
 
+const NavListLink = styled(NavLink)`
+	text-decoration: none;
+	color: ${thp.base.level0._};
+	font-size: 1.6rem;
+	font-weight: ${FontsTokens.weights.Primary.semibold};
+`
+
 const AccordionLabel = styled.label<{ isOpen: boolean, }>`
 	color: ${thp.base.level0._};
 	font-size: ${FontsTokens.sizes.Primary.base};
@@ -120,6 +127,7 @@ export const SidebarStyled = {
 	OverlayMenu,
 	WrapperArrow,
 	NavLinkAnchor,
+	NavListLink,
 	AccordionLabel,
 	AccordionContent,
 }

@@ -5,6 +5,7 @@ import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
 import { thp } from "../../../styles/themeHelpers"
 import { zIndex } from "../../../styles/zIndexHelper"
 import { device } from "../../../styles/mediaQueries"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 
 export const headerMobileHeight = "80px"
 
@@ -55,7 +56,7 @@ const NavListItem = styled.li``
 
 const BaseLink = css`
 	text-decoration: none;
-	font-size: 1.6rem;
+	font-size: ${FontsTokens.sizes.Primary.base};
 	color: ${thp.base.level1000._};
 	position: relative;
 	transition: all .3s ease-out;

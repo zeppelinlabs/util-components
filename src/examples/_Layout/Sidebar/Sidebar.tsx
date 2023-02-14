@@ -7,60 +7,58 @@ import { ReactComponent as ArrowTop } from "../../../assets/icons/arrow-top.svg"
 
 const ComponentsButtonList = (props: { onNavigate?: () => void, }) => {
 
-    const handleOnClick = () => {
-        setTimeout(() => { window.scrollTo(0, 0) }, 100)
-        props.onNavigate && props.onNavigate()
-    }
-
     return <SidebarStyled.Navigation>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Button}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Button}>
             Button
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Input}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Input}>
             Input
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Select}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Select}>
             Select
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Checkbox}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Checkbox}>
             Checkbox
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.RadioButton}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.RadioButton}>
             Radio
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Switch}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Switch}>
             Switch
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Label}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Label}>
             Label
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Tag}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Tag}>
             Tag
         </SidebarStyled.Link>
-        <SidebarStyled.Link onClick={handleOnClick} to={Paths.Tooltip}>
+        <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Tooltip}>
             Tooltip
         </SidebarStyled.Link>
     </SidebarStyled.Navigation>
 }
 
 const ButtonList = (props: { onNavigate?: () => void, }) => {
-    const [isOpen, setIsOpen,] = useState(false)
+    const [isAccordionOpen, setIsAccordionOpen,] = useState(false)
 
     return <>
-        <SidebarStyled.AccordionLabel isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+        <SidebarStyled.AccordionLabel
+            isOpen={isAccordionOpen}
+            onClick={() => setIsAccordionOpen(!isAccordionOpen)}
+        >
             Components
             <SidebarStyled.WrapperArrow>
-                {isOpen
+                {isAccordionOpen
                     ? <ArrowTop />
                     : <ArrowDown />}
             </SidebarStyled.WrapperArrow>
-            <SidebarStyled.AccordionContent isOpen={isOpen}>
+            <SidebarStyled.AccordionContent isOpen={isAccordionOpen}>
                 <ComponentsButtonList onNavigate={props.onNavigate} />
             </SidebarStyled.AccordionContent>
         </SidebarStyled.AccordionLabel>
-        <SidebarStyled.NavLinkAnchor href={Paths.Github} target="_blank">
+        <SidebarStyled.NavListLink to={Paths.HowItWorks} onClick={props.onNavigate}>
             How it works
-        </SidebarStyled.NavLinkAnchor>
+        </SidebarStyled.NavListLink>
         <SidebarStyled.NavLinkAnchor href={Paths.AboutUs} target="_blank">
             About us
         </SidebarStyled.NavLinkAnchor>
