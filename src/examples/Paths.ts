@@ -4,7 +4,7 @@ export const Paths = {
     Components: "/components",
     AboutUs: "https://zeppelinlabs.io/",
     Github: "https://github.com/zeppelinlabs/util-components",
-    Figma: "https://www.figma.com/file/L7qcgCGalo515TlDQqomKN/Showcase-Zeppcomponents?node-id=0%3A1&t=4HvlZIOszArxQIbz-1",
+    Figma: "https://www.figma.com/community/file/1207008567687928032",
     zeppelinSocialMedia: [
         {
             text: "Twitter",
