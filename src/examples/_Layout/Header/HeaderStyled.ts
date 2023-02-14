@@ -99,7 +99,7 @@ const ContainerSearchBar = styled.article`
 	@media ${device.desktop} {
 		display: grid;
 		gap: ${UiTokens.spacing.size16};
-		grid-template-columns: 1fr 36px 36px;
+		grid-template-columns: 1fr 40px 40px;
 	}
 `
 
