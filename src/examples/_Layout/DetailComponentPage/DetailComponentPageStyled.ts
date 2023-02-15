@@ -112,9 +112,10 @@ const ContainerCopyButton = styled.div`
 	right: 15px;
 `
 
-const ContainerInLine = styled.div`
-	display: inline-flex;
+const ContainerInLine = styled.article`
+	display: flex;
 	justify-content: space-between;
+	gap: 16px;
 `
 
 export const DetailComponentPageStyled = {
