@@ -1,8 +1,8 @@
 /* eslint-disable max-len */
 import React from "react"
-import { TextStyled } from "../styles/typographic"
-import HowItWorksPage from "./_Layout/HowItWorks/HowItWorksPage"
-import HowItWorksStyled from "./_Layout/HowItWorks/HowItWorksPageStyled"
+import { TextStyled } from "../../../../styles/typographic"
+import HowItWorksPage from "../HowItWorksPage"
+import HowItWorksStyled from "../HowItWorksPageStyled"
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 const HowItWorksDevelop = () => {

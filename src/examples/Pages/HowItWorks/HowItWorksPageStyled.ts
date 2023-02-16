@@ -1,8 +1,8 @@
-import { device } from "./../../../styles/mediaQueries"
+import { device } from "../../../styles/mediaQueries"
 import styled, { css } from "styled-components"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
-import { ThemeSpacing, thp } from "../../../styles/themeHelpers"
+import { thp } from "../../../styles/themeHelpers"
 import { zIndex } from "../../../styles/zIndexHelper"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { NavLink } from "react-router-dom"
@@ -26,6 +26,112 @@ const Layout = styled.section<{
     }
 `
 
+const GridFigmaDescription = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size44} ${UiTokens.spacing.size28};
+    align-items: center;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    >img {
+        max-width: 360px;
+    }
+    @media ${device.desktop} {
+        grid-template-columns: 360px 1fr;
+        justify-items: inherit;
+    }
+`
+
+const GridColumnExpanded = styled.article`
+    @media ${device.desktop} {
+        grid-column: span 2;
+    }
+`
+
+const GridFigmaGetFile = styled.article`
+    display: grid;
+    gap: ${UiTokens.spacing.size16};
+    justify-items: center;
+    margin-bottom: 92px;
+    @media ${device.desktop} {
+        justify-items: inherit;
+        margin-bottom: inherit;
+    }
+`
+
+const WrapperContent = styled.section`
+    display: grid;
+    padding: ${UiTokens.spacing.size52} 0;
+    gap: ${UiTokens.spacing.size28};
+    @media ${device.desktop} {
+        padding: ${UiTokens.spacing.size80} 0;
+    }
+`
+
+const Callout = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size20};
+    padding: ${UiTokens.spacing.size16};
+    background: ${thp.base.level100._};   
+    @media ${device.desktop} {
+        grid-template-columns: 1fr 1fr;
+        align-items: center;
+        >img {
+            height: 100%;
+            background-color: ${thp.base.level1000._};
+        }
+    }
+`
+
+const CalloutDescription = styled.article`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size16};
+    padding: 20px 0;
+`
+
+const HowToUseTokensSection = styled.section`
+    display: grid;
+`
+
+const GridSteps = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size44};
+    align-items: center;
+    margin-top: 32px;
+    @media ${device.desktop} {
+        grid-template-columns: 300px 1fr 1fr;
+    }
+`
+
+const HowToUseLibrariesSection = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size20};
+    margin-top: 32px;
+    margin-bottom: 20px;
+    @media ${device.desktop} {
+        margin-top: 96px;
+    }
+`
+
+const HowToUseLibrariesSectionSteps = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size40} ${UiTokens.spacing.size80};
+    @media ${device.desktop} {
+        grid-template-columns: 1fr 1fr;
+    }
+`
+
+const HowToUseLibrariesSectionStepsColumns = styled.article`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size48}
+`
+
+const Link = styled.a`
+	text-decoration: none;
+    color: #237BFF;
+`
+
 const ContainerComponent = styled.article`
     border-top: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
     border-right: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
@@ -35,6 +141,7 @@ const ContainerComponent = styled.article`
     min-height: 150px;
     padding: 0 ${UiTokens.spacing.size40};
 `
+
 
 const Grid = styled.section`
     display: grid;
@@ -57,76 +164,11 @@ const Grid = styled.section`
     }
 `
 
-const ComponentsGrid = styled.section`
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    ${ContainerComponent} {
-        &:nth-child(2n) {
-            border-right: none;
-        }
-        &:nth-child(1),
-        &:nth-child(2) {
-            border-top: none;
-        }
-    }
-    @media ${device.desktop} {
-        grid-template-columns: repeat(4,1fr);
-        ${ContainerComponent} {
-            &:nth-child(2n) {
-                border-right: ${UiTokens.borderWidth.size1} solid ${thp.base.level100._};
-            }
-            &:nth-child(4n) {
-                border-right: none;
-            }
-            &:nth-child(1),
-            &:nth-child(2),
-            &:nth-child(3),
-            &:nth-child(4) {
-                border-top: none;
-            }
-        }
-    }
-`
-
 const AnswerColumn = styled.article`
     display: flex;
     flex-flow: column;
     gap: ${UiTokens.spacing.size12};
     grid-column: span 2;
-`
-
-const WrapperContent = styled.section<{
-    centerContent?: boolean,
-    gap?: ThemeSpacing,
-    withoutTopPadding?: boolean,
-}>`
-    display: grid;
-    padding: ${UiTokens.spacing.size52} 0;
-    ${({ withoutTopPadding, }) => (withoutTopPadding && css`
-        padding-top: 0;
-    `)}
-    ${({ centerContent, }) => (centerContent && css`
-        place-items: center;
-    `)}
-    gap: ${UiTokens.spacing.size40};
-    @media ${device.desktop} {
-        padding: ${UiTokens.spacing.size96} 0;
-        gap: ${({ gap, }) => (
-        gap
-            ? UiTokens.spacing[gap]
-            : UiTokens.spacing.size20
-    )};
-        ${({ withoutTopPadding, }) => (withoutTopPadding && css`
-            padding-top: 0;
-        `)}
-    }
-`
-
-const AlignContentCenter = styled.article`
-    gap: ${UiTokens.spacing.size20};
-    display: flex;
-    justify-content: center;
-    width: 100%;
 `
 
 const WarningMessage = styled.div`
@@ -193,20 +235,20 @@ const WrapperTabs = styled.ul`
     margin-bottom: ${UiTokens.spacing.size12};
 `
 
-const WrapperTitle = styled.div`
+const ReasonsForUsingArticle = styled.article`
     display: flex;
     flex-direction: column;
+    margin-bottom: 12px;
+    @media ${device.desktop} {
+        margin-bottom: 68px;
+    }
 `
 
-const Callout = styled.div`
+const ThatsAllArticle = styled.article`
     display: flex;
     flex-direction: column;
-    gap: ${UiTokens.spacing.size20};
-    padding: ${UiTokens.spacing.size16};
-    background: ${thp.base.level100._};   
     @media ${device.desktop} {
-        flex-direction: row;
-        align-items: center;
+        gap: ${UiTokens.spacing.size8};
     }
 `
 
@@ -215,77 +257,30 @@ const HowItWorksTitle = styled.h3`
     font-weight: ${FontsTokens.weights.Primary.semibold};
 `
 
-const WrapperFigmaImgage = styled.div<{ maxWidth: string, }>`
-    max-width: ${({ maxWidth, }) => maxWidth};
-    margin: 0 auto;
-    @media ${device.desktop} {
-        max-width: 100%;
-    }
-`
-
-const GridContent = styled.div<{ gap?: ThemeSpacing, firstColumnWidth?: string, }>`
-    display: grid;
-    gap: ${({ gap, }) => (
-        gap
-            ? UiTokens.spacing[gap]
-            : UiTokens.spacing.size20
-    )};
-    @media ${device.desktop} {
-        align-items: center;
-        grid-template-columns: ${({ firstColumnWidth, }) => (
-        firstColumnWidth
-            ? `${firstColumnWidth} 1fr`
-            : "1fr 1fr"
-    )};;
-    }
-`
-
-const GroupElements = styled.div<{ gap?: ThemeSpacing, }>`
-    display: flex;
-    flex-direction: column;
-    gap: ${({ gap, }) => (
-        gap
-            ? UiTokens.spacing[gap]
-            : UiTokens.spacing.size20
-    )};
-`
-
-const ButtonContainer = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @media ${device.desktop} {
-        justify-content: start;
-        width: 100%;
-    }
-`
-
-const Link = styled.a`
-	text-decoration: none;
-    color: #237BFF;
-`
-
 const HowItWorksStyled = {
     Layout,
     Row,
+    GridFigmaDescription,
+    GridFigmaGetFile,
+    CalloutDescription,
+    Callout,
+    HowToUseTokensSection,
+    GridSteps,
+    GridColumnExpanded,
+    HowToUseLibrariesSection,
+    HowToUseLibrariesSectionSteps,
+    HowToUseLibrariesSectionStepsColumns,
     Grid,
-    ComponentsGrid,
+    Link,
     AnswerColumn,
     WrapperContent,
-    AlignContentCenter,
-    ContainerComponent,
     WarningMessage,
     TabItem,
     TabListItem,
     WrapperTabs,
-    WrapperTitle,
-    Callout,
     HowItWorksTitle,
-    WrapperFigmaImgage,
-    GridContent,
-    GroupElements,
-    ButtonContainer,
-    Link,
+    ReasonsForUsingArticle,
+    ThatsAllArticle,
 }
 
 export default HowItWorksStyled
