@@ -30,7 +30,7 @@ Most of our components are self-contained, meaning they do not rely on external 
 ### If you want to know more, go to [components.zeppelinlabs.io](https://components.zeppelinlabs.io/ "components.zeppelinlabs.io")
 ### Want to know more about us? [zeppelinlabs.io](https://zeppelinlabs.io/ "zeppelinlabs.io")
 ------------
-###**Available Scripts**
+### **Available Scripts**
 
 This project was bootstrapped with Create React App.
 
