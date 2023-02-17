@@ -1,5 +1,4 @@
-## [Discover the benefits of Zeppelin Components through live demonstrations. Click here ][1]
-
+## [Discover the benefits of Zeppelin Components through live demonstrations. Click here](https://components.zeppelinlabs.io/components/button "components.zeppelinlabs.io")
 **( i ) Our library is a beta version**, *we'll be working on more components. Stay tuned for news and updates on our social media!*
 
 ------------
@@ -32,6 +31,7 @@ Most of our components are self-contained, meaning they do not rely on external 
 ### Want to know more about us? [zeppelinlabs.io](https://zeppelinlabs.io/ "zeppelinlabs.io")
 ------------
 ###**Available Scripts**
+
 This project was bootstrapped with Create React App.
 
 **yarn start**
@@ -46,4 +46,3 @@ See the section about running tests for more information.
 **yarn build**
 Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
-[1]: https://components.zeppelinlabs.io/
