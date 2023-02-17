@@ -1,46 +1,49 @@
-# Getting Started with Create React App
+## [Discover the benefits of Zeppelin Components through live demonstrations. Click here ][1]
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**( i ) Our library is a beta version**, *we'll be working on more components. Stay tuned for news and updates on our social media!*
 
-## Available Scripts
+------------
 
-In the project directory, you can run:
+### How it works?
+Welcome to **Zeppelin Components,** a fully customizable **UI library** where you will find production-ready-to-use elements to design or develop your web.
 
-### `yarn start`
+### Required Technologies
+- Typescript
+- Styled Components
+- React
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Traditionally, components are distributed as `NPM packages`, which can be installed in a project to utilize them. However, this method of distribution limits customization options, as control over the component is limited to the props and parameters made available by the creator.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+**At Zeppelin Labs, we believe in giving our users full control over the components** they use. That's why we have chosen a different approach. Instead of distributing our components as `NPM packages`, we make the code available in a simple, easy-to-use boilerplate. This way, you can attach the code to your project and customize it to your exact specifications, giving you complete control over its behavior and appearance.
 
-### `yarn test`
+However, we understand that this approach may have some limitations, including a manual and potentially difficult update process as we add more features. We are constantly working to improve our processes and make updates more seamless for our users. We value your feedback and suggestions on how we can continue to improve our services and make them even more user-friendly.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Get Components easy and quickly
 
-### `yarn build`
+1. Identify the [desired component.](https://components.zeppelinlabs.io/components/button)
+1. Use the button "Go to the code"
+1. Download files from Github.
 
-Builds the app for production to the `build` folder.\
+The files included in our component distribution are divided into two categories. The first type is the file containing the logic required for the component to function properly. The second type is the style file, which controls the appearance of the component.
+
+Most of our components are self-contained, meaning they do not rely on external libraries. However, in certain instances, they may depend on another Zeppelin Component, the Styled Components theme, or the global style. This approach streamlines project administration and makes it easier to manage over time.
+
+### If you want to know more, go to [components.zeppelinlabs.io](https://components.zeppelinlabs.io/ "components.zeppelinlabs.io")
+### Want to know more about us? [zeppelinlabs.io](https://zeppelinlabs.io/ "zeppelinlabs.io")
+------------
+###**Available Scripts**
+This project was bootstrapped with Create React App.
+
+**yarn start**
+Runs the app in the development mode.
+Open http://localhost:3000 to view it in the browser.
+The page will reload if you make edits. You will also see any lint errors in the console.
+
+**yarn test**
+Launches the test runner in the interactive watch mode.
+See the section about running tests for more information.
+
+**yarn build**
+Builds the app for production to the build folder.
 It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+[1]: https://components.zeppelinlabs.io/
