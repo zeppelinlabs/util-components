@@ -23,7 +23,7 @@ export const CodeSnippet = (props: { children: string, }) => {
         }
     }
 
-    return <DetailComponentPageStyled.WrapperCode>
+    return <DetailComponentPageStyled.WrapperCode changeWhiteSpace>
         <DetailComponentPageStyled.ContainerCopyButton>
             <Button type="button"
                 buttonSize={ButtonSize.Small}

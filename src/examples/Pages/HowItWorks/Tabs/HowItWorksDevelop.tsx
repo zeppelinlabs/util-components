@@ -122,11 +122,12 @@ const HowItWorksDevelop = () => {
                                     <TextStyled.Heading2xl textWeight="semibold">
                                         First steps:
                                     </TextStyled.Heading2xl>
-                                    <Accordion label={
-                                        <TextStyled.BodyLg textWeight="semibold">
-                                            Add the Automation Script
-                                        </TextStyled.BodyLg>
-                                    }>
+                                    <Accordion hasMarginBottom
+                                        label={
+                                            <TextStyled.BodyLg textWeight="semibold">
+                                                Add the Automation Script
+                                            </TextStyled.BodyLg>
+                                        }>
                                         <TextStyled.BodyBase>
                                             To keep in mind:
                                         </TextStyled.BodyBase>
@@ -206,7 +207,7 @@ const HowItWorksDevelop = () => {
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Instruction to install Figma Tokens and export design tokens from Figma
@@ -243,7 +244,7 @@ const HowItWorksDevelop = () => {
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Import or Update the Design Tokens to the Project
@@ -262,7 +263,7 @@ const HowItWorksDevelop = () => {
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Tokens types
@@ -306,7 +307,7 @@ const HowItWorksDevelop = () => {
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Config Styled components
@@ -363,7 +364,7 @@ const HowItWorksDevelop = () => {
                                     Working on the project:
                                 </TextStyled.Heading2xl>
                                 <HowItWorksStyled.Section>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Running the script
@@ -391,7 +392,7 @@ const HowItWorksDevelop = () => {
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.FigmaInstructions>
-                                    <Accordion
+                                    <Accordion hasMarginBottom
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 How to use tokens in CSS styles?

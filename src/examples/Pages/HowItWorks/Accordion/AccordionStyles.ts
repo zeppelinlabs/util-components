@@ -1,40 +1,31 @@
 import styled from "styled-components"
 import { UiTokens } from "../../../../styles/designTokens/uiTokens"
-import { thp } from "../../../../styles/themeHelpers"
 
-const AccordionContent = styled.div`
-	overflow: hidden;
-	max-height: 0;
-	transition: max-height .1s;
-    grid-column: span 2;
-    display: flex;
-    flex-direction: column;
+const AccordionHeader = styled.div`
+    display: grid;  
+    gap: ${UiTokens.spacing.size16};
+    align-items: center;
+    grid-template-columns: 1fr 16px;
+    row-gap: inherit;
 `
 
-const AccordionLabel = styled.label`
-	color: ${thp.base.level0._};
-	display: grid;
-	grid-template-columns: 1fr 16px;
-	cursor: pointer;
-    input {
-        display: none;
-    }
-    :has(input:checked) {
-        gap: inherit;
-    }
-    input:checked ~ svg {
-        transform: rotate(180deg);
-    }
-    input:checked ~ ${AccordionContent} {
-        gap: inherit;
-        max-height: 100%;
-		transition: max-height .3s ease-out;
-    }
+const AccordionContent = styled.div<{ hasMarginBottom?: boolean, }>`
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
+    margin-bottom: ${({ hasMarginBottom, }) => (hasMarginBottom ? "100px" : 0)};
+`
+
+const AccordionContainer = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: inherit;
 `
 
 const AccordionStyles = {
+    AccordionHeader,
     AccordionContent,
-    AccordionLabel,
+    AccordionContainer,
 }
 
 export default AccordionStyles

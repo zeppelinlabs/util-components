@@ -308,7 +308,7 @@ const WrapperText = styled.section`
 const FigmaTokensFirstSteps = styled.section`
     display: flex;
     flex-direction: column;
-    gap: ${UiTokens.spacing.size128};
+    gap: ${UiTokens.spacing.size24};
 `
 
 const FigmaInstructions = styled.section`
