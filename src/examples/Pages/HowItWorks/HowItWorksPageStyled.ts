@@ -82,11 +82,13 @@ const Callout = styled.section`
     }
 `
 
-const CalloutDescription = styled.article`
+const CalloutDescription = styled.article<{ hasVerticalPadding?: boolean, }>`
     display: flex;
     flex-direction: column;
     gap: ${UiTokens.spacing.size16};
-    padding: 20px 0;
+    ${({ hasVerticalPadding, }) => (hasVerticalPadding && css`
+        padding: 20px 0;
+    `)}
 `
 
 const HowToUseTokensSection = styled.section`
@@ -127,9 +129,13 @@ const HowToUseLibrariesSectionStepsColumns = styled.article`
     gap: ${UiTokens.spacing.size48}
 `
 
-const Link = styled.a`
+const Link = styled.a<{ isDarkMode?: boolean, }>`
 	text-decoration: none;
     color: #237BFF;
+    ${({ isDarkMode, }) => (isDarkMode && css`
+        color: ${thp.base.level0._};
+        text-decoration: underline;
+    `)}
 `
 
 const ContainerComponent = styled.article`
@@ -188,7 +194,7 @@ const WarningMessage = styled.div`
     }
 `
 
-const TabListItem = styled.li``
+const ListItem = styled.li``
 
 const TabItem = styled(NavLink)`
     ${FontsTokens.sizes.Primary.xl};
@@ -257,6 +263,77 @@ const HowItWorksTitle = styled.h3`
     font-weight: ${FontsTokens.weights.Primary.semibold};
 `
 
+const TextArticle = styled.article`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size16};
+`
+
+const List = styled.ol<{ isNumericList?: boolean, hasGap?: boolean, }>`
+    list-style: initial;
+    padding-left: 12px;
+    ${({ isNumericList, }) => (isNumericList && css`
+        list-style: decimal;
+    `)}
+    ${({ hasGap, }) => (hasGap && css`
+        display: flex;
+        flex-direction: column;
+        gap: inherit;
+    `)}
+`
+
+const GetComponentSteps = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size20};
+`
+
+const DevInformationSection = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size40};
+`
+
+const Section = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size16};
+`
+
+const WrapperText = styled.section`
+    display: flex;
+    flex-direction: column;
+`
+
+const FigmaTokensFirstSteps = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size128};
+`
+
+const FigmaInstructions = styled.section`
+    display: flex;
+    flex-direction: column;
+    gap: ${UiTokens.spacing.size32};
+`
+
+const GridFigmaInstructionsSteps = styled.section`
+    display: grid;
+    gap: ${UiTokens.spacing.size16};
+    grid-template-columns: 1fr;
+    align-items: center;
+    padding: 0 16px;
+    justify-items: center;
+    >img {
+        max-width: 500px;
+    }
+    @media ${device.desktop} {
+        padding: 0 ${UiTokens.spacing.size128};
+        grid-template-columns: 500px 1fr;
+        gap: ${UiTokens.spacing.size44};
+    }
+`
+
 const HowItWorksStyled = {
     Layout,
     Row,
@@ -276,11 +353,20 @@ const HowItWorksStyled = {
     WrapperContent,
     WarningMessage,
     TabItem,
-    TabListItem,
+    List,
+    ListItem,
     WrapperTabs,
     HowItWorksTitle,
     ReasonsForUsingArticle,
     ThatsAllArticle,
+    TextArticle,
+    GetComponentSteps,
+    DevInformationSection,
+    Section,
+    WrapperText,
+    FigmaTokensFirstSteps,
+    FigmaInstructions,
+    GridFigmaInstructionsSteps,
 }
 
 export default HowItWorksStyled

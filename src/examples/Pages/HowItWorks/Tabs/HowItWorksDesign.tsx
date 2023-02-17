@@ -63,7 +63,7 @@ const HowItWorksDesign = () => {
                     </HowItWorksStyled.HowToUseTokensSection>
                     <HowItWorksStyled.Callout>
                         <img src={Figma2} alt="Figma Tokens preview" />
-                        <HowItWorksStyled.CalloutDescription>
+                        <HowItWorksStyled.CalloutDescription hasVerticalPadding>
                             <TextStyled.HeadingXl textWeight="semibold">
                                 What is it?
                             </TextStyled.HeadingXl>
@@ -72,7 +72,7 @@ const HowItWorksDesign = () => {
                             </TextStyled.BodyBase>
                             <TextStyled.BodyBase>
                                 For more info, check it out:&nbsp;
-                                <HowItWorksStyled.Link href={Paths.TokensStudio} target={"_blank"}>
+                                <HowItWorksStyled.Link href={Paths.TokensStudioDocs} target={"_blank"}>
                                     https://docs.tokens.studio/
                                 </HowItWorksStyled.Link>
                             </TextStyled.BodyBase>

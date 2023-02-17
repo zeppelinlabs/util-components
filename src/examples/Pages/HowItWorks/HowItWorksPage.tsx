@@ -35,16 +35,16 @@ const HowItWorksPage = (props: Props) => {
                     </HowItWorksStyled.WarningMessage>
                 </HowItWorksStyled.WrapperContent>
                 <HowItWorksStyled.WrapperTabs>
-                    <HowItWorksStyled.TabListItem>
+                    <HowItWorksStyled.ListItem>
                         <HowItWorksStyled.TabItem to={Paths.HowItWorksDesign} onClick={handleOnClickTab}>
                             Design
                         </HowItWorksStyled.TabItem>
-                    </HowItWorksStyled.TabListItem>
-                    <HowItWorksStyled.TabListItem>
+                    </HowItWorksStyled.ListItem>
+                    <HowItWorksStyled.ListItem>
                         <HowItWorksStyled.TabItem to={Paths.HowItWorksDevelop} onClick={handleOnClickTab}>
                             Development
                         </HowItWorksStyled.TabItem>
-                    </HowItWorksStyled.TabListItem>
+                    </HowItWorksStyled.ListItem>
                 </HowItWorksStyled.WrapperTabs>
             </HowItWorksStyled.Row>
         </HowItWorksStyled.Layout>
