@@ -2,14 +2,15 @@
 import React, { useState } from "react"
 import { HeaderStyled } from "./HeaderStyled"
 import ZeppelinComponentsLogo from "../../../assets/examples/zeppelin-components.svg"
-import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
-import Button from "../../../components/Button/Button"
 import { Paths } from "../../Paths"
 import { NavLink, useLocation } from "react-router-dom"
 import Search from "./Search"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
 import { Sidebar } from "../Sidebar/Sidebar"
+import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
+import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
+import Button from "../../../components/Button/Button"
 
 const pathsIgnoreSearch = [
 	Paths.HowItWorksDesign,
@@ -22,7 +23,7 @@ const Header = () => {
 
 	const [isMenuOpen, setIsMenuOpen,] = useState(false)
 
-	const HandleSearch = () => {
+	const redirectToGithub = () => {
 		window.open(Paths.Github, "_blank")
 	}
 
@@ -32,6 +33,10 @@ const Header = () => {
 	}
 
 	const isMobile = windowSize.width < size.desktop
+
+	const redirectToFigma = () => {
+		window.open(Paths.Figma, "_blank")
+	}
 
 	return <>
 		<HeaderStyled.Wrapper>
@@ -70,25 +75,31 @@ const Header = () => {
 						</HeaderStyled.NavListItem>
 					</HeaderStyled.NavList>
 				</HeaderStyled.Nav>
-
 				<HeaderStyled.ContainerSearchBar>
-					{windowSize.width >= size.desktop && <Search />}
+					<Search />
 					<Button
 						type="button"
-						onClick={HandleSearch}
+						onClick={redirectToGithub}
 						icon={{
 							SVGComponent: GithubIcon,
 						}}
 					/>
-					<HeaderStyled.ButtonMenu isOpen={isMenuOpen}
+					<Button
 						type="button"
-						onClick={() => setIsMenuOpen(!isMenuOpen)}
-					>
-						<HeaderStyled.ButtonLine />
-						<HeaderStyled.ButtonLine />
-						<HeaderStyled.ButtonLine />
-					</HeaderStyled.ButtonMenu>
+						onClick={redirectToFigma}
+						icon={{
+							SVGComponent: FigmaIcon,
+						}}
+					/>
 				</HeaderStyled.ContainerSearchBar>
+				<HeaderStyled.ButtonMenu isOpen={isMenuOpen}
+					type="button"
+					onClick={() => setIsMenuOpen(!isMenuOpen)}
+				>
+					<HeaderStyled.ButtonLine />
+					<HeaderStyled.ButtonLine />
+					<HeaderStyled.ButtonLine />
+				</HeaderStyled.ButtonMenu>
 			</HeaderStyled.Row>
 		</HeaderStyled.Wrapper>
 		{isMobile
