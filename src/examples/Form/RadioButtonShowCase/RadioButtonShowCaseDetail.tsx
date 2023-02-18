@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import RadioButtonGroup, { RadioOption, ContentRadioPosition, RadioButtonSize }
     from "../../../components/Form/RadioButton/RadioButton"
+import { Paths } from "../../Paths"
 import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import radioCodeViewerStrings from "./RadioCodeViewerStrings"
@@ -67,7 +68,10 @@ const RadioButtonShowCaseDetail = () => {
     }
 
     return <DetailComponentPage>
-        <Title title={t_PageRadio("mainSection.title")}>
+        <Title
+            title={t_PageRadio("mainSection.title")}
+            githubLink={Paths.GithubComponents.RadioButton}
+        >
             {t_PageRadio("mainSection.description")}
         </Title>
         <Description title={t_PageRadio("stateSection.title")}

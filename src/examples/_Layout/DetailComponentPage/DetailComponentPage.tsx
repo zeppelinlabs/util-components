@@ -3,13 +3,15 @@ import React from "react"
 import { useTranslation } from "react-i18next"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
-import Button, { ButtonSize } from "../../../components/Button/Button"
+import Button, { ButtonIconPosition, ButtonSize, ButtonVariant }
+	from "../../../components/Button/Button"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
 import { TextStyled } from "../../../styles/typographic"
 import { toastNotification } from "../../../util/toastNotification"
 import { SidebarDesktop } from "../Sidebar/Sidebar"
 import { DetailComponentPageStyled } from "./DetailComponentPageStyled"
+import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
 
 type Props = {
 	children: React.ReactNode,
@@ -38,12 +40,33 @@ export default DetailComponentPage
 type TitleProps = {
 	title: string,
 	children: React.ReactNode,
+	githubLink: string,
 }
 export const Title = (props: TitleProps) => {
+	const windowSize = useWindowSize()
+
+	const redirectToGithub = () => {
+		return window.open(props.githubLink, "_blank")
+	}
+
 	return <DetailComponentPageStyled.WrapperTitle>
-		<TextStyled.Heading3xl textWeight="semibold">
-			{props.title}
-		</TextStyled.Heading3xl>
+		<DetailComponentPageStyled.ContainerInLine>
+			<TextStyled.Heading3xl textWeight="semibold">
+				{props.title}
+			</TextStyled.Heading3xl>
+			<Button
+				type="button"
+				customStyles={{ buttonVariant: ButtonVariant.Secondary, }}
+				onClick={redirectToGithub}
+				buttonSize={ButtonSize.Small}
+				icon={{
+					SVGComponent: GithubIcon,
+					position: ButtonIconPosition.Right,
+				}}
+			>
+				{windowSize.width >= size.desktop && "Go to the code"}
+			</Button>
+		</DetailComponentPageStyled.ContainerInLine>
 		<TextStyled.BodyXl textColor="level400">
 			{props.children}
 		</TextStyled.BodyXl>

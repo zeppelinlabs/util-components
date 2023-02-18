@@ -7,6 +7,7 @@ import DetailComponentPage, { Title, Description }
 import { toastNotification } from "../../util/toastNotification"
 import { useTranslation } from "react-i18next"
 import TagCodeViewerStrings from "./TagCodeViewerStrings"
+import { Paths } from "../Paths"
 
 const TagShowCaseDetail = () => {
     const { t, } = useTranslation()
@@ -15,7 +16,10 @@ const TagShowCaseDetail = () => {
     const handleOnClick = () => toastNotification("Fantastic! A button click remove has occurred!")
 
     return <DetailComponentPage>
-        <Title title={t_PageTags("mainSection.title")}>
+        <Title
+            title={t_PageTags("mainSection.title")}
+            githubLink={Paths.GithubComponents.Tag}
+        >
             {t_PageTags("mainSection.description")}
         </Title>
 

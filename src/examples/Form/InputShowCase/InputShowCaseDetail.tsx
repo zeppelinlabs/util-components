@@ -13,6 +13,7 @@ import { IconPosition } from "../../../components/CommonTypes"
 import { ReactComponent as CircleIcon } from "../../../assets/icons/circle.svg"
 import { InputSize } from "../../../components/Form/Input/InputCommon"
 import inputCodeViewerStrings from "./InputCodeViewerStrings"
+import { Paths } from "../../Paths"
 
 
 const InputShowCaseDetail = () => {
@@ -25,7 +26,10 @@ const InputShowCaseDetail = () => {
 
 
     return <DetailComponentPage>
-        <Title title={t_PageInput("mainSection.title")}>
+        <Title
+            title={t_PageInput("mainSection.title")}
+            githubLink={Paths.GithubComponents.Input}
+        >
             {t_PageInput("mainSection.description")}
         </Title>
         <Description title={t_PageInput("typesSection.title")}

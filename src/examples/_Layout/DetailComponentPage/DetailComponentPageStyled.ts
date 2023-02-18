@@ -44,7 +44,7 @@ const WrapperContent = styled.main`
 const WrapperTitle = styled.article`
 	display: grid;
 	width: 100%;
-	gap: ${UiTokens.spacing.size12};
+	gap: ${UiTokens.spacing.size16};
 `
 
 const WrapperSubTitle = styled.article`
@@ -52,9 +52,6 @@ const WrapperSubTitle = styled.article`
 	width: 100%;
 	gap: ${UiTokens.spacing.size16};
 	flex-direction: column;
-	@media ${device.desktop} {
-		display: grid;
-	}
 `
 
 const StageComponents = styled.div`
@@ -116,6 +113,12 @@ const ContainerCopyButton = styled.div`
 	right: 15px;
 `
 
+const ContainerInLine = styled.article`
+	display: flex;
+	justify-content: space-between;
+	gap: 16px;
+`
+
 export const DetailComponentPageStyled = {
 	Wrapper,
 	Row,
@@ -128,4 +131,5 @@ export const DetailComponentPageStyled = {
 	ContainComponent,
 	WrapperCode,
 	ContainerCopyButton,
+	ContainerInLine,
 }

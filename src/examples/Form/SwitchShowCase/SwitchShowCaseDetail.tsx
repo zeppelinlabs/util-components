@@ -4,6 +4,7 @@ import React, { useState } from "react"
 import { useTranslation } from "react-i18next"
 import Switch, { ContentSwitchPosition, SwitchSize }
     from "../../../components/Form/Switch/Switch"
+import { Paths } from "../../Paths"
 import DetailComponentPage, { Title, Description }
     from "../../_Layout/DetailComponentPage/DetailComponentPage"
 import switchCodeViewerStrings from "./SwitchCodeViewerStrings"
@@ -15,7 +16,10 @@ const SwitchShowCaseDetail = () => {
     const { t: t_PageSwitch, } = useTranslation("PageComponentSwitch")
 
     return <DetailComponentPage>
-        <Title title={t_PageSwitch("mainSection.title")}>
+        <Title
+            title={t_PageSwitch("mainSection.title")}
+            githubLink={Paths.GithubComponents.Switch}
+        >
             {t_PageSwitch("mainSection.description")}
         </Title>
         <Description title={t_PageSwitch("stateSection.title")}

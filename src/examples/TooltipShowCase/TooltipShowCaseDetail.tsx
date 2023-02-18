@@ -6,6 +6,7 @@ import Tooltip, { TooltipAlign, TooltipPosition, TooltipSize, TooltipVariant }
 import { useWindowSize } from "../../hooks/useWindowsSize"
 import { size } from "../../styles/mediaQueries"
 import { TextStyled } from "../../styles/typographic"
+import { Paths } from "../Paths"
 import DetailComponentPage, { Title, Description }
     from "../_Layout/DetailComponentPage/DetailComponentPage"
 import tooltipCodeViewerStrings from "./TooltipCodeViewerStrings"
@@ -20,7 +21,10 @@ const TooltipShowCaseDetail = () => {
     const labelText = isDesktop ? t_PageTooltip("hover") : t_PageTooltip("click")
 
     return <DetailComponentPage>
-        <Title title={t_PageTooltip("mainSection.title")}>
+        <Title
+            title={t_PageTooltip("mainSection.title")}
+            githubLink={Paths.GithubComponents.Tooltip}
+        >
             {t_PageTooltip("mainSection.description")}
         </Title>
 
