@@ -5,6 +5,7 @@ import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
 import { thp } from "../../../styles/themeHelpers"
 import { zIndex } from "../../../styles/zIndexHelper"
 import { device } from "../../../styles/mediaQueries"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 
 export const headerMobileHeight = "80px"
 
@@ -57,7 +58,7 @@ const NavListItem = styled.li``
 
 const BaseLink = css`
 	text-decoration: none;
-	font-size: 1.6rem;
+	font-size: ${FontsTokens.sizes.Primary.base};
 	color: ${thp.base.level1000._};
 	position: relative;
 	transition: all .3s ease-out;
@@ -99,7 +100,7 @@ const ContainerSearchBar = styled.article`
 	@media ${device.desktop} {
 		display: grid;
 		gap: ${UiTokens.spacing.size16};
-		grid-template-columns: 1fr 36px 36px;
+		grid-template-columns: 1fr 40px 40px;
 	}
 `
 
