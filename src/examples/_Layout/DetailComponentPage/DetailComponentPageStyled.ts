@@ -96,15 +96,17 @@ const ContainerForInputs = styled.div`
 	min-width: 250px;
 	width: 100%;
 `
-const WrapperCode = styled.article`
+const WrapperCode = styled.article<{ changeWhiteSpace?: boolean, }>`
 	${FontsTokens.sizes.Primary.sm}
 	position: relative;
 	> pre{
 		border-radius: ${UiTokens.borderRadius.size16} !important;
 		padding: ${UiTokens.spacing.size24} !important;
 		> code {
-			white-space: pre !important;
-		}
+			white-space: ${({ changeWhiteSpace, }) => (changeWhiteSpace
+		? "pre-wrap"
+		: "pre")
+	} !important;}
 	}
 `
 
