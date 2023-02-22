@@ -7,6 +7,7 @@ const AccordionHeader = styled.div`
     align-items: center;
     grid-template-columns: 1fr 16px;
     row-gap: inherit;
+    cursor: pointer;
 `
 
 const AccordionContent = styled.div<{ hasMarginBottom?: boolean, }>`
