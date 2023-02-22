@@ -1,0 +1,24 @@
+{
+    "label": "label",
+    "mainSection": {
+        "title": "Switch",
+        "description": "Switches toggle the state of a single setting activate or deactivate. "
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of the switch communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Switches are set in different possible variants"
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "left": "Left side label",
+    "right": "Right side label",
+    "bottom": "Bottom side label",
+    "small": "Small - font size: 12",
+    "base": "Base - font size: 16",
+    "large": "Large - font size: 20"
+}

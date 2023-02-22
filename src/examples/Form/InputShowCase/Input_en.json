@@ -1,0 +1,33 @@
+{
+    "mainSection": {
+        "title": "Input",
+        "description": "Inputs could be text fields or select components which are used to enter and validate text data. Combine inputs to create forms."
+    },
+    "typesSection": {
+        "title": "Types",
+        "description": "The different types of inputs communicates what is needed to fill them"
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of the inputs communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Inputs could have Title, message, left or/and right icon."
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "label": "Label",
+    "password": "Password",
+    "prefix": "Prefix",
+    "textarea": "Textarea",
+    "filled": "Filled",
+    "unfilled": "Unfilled",
+    "Error": "Error",
+    "withIcon": "With icon",
+    "small": "Small - font size: 14",
+    "base": "Base - font size: 16",
+    "large": "Large - font size: 18",
+    "xLarge": "X Large - font size: 20"
+}

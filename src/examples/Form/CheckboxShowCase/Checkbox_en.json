@@ -1,0 +1,24 @@
+{
+    "label": "Label",
+    "mainSection": {
+        "title": "Checkbox",
+        "description": "A checkbox is used when the user needs to mark one individual item or select multiple items from a list of options."
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of the checkbox communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Checkboxes are set in different possible variants"
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "single": "single",
+    "left": "Left side label",
+    "right": "Right side label",
+    "small": "Small - font size: 12",
+    "base": "Base - font size: 16",
+    "large": "Large - font size: 20"
+}

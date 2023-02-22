@@ -1,0 +1,212 @@
+{
+  "Primary": {
+    "Level900": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "Level50": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#cccccc",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#b3b3b3",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#808080",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#666666",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#4c4c4c",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#000000",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#332907",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#000000",
+      "type": "color"
+    }
+  },
+  "Error": {
+    "Level50": {
+      "value": "#fdebe8",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#f9c3b9",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#f69b8a",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#f2725b",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#ee4a2c",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#ec3615",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#bd2b11",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#8e200d",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#5e1608",
+      "type": "color"
+    },
+    "Level900": {
+      "value": "#2f0b04",
+      "type": "color"
+    }
+  },
+  "Success": {
+    "Level50": {
+      "value": "#e9fbef",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#bef4d0",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#93ecb1",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#68e592",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#3dde73",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#27da64",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#1fae50",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#17833c",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#105728",
+      "type": "color"
+    },
+    "Level900": {
+      "value": "#093a19",
+      "type": "color"
+    }
+  },
+  "Warning": {
+    "Level50": {
+      "value": "#fffae9",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#fff0bd",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#ffe790",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#ffdd64",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#ffd338",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#ffce22",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#cca51b",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#997c14",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#66520e",
+      "type": "color"
+    },
+    "Level900": {
+      "value": "#332907",
+      "type": "color"
+    }
+  },
+  "Base": {
+    "Level0": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#cccccc",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#b3b3b3",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#999999",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#808080",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#666666",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#4c4c4c",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#333333",
+      "type": "color"
+    },
+    "Level1000": {
+      "value": "#000000",
+      "type": "color"
+    }
+  }
+}

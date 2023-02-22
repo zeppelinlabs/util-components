@@ -1,25 +1,15 @@
+/* eslint-disable max-lines-per-function */
 import React from "react"
 import { InputStyled } from "./InputStyles"
 import { useState } from "react"
-import { ReactComponent as HideIcon } from "../../../assets/not_preview.svg"
-import { ReactComponent as ShowIcon } from "../../../assets/preview.svg"
-import { renderErrorMessage } from "../FormCommon"
-
-export type Props = {
-    placeholder?: string,
-    value: string,
-    disabled?: boolean,
-    errorMessage?: string | null,
-    tabIndex?: number,
-    autoFocus?: boolean,
-    onChange?: (value: string) => void,
-    onBlur?: () => void,
-    onFocus?: (value: string) => void,
-}
-
+import { ReactComponent as HideIcon } from "../../../assets/icons/not_preview.svg"
+import { ReactComponent as ShowIcon } from "../../../assets/icons/preview.svg"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
+import { InputCommonProps } from "./InputCommon"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
 
 const InputPassword = React.forwardRef((
-    props: Props,
+    props: InputCommonProps<string>,
     ref: React.ForwardedRef<HTMLInputElement>
 ) => {
     const [showPassword, setShowPassword,] = useState(true)
@@ -38,12 +28,12 @@ const InputPassword = React.forwardRef((
 
     const renderIconAction = () => {
         return (
-            <InputStyled.InputAction
+            <InputStyled.ActionButton
                 type="button"
                 onClick={handleToggleShowPassword}
             >
                 {showPassword ? <ShowIcon /> : <HideIcon />}
-            </InputStyled.InputAction>
+            </InputStyled.ActionButton>
         )
     }
 
@@ -59,12 +49,19 @@ const InputPassword = React.forwardRef((
                 onChange={handleOnChange}
                 onBlur={props.onBlur}
                 onFocus={handleOnFocus}
-                tabIndex={props.tabIndex}
-                autoFocus={props.autoFocus}
+                autoFocus={props.accessibility?.autoFocus}
+                tabIndex={props.accessibility?.tabIndex}
+                customStyles={props.customStyles}
+                isLoading={props.isLoading}
             />
             {renderIconAction()}
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)}
+            {props.isLoading
+                && <InputStyled.SpinnerContainer>
+                    <Spinner size={SpinnerSize.small} />
+                </InputStyled.SpinnerContainer>
+            }
         </InputStyled.InputContainer>
     )
 })

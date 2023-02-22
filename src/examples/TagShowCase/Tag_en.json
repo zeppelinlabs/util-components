@@ -1,0 +1,29 @@
+{
+    "tagText": "Tag Base",
+    "mainSection": {
+        "title": "Tag",
+        "description": "Tags are used to label, organize or categorize objects with relevant keywords associated."
+    },
+    "typeSection": {
+        "title": "Types",
+        "description": "The different types of tags communicates specific actions or states"
+    },
+    "stateSection": {
+        "title": "State",
+        "description": "The different states of the tags communicates possible or current interactions"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Tags are set in different possible variants"
+    },
+    "withIcon": "Icon + Text",
+    "withIconRight": "Text + Icon",
+    "withIconAndClose": "Text + Icon + Close",
+    "withClose": "Text + Close",
+    "sizeSection": {
+        "title": "Size"
+    },
+    "sizeSmall": "Small - font size: 12",
+    "sizeBase": "Base - font size: 16",
+    "sizeLarge": "Large - font size: 20"
+}

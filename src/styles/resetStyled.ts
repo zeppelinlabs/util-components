@@ -28,7 +28,10 @@ export const ResetStyled = createGlobalStyle`
 	img,
 	picture{
 		max-width: 100%;
-		display: block;
+		width: 100%;
+		object-fit: contain;
+		object-position: center;
+		display: flex;
 		border-style: none;
 	}
 	button,

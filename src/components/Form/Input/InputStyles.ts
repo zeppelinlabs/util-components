@@ -1,41 +1,68 @@
 import styled, { css } from "styled-components"
-import { device } from "../../../styles/mediaQueries"
+import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
+import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
 import { IconPosition } from "../../CommonTypes"
+import { CustomInputStyles, InputSize } from "./InputCommon"
 
 type InputProps = {
     type: "text" | "number" | "email" | "tel" | "password",
     position?: IconPosition,
     errorMessage?: boolean,
     leadingLabelWidth?: number,
+    customStyles?: CustomInputStyles,
+    autoHeight?: boolean,
+    isLoading?: boolean,
+}
+
+const getInputSize = (size: InputSize) => {
+    const Input = {
+        [InputSize.Small]: 36,
+        [InputSize.Medium]: 40,
+        [InputSize.Large]: 46,
+        [InputSize.Xlarge]: 48,
+    }
+    return Input[size]
+}
+
+const getInputTextAreaSize = (size: InputSize) => {
+    const InputTextArea = {
+        [InputSize.Small]: 72,
+        [InputSize.Medium]: 80,
+        [InputSize.Large]: 92,
+        [InputSize.Xlarge]: 96,
+    }
+    return InputTextArea[size]
 }
 
 const InputContainer = styled.div`
   position: relative;
-  width: fit-content;
+  width: 100%;
+  display:flex;
+  flex-direction:column;
 `
 
 export const InputGeneralStyles = css<InputProps>`
-    background: ${thp.common(c => c.white)};
-    border: 1px solid ${thp.common(c => c.black)};
+    background: ${thp.base.level0._};
+    border: ${UiTokens.borderWidth.size1} solid ${thp.base.level200._};
+    border-radius: ${UiTokens.borderRadius.size8};
     box-sizing: border-box;
-    padding: 8px 12px;
-    color: ${props => (props.errorMessage
-        ? thp.system(c => c.critical)
-        : thp.common(c => c.black))};
-    font-size: 1.6rem;
+    padding: 8px 16px;
+    color: ${thp.base.level1000._};
+    font-size: ${FontsTokens.sizes.Primary.sm.fontSize};
     width: auto;
+    height: ${p => getInputSize(p.customStyles?.size || InputSize.Medium)}px;
 
     ${props => props.errorMessage && css`
-        border-color:${thp.system(c => c.critical)};
+        border-color:${thp.system.error.level200._};
     `}
 
-    @media ${device.desktop} {
-        font-size: 1.4rem;
+    &:focus {
+        box-shadow: 0 0 0 4px ${thp.primary.level200._};
     }
 
-    &:focus {
-        //focus styles
+    &:focus-visible {
+        outline: none;
     }
 
     &:hover {
@@ -43,11 +70,13 @@ export const InputGeneralStyles = css<InputProps>`
     }
 
     &:disabled {
-        //disabled styles
+        background-color: ${thp.base.level100._};
+        border-color: ${thp.base.level200._};
+        cursor:not-allowed
     }
 
     ::placeholder {
-        color: ${thp.neutral(c => c.level50)};
+        color: ${thp.base.level300._};
     }
 
     /* Opcional: Eliminar estilos de input number*/
@@ -62,76 +91,45 @@ export const InputGeneralStyles = css<InputProps>`
     }
 `
 
-
 const Input = styled.input <InputProps>`
     ${InputGeneralStyles};
     ${props => props.position === IconPosition.left && css`
         padding-left:32px;
-    `}
+    `};
     ${props => props.leadingLabelWidth && css`
         /* Leading label width + input padding left */
         padding-left:${`${props.leadingLabelWidth + 12}px`};
-    `}
+    `};
     ${props => props.position === IconPosition.right && css`
         padding-right:32px;
-    `}
-`
-
-type IconContainerProps = {
-    position: IconPosition,
-}
-const IconContainer = styled.div<IconContainerProps>`
-    position: absolute;
-    top:0;
-    bottom: 0;
-    width: 12px;
-    /* height: 12px; */
-    pointer-events: none;
-    display: flex;
-    place-items: center;
-    ${props => props.position === IconPosition.left && css`
-        top:11px;
-        left:8px;
     `};
-     ${props => props.position === IconPosition.right && css`
-        top:11px;
-        right:8px;
+    ${props => props.customStyles?.textColor && css`
+        color: ${props.customStyles?.textColor};
     `};
+    ${props => props.customStyles?.textAlign && css`
+        text-align: ${props.customStyles?.textAlign};
+    `};
+    ${props => props.customStyles?.textWeight && css`
+        font-weight: ${props.customStyles?.textWeight};
+    `};
+    ${props => (props.isLoading && css`
+        visibility: hidden;
+    `)};
 `
 
 const LeadingLabel = styled.span<{ errorMessage?: boolean, }>`
     font-family:inherit;
-    font-size: 1.6rem;
+    font-size: ${FontsTokens.sizes.Primary.sm.fontSize};
+    font-weight: ${FontsTokens.weights.Primary.bold};
     position: absolute;
-    top: 9px;
-    left: 8px;
-    color: ${props => (props.errorMessage
-        ? thp.system(c => c.critical)
-        : thp.common(c => c.black))};
-    @media ${device.desktop} {
-        font-size: 1.4rem;
-    }
+    top: 30%;
+    left: 16px;
+    color: ${({ errorMessage, }) => (errorMessage
+        ? thp.system.error.level500._
+        : thp.base.level300._)};
 `
 
-const ErrorWrapper = styled.div`
-    display: flex;
-    padding-top: 4px;
-    width: 100%;
-    word-break: break-word;
-    color:${thp.system(c => c.critical)};
-    align-items: center;
-`
-
-const ErrorText = styled.span`
-    color:${thp.system(c => c.critical)};
-    font-size: 1.4rem;
-    line-height: 1.6rem;
-
-    @media ${device.desktop} {
-        font-size: 1.2rem;
-    }
-`
-const InputAction = styled.button`
+const ActionButton = styled.button`
     width: 14px;
     height: 14px;
     outline:none;
@@ -139,22 +137,80 @@ const InputAction = styled.button`
     background: none;
     border:none;
     position: absolute;
-    top:10px;
-    right:12px;
+    top: 30%;
+    right: 16px;
     z-index:1;
-
+    
     &:disabled {
         opacity: 0.5;
         cursor:not-allowed;
-    }
+    };
+`
+
+const InputTextArea = styled.textarea<InputProps>`
+    ${InputGeneralStyles};
+    max-width: 100%;
+    resize: ${({ customStyles, }) => (customStyles?.isResizable ? "auto" : "none")};
+    width: auto;
+    line-height: ${FontsTokens.sizes.Primary.sm.lineHeight};
+    min-height: ${p => getInputTextAreaSize(p.customStyles?.size || InputSize.Medium)}px;
+
+    ${props => props.autoHeight && css`
+        overflow: hidden;
+    `}
+`
+
+type CharacterCountProps = {
+    reachesTheLimit: boolean,
+}
+
+const CharacterCount = styled.span<CharacterCountProps>`
+    font-size: ${FontsTokens.sizes.Primary.xs.fontSize};
+    font-weight: ${FontsTokens.weights.Primary.light};
+    line-height: ${FontsTokens.sizes.Primary.xs.lineHeight};
+    color: ${({ reachesTheLimit, }) => (reachesTheLimit
+        ? thp.system.error.level500._
+        : thp.base.level1000._)};
+    margin:4px 0px;
+    text-align: right;
+    max-height: 14px;
+`
+
+const SpinnerContainer = styled.span`
+    max-width: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+`
+
+type IconContainerProps = {
+    position?: IconPosition,
+}
+
+const IconContainer = styled.div<IconContainerProps>`
+    position: absolute;
+    top:0;
+    bottom: 0;
+    width: 14px;
+    pointer-events: none;
+    display: flex;
+    place-items: center;
+    ${props => (!props.position || props.position === IconPosition.left) && css`
+        left: 12px;
+    `};
+     ${props => props.position === IconPosition.right && css`
+        right: 12px;
+    `};
 `
 
 export const InputStyled = {
     InputContainer,
     Input,
-    IconContainer,
     LeadingLabel,
-    ErrorText,
-    ErrorWrapper,
-    InputAction,
+    ActionButton,
+    CharacterCount,
+    InputTextArea,
+    SpinnerContainer,
+    IconContainer,
 }

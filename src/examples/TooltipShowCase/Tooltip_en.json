@@ -1,0 +1,30 @@
+{
+    "hover": "Hover here",
+    "click": "Click here",
+    "tooltip": "Tooltip",
+    "mainSection": {
+        "title": "Tooltip",
+        "description": "The Tooltips shows information clicking, hovering or having an interaction with other UI elements. Use them to help users perceive important information to the related action."
+    },
+    "typeSection": {
+        "title": "Types",
+        "description": "The different types of tooltips communicates specific actions or states"
+    },
+    "variantSection": {
+        "title": "Variants",
+        "description": "Tooltips are set in different possible variants"
+    },
+    "sizeSection": {
+        "title": "Size"
+    },
+    "topCenter": "Top Center",
+    "topLeft": "Top Left",
+    "topRight": "Top Right",
+    "left": "Left",
+    "right": "Right",
+    "bottom": "Bottom",
+    "small": "Small - font size: 12",
+    "medium": "Medium - font size: 20",
+    "large": "Large - font size: 24",
+    "auto": "Auto - font size: 16"
+}

@@ -1,42 +1,34 @@
 import React from "react"
 import { toDictionary } from "../../../util/toDictionary"
-import Checkbox from "./Checkbox"
+import Checkbox, { CustomCheckboxStyles } from "./Checkbox"
 import { HTMLSetCustomValidityElement, useSetCustomValidity }
-    from "../../../hooks/SetCustomValidity"
-import { renderErrorMessage } from "../FormCommon"
+    from "../../../hooks/useSetCustomValidity"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
+import { CheckboxStyled } from "./CheckboxStyles"
 
 export type CheckboxGroupOption<K> = {
     key: K,
-} & (
-        {
-            label: string,
-            children?: JSX.Element,
-        }
-        |
-        {
-            label?: string,
-            children: JSX.Element,
-        }
-    )
+    children: React.ReactNode,
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus?: boolean,
+    },
+    customStyles?: CustomCheckboxStyles,
+    disabled?: boolean,
+}
 
 type ValidKey = string | number
 
 export type Props<K extends ValidKey, T extends CheckboxGroupOption<K>> = {
-    displayName?: string,
     options: T[],
     keyValue: K[],
-    disabled?: boolean,
     errorMessage?: string,
     onChange?: (value: T[]) => void,
-    onBlur?: () => void,
 }
-
 
 const hasKey = <K,>(options: K[], key: K) => {
     return options.includes(key)
 }
-
-
 
 // eslint-disable-next-line react/display-name
 const CheckboxGroup = React.forwardRef(<K extends ValidKey,
@@ -45,13 +37,13 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
 
     const firstCheck = useSetCustomValidity<HTMLInputElement>(ref)
 
-
     const handleOnChange = (option: T) => (checked: boolean) => {
         if (props.onChange) {
             const optionsByKey = toDictionary(props.options, o => o.key)
             const hasKeyBeforeChange = hasKey(props.keyValue, option.key)
 
             if (props.keyValue.some(k => !optionsByKey[k])) {
+                // eslint-disable-next-line no-console
                 console.warn("keyValue not in options", props)
             }
 
@@ -65,19 +57,17 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
         }
     }
 
-
     return (
-        <>
-            {props.displayName}
+        <CheckboxStyled.Container>
             {props.options.map((option, i) => {
                 return <Checkbox
                     ref={i === 0 ? firstCheck : undefined}
                     key={option.key}
-                    label={option.label}
                     value={hasKey(props.keyValue, option.key)}
-                    disabled={props.disabled}
+                    disabled={option.disabled}
                     onChange={handleOnChange(option)}
-                    onBlur={props.onBlur}
+                    customStyles={option.customStyles}
+                    accessibility={option.accessibility}
                 >
                     {option.children}
                 </Checkbox>
@@ -85,7 +75,7 @@ const CheckboxGroup = React.forwardRef(<K extends ValidKey,
             {props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </>
+        </CheckboxStyled.Container>
     )
 }) as <K extends ValidKey,
     T extends CheckboxGroupOption<K>>(props: Props<K, T>

@@ -1,41 +1,57 @@
-/* eslint-disable react/display-name */
+/* eslint-disable max-lines-per-function */
 import React from "react"
-import { SelectStyled } from "./SelectGroupStyles"
-import Label from "../Label/Label"
-import { renderErrorMessage } from "../FormCommon"
+import { SelectStyled } from "./SelectStyles"
+import { renderErrorMessage } from "../FormCommon/FormCommon"
+import { ReactComponent as ArrowDown } from "../../../assets/icons/pointer_down.svg"
+import Spinner, { SpinnerSize } from "../../Spinner/Spinner"
+import { TextWeightKeys } from "../../../styles/themeHelpers"
+
+type ValidKey = string | boolean | number | null
 
 export type SelectOption<K> = {
     key: K,
     text: string,
+    isOptionHidden?: boolean,
 }
 
-type ValidKey = string | boolean | number | null
+export type CustomSelectStyles = {
+    textWeight?: TextWeightKeys,
+}
 
 export type Props<K extends ValidKey, T extends SelectOption<K>> = {
-    displayName?: string,
+    selectedValue?: K,
     options: T[],
-    keyValue: K,
-    placeholder: string,
     disabled?: boolean,
-    errorMessage?: string | null,
+    isLoading?: boolean,
+    errorMessage?: string,
+    accessibility?: {
+        tabIndex?: number,
+        autoFocus: boolean,
+    },
+    customStyles?: CustomSelectStyles,
+    icon?: React.FunctionComponent,
     onChange?: (value: T) => void,
-    onBlur?: () => void,
+    onClick?: (e: React.MouseEvent<HTMLSelectElement>) => void,
 }
+
 const keySerializator = (() => {
     const emptyValue = ""
     return {
         serialize: (k: ValidKey) =>
-            (k === emptyValue
-                ? emptyValue
-                : JSON.stringify(k)),
+        (k === emptyValue
+            ? emptyValue
+            : JSON.stringify(k)),
         deserialize: <R extends ValidKey>(s: string) =>
-            (s === emptyValue
-                ? emptyValue
-                : JSON.parse(s) as R),
+        (s === emptyValue
+            ? emptyValue
+            : JSON.parse(s) as R),
     }
 })()
-const Select = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>,
-    ref: React.ForwardedRef<HTMLSelectElement>) => {
+
+const Select_ = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
+    props: Props<K, T>,
+    ref: React.ForwardedRef<HTMLSelectElement>
+) => {
 
     const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const selected = keySerializator.deserialize(e.target.value)
@@ -44,44 +60,71 @@ const Select = React.forwardRef(<K extends ValidKey, T extends SelectOption<K>>(
         if (value) {
             props.onChange && props.onChange(value)
         } else {
+            // eslint-disable-next-line no-console
             console.error("Option not found", value, e.target.value, selected)
             throw new Error("Option not found")
         }
     }
+
+
     return (
-        <Label text={props.displayName && props.displayName}>
-            <SelectStyled.Select
-                ref={ref}
-                value={keySerializator.serialize(props.keyValue)}
-                onChange={handleOnChange}
-                onBlur={props.onBlur}
-                disabled={props.disabled}
+        <SelectStyled.Container>
+            <SelectStyled.Wrapper
+                disabled={props.disabled || props.isLoading}
                 errorMessage={props.errorMessage}
             >
-                {props.placeholder
-                    && <SelectStyled.OptionPlaceholder>
-                        {props.placeholder}
-                    </SelectStyled.OptionPlaceholder >
+
+                {props.icon
+                    && <SelectStyled.WrapperIcon>
+                        <props.icon />
+                    </SelectStyled.WrapperIcon>
                 }
 
-                {props.options.map((opt) => {
-                    const key = keySerializator.serialize(opt.key)
-                    return (
-                        <option key={key}
-                            value={key}
-                        >
-                            {opt.text}
-                        </option>
-                    )
-                })}
-            </SelectStyled.Select>
+                <SelectStyled.WrapperArrow>
+                    {props.isLoading
+                        ? <Spinner size={SpinnerSize.small} />
+                        : <ArrowDown />
+                    }
+                </SelectStyled.WrapperArrow>
+
+                <SelectStyled.Select
+                    withIcon={!!props.icon}
+                    ref={ref}
+                    value={props.selectedValue
+                        && keySerializator.serialize(props.selectedValue)
+                    }
+                    onChange={handleOnChange}
+                    onClick={props.onClick}
+                    disabled={props.disabled || props.isLoading}
+                    errorMessage={props.errorMessage}
+                    customStyles={props.customStyles}
+                >
+                    {props.options.map((opt) => {
+                        const key = keySerializator.serialize(opt.key)
+                        return (
+                            <SelectStyled.Option
+                                isOptionHidden={opt.isOptionHidden}
+                                key={key}
+                                value={key}>
+                                {opt.text}
+                            </SelectStyled.Option>
+                        )
+                    })}
+                </SelectStyled.Select>
+            </SelectStyled.Wrapper>
             {
                 props.errorMessage
                 && renderErrorMessage(props.errorMessage)
             }
-        </Label>
+        </SelectStyled.Container>
     )
-}) as <K extends ValidKey, T extends SelectOption<K>>(props: Props<K, T>
-    & React.RefAttributes<HTMLSelectElement>) => JSX.Element
+})
+
+Select_.displayName = "Select"
+
+const Select = Select_ as <
+    K extends ValidKey,
+    T extends SelectOption<K>>(props: Props<K, T>
+        & React.RefAttributes<HTMLSelectElement>) => JSX.Element
 
 export default Select
