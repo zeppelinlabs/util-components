@@ -11,7 +11,7 @@ export const Paths = {
     FigmaHelp: "https://help.figma.com/hc/en-us/articles/360041051154-Guide-to-libraries-in-Figma",
     TokensStudio: "https://tokens.studio/",
     TokensStudioDocs: "https://docs.tokens.studio/",
-    GithubResetStyles: "https://github.com/zeppelinlabs/util-components/blob/dev/src/styles/globalStyled.ts",
+    GithubResetStyles: "https://github.com/zeppelinlabs/util-components/blob/dev/src/styles/resetStyled.ts",
     GithubGlobalStyles: "https://github.com/zeppelinlabs/util-components/blob/dev/src/styles/globalStyled.ts",
     zeppelinSocialMedia: [
         {
