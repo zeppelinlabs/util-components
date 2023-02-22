@@ -101,10 +101,8 @@ const WrapperCode = styled.article<{ changeWhiteSpace?: boolean, }>`
 		border-radius: ${UiTokens.borderRadius.size16} !important;
 		padding: ${UiTokens.spacing.size24} !important;
 		> code {
-			white-space: ${({ changeWhiteSpace, }) => (changeWhiteSpace
-		? "pre-wrap"
-		: "pre")
-	} !important;}
+			white-space: pre !important;
+		}
 	}
 	@media ${device.desktop} {
 		width: 100%;
