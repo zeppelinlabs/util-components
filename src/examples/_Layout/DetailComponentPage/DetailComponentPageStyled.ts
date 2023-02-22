@@ -96,6 +96,7 @@ const ContainerForInputs = styled.div`
 const WrapperCode = styled.article<{ changeWhiteSpace?: boolean, }>`
 	${FontsTokens.sizes.Primary.sm}
 	position: relative;
+	width: calc(100vw - 48px);
 	> pre{
 		border-radius: ${UiTokens.borderRadius.size16} !important;
 		padding: ${UiTokens.spacing.size24} !important;
@@ -104,6 +105,9 @@ const WrapperCode = styled.article<{ changeWhiteSpace?: boolean, }>`
 		? "pre-wrap"
 		: "pre")
 	} !important;}
+	}
+	@media ${device.desktop} {
+		width: 100%;
 	}
 `
 

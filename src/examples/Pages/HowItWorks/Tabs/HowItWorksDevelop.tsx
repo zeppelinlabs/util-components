@@ -191,9 +191,8 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
-                                            "start": "yarn generate-theme && react-scripts start",
-                                            "build": "yarn generate-theme && react-scripts build",
+                                        <CodeSnippet>{`"start": "yarn generate-theme && react-scripts start",
+"build": "yarn generate-theme && react-scripts build"`}
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={5}>
                                             <HowItWorksStyled.ListItem>
@@ -333,15 +332,15 @@ const HowItWorksDevelop = () => {
                                         </HowItWorksStyled.List>
                                         <CodeSnippet>
                                             {`import {ThemeProvider} from "styled-components"
-    import {defaultTheme} from "./styles/defaultTheme"
+import {defaultTheme} from "./styles/defaultTheme"
 
-    const App = () => {
-        return (
-            <ThemeProvider theme={defaultTheme}>
-                // ...Other components
-            </ThemeProvider >
-            )
-    }`}
+const App = () => {
+    return (
+        <ThemeProvider theme={defaultTheme}>
+            // ...Other components
+        </ThemeProvider >
+    )
+}`}
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={4}>
                                             <HowItWorksStyled.ListItem>
@@ -352,7 +351,7 @@ const HowItWorksDevelop = () => {
                                         </HowItWorksStyled.List>
                                         <CodeSnippet>
                                             {`html {
-    -webkit - text - size - adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     font-size: 62.5%;
 }`}
                                         </CodeSnippet>
@@ -425,7 +424,7 @@ const HowItWorksDevelop = () => {
                                                     Common usage with Styled Components
                                                 </TextStyled.BodyLg>
                                                 <CodeSnippet>
-                                                    {`color: ${"({ theme, }) => (theme.palette.primary.level1000)"};`}
+                                                    {`color: ${"${({ theme, }) => (theme.palette.primary.level1000)}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyLg textWeight="semibold">
                                                     Usage with thp (Theme Helper). This is a shortcut developed by Zeppelin.
@@ -433,7 +432,7 @@ const HowItWorksDevelop = () => {
                                                 <CodeSnippet>
                                                     {`import { thp } from "./themeHelpers"
 
-background-color: ${"thp.base.level0._"};`}
+background-color: ${"${thp.base.level0._}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyBase>
                                                     When using thp, the editor will show you the entries that the object has or you can visit the file root/src/styles/designTokens/defaultThemeTokens.ts to familiarize yourself with the object's form.
@@ -454,8 +453,8 @@ background-color: ${"thp.base.level0._"};`}
                                                         {`import { FontsTokens } from "./designTokens/fontsTokens"
 import { UiTokens } from "./designTokens/uiTokens"
 
-font-weight:${"FontsTokens.weights.Primary.regular"};
-border-radius:${"UiTokens.borderRadius.size16"};`}
+font-weight: ${"${FontsTokens.weights.Primary.regular}"};
+border-radius: ${"${UiTokens.borderRadius.size16"}};`}
                                                     </CodeSnippet>
                                                 </HowItWorksStyled.Section>
                                             </HowItWorksStyled.ListItem>
@@ -479,8 +478,9 @@ type Props = {
     textColor: ThemeBaseColorKeys,
 }
 
-const Heading24 = styled.h2<Props>
-    color: ${"${({ textColor, }) => thp.base[textColor]._}"}
+{const Heading24 = styled.h2<Props>${"`"}
+    color: ${"${({ textColor, }) => thp.base[textColor]._}"}}
+${"`"}
 `}
                                                     </CodeSnippet>
                                                     <TextStyled.BodyLg>
@@ -495,8 +495,9 @@ type Props = {
 	textWeight: TextWeightKeys,
 }
 
-const Heading24 = styled.h2<Props>
+const Heading24 = styled.h2<Props>${"`"}
 	font-weight: ${"${FontsTokens.weights.Primary[p.textWeight]};"}
+${"`"}
 `}
                                                     </CodeSnippet>
                                                 </HowItWorksStyled.Section>

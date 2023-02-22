@@ -15,6 +15,7 @@ const AccordionContent = styled.div<{ hasMarginBottom?: boolean, }>`
     flex-direction: column;
     gap: inherit;
     margin-bottom: ${({ hasMarginBottom, }) => (hasMarginBottom ? "100px" : 0)};
+    width: 100%;
 `
 
 const AccordionContainer = styled.section`
