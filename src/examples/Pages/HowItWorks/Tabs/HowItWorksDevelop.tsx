@@ -14,8 +14,8 @@ import FigmaImage3 from "../../../../assets/examples/figma-dev-3.png"
 import FigmaImage4 from "../../../../assets/examples/figma-dev-4.png"
 import FigmaImage5 from "../../../../assets/examples/figma-dev-5.png"
 import { Paths } from "../../../Paths"
-import { CodeSnippet } from "../HowItWorksPageHelper"
-import Accordion from "../Accordion/Accordion"
+import { CodeSnippet } from "../../../CodeSnippet/CodeSnippet"
+import Accordion, { AccordionVariant } from "../Accordion/Accordion"
 
 const HowItWorksDevelop = () => {
     return <HowItWorksPage>
@@ -123,6 +123,9 @@ const HowItWorksDevelop = () => {
                                         First steps:
                                     </TextStyled.Heading2xl>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Add the Automation Script
@@ -181,7 +184,7 @@ const HowItWorksDevelop = () => {
                                                 </HowItWorksStyled.ListItem>
                                             </HowItWorksStyled.List>
                                         </HowItWorksStyled.WrapperText>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ changeWhiteSpace: true, mobileDecreaseWidth: true, }}>
                                             "generate-theme": "ts-node --project ./scripts/tsconfig.json ./scripts/generateDesignTokens/generateDesignTokens && npx eslint src/styles/designTokens --fix"
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={4}>
@@ -191,9 +194,8 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
-                                            "start": "yarn generate-theme && react-scripts start",
-                                            "build": "yarn generate-theme && react-scripts build",
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>{`"start": "yarn generate-theme && react-scripts start",
+"build": "yarn generate-theme && react-scripts build"`}
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={5}>
                                             <HowItWorksStyled.ListItem>
@@ -201,13 +203,16 @@ const HowItWorksDevelop = () => {
                                                     Add the following entry in the .gitignore file:                                                            </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             src/styles/designTokens/**
                                         </CodeSnippet>
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Instruction to install Figma Tokens and export design tokens from Figma
@@ -245,6 +250,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Import or Update the Design Tokens to the Project
@@ -258,12 +266,19 @@ const HowItWorksDevelop = () => {
                                             If you need to update the tokens, just add the new .json files to the directory and the script will take care of the rest. If any TypeScript tokens are removed during the update, the project will flag all the places where you need to replace the missing token when you run it.
                                         </TextStyled.BodyBase>
                                         <TextStyled.BodyBase>
-                                            For fontTokens, you need to edit the options object in the root/scripts/generateDesignTokens/fontTokensHelper.ts file to translate the Figma weight value into a valid value for CSS. The key should be the value from the Figma exported .json, and the value should be the valid translation to use in CSS.
+                                            For fontTokens, you need to edit the options object in the&nbsp;
+                                            <TextStyled.WordBreak>
+                                                root/scripts/generateDesignTokens/fontTokensHelper.ts
+                                            </TextStyled.WordBreak>
+                                            file to translate the Figma weight value into a valid value for CSS. The key should be the value from the Figma exported .json, and the value should be the valid translation to use in CSS.
                                         </TextStyled.BodyBase>
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Tokens types
@@ -300,7 +315,11 @@ const HowItWorksDevelop = () => {
                                                         Set:Global = Token:uiToken
                                                     </TextStyled.Weight>
                                                     This set stores all the additional tokens configured in Figma. You should use these tokens and not write their "direct" values in the style.
-                                                    Disclaimer: DO NOT COMMIT OR EDIT THE CONTENT of the files housed in the directory root/src/styles/designTokens/ as these are generated automatically by the script and will be constantly re-written.
+                                                    Disclaimer: DO NOT COMMIT OR EDIT THE CONTENT of the files housed in the directory&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/designTokens/
+                                                    </TextStyled.WordBreak>
+                                                    as these are generated automatically by the script and will be constantly re-written.
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
@@ -308,6 +327,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Config Styled components
@@ -322,7 +344,10 @@ const HowItWorksDevelop = () => {
                                             </HowItWorksStyled.ListItem>
                                             <HowItWorksStyled.ListItem>
                                                 <TextStyled.BodyBase>
-                                                    Copy the following files from the components project to the appRoot/src/styles/ directory: root/src/styles/defaultTheme.ts root/src/styles/themeHelpers.tsroot/src/styles/ThemeProxy.ts
+                                                    Copy the following files from the components project to the appRoot/src/styles/ directory:&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/defaultTheme.ts root/src/styles/themeHelpers.tsroot/src/styles/ThemeProxy.ts
+                                                    </TextStyled.WordBreak>
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                             <HowItWorksStyled.ListItem>
@@ -331,17 +356,17 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             {`import {ThemeProvider} from "styled-components"
-    import {defaultTheme} from "./styles/defaultTheme"
+import {defaultTheme} from "./styles/defaultTheme"
 
-    const App = () => {
-        return (
-            <ThemeProvider theme={defaultTheme}>
-                // ...Other components
-            </ThemeProvider >
-            )
-    }`}
+const App = () => {
+    return (
+        <ThemeProvider theme={defaultTheme}>
+            // ...Other components
+        </ThemeProvider >
+    )
+}`}
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={4}>
                                             <HowItWorksStyled.ListItem>
@@ -350,9 +375,9 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             {`html {
-    -webkit - text - size - adjust: 100%;
+    -webkit-text-size-adjust: 100%;
     font-size: 62.5%;
 }`}
                                         </CodeSnippet>
@@ -365,6 +390,9 @@ const HowItWorksDevelop = () => {
                                 </TextStyled.Heading2xl>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Running the script
@@ -393,6 +421,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.FigmaInstructions>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 How to use tokens in CSS styles?
@@ -424,19 +455,23 @@ const HowItWorksDevelop = () => {
                                                 <TextStyled.BodyLg textWeight="semibold">
                                                     Common usage with Styled Components
                                                 </TextStyled.BodyLg>
-                                                <CodeSnippet>
-                                                    {`color: ${"({ theme, }) => (theme.palette.primary.level1000)"};`}
+                                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
+                                                    {`color: ${"${({ theme, }) => (theme.palette.primary.level1000)}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyLg textWeight="semibold">
                                                     Usage with thp (Theme Helper). This is a shortcut developed by Zeppelin.
                                                 </TextStyled.BodyLg>
-                                                <CodeSnippet>
+                                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                     {`import { thp } from "./themeHelpers"
 
-background-color: ${"thp.base.level0._"};`}
+background-color: ${"${thp.base.level0._}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyBase>
-                                                    When using thp, the editor will show you the entries that the object has or you can visit the file root/src/styles/designTokens/defaultThemeTokens.ts to familiarize yourself with the object's form.
+                                                    When using thp, the editor will show you the entries that the object has or you can visit the file&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/designTokens/defaultThemeTokens.ts
+                                                    </TextStyled.WordBreak>
+                                                    to familiarize yourself with the object's form.
                                                 </TextStyled.BodyBase>
                                                 <TextStyled.BodyBase>
                                                     Important to add at the end ._
@@ -450,12 +485,12 @@ background-color: ${"thp.base.level0._"};`}
                                                     <TextStyled.BodyBase>
                                                         You can directly use the object exported by the automation in root/src/styles/designTokens/. It's important to note that for Theme tokens, you must use the styled-components Theme. We recommend using the thp shortcut to access tokens easily
                                                     </TextStyled.BodyBase>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import { FontsTokens } from "./designTokens/fontsTokens"
 import { UiTokens } from "./designTokens/uiTokens"
 
-font-weight:${"FontsTokens.weights.Primary.regular"};
-border-radius:${"UiTokens.borderRadius.size16"};`}
+font-weight: ${"${FontsTokens.weights.Primary.regular}"};
+border-radius: ${"${UiTokens.borderRadius.size16"}};`}
                                                     </CodeSnippet>
                                                 </HowItWorksStyled.Section>
                                             </HowItWorksStyled.ListItem>
@@ -470,7 +505,7 @@ border-radius:${"UiTokens.borderRadius.size16"};`}
                                                     <TextStyled.BodyLg textWeight="semibold">
                                                         With thp
                                                     </TextStyled.BodyLg>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import {DefaultTheme} from "styled-components"
 
 type ThemeBaseColorKeys = keyof DefaultTheme["palette"]["base"]
@@ -479,14 +514,15 @@ type Props = {
     textColor: ThemeBaseColorKeys,
 }
 
-const Heading24 = styled.h2<Props>
-    color: ${"${({ textColor, }) => thp.base[textColor]._}"}
+{const Heading24 = styled.h2<Props>${"`"}
+    color: ${"${({ textColor, }) => thp.base[textColor]._}"}}
+${"`"}
 `}
                                                     </CodeSnippet>
                                                     <TextStyled.BodyLg>
                                                         With other tokens
                                                     </TextStyled.BodyLg>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import { FontsTokens } from "./designTokens/fontsTokens"
 
 type TextWeightKeys = keyof (typeof FontsTokens)["weights"]["Primary"]
@@ -495,8 +531,9 @@ type Props = {
 	textWeight: TextWeightKeys,
 }
 
-const Heading24 = styled.h2<Props>
+const Heading24 = styled.h2<Props>${"`"}
 	font-weight: ${"${FontsTokens.weights.Primary[p.textWeight]};"}
+${"`"}
 `}
                                                     </CodeSnippet>
                                                 </HowItWorksStyled.Section>
@@ -533,7 +570,7 @@ const Heading24 = styled.h2<Props>
                                     </HowItWorksStyled.Link>
                                     &nbsp;o
                                 </TextStyled.BodyBase>
-                                <CodeSnippet>
+                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                     {`*,
 *::after,
 *::before{

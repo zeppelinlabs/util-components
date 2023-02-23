@@ -121,6 +121,10 @@ const BodySm = styled.p<TextStyleCommonProps>`
 	${FontsTokens.sizes.Primary.sm};
 `
 
+const WordBreak = styled.span`
+	word-break: break-word;
+`
+
 export const TextStyled = {
 	Weight,
 	Heading7xl,
@@ -134,4 +138,5 @@ export const TextStyled = {
 	BodyXl,
 	BodySm,
 	BodyBase,
+	WordBreak,
 }

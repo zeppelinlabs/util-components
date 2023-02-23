@@ -1,13 +1,22 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import { DetailComponentPageStyled }
-    from "../../_Layout/DetailComponentPage/DetailComponentPageStyled"
-import Button, { ButtonSize } from "../../../components/Button/Button"
+import Button, { ButtonSize } from "../../components/Button/Button"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
-import { toastNotification } from "../../../util/toastNotification"
+import { toastNotification } from "../../util/toastNotification"
+import CodeSnippetStyles from "./CodeSnippetStyled"
 
-export const CodeSnippet = (props: { children: string, }) => {
+export type CustomCodeSnippetStyles = {
+    changeWhiteSpace?: boolean,
+    mobileDecreaseWidth?: boolean,
+}
+
+type Props = {
+    children: string,
+    customStyles?: CustomCodeSnippetStyles,
+}
+
+export const CodeSnippet = (props: Props) => {
     const { t, } = useTranslation()
 
     const copyItem = (text?: string) => {
@@ -23,14 +32,14 @@ export const CodeSnippet = (props: { children: string, }) => {
         }
     }
 
-    return <DetailComponentPageStyled.WrapperCode changeWhiteSpace>
-        <DetailComponentPageStyled.ContainerCopyButton>
+    return <CodeSnippetStyles.WrapperCode customStyles={props.customStyles}>
+        <CodeSnippetStyles.ContainerCopyButton>
             <Button type="button"
                 buttonSize={ButtonSize.Small}
                 onClick={() => copyItem(`${props.children}`)}>
                 Copy
             </Button>
-        </DetailComponentPageStyled.ContainerCopyButton>
+        </CodeSnippetStyles.ContainerCopyButton>
         <SyntaxHighlighter
             language="jsx"
             style={oneDark}
@@ -41,5 +50,5 @@ export const CodeSnippet = (props: { children: string, }) => {
         >
             {`${props.children}`}
         </SyntaxHighlighter>
-    </DetailComponentPageStyled.WrapperCode>
+    </CodeSnippetStyles.WrapperCode>
 }

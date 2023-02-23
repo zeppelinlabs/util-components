@@ -3,17 +3,29 @@ import { ReactComponent as ArrowDown } from "../../../../assets/icons/arrow-down
 import { ReactComponent as ArrowTop } from "../../../../assets/icons/arrow-top.svg"
 import AccordionStyles from "./AccordionStyles"
 
+export enum AccordionVariant {
+    Primary = "PRIMARY",
+    Secondary = "SECONDARY",
+}
+
+export type CustomAccordionStyles = {
+    accordionVariant?: AccordionVariant,
+}
+
 type Props = {
     children: React.ReactNode,
     label: React.ReactNode,
     hasMarginBottom?: boolean,
+    customStyles?: CustomAccordionStyles,
 }
 
 const Accordion = (props: Props) => {
     const [isOpen, setIsOpen,] = useState(false)
 
     return <AccordionStyles.AccordionContainer>
-        <AccordionStyles.AccordionHeader onClick={() => setIsOpen(!isOpen)}>
+        <AccordionStyles.AccordionHeader
+            customStyles={props.customStyles}
+            onClick={() => setIsOpen(!isOpen)}>
             {props.label}
             {isOpen
                 ? <ArrowTop />
