@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { GlobalStyledHelper } from "../../../styles/globalStyledHelper"
 import { device } from "../../../styles/mediaQueries"
@@ -93,27 +92,6 @@ const ContainerForInputs = styled.div`
 	min-width: 250px;
 	width: 100%;
 `
-const WrapperCode = styled.article<{ changeWhiteSpace?: boolean, }>`
-	${FontsTokens.sizes.Primary.sm}
-	position: relative;
-	width: calc(100vw - 48px);
-	> pre{
-		border-radius: ${UiTokens.borderRadius.size16} !important;
-		padding: ${UiTokens.spacing.size24} !important;
-		> code {
-			white-space: pre !important;
-		}
-	}
-	@media ${device.desktop} {
-		width: 100%;
-	}
-`
-
-const ContainerCopyButton = styled.div`
-	position: absolute;
-	top: 25px;
-	right: 15px;
-`
 
 const ContainerInLine = styled.article`
 	display: flex;
@@ -131,7 +109,5 @@ export const DetailComponentPageStyled = {
 	ContainComponentAndText,
 	ContainerForInputs,
 	ContainComponent,
-	WrapperCode,
-	ContainerCopyButton,
 	ContainerInLine,
 }

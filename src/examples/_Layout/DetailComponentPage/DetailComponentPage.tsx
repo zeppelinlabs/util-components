@@ -1,17 +1,14 @@
 /* eslint-disable max-lines-per-function */
 import React from "react"
-import { useTranslation } from "react-i18next"
-import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
-import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import Button, { ButtonIconPosition, ButtonSize, ButtonVariant }
 	from "../../../components/Button/Button"
 import { useWindowSize } from "../../../hooks/useWindowsSize"
 import { size } from "../../../styles/mediaQueries"
 import { TextStyled } from "../../../styles/typographic"
-import { toastNotification } from "../../../util/toastNotification"
 import { SidebarDesktop } from "../Sidebar/Sidebar"
 import { DetailComponentPageStyled } from "./DetailComponentPageStyled"
 import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
+import { CodeSnippet } from "../../CodeSnippet/CodeSnippet"
 
 type Props = {
 	children: React.ReactNode,
@@ -85,20 +82,6 @@ type DescriptionProps = {
 export const Description = (props: DescriptionProps) => {
 
 	const editorHeader = "import React from \"react\"\n"
-	const { t, } = useTranslation()
-
-	const copyItem = (text?: string) => {
-		if (text) {
-			try {
-				navigator.clipboard.writeText(text)
-				toastNotification(t("copy.success"))
-			} catch {
-				toastNotification(t("copy.error"))
-			}
-		} else {
-			toastNotification(t("copy.wrong"))
-		}
-	}
 
 	return <DetailComponentPageStyled.WrapperSubTitle>
 		<TextStyled.HeadingXl textWeight="semibold">
@@ -120,25 +103,9 @@ export const Description = (props: DescriptionProps) => {
 			})}
 		</DetailComponentPageStyled.StageComponents>}
 
-		{props.children && <DetailComponentPageStyled.WrapperCode>
-			<DetailComponentPageStyled.ContainerCopyButton>
-				<Button type="button"
-					buttonSize={ButtonSize.Small}
-					onClick={() => copyItem(`${editorHeader}${props.children}`)}>
-					Copy
-				</Button>
-			</DetailComponentPageStyled.ContainerCopyButton>
-			<SyntaxHighlighter
-				language="jsx"
-				style={oneDark}
-				showLineNumbers
-				showInlineLineNumbers
-				wrapLongLines
-				wrapLines
-			>
-				{`${editorHeader}${props.children}`}
-			</SyntaxHighlighter>
-		</DetailComponentPageStyled.WrapperCode>}
+		{props.children && <CodeSnippet>
+			{`${editorHeader}${props.children}`}
+		</CodeSnippet>}
 
 	</DetailComponentPageStyled.WrapperSubTitle>
 }

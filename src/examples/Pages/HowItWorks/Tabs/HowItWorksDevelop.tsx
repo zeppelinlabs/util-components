@@ -14,8 +14,8 @@ import FigmaImage3 from "../../../../assets/examples/figma-dev-3.png"
 import FigmaImage4 from "../../../../assets/examples/figma-dev-4.png"
 import FigmaImage5 from "../../../../assets/examples/figma-dev-5.png"
 import { Paths } from "../../../Paths"
-import { CodeSnippet } from "../HowItWorksPageHelper"
-import Accordion from "../Accordion/Accordion"
+import { CodeSnippet } from "../../../CodeSnippet/CodeSnippet"
+import Accordion, { AccordionVariant } from "../Accordion/Accordion"
 
 const HowItWorksDevelop = () => {
     return <HowItWorksPage>
@@ -123,6 +123,9 @@ const HowItWorksDevelop = () => {
                                         First steps:
                                     </TextStyled.Heading2xl>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Add the Automation Script
@@ -181,7 +184,7 @@ const HowItWorksDevelop = () => {
                                                 </HowItWorksStyled.ListItem>
                                             </HowItWorksStyled.List>
                                         </HowItWorksStyled.WrapperText>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ changeWhiteSpace: true, mobileDecreaseWidth: true, }}>
                                             "generate-theme": "ts-node --project ./scripts/tsconfig.json ./scripts/generateDesignTokens/generateDesignTokens && npx eslint src/styles/designTokens --fix"
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={4}>
@@ -191,7 +194,7 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>{`"start": "yarn generate-theme && react-scripts start",
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>{`"start": "yarn generate-theme && react-scripts start",
 "build": "yarn generate-theme && react-scripts build"`}
                                         </CodeSnippet>
                                         <HowItWorksStyled.List isNumericList start={5}>
@@ -200,13 +203,16 @@ const HowItWorksDevelop = () => {
                                                     Add the following entry in the .gitignore file:                                                            </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             src/styles/designTokens/**
                                         </CodeSnippet>
                                     </Accordion>
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Instruction to install Figma Tokens and export design tokens from Figma
@@ -244,6 +250,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Import or Update the Design Tokens to the Project
@@ -263,6 +272,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Tokens types
@@ -307,6 +319,9 @@ const HowItWorksDevelop = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Config Styled components
@@ -364,6 +379,9 @@ const App = () => {
                                 </TextStyled.Heading2xl>
                                 <HowItWorksStyled.Section>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 Running the script
@@ -392,6 +410,9 @@ const App = () => {
                                 </HowItWorksStyled.Section>
                                 <HowItWorksStyled.FigmaInstructions>
                                     <Accordion hasMarginBottom
+                                        customStyles={{
+                                            accordionVariant: AccordionVariant.Secondary,
+                                        }}
                                         label={
                                             <TextStyled.BodyLg textWeight="semibold">
                                                 How to use tokens in CSS styles?
