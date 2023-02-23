@@ -266,7 +266,11 @@ const HowItWorksDevelop = () => {
                                             If you need to update the tokens, just add the new .json files to the directory and the script will take care of the rest. If any TypeScript tokens are removed during the update, the project will flag all the places where you need to replace the missing token when you run it.
                                         </TextStyled.BodyBase>
                                         <TextStyled.BodyBase>
-                                            For fontTokens, you need to edit the options object in the root/scripts/generateDesignTokens/fontTokensHelper.ts file to translate the Figma weight value into a valid value for CSS. The key should be the value from the Figma exported .json, and the value should be the valid translation to use in CSS.
+                                            For fontTokens, you need to edit the options object in the&nbsp;
+                                            <TextStyled.WordBreak>
+                                                root/scripts/generateDesignTokens/fontTokensHelper.ts
+                                            </TextStyled.WordBreak>
+                                            file to translate the Figma weight value into a valid value for CSS. The key should be the value from the Figma exported .json, and the value should be the valid translation to use in CSS.
                                         </TextStyled.BodyBase>
                                     </Accordion>
                                 </HowItWorksStyled.Section>
@@ -311,7 +315,11 @@ const HowItWorksDevelop = () => {
                                                         Set:Global = Token:uiToken
                                                     </TextStyled.Weight>
                                                     This set stores all the additional tokens configured in Figma. You should use these tokens and not write their "direct" values in the style.
-                                                    Disclaimer: DO NOT COMMIT OR EDIT THE CONTENT of the files housed in the directory root/src/styles/designTokens/ as these are generated automatically by the script and will be constantly re-written.
+                                                    Disclaimer: DO NOT COMMIT OR EDIT THE CONTENT of the files housed in the directory&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/designTokens/
+                                                    </TextStyled.WordBreak>
+                                                    as these are generated automatically by the script and will be constantly re-written.
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
@@ -336,7 +344,10 @@ const HowItWorksDevelop = () => {
                                             </HowItWorksStyled.ListItem>
                                             <HowItWorksStyled.ListItem>
                                                 <TextStyled.BodyBase>
-                                                    Copy the following files from the components project to the appRoot/src/styles/ directory: root/src/styles/defaultTheme.ts root/src/styles/themeHelpers.tsroot/src/styles/ThemeProxy.ts
+                                                    Copy the following files from the components project to the appRoot/src/styles/ directory:&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/defaultTheme.ts root/src/styles/themeHelpers.tsroot/src/styles/ThemeProxy.ts
+                                                    </TextStyled.WordBreak>
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                             <HowItWorksStyled.ListItem>
@@ -345,7 +356,7 @@ const HowItWorksDevelop = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             {`import {ThemeProvider} from "styled-components"
 import {defaultTheme} from "./styles/defaultTheme"
 
@@ -364,7 +375,7 @@ const App = () => {
                                                 </TextStyled.BodyBase>
                                             </HowItWorksStyled.ListItem>
                                         </HowItWorksStyled.List>
-                                        <CodeSnippet>
+                                        <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                             {`html {
     -webkit-text-size-adjust: 100%;
     font-size: 62.5%;
@@ -444,19 +455,23 @@ const App = () => {
                                                 <TextStyled.BodyLg textWeight="semibold">
                                                     Common usage with Styled Components
                                                 </TextStyled.BodyLg>
-                                                <CodeSnippet>
+                                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                     {`color: ${"${({ theme, }) => (theme.palette.primary.level1000)}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyLg textWeight="semibold">
                                                     Usage with thp (Theme Helper). This is a shortcut developed by Zeppelin.
                                                 </TextStyled.BodyLg>
-                                                <CodeSnippet>
+                                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                     {`import { thp } from "./themeHelpers"
 
 background-color: ${"${thp.base.level0._}"};`}
                                                 </CodeSnippet>
                                                 <TextStyled.BodyBase>
-                                                    When using thp, the editor will show you the entries that the object has or you can visit the file root/src/styles/designTokens/defaultThemeTokens.ts to familiarize yourself with the object's form.
+                                                    When using thp, the editor will show you the entries that the object has or you can visit the file&nbsp;
+                                                    <TextStyled.WordBreak>
+                                                        root/src/styles/designTokens/defaultThemeTokens.ts
+                                                    </TextStyled.WordBreak>
+                                                    to familiarize yourself with the object's form.
                                                 </TextStyled.BodyBase>
                                                 <TextStyled.BodyBase>
                                                     Important to add at the end ._
@@ -470,7 +485,7 @@ background-color: ${"${thp.base.level0._}"};`}
                                                     <TextStyled.BodyBase>
                                                         You can directly use the object exported by the automation in root/src/styles/designTokens/. It's important to note that for Theme tokens, you must use the styled-components Theme. We recommend using the thp shortcut to access tokens easily
                                                     </TextStyled.BodyBase>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import { FontsTokens } from "./designTokens/fontsTokens"
 import { UiTokens } from "./designTokens/uiTokens"
 
@@ -490,7 +505,7 @@ border-radius: ${"${UiTokens.borderRadius.size16"}};`}
                                                     <TextStyled.BodyLg textWeight="semibold">
                                                         With thp
                                                     </TextStyled.BodyLg>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import {DefaultTheme} from "styled-components"
 
 type ThemeBaseColorKeys = keyof DefaultTheme["palette"]["base"]
@@ -507,7 +522,7 @@ ${"`"}
                                                     <TextStyled.BodyLg>
                                                         With other tokens
                                                     </TextStyled.BodyLg>
-                                                    <CodeSnippet>
+                                                    <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                                         {`import { FontsTokens } from "./designTokens/fontsTokens"
 
 type TextWeightKeys = keyof (typeof FontsTokens)["weights"]["Primary"]
@@ -555,7 +570,7 @@ ${"`"}
                                     </HowItWorksStyled.Link>
                                     &nbsp;o
                                 </TextStyled.BodyBase>
-                                <CodeSnippet>
+                                <CodeSnippet customStyles={{ mobileDecreaseWidth: true, }}>
                                     {`*,
 *::after,
 *::before{
