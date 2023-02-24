@@ -10,7 +10,7 @@ import { size } from "../../../styles/mediaQueries"
 import { Sidebar } from "../Sidebar/Sidebar"
 import { ReactComponent as GithubIcon } from "../../../assets/examples/github.svg"
 import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
-import Button from "../../../components/Button/Button"
+import Button, { ButtonVariant } from "../../../components/Button/Button"
 
 const pathsIgnoreSearch = [
 	Paths.HowItWorksDesign,
@@ -83,12 +83,18 @@ const Header = () => {
 						icon={{
 							SVGComponent: GithubIcon,
 						}}
+						customStyles={{
+							buttonVariant: ButtonVariant.Showcase,
+						}}
 					/>
 					<Button
 						type="button"
 						onClick={redirectToFigma}
 						icon={{
 							SVGComponent: FigmaIcon,
+						}}
+						customStyles={{
+							buttonVariant: ButtonVariant.Showcase,
 						}}
 					/>
 				</HeaderStyled.ContainerSearchBar>

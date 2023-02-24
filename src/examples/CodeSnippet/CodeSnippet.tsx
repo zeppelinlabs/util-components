@@ -1,6 +1,6 @@
 import React from "react"
 import { useTranslation } from "react-i18next"
-import Button, { ButtonSize } from "../../components/Button/Button"
+import Button, { ButtonSize, ButtonVariant } from "../../components/Button/Button"
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter"
 import oneDark from "react-syntax-highlighter/dist/esm/styles/prism/one-dark"
 import { toastNotification } from "../../util/toastNotification"
@@ -36,7 +36,11 @@ export const CodeSnippet = (props: Props) => {
         <CodeSnippetStyles.ContainerCopyButton>
             <Button type="button"
                 buttonSize={ButtonSize.Small}
-                onClick={() => copyItem(`${props.children}`)}>
+                onClick={() => copyItem(`${props.children}`)}
+                customStyles={{
+                    buttonVariant: ButtonVariant.Showcase,
+                }}
+            >
                 Copy
             </Button>
         </CodeSnippetStyles.ContainerCopyButton>

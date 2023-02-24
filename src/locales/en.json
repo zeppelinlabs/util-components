@@ -2,6 +2,7 @@
     "common": {
         "primary": "Primary",
         "secondary": "Secondary",
+        "ghost": "Ghost",
         "danger": "Danger",
         "standard": "Standard",
         "disabled": "Disabled",

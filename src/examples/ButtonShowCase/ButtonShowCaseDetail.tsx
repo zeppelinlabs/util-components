@@ -42,7 +42,7 @@ const ButtonShowCaseDetail = () => {
 				{
 					name: t("common.primary"),
 					component: <Button type="button"
-						onClick={handleOnClick} >
+						onClick={handleOnClick}>
 						{t_PageButton("buttonText")}
 					</Button>,
 				},
@@ -50,7 +50,15 @@ const ButtonShowCaseDetail = () => {
 					name: t("common.secondary"),
 					component: <Button type="button"
 						onClick={handleOnClick}
-						customStyles={{ buttonVariant: ButtonVariant.Secondary, }} >
+						customStyles={{ buttonVariant: ButtonVariant.Secondary, }}>
+						{t_PageButton("buttonText")}
+					</Button>,
+				},
+				{
+					name: t("common.ghost"),
+					component: <Button type="button"
+						onClick={handleOnClick}
+						customStyles={{ buttonVariant: ButtonVariant.Ghost, }}>
 						{t_PageButton("buttonText")}
 					</Button>,
 				},
@@ -58,7 +66,7 @@ const ButtonShowCaseDetail = () => {
 					name: t("common.danger"),
 					component: <Button type="button"
 						onClick={handleOnClick}
-						customStyles={{ buttonVariant: ButtonVariant.Danger, }} >
+						customStyles={{ buttonVariant: ButtonVariant.Danger, }}>
 						{t_PageButton("buttonText")}
 					</Button>,
 				},
