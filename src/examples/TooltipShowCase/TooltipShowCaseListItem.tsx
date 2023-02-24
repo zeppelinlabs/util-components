@@ -7,7 +7,7 @@ const TooltipShowCaseDetailListItem = () => {
             tooltipContent="Tooltip"
             customStyles={{
                 align: TooltipAlign.Right,
-                tooltipVariant: TooltipVariant.Secondary,
+                tooltipVariant: TooltipVariant.Showcase,
                 showAlways: true,
             }}
         >

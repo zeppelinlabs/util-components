@@ -11,7 +11,6 @@ type Props = {
     customStyles?: CustomTooltipStyles,
 }
 
-
 const getTooltipVariant = (variant: TooltipVariant) => {
     const TooltipByCase = {
         [TooltipVariant.Primary]: ({
@@ -20,8 +19,13 @@ const getTooltipVariant = (variant: TooltipVariant) => {
             textColor: thp.base.level0._,
         }),
         [TooltipVariant.Secondary]: ({
-            backgroundColor: thp.base.level100._,
-            borderColor: thp.base.level100._,
+            backgroundColor: thp.primary.level50._,
+            borderColor: thp.primary.level50._,
+            textColor: thp.base.level1000._,
+        }),
+        [TooltipVariant.Showcase]: ({
+            backgroundColor: thp.secundary.level100._,
+            borderColor: thp.secundary.level100._,
             textColor: thp.base.level1000._,
         }),
     }
