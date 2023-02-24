@@ -12,7 +12,7 @@ import Figma4 from "../../../../assets/examples/figma-design-4.png"
 import Figma5 from "../../../../assets/examples/figma-design-5.png"
 import Figma6 from "../../../../assets/examples/figma-design-6.png"
 import Figma7 from "../../../../assets/examples/figma-design-7.png"
-import Button, { ButtonSize } from "../../../../components/Button/Button"
+import Button, { ButtonSize, ButtonVariant } from "../../../../components/Button/Button"
 import { useWindowSize } from "../../../../hooks/useWindowsSize"
 import { size } from "../../../../styles/mediaQueries"
 import { Paths } from "../../../Paths"
@@ -38,6 +38,9 @@ const HowItWorksDesign = () => {
                                 type="button"
                                 onClick={redirectToFigma}
                                 buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
+                                customStyles={{
+                                    buttonVariant: ButtonVariant.Showcase,
+                                }}
                             >
                                 Get the Figma File
                             </Button>
