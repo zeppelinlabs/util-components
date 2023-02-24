@@ -52,7 +52,7 @@ const Link = styled(NavLink)`
 	}
 `
 
-const OverlayMenu = styled.div<{ isOpen: boolean, }>`
+const OverlayMenu = styled.div<{ isOpen?: boolean, }>`
 	position: fixed;
 	padding: 24px 16px;
 	top: ${headerMobileHeight};
