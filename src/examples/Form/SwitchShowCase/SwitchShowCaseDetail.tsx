@@ -35,7 +35,7 @@ const SwitchShowCaseDetail = () => {
                 {
                     name: t("common.on"),
                     component: <Switch
-                        value={switchValue}
+                        value={true}
                         onChange={(value) => setSwitchValue(value)}
                     />,
                 },

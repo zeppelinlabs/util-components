@@ -7,15 +7,21 @@ export enum ContentSwitchPosition {
     Bottom = "column",
     Left = "row-reverse",
 }
+
 export enum ContentSwitchAlign {
     Start = "flex-start",
     End = "flex-end",
 }
+
 export enum SwitchSize {
     Small = "small",
     Base = "base",
     Large = "large",
+}
 
+export enum SwitchVariant {
+    Primary = "primary",
+    Showcase = "showcase",
 }
 
 export type CustomSwitchStyles = {
@@ -26,6 +32,7 @@ export type CustomSwitchStyles = {
     contentPosition?: ContentSwitchPosition,
     contentAlign?: ContentSwitchAlign,
     size?: SwitchSize,
+    switchVariant?: SwitchVariant,
 }
 
 type Props = {
