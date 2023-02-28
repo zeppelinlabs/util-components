@@ -1,5 +1,5 @@
 import React from "react"
-import Button from "../../components/Button/Button"
+import Button, { ButtonVariant } from "../../components/Button/Button"
 import { toastNotification } from "../../util/toastNotification"
 
 const ButtonShowCaseDetailListItem = () => {
@@ -8,6 +8,9 @@ const ButtonShowCaseDetailListItem = () => {
     return <Button
         onClick={handleOnClick}
         type="button"
+        customStyles={{
+            buttonVariant: ButtonVariant.Showcase,
+        }}
     >
         Button
     </Button>

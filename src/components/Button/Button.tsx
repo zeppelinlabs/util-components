@@ -5,7 +5,9 @@ import { ButtonStyled } from "./ButtonStyles"
 export enum ButtonVariant {
     Primary = "PRIMARY",
     Secondary = "SECONDARY",
-    Danger = "DANGER"
+    Danger = "DANGER",
+    Ghost = "GHOST",
+    Showcase = "SHOWCASE",
 }
 
 export enum ButtonSize {

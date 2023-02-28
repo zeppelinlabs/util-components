@@ -55,6 +55,9 @@ const HomePage = (props: Props) => {
 							icon={{
 								SVGComponent: GithubIcon,
 							}}
+							customStyles={{
+								buttonVariant: ButtonVariant.Showcase,
+							}}
 						>
 							Github
 						</Button>
@@ -132,6 +135,9 @@ const HomePage = (props: Props) => {
 							type="button"
 							onClick={redirectToComponents}
 							buttonSize={windowSize.width >= size.desktop ? ButtonSize.XLarge : ButtonSize.Base}
+							customStyles={{
+								buttonVariant: ButtonVariant.Showcase,
+							}}
 						>
 							All components
 						</Button>

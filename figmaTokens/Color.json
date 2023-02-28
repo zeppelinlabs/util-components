@@ -1,43 +1,43 @@
 {
   "Primary": {
-    "Level900": {
-      "value": "#ffffff",
-      "type": "color"
-    },
     "Level50": {
-      "value": "#e5e5e5",
-      "type": "color"
-    },
-    "Level200": {
-      "value": "#cccccc",
-      "type": "color"
-    },
-    "Level300": {
-      "value": "#b3b3b3",
-      "type": "color"
-    },
-    "Level600": {
-      "value": "#808080",
-      "type": "color"
-    },
-    "Level800": {
-      "value": "#666666",
+      "value": "#F2E5FF",
       "type": "color"
     },
     "Level100": {
-      "value": "#4c4c4c",
+      "value": "#D9B3FF",
       "type": "color"
     },
-    "Level500": {
-      "value": "#000000",
+    "Level200": {
+      "value": "#BF80FF",
       "type": "color"
     },
-    "Level700": {
-      "value": "#332907",
+    "Level300": {
+      "value": "#A64CFF",
       "type": "color"
     },
     "Level400": {
-      "value": "#000000",
+      "value": "#8C1AFF",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#8000FF",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#37006D",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#6600CC",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#4D0099",
+      "type": "color"
+    },
+    "Level900": {
+      "value": "#27004D",
       "type": "color"
     }
   },
@@ -168,6 +168,48 @@
     }
   },
   "Base": {
+    "Level0": {
+      "value": "#ffffff",
+      "type": "color"
+    },
+    "Level100": {
+      "value": "#e5e5e5",
+      "type": "color"
+    },
+    "Level200": {
+      "value": "#cccccc",
+      "type": "color"
+    },
+    "Level300": {
+      "value": "#b3b3b3",
+      "type": "color"
+    },
+    "Level400": {
+      "value": "#999999",
+      "type": "color"
+    },
+    "Level500": {
+      "value": "#808080",
+      "type": "color"
+    },
+    "Level600": {
+      "value": "#666666",
+      "type": "color"
+    },
+    "Level700": {
+      "value": "#4c4c4c",
+      "type": "color"
+    },
+    "Level800": {
+      "value": "#333333",
+      "type": "color"
+    },
+    "Level1000": {
+      "value": "#000000",
+      "type": "color"
+    }
+  },
+  "Secondary": {
     "Level0": {
       "value": "#ffffff",
       "type": "color"

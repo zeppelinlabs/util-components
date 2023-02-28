@@ -17,7 +17,7 @@ const PrimaryAccordion = () => css`
 `
 
 const SecondaryAccordion = () => css`
-    background-color:  ${thp.primary.level300._};
+    background-color:  ${thp.base.level300._};
     color: ${thp.base.level1000._};
     padding: ${UiTokens.spacing.size2};
 `

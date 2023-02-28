@@ -51,7 +51,7 @@ const CheckboxShowCaseDetail = () => {
                 {
                     name: t("common.disabled"),
                     component: <Checkbox
-                        value={value}
+                        value={false}
                         disabled={true}
                         onChange={handleOnChange}
                     />,

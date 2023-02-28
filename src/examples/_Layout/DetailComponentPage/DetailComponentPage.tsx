@@ -17,10 +17,14 @@ type Props = {
 const DetailComponentPage = (props: Props) => {
 	const windowSize = useWindowSize()
 
+	const handleNavegate = () => {
+		setTimeout(() => { window.scrollTo(0, 0) }, 100)
+	}
+
 	return <DetailComponentPageStyled.Wrapper>
 		{windowSize.width >= size.desktop
 			? (<DetailComponentPageStyled.Row>
-				<SidebarDesktop />
+				<SidebarDesktop onNavigate={handleNavegate} />
 				<DetailComponentPageStyled.WrapperContent>
 					{props.children}
 				</DetailComponentPageStyled.WrapperContent>

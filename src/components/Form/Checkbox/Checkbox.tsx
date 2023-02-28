@@ -16,6 +16,11 @@ export enum CheckboxSize {
     Large = "large",
 }
 
+export enum CheckboxVariant {
+    Primary = "PRIMARY",
+    Showcase = "SHOWCASE",
+}
+
 export type CustomCheckboxStyles = {
     checkBoxColor?: string,
     textColor?: string,
@@ -25,6 +30,7 @@ export type CustomCheckboxStyles = {
     contentPosition?: ContentCheckboxPosition,
     size?: CheckboxSize,
     isIndeterminate?: boolean,
+    checkboxVariant?: CheckboxVariant,
 }
 
 export type Props = {
