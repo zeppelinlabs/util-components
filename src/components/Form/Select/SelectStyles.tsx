@@ -24,7 +24,7 @@ const Select = styled.select<SelectProps>`
     font-size: 1.6rem;
     background-color: transparent;
     border: none;
-    color: ${({ value, }) => (value ? "inherit" : thp.primary.level300._)};
+    color: ${({ value, }) => (value ? "inherit" : thp.base.level1000._)};
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
@@ -94,7 +94,7 @@ const WrapperIcon = styled.div`
 
 const WrapperArrow = styled.div`
     ${iconContainerBase};
-    color: ${thp.primary.level500._};
+    color: ${thp.base.level1000._};
     right: 12px;
     padding: 2px;
 `

@@ -19,6 +19,8 @@ const getButtonVariant = (variant: ButtonVariant) => {
 		[ButtonVariant.Primary]: (PrimaryButton),
 		[ButtonVariant.Secondary]: (SecondaryButton),
 		[ButtonVariant.Danger]: (DangerButton),
+		[ButtonVariant.Ghost]: (GhostButton),
+		[ButtonVariant.Showcase]: (ShowcaseButton),
 	}
 	return ButtonByCase[variant]
 }
@@ -69,17 +71,40 @@ const PrimaryButton = () => css<Props>`
 		box-shadow: 0 0 0 3px ${thp.primary.level200._};
 	}
 	&:disabled{
-		background-color: ${thp.primary.level50._};
-		color: ${thp.primary.level300._};
+		background-color: ${thp.base.level100._};
+		color: ${thp.base.level400._};
 	}
 	${SpinnerContainer}{
-		color: ${thp.base.level1000._};
+		color: ${thp.base.level400._};
 	}
 `
+
 const SecondaryButton = () => css<Props>`
-	background: ${thp.primary.level900._};
+	background: ${thp.base.level0._};
 	color: ${thp.base.level1000._};
 	border: ${UiTokens.borderWidth.size1} solid ${thp.base.level400._};
+
+	&:not(:disabled) {
+		&:hover{
+			box-shadow: 0 0 0 1px ${thp.secundary.level1000._};
+		}
+	}
+	&:focus{
+		box-shadow: 0 0 0 2px ${thp.secundary.level1000._};
+	}
+	&:disabled{
+		color: ${thp.secundary.level200._};
+		border: 1px solid ${thp.secundary.level200._};
+	}
+	${SpinnerContainer}{
+		color: ${thp.secundary.level200._};
+	}
+`
+
+const GhostButton = () => css<Props>`
+	background: ${thp.base.level0._};
+	color: ${thp.primary.level400._};
+	border: ${UiTokens.borderWidth.size1} solid ${thp.primary.level400._};
 
 	&:not(:disabled) {
 		&:hover{
@@ -90,11 +115,11 @@ const SecondaryButton = () => css<Props>`
 		box-shadow: 0 0 0 2px ${thp.primary.level400._};
 	}
 	&:disabled{
-		color: ${thp.primary.level200._};
-		border: 1px solid ${thp.primary.level200._};
+		color: ${thp.secundary.level200._};
+		border: 1px solid ${thp.secundary.level200._};
 	}
 	${SpinnerContainer}{
-		color: ${thp.base.level1000._};
+		color: ${thp.primary.level200._};
 	}
 `
 
@@ -105,15 +130,40 @@ const DangerButton = () => css<Props>`
 
 	&:not(:disabled) {
 		&:hover{
-			box-shadow: 0 0 0 1px ${thp.primary.level400._};
+			box-shadow: 0 0 0 1px ${thp.system.error.level600._};
 		}
 	}
 	&:focus{
-		box-shadow: 0 0 0 2px ${thp.primary.level400._};
+		box-shadow: 0 0 0 2px ${thp.system.error.level600._};
 	}
 	&:disabled{
-		color: ${thp.primary.level200._};
-		border: 1px solid ${thp.primary.level200._};
+		background-color: ${thp.base.level100._};
+		color: ${thp.base.level400._};
+		border: none;
+	}
+	${SpinnerContainer}{
+		color: ${thp.system.error.level200._};
+	}
+`
+
+const ShowcaseButton = () => css<Props>`
+	background: ${thp.secundary.level1000._};
+	color: ${thp.base.level0._};
+
+	&:not(:disabled) {
+		&:hover{
+			background: ${thp.secundary.level600._};
+		}
+		&:active{
+			background: ${thp.secundary.level100._};
+		}
+	}
+	&:focus{
+		box-shadow: 0 0 0 3px ${thp.secundary.level200._};
+	}
+	&:disabled{
+		background-color: ${thp.secundary.level100._};
+		color: ${thp.secundary.level300._};
 	}
 	${SpinnerContainer}{
 		color: ${thp.base.level1000._};

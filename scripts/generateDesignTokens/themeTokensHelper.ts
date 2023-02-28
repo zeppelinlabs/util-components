@@ -24,6 +24,7 @@ const processColorPallet = (colorPallet: ColorPallet) => {
 
 export const defaultThemeTokens = {
 	primary: processColorPallet(Color.Primary),
+	secundary: processColorPallet(Color.Secondary),
 	base: processColorPallet(Color.Base),
 	system: {
 		error: processColorPallet(Color.Error),

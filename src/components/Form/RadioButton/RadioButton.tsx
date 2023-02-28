@@ -14,17 +14,24 @@ export type CustomRadioButtonStyles = {
     textSize?: TextSizeKeys,
     size?: RadioButtonSize,
     contentPosition?: ContentRadioPosition,
+    radioVariant?: RadioButtonVariant,
 }
+
 export type AccessibilityRadioButton = {
     tabIndex?: number,
     autoFocus?: boolean,
 }
+
 export enum RadioButtonSize {
     Small = "small",
     Base = "base",
     Large = "large",
 }
 
+export enum RadioButtonVariant {
+    Primary = "PRIMARY",
+    Showcase = "SHOWCASE",
+}
 
 const keySerializator = (() => {
     const emptyValue = ""
@@ -74,6 +81,7 @@ const InputRadio_ = React.forwardRef(<K extends ValidKey>(
                 onChange={handleOnChange}
                 tabIndex={props.accessibility?.tabIndex}
                 autoFocus={props.accessibility?.autoFocus}
+                customStyles={props.customStyles}
             />
 
             <RadioButtonStyled.Radio customStyles={props.customStyles} onClick={props.onClick} />

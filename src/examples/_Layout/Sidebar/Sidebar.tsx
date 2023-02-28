@@ -8,7 +8,6 @@ import { ReactComponent as FigmaIcon } from "../../../assets/examples/figma.svg"
 
 
 const ComponentsButtonList = (props: { onNavigate?: () => void, }) => {
-
     return <SidebarStyled.Navigation>
         <SidebarStyled.Link onClick={props.onNavigate} to={Paths.Button}>
             Button
@@ -79,16 +78,17 @@ const ButtonList = (props: { onNavigate?: () => void, }) => {
     </>
 }
 
-export const SidebarDesktop = () => {
+type Props = {
+    isOpen?: boolean,
+    onNavigate?: () => void,
+}
+
+export const SidebarDesktop = (props: Props) => {
     return <SidebarStyled.ContainerNavigation>
-        <ComponentsButtonList />
+        <ComponentsButtonList onNavigate={props.onNavigate} />
     </SidebarStyled.ContainerNavigation >
 }
 
-type Props = {
-    isOpen: boolean,
-    onNavigate?: () => void,
-}
 
 export const Sidebar = (props: Props) => {
     return <SidebarStyled.OverlayMenu isOpen={props.isOpen}>
@@ -97,4 +97,3 @@ export const Sidebar = (props: Props) => {
         </SidebarStyled.Navigation>
     </SidebarStyled.OverlayMenu>
 }
-

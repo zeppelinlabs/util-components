@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
-import { CheckboxSize, CustomCheckboxStyles } from "./Checkbox"
+import { CheckboxVariant, CheckboxSize, CustomCheckboxStyles } from "./Checkbox"
 
 type Props = {
     customStyles?: CustomCheckboxStyles,
@@ -17,36 +17,15 @@ const getCheckboxSize = (size: CheckboxSize) => {
     return Checkbox[size]
 }
 
-const Wrapper = styled.label<Props>`
-    display: flex;
-    gap: ${UiTokens.spacing.size8};
-    flex-flow: ${({ customStyles, }) => (customStyles?.contentPosition
-        ? customStyles?.contentPosition
-        : "row"
-    )};
-    width: fit-content;
-    align-items: center;
-`
-
-const Check = styled.span<Props>`
-    position: relative;
-    cursor: pointer;
-    border: ${UiTokens.borderWidth.size1} solid ${thp.primary.level200._};
-    border-radius: ${UiTokens.borderRadius.size4};
-    background: ${thp.base.level0._};
-    transition: ease 0.2s;
-    width: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
-    height: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
-
-    &:hover {
-        //hover styles
+const getCheckboxVariant = (variant: CheckboxVariant) => {
+    const CheckboxByCase = {
+        [CheckboxVariant.Primary]: (PrimaryCheckbox),
+        [CheckboxVariant.Showcase]: (ShowcaseCheckbox),
     }
-`
+    return CheckboxByCase[variant]
+}
 
-const Input = styled.input<Props>`
-    position: absolute;
-    opacity: 0;
-
+const PrimaryCheckbox = () => css<Props>`
     &:focus + ${Check} {
         box-shadow: 0 0 0 4px ${thp.primary.level200._};
     }
@@ -64,8 +43,62 @@ const Input = styled.input<Props>`
     &:disabled + ${Check}, &:disabled:checked + ${Check} {
         background: ${thp.base.level100._};
         border: ${UiTokens.borderWidth.size1} solid ${thp.base.level200._};
-        cursor:not-allowed
     }
+`
+
+const ShowcaseCheckbox = () => css<Props>`
+    &:focus + ${Check} {
+        box-shadow: 0 0 0 4px ${thp.secundary.level200._};
+    }
+
+    &:checked + ${Check}  {
+        background: ${({ customStyles, }) => (customStyles?.checkBoxColor
+        ? customStyles?.checkBoxColor
+        : thp.secundary.level1000._)};
+
+        border-color: ${({ customStyles, }) => (customStyles?.checkBoxColor
+        ? customStyles?.checkBoxColor
+        : thp.secundary.level1000._)};
+    }
+
+    &:disabled + ${Check}, &:disabled:checked + ${Check} {
+        background: ${thp.base.level100._};
+        border: ${UiTokens.borderWidth.size1} solid ${thp.base.level200._};
+    }
+`
+
+const Wrapper = styled.label<Props>`
+    display: flex;
+    gap: ${UiTokens.spacing.size8};
+    flex-flow: ${({ customStyles, }) => (customStyles?.contentPosition
+        ? customStyles?.contentPosition
+        : "row"
+    )};
+    width: fit-content;
+    align-items: center;
+`
+
+const Check = styled.span<Props>`
+    position: relative;
+    cursor: pointer;
+    border: ${UiTokens.borderWidth.size1} solid ${thp.base.level200._};
+    border-radius: ${UiTokens.borderRadius.size4};
+    background: ${thp.base.level0._};
+    transition: ease 0.2s;
+    width: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
+    height: ${({ customStyles, }) => getCheckboxSize(customStyles?.size || CheckboxSize.Base)}px;
+
+    &:hover {
+        //hover styles
+    }
+`
+
+const Input = styled.input<Props>`
+    position: absolute;
+    opacity: 0;
+
+    ${({ customStyles, }) => (getCheckboxVariant(customStyles?.checkboxVariant
+    || CheckboxVariant.Primary))}
 `
 
 const Tick = styled.div`

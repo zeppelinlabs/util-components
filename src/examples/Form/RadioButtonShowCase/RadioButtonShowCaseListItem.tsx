@@ -1,11 +1,16 @@
 import React, { useState } from "react"
-import RadioButtonGroup, { RadioOption, } from "../../../components/Form/RadioButton/RadioButton"
+import RadioButtonGroup, {
+    RadioButtonVariant, RadioOption,
+} from "../../../components/Form/RadioButton/RadioButton"
 
 
 const listOption: RadioOption<string>[] = [
     {
         key: "1",
         children: "",
+        customStyles: {
+            radioVariant: RadioButtonVariant.Showcase,
+        },
     },
 ]
 

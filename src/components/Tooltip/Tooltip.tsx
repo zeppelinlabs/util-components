@@ -21,6 +21,7 @@ export enum TooltipSize {
 export enum TooltipVariant {
     Primary = "primary",
     Secondary = "secondary",
+    Showcase = "showcase",
 }
 
 export type CustomTooltipStyles = {

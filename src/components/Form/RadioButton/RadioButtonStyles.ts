@@ -2,7 +2,7 @@ import styled, { css } from "styled-components"
 import { FontsTokens } from "../../../styles/designTokens/fontsTokens"
 import { UiTokens } from "../../../styles/designTokens/uiTokens"
 import { thp } from "../../../styles/themeHelpers"
-import { CustomRadioButtonStyles, RadioButtonSize } from "./RadioButton"
+import { CustomRadioButtonStyles, RadioButtonSize, RadioButtonVariant } from "./RadioButton"
 
 type Props = {
     customStyles?: CustomRadioButtonStyles,
@@ -25,6 +25,61 @@ const getRadioSize = (size: RadioButtonSize) => {
     }
     return Radio[size]
 }
+
+const getRadioVariant = (variant: RadioButtonVariant) => {
+    const RadioByCase = {
+        [RadioButtonVariant.Primary]: (PrimaryRadio),
+        [RadioButtonVariant.Showcase]: (ShowcaseRadio),
+    }
+    return RadioByCase[variant]
+}
+
+const PrimaryRadio = () => css<Props>`
+    &:checked + ${Radio} {
+        background-color: ${thp.primary.level500._};
+        border-color: ${thp.primary.level500._};
+        &:hover{
+            //hover styles when checked
+        }
+    }
+
+    &:focus + ${Radio} {
+       box-shadow: 0 0 0 4px ${thp.primary.level200._};
+    }
+
+    &:disabled + ${Radio} {
+        background-color: ${thp.base.level100._};
+        border-color: ${thp.base.level200._};
+        :after{
+            background-color: ${thp.base.level100._};
+        }
+        cursor: not-allowed;
+    }
+
+`
+
+const ShowcaseRadio = () => css<Props>`
+    &:checked + ${Radio} {
+        background-color: ${thp.secundary.level1000._};
+        border-color: ${thp.secundary.level1000._};
+        &:hover{
+            //hover styles when checked
+        }
+    }
+
+    &:focus + ${Radio} {
+       box-shadow: 0 0 0 4px ${thp.secundary.level200._};
+    }
+
+    &:disabled + ${Radio} {
+        background-color: ${thp.base.level100._};
+        border-color: ${thp.base.level200._};
+        :after{
+            background-color: ${thp.base.level100._};
+        }
+        cursor: not-allowed;
+    }
+`
 
 const Wrapper = styled.span`
     display: grid;
@@ -87,34 +142,15 @@ const Radio = styled.span<Props>`
     }
 `
 
-const Input = styled.input`
+const Input = styled.input<Props>`
     position:absolute;
     top: 50%;
     transform: translateY(-50%);
     left: 0;
     opacity: 0;
 
-    &:checked + ${Radio} {
-        background-color: ${thp.primary.level500._};
-        border-color: ${thp.primary.level500._};
-        &:hover{
-            //hover styles when checked
-        }
-    }
-
-    &:focus + ${Radio} {
-       box-shadow: 0 0 0 4px ${thp.primary.level200._};
-    }
-
-    &:disabled + ${Radio} {
-        background-color: ${thp.base.level100._};
-        border-color: ${thp.base.level200._};
-        :after{
-            background-color: ${thp.base.level100._};
-        }
-        cursor: not-allowed;
-    }
-
+    ${({ customStyles, }) => (getRadioVariant(customStyles?.radioVariant
+    || RadioButtonVariant.Primary))}
 `
 
 const ChildrenContainer = styled.div<Props>`

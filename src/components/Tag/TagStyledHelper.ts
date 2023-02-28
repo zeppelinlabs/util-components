@@ -73,9 +73,9 @@ export const getTagVariant = (config: {
 			borderColor: thp.base.level100._,
 		}),
 		[TagVariant.Secondary]: ({
-			backgroundColor: thp.base.level1000._,
-			textColor: thp.base.level0._,
-			borderColor: thp.base.level1000._,
+			backgroundColor: thp.primary.level50._,
+			textColor: thp.base.level1000._,
+			borderColor: thp.primary.level50._,
 		}),
 	}
 
